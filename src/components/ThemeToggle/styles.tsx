@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.div`
+export const StyledThemeToggle = styled.div`
     .theme-mode {
         display: flex;
         align-items: center;

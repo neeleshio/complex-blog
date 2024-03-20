@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledHeader } from './styles';
-import Logo from '@/app/components/Logo';
-import Navbar from '@/app/components/Navbar';
-import SearchBar from '@/app/components/SearchBar';
-import User from '@/app/components/User';
+import Logo from '@/src/components/Logo';
+import Navbar from '@/src/components/Navbar';
+import SearchBar from '@/src/components/SearchBar';
+import User from '@/src/components/User';
 
 const Header = () => {
     return (
