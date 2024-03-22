@@ -11,7 +11,6 @@ const IntroCard = () => {
             </div>
             <div className="info">
                 <h1>Neelesh AN</h1>
-                <p>Forntend Software Developer</p>
             </div>
         </StyledIntroCard>
     );

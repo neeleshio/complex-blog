@@ -5,10 +5,10 @@ import { StyledNavbar } from './styles';
 const Navbar = () => {
     return (
         <StyledNavbar>
-            <Link href={'/portfolio'}>Portfolio</Link>
-            <Link href={'/portfolio'}>Contact</Link>
-            <Link href={'/portfolio'}>Javascript</Link>
-            <span>•••</span>
+            <Link href={'/portfolio'}>Ecosystem</Link>
+            <Link href={'/portfolio'}>Governance</Link>
+            <Link href={'/portfolio'}>Community</Link>
+            <Link href={'/portfolio'}>Blog</Link>
         </StyledNavbar>
     );
 };

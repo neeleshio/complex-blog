@@ -25,7 +25,7 @@ export const StyledThemeToggle = styled.div`
 
             span {
                 letter-spacing: 0.15ch;
-                color: ${(props) => props.theme.secondaryTextColor};
+                color: ${(props) => props.theme.primaryTextColor};
                 padding-left: 0.5rem;
                 font-weight: 600;
                 font-size: 1.2rem;

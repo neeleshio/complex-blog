@@ -1,3 +1,6 @@
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 :root {
     --max-width: 1100px;
     --border-radius: 12px;
@@ -85,8 +88,7 @@ body {
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: rgb(0, 0, 0);
-    padding: 0 20px;
+    background-color: #faf7f0;
     font-size: 1.6rem;
 }
 

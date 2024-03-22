@@ -2,11 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import logo from '../../images/svg/logo.svg';
 import { StyledLogo } from './styles';
+import LogoSvg from '@/src/images/svg/Logo';
 
 const Logo = () => {
     return (
         <StyledLogo>
-            <Image src={logo} alt="logo" width={30} height={30} />
+            <LogoSvg />
             <span>Complex</span>
         </StyledLogo>
     );

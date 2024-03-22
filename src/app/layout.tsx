@@ -1,7 +1,7 @@
 'use client';
 
 import type { Metadata } from 'next';
-import { Inter, Inconsolata, Tomorrow, Ubuntu } from 'next/font/google';
+import { Inter, Inconsolata, Tomorrow, Ubuntu, Cedarville_Cursive } from 'next/font/google';
 import './globals.css';
 import { Provider } from 'react-redux';
 import { store } from '../store';
@@ -11,7 +11,12 @@ import Footer from '../containers/Footer';
 
 const inconsolata = Ubuntu({
     subsets: ['latin'],
-    weight: ['300', '500']
+    weight: ['300', '500', '700']
+});
+
+const cedarville_cursive = Cedarville_Cursive({
+    subsets: ['latin'],
+    weight: ['400']
 });
 
 // export const metadata: Metadata = {
@@ -27,7 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     <body className={inconsolata.className}>
                         <Header />
                         {children}
-                        <Footer />
+                        {/* <Footer /> */}
                     </body>
                 </html>
             </AppThemeProvider>

@@ -16,12 +16,12 @@ export const StyledSearchBar = styled.div`
         width: 30rem;
         font-size: 1.4rem;
         font-family: 'Tomorrow', sans-serif;
-        color: ${(props) => props.theme.secondaryTextColor};
+        color: ${(props) => props.theme.primaryTextColor};
         font-weight: 600;
     }
 
     .key-shortcut {
         font-size: 1rem;
-        color: ${(props) => props.theme.secondaryTextColor};
+        color: ${(props) => props.theme.primaryTextColor};
     }
 `;
