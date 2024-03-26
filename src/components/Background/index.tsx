@@ -11,9 +11,9 @@ const Background = () => {
             <div className="three"></div>
             <div className="four"></div>
             <div className="five"></div>
-            <div className="bg-fabric">
+            {/* <div className="bg-fabric">
                 <Image src={fabric} />
-            </div>
+            </div> */}
         </StyledBackground>
     );
 };

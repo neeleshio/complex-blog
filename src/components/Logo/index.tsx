@@ -8,7 +8,7 @@ const Logo = () => {
     return (
         <StyledLogo>
             <LogoSvg />
-            <span>Complex</span>
+            <span>ns.io</span>
         </StyledLogo>
     );
 };

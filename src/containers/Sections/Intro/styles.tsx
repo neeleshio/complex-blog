@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledIntro = styled.div`
-    position: absolute;
+    /* position: absolute; */
     height: 100vh;
-    padding: 15rem 0;
+    /* padding: 15rem 0; */
     background-color: transparent;
     top: 0;
     width: 100%;

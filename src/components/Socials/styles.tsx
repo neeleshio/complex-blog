@@ -27,7 +27,7 @@ export const StyledSocials = styled.div`
             background-color: transparent;
             border: 0;
             font-weight: 600;
-            padding-left: 2.5rem;
+            padding-left: 4rem;
             font-size: 1.4rem;
 
             span {

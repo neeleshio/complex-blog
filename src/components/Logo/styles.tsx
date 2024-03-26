@@ -7,8 +7,9 @@ export const StyledLogo = styled.div`
     font-weight: 700;
     color: ${(props) => props.theme.primaryTextColor};
     gap: 1rem;
+    text-transform: none;
 
     span {
-        letter-spacing: -0.2ch;
+        /* letter-spacing: -0.2ch; */
     }
 `;
