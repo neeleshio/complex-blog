@@ -1,28 +1,38 @@
-import React from 'react';
-import { StyledSocials } from './styles';
-import { Arrow } from '@/src/images/svg/Arrow';
+import Image from 'next/image';
+import React, { FC } from 'react';
+import displayPic from '../../../assets/images/png/display-pic.jpg';
 
-const Socials = () => {
+type SocialsProps = {
+    SOCIALS: SocialItem[];
+};
+
+type SocialItem = {
+    id: string;
+    icon: FC;
+};
+
+const Socials = ({ SOCIALS }: SocialsProps) => {
     return (
-        <StyledSocials>
-            <div className="title">
-                <span>Social Media</span>
+        <div className="max-w-72 mt-12 lg:mt-0">
+            <div className="flex items-center pb-7">
+                <div className="rounded-full overflow-hidden w-[40px] h-[40px]">
+                    <Image alt="display-pic" src={displayPic} width={40} height={40} />
+                </div>
+                <div className="flex flex-col pl-4 text-[1.4rem]">
+                    <span className="leading-8 font-semibold">Want to connect?</span>
+                    <a href="mailto:neeleshiodev@gmail.com" className="text-[#0066cc]">
+                        Send a mail
+                    </a>
+                </div>
             </div>
-            <div className="social-btns">
-                <button>
-                    <span>LinkedIn</span>
-                    <Arrow />
-                </button>
-                <button>
-                    <span>Github</span>
-                    <Arrow />
-                </button>
-                <button>
-                    <span>Email</span>
-                    <Arrow />
-                </button>
+            <div className="flex justify-around items-center">
+                {SOCIALS.map(({ id, icon: Icon }: SocialItem) => (
+                    <span key={id}>
+                        <Icon />
+                    </span>
+                ))}
             </div>
-        </StyledSocials>
+        </div>
     );
 };
 

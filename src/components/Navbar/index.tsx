@@ -1,23 +1,35 @@
-import Link from 'next/link';
+import LogoSvg from '@/assets/images/svg/Logo';
 import React from 'react';
-import { StyledNavbar } from './styles';
+import logo from '../../../assets/images/png/logo.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const Navbar = () => {
+type NavItemsType = {
+    id: number;
+    title: string;
+    link: string;
+};
+
+type NavbarProps = {
+    navItems: NavItemsType[];
+};
+
+const Navbar = ({ navItems }: NavbarProps) => {
     return (
-        <StyledNavbar>
-            <Link href={'#ecosystem'} scroll>
-                Ecosystem
-            </Link>
-            <Link href={'#experience'} scroll>
-                Work History
-            </Link>
-            <Link href={'#projects'} scroll>
-                Projects
-            </Link>
-            <Link href={'#blog'} scroll>
-                Blog
-            </Link>
-        </StyledNavbar>
+        <nav className="text-[1.2rem] mx-56 px-4 py-5">
+            <ul className="flex items-center justify-between">
+                <li>
+                    <Link href="/">
+                        <Image alt="logo" src={logo} width={100} />
+                    </Link>
+                </li>
+                {navItems.map((el) => (
+                    <li className="px-4">
+                        <Link href="/">{el.title}</Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 };
 

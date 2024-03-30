@@ -1,19 +1,23 @@
-import React from 'react';
-import { StyledHeader } from './styles';
-import Logo from '@/src/components/Logo';
+'use client';
+
 import Navbar from '@/src/components/Navbar';
-import SearchBar from '@/src/components/SearchBar';
-import User from '@/src/components/User';
-import { Rocket } from '@/src/images/svg/Rocket';
-import LoginBtn from '@/src/components/LoginBtn';
+import React, { useEffect, useState } from 'react';
+import { NAVITEMS } from '@/src/data';
 
 const Header = () => {
+    const [state, setState] = useState(false);
+
+    useEffect(() => {
+        setState(true);
+    }, []);
+
     return (
-        <StyledHeader>
-            <Logo />
-            <Navbar />
-            <LoginBtn />
-        </StyledHeader>
+        <>
+            <Navbar navItems={NAVITEMS} />
+            <div className={state ? 'bg-white ribbon' : ''}>
+                <div className={state ? 'ribbon-drop-wrapper' : ''}></div>
+            </div>
+        </>
     );
 };
 
