@@ -1,12 +1,11 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
-import flipkart from '@/assets/images/png/flipkart.png';
 
 type WorkCardProps = {
     company: string;
     designation: string;
     timeline: string;
-    projects: [];
+    projects: string[];
     image: StaticImageData;
     latest: boolean;
 };
@@ -14,11 +13,11 @@ type WorkCardProps = {
 const WorkCard = ({ company, designation, timeline, image, latest }: WorkCardProps) => {
     return (
         <div className="rounded-[18px] shadow-[2px_4px_12px_#00000014] relative mr-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
-            <div>
+            <div className="h-[50rem]">
                 <Image
                     src={image}
                     width={400}
-                    height={350}
+                    height={500}
                     className="rounded-[18px] object-cover"
                 />
             </div>

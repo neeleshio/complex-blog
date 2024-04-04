@@ -13,7 +13,7 @@ type SocialItem = {
 
 const Socials = ({ SOCIALS }: SocialsProps) => {
     return (
-        <div className="max-w-72 mt-12 lg:mt-0">
+        <div className="max-w-72">
             <div className="flex items-center pb-7">
                 <div className="rounded-full overflow-hidden w-[40px] h-[40px]">
                     <Image alt="display-pic" src={displayPic} width={40} height={40} />

@@ -9,9 +9,11 @@ type SkillCardProps = {
 
 const SkillCard = ({ name, Icon }: SkillCardProps) => {
     return (
-        <div className="flex flex-col items-center w-52 flex-shrink-0">
-            <Icon />
-            <span className="font-semibold text-[1.2rem] pt-3">{name}</span>
+        <div className="flex flex-col items-center justify-end flex-shrink-0 mr-20">
+            <div className="w-24 h-[8rem] flex justify-center items-center">
+                <Icon />
+            </div>
+            <span className="font-semibold text-[1.2rem]">{name}</span>
         </div>
     );
 };

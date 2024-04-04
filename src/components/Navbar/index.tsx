@@ -3,6 +3,7 @@ import React from 'react';
 import logo from '../../../assets/images/png/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import SearchIcon from '@/assets/images/svg/SearchIcon';
 
 type NavItemsType = {
     id: number;
@@ -16,7 +17,7 @@ type NavbarProps = {
 
 const Navbar = ({ navItems }: NavbarProps) => {
     return (
-        <nav className="text-[1.2rem] mx-56 px-4 py-5">
+        <nav className="text-[1.2rem] px-56 py-5 fixed w-full bg-[#f5f5f7] z-50">
             <ul className="flex items-center justify-between">
                 <li>
                     <Link href="/">
@@ -28,6 +29,9 @@ const Navbar = ({ navItems }: NavbarProps) => {
                         <Link href="/">{el.title}</Link>
                     </li>
                 ))}
+                <li>
+                    <SearchIcon />
+                </li>
             </ul>
         </nav>
     );
