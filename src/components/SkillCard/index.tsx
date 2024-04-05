@@ -1,6 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
-import React, { ReactNode } from 'react';
-import rreact from '../../../assets/images/png/react-l.png';
+import React from 'react';
 
 type SkillCardProps = {
     name: string;

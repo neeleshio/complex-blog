@@ -1,14 +1,15 @@
 import React from 'react';
 import SkillCard from '@/src/components/SkillCard';
 import { SKILLS } from '@/src/data';
+import CustomScroll from '@/src/components/CustomScroll';
 
 const Skills = () => {
     return (
-        <div className="pr-0 pb-4 flex mb-40 mx-56">
+        <CustomScroll height={9.4}>
             {SKILLS.map((el) => (
                 <SkillCard {...el} />
             ))}
-        </div>
+        </CustomScroll>
     );
 };
 

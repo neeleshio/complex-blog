@@ -13,6 +13,7 @@ import Github from '@/assets/images/svg/Github';
 import Mail from '@/assets/images/svg/Mail';
 import Phone from '@/assets/images/svg/Phone';
 import flipkart from '@/assets/images/png/flipkart.png';
+import frontrow from '@/assets/images/png/frontrow.png';
 import campk12 from '@/assets/images/png/campk12.png';
 import pichain from '@/assets/images/png/pichain.png';
 import Jsgpt from '@/assets/images/svg/Jsgpt';
@@ -26,6 +27,59 @@ import JsIcon from '@/assets/images/svg/blogIcons/JsIcon';
 import HtmlIcon from '@/assets/images/svg/blogIcons/HtmlIcon';
 import JsIcon2 from '@/assets/images/svg/blogIcons/JsIcon2';
 import DebounceLogo from '@/assets/images/svg/DebounceLogo';
+import StorybookLogo from '@/assets/images/svg/StorybookLogo';
+import TSLogo from '@/assets/images/svg/TSLogo';
+
+export const SKILLS = [
+    {
+        name: 'React',
+        Icon: ReactLogo
+    },
+    {
+        name: 'JavaScript',
+        Icon: Js
+    },
+    {
+        name: 'TypeScript',
+        Icon: TSLogo
+    },
+    {
+        name: 'Redux',
+        Icon: ReduxLogo
+    },
+    {
+        name: 'NextJs',
+        Icon: NextLogo
+    },
+    {
+        name: 'RestFul',
+        Icon: RestLogo
+    },
+    {
+        name: 'Express',
+        Icon: ExpressLogo
+    },
+    {
+        name: 'Jest',
+        Icon: JestLogo
+    },
+    {
+        name: 'Tailwind CSS',
+        Icon: TailwindLogo
+    },
+    {
+        name: 'Styled Comps',
+        Icon: StyledCompLogo
+    },
+    {
+        name: 'Storybook',
+        Icon: StorybookLogo
+    },
+    {
+        name: 'React Native',
+        Icon: NativeLogo
+    }
+];
 
 export const WORK_HISTORY = [
     {
@@ -61,7 +115,9 @@ export const WORK_HISTORY = [
         company: 'FrontRow',
         designation: 'Software Developer Intern',
         timeline: 'Jul 2020 - Sep 2020',
-        projects: ['Analytics Dashboard', 'API development']
+        projects: ['Analytics Dashboard', 'API development'],
+        image: frontrow,
+        latest: false
     }
 ];
 
@@ -95,14 +151,6 @@ export const PROJECTS = [
         latest: true
     }
 ];
-
-// export const LATEST_BLOG = {
-//     title: '50 JavaScript Concepts',
-//     description:
-//         'List of 50 beginner to advanced javascript concepts with explainations & code snippets.',
-//     image: jsblog,
-//     link: 'https://github.com/neeleshio/50-javascript-concepts'
-// };
 
 export const BLOGS = [
     {
@@ -149,50 +197,6 @@ export const BLOGS = [
         ),
         image: HtmlIcon,
         link: 'https://github.com/neeleshio/50-html-css-concepts'
-    }
-    // {
-    //     title: '50 JavaScript Polyfills',
-    //     image: polyblog,
-    //     link: 'https://github.com/neeleshio/20-javascript-polyfills'
-    // }
-];
-
-export const SKILLS = [
-    {
-        name: 'React',
-        Icon: ReactLogo
-    },
-    {
-        name: 'JavaScript',
-        Icon: Js
-    },
-    {
-        name: 'Redux',
-        Icon: ReduxLogo
-    },
-    {
-        name: 'NextJs',
-        Icon: NextLogo
-    },
-    {
-        name: 'Express',
-        Icon: ExpressLogo
-    },
-    {
-        name: 'Jest',
-        Icon: JestLogo
-    },
-    {
-        name: 'Tailwind CSS',
-        Icon: TailwindLogo
-    },
-    {
-        name: 'Styled Comps',
-        Icon: StyledCompLogo
-    },
-    {
-        name: 'React Native',
-        Icon: NativeLogo
     }
 ];
 

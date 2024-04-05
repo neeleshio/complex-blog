@@ -1,26 +1,11 @@
 import Image from 'next/image';
-import React, { useRef, useEffect, useState } from 'react';
-import chatbotpic from '@/assets/images/png/chatbotpic.png';
+import React from 'react';
 import chattodopic from '@/assets/images/png/chattodopic.png';
 import ProjectCard from '@/src/components/ProjectCard';
 import { PROJECTS } from '@/src/data';
-import OneItemScroll from './Scroll';
-import Arrow from '@/assets/images/svg/Arrow';
-import MainSingleCard from '@/src/components/ProjectCard/MainSingleCard';
+import CustomScroll from '@/src/components/CustomScroll';
 
 const Projects = () => {
-    const [scrollPosition, setScrollPosition] = useState({ scrollTop: 0, scrollLeft: 0 });
-    const scrollDemoRef = useRef(null);
-
-    const handleScroll = () => {
-        if (scrollDemoRef.current) {
-            let { scrollTop, scrollLeft } = scrollDemoRef.current;
-            setScrollPosition({ scrollTop, scrollLeft });
-
-            scrollDemoRef.current.scrollLeft = scrollDemoRef.current.scrollLeft + 400;
-        }
-    };
-
     return (
         <div className="pt-[8rem] proj-scroll">
             {/* heading */}
@@ -31,39 +16,28 @@ const Projects = () => {
                 </span>
             </div>
 
-            {/* project cards */}
-            <div className="relative">
-                <div
-                    className="flex pt-16 pb-16 overflow-x-auto overflow-y-hidden w-screen"
-                    ref={scrollDemoRef}>
-                    <div className="min-w-[14rem] h-[40rem]"></div>
-
-                    <MainSingleCard chattodopic={chattodopic} />
-
-                    {PROJECTS.map((el) => (
-                        <ProjectCard {...el} />
-                    ))}
-
-                    <div className="min-w-[14rem] h-[40rem]"></div>
-                </div>
-
-                <div>
-                    <div className="absolute top-[42.5%] left-8 transform rotate-[180deg]">
-                        <button
-                            onClick={handleScroll}
-                            className="bg-[#d2d2d7a3] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center">
-                            {/* <Arrow /> */}
-                        </button>
-                    </div>
-                    <div className="absolute top-[42.5%] right-8">
-                        <button
-                            onClick={handleScroll}
-                            className="bg-[#d2d2d7a3] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center">
-                            <Arrow />
-                        </button>
+            <CustomScroll>
+                <div className="rounded-[18px] w-[40rem] h-[40rem] shadow-[2px_4px_12px_#00000014] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
+                    <Image
+                        alt="projects-cover-pic"
+                        src={chattodopic}
+                        width={400}
+                        height={400}
+                        className="rounded-[18px] object-cover"
+                    />
+                    <div className="absolute top-0 flex flex-col p-12">
+                        <span className="text-[2rem] font-normal">
+                            The best method to acquire any skill is to put it into practice by
+                            working on projects.
+                        </span>
                     </div>
                 </div>
-            </div>
+
+                {/* list of projects */}
+                {PROJECTS.map((el) => (
+                    <ProjectCard {...el} />
+                ))}
+            </CustomScroll>
         </div>
     );
 };

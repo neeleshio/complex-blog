@@ -12,7 +12,7 @@ type WorkCardProps = {
 
 const WorkCard = ({ company, designation, timeline, image, latest }: WorkCardProps) => {
     return (
-        <div className="rounded-[18px] shadow-[2px_4px_12px_#00000014] relative mr-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
+        <div className="rounded-[18px] shadow-[2px_4px_12px_#00000014] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
             <div className="h-[50rem]">
                 <Image
                     src={image}
