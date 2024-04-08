@@ -6,7 +6,7 @@ type RibbonProps = {
 
 const Ribbon = ({ totalExp }: RibbonProps) => {
     return (
-        <div className="ribbon-drop-wrapper mt-[4.5rem]">
+        <div className="ribbon-drop-wrapper">
             <div className="ribbon">
                 <span className="text-[1.4rem] flex justify-center items-center py-6 font-light">
                     Total experience of{' '}

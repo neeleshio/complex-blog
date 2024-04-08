@@ -17,7 +17,8 @@ const CustomArrow = ({ handleScroll, leftArrow, rightArrow }: CustomArrowProps) 
                 style={{ rotate: '180deg' }}>
                 <button
                     onClick={() => handleScroll('left')}
-                    className="bg-[#d2d2d7e8] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center cursor-pointer">
+                    className="bg-[#d2d2d7e8] hover:bg-[#dedee3] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center cursor-pointer"
+                    disabled={!leftArrow}>
                     <Arrow />
                 </button>
             </div>
@@ -27,7 +28,8 @@ const CustomArrow = ({ handleScroll, leftArrow, rightArrow }: CustomArrowProps) 
                 }`}>
                 <button
                     onClick={() => handleScroll('right')}
-                    className="bg-[#d2d2d7e8] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center cursor-pointer">
+                    className="bg-[#d2d2d7e8] hover:bg-[#dedee3] rounded-full border-0 w-20 h-20 opacity-80 flex justify-center items-center cursor-pointer"
+                    disabled={!rightArrow}>
                     <Arrow />
                 </button>
             </div>

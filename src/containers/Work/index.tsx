@@ -12,8 +12,8 @@ function Work() {
                     Current and previous companies I worked for.
                 </span>
             </div>
-            <div className="flex pt-16">
-                <ButtonScroll>
+            <div className="flex">
+                <ButtonScroll height={50}>
                     {WORK_HISTORY.map((el) => (
                         <WorkCard {...el} />
                     ))}

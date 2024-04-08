@@ -33,51 +33,51 @@ import TSLogo from '@/assets/images/svg/TSLogo';
 export const SKILLS = [
     {
         name: 'React',
-        Icon: ReactLogo
+        icon: ReactLogo
     },
     {
         name: 'JavaScript',
-        Icon: Js
+        icon: Js
     },
     {
         name: 'TypeScript',
-        Icon: TSLogo
+        icon: TSLogo
     },
     {
         name: 'Redux',
-        Icon: ReduxLogo
+        icon: ReduxLogo
     },
     {
         name: 'NextJs',
-        Icon: NextLogo
+        icon: NextLogo
     },
     {
         name: 'RestFul',
-        Icon: RestLogo
+        icon: RestLogo
     },
     {
         name: 'Express',
-        Icon: ExpressLogo
+        icon: ExpressLogo
     },
     {
         name: 'Jest',
-        Icon: JestLogo
+        icon: JestLogo
     },
     {
         name: 'Tailwind CSS',
-        Icon: TailwindLogo
+        icon: TailwindLogo
     },
     {
         name: 'Styled Comps',
-        Icon: StyledCompLogo
+        icon: StyledCompLogo
     },
-    {
-        name: 'Storybook',
-        Icon: StorybookLogo
-    },
+    // {
+    //     name: 'Storybook',
+    //     icon: StorybookLogo
+    // },
     {
         name: 'React Native',
-        Icon: NativeLogo
+        icon: NativeLogo
     }
 ];
 
@@ -201,9 +201,15 @@ export const BLOGS = [
 ];
 
 export const NAVITEMS = [
-    { id: 1, title: 'Work', link: '' },
-    { id: 2, title: 'Skills', link: '' },
+    { id: 1, title: 'Skills', link: '' },
+    { id: 2, title: 'Work', link: '' },
     { id: 3, title: 'Projects', link: '' },
+    { id: 4, title: 'Blog', link: '' },
+    { id: 5, title: 'Contact', link: '' },
+    { id: 3, title: 'Projects', link: '' },
+    { id: 1, title: 'Work', link: '' },
+    { id: 4, title: 'Blog', link: '' },
+    { id: 2, title: 'Skills', link: '' },
     { id: 4, title: 'Blog', link: '' }
 ];
 
@@ -223,5 +229,20 @@ export const SOCIALS = [
     {
         id: 'phone',
         icon: Phone
+    }
+];
+
+export const QUICK_LINKS = [
+    {
+        name: 'Resume',
+        link: ''
+    },
+    {
+        name: 'Contact',
+        link: 'mailto:neeleshiodev@gmail.com'
+    },
+    {
+        name: 'LinkedIn',
+        link: ''
     }
 ];

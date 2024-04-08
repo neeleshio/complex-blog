@@ -18,7 +18,7 @@ const themeSlice = createSlice({
     initialState,
     reducers: {
         handleToggleTheme(state, { payload }: actionPayload) {
-            state.dark = payload;
+            state.dark = !state.dark;
         }
     }
 });

@@ -7,7 +7,7 @@ import CustomScroll from '@/src/components/CustomScroll';
 
 const Projects = () => {
     return (
-        <div className="pt-[8rem] proj-scroll">
+        <div className="pt-[5.4rem] proj-scroll">
             {/* heading */}
             <div className="text-[2.8rem] font-semibold px-56">
                 <h2 className="inline text-[2.8rem] font-semibold">Featured Projects.</h2>
@@ -16,7 +16,7 @@ const Projects = () => {
                 </span>
             </div>
 
-            <CustomScroll>
+            <CustomScroll height={40}>
                 <div className="rounded-[18px] w-[40rem] h-[40rem] shadow-[2px_4px_12px_#00000014] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
                     <Image
                         alt="projects-cover-pic"

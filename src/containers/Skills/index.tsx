@@ -5,11 +5,13 @@ import CustomScroll from '@/src/components/CustomScroll';
 
 const Skills = () => {
     return (
-        <CustomScroll height={9.4}>
-            {SKILLS.map((el) => (
-                <SkillCard {...el} />
-            ))}
-        </CustomScroll>
+        <div className="mb-[10rem]">
+            <CustomScroll height={9.4}>
+                {SKILLS.map((el) => (
+                    <SkillCard {...el} />
+                ))}
+            </CustomScroll>
+        </div>
     );
 };
 
