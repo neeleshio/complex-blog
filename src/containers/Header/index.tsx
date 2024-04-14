@@ -36,8 +36,8 @@ const Header = () => {
 
     return (
         <>
-            {pathname === '/blogs' ? (
-                <BlogNavbar
+            {pathname === '/' ? (
+                <Navbar
                     navItems={NAVITEMS}
                     handleOpenNavMenu={handleOpenNavMenu}
                     dispatch={dispatch}
@@ -45,7 +45,7 @@ const Header = () => {
                     dark={dark}
                 />
             ) : (
-                <Navbar
+                <BlogNavbar
                     navItems={NAVITEMS}
                     handleOpenNavMenu={handleOpenNavMenu}
                     dispatch={dispatch}
