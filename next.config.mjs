@@ -1,17 +1,9 @@
 /** @type {import('next').NextConfig} */
 import nextMdx from '@next/mdx';
 
-const withMdx = nextMdx({
-    // By default only the `.mdx` extension is supported.
-    extension: /\.mdx?$/,
-    options: {
-        /* otherOptions… */
-    }
-});
-
-const nextConfig = withMdx({
+const nextConfig = {
     images: {
-        domains: ['static.vecteezy.com']
+        domains: ['static.vecteezy.com', 'camo.githubusercontent.com']
     },
     pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
     eslint: {
@@ -26,6 +18,14 @@ const nextConfig = withMdx({
         // !! WARN !!
         ignoreBuildErrors: true
     }
+};
+
+const withMdx = nextMdx({
+    // By default only the `.mdx` extension is supported.
+    extension: /\.mdx?$/,
+    options: {
+        /* otherOptions… */
+    }
 });
 
-export default nextConfig;
+export default withMdx(nextConfig);

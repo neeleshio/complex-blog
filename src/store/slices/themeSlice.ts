@@ -6,18 +6,19 @@ interface ThemeState {
 }
 
 const initialState: ThemeState = {
-    dark: true
-};
-
-type actionPayload = {
-    payload: boolean;
+    dark: false
 };
 
 const themeSlice = createSlice({
     name: 'theme',
     initialState,
     reducers: {
-        handleToggleTheme(state, { payload }: actionPayload) {
+        handleToggleTheme(state) {
+            if (!state.dark) {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.remove('dark');
+            }
             state.dark = !state.dark;
         }
     }

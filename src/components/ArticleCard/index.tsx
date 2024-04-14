@@ -1,13 +1,13 @@
 import React from 'react';
 
-type BlogCardProps = {
+type ArticleCardProps = {
     title: React.ReactNode;
     image: React.FC;
     link: string;
     navigate: (link: string) => void;
 };
 
-const BlogCard = ({ title, image: Image, link, navigate }: BlogCardProps) => {
+const ArticleCard = ({ title, image: Image, link, navigate }: ArticleCardProps) => {
     return (
         <>
             <div
@@ -17,10 +17,10 @@ const BlogCard = ({ title, image: Image, link, navigate }: BlogCardProps) => {
                     <Image />
                 </div>
 
-                <div className="text-[2.4rem] font-semibold">{title}</div>
+                <div className="text-[2.4rem] font-semibold text-[#1d1d1f]">{title}</div>
             </div>
         </>
     );
 };
 
-export default BlogCard;
+export default ArticleCard;

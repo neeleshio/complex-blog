@@ -1,0 +1,77 @@
+# React Virtual DOM
+
+---
+
+Web development, especially with React, involves a fascinating interplay between two concepts: the **Real DOM (Document Object Model)** and the **Virtual DOM**. These concepts are at the heart of how React efficiently manages and updates the structure and content of web pages.
+
+```javascript
+function useMDXComponents(components: MDXComponents): MDXComponents {
+    return {
+        // Allows customizing built-in components, e.g. to add styling.
+        h1: ({ children }) => (
+            <h1
+                className="text-[#1d1d1f] font-semibold text-[4.8rem]"
+                style={{ textAlign: 'center' }}>
+                {children}
+            </h1>
+        ),
+        p: ({ children }) => <p className="text-[1.7rem] text-[#1d1d1f]">{children}</p>,
+        ...components
+    };
+}
+```
+
+```javascript
+<Link href={`/product/${product.id}`}>{product.name}</Link>
+```
+
+When we could have declarative route components.
+
+```javascript
+<ProductDetail.Link productId={product.id}>{product.name}</ProductDetail.Link>
+```
+
+Sure, NextJS’s new experiemental typed routing is great, but it doesn’t cover search parameters, it doesn’t handle API routes well. And more importantly, while it can tell you if your URL is formatted properly, it can’t tell you if it’s pointing at the correct route.
+
+![Alt text](/ijk.png)
+
+Declarative routing, which you can try out today, is an open source addition to both the NextJS App Router and React-Router that builds on top of those routers. For each of your page routes you’ll get a component that you can use just like the built-in Link that adds type-safety for both route and search parameters, and is actually named for your route.
+
+Anyone coming on to the team, or reading over the code, will know exactly where each link is going. And when routes move you just re-run the declarative-routing utility in build mode, it will detect the route changes and update the components to match. You’ll never have to search and replace against URLs again because declarative-routing is fully DRY (Don’t Repeat Yourself). The URL is specified in one file and reused everywhere.
+
+## Getting Started
+
+Getting started with declarative-routing is as easy as running the init command in your App Router or React-Router application.
+
+```javascript
+npx declarative-routing init
+```
+
+This script will auto-detect which router you are using and then ask a couple of questions before copying the declarative routing code into your application. Yes, it’s like shadcn, you get to alter the code for your application to match your needs.
+
+During installation the system will add a DR-README.md file to your application that exaplains how to use the system, what routes were found and what they are named, and gives you a list of todo items that you can check off as you incrementally adopt declarative routing. You don’t need to switch over to it all in one go, you can change out the routes as you find them.
+
+## Getting Into APIs
+
+The insipirational Flight Control post was great, but it had one glaring omission, API routes. Why are we hard-coding our API route URLs like this?
+
+```javascript
+const pokemon = await fetch(`/api/pokemon?q=${encodeURIComponent(query)}`)
+  .then(resp => resp.json()) as Pokemon[];
+```
+
+When we could just generate a completely typesafe wrapper?
+
+```javascript
+const pokemon = await getPokemonSearchAPI({}, { q: query });
+```
+
+This code is way cleaner. The URL is gone. The parameter and search arguments are both type-safe and appropriate encoded. The JSON is handled and using Zod the return payload is both checked and type-safe.
+
+It’s like tRPC except that you get to control the API surface!
+
+## Conclusion
+
+This is just the start of what we can do with this project. It’s very early days yet. I would love to see more routers get supported. There is nascent support for OpenAPI specifications as well.
+
+See it all in action on my YouTube video.

@@ -29,6 +29,7 @@ import JsIcon2 from '@/assets/images/svg/blogIcons/JsIcon2';
 import DebounceLogo from '@/assets/images/svg/DebounceLogo';
 import StorybookLogo from '@/assets/images/svg/StorybookLogo';
 import TSLogo from '@/assets/images/svg/TSLogo';
+import Flipkart from '@/assets/images/svg/Flipkart';
 
 export const SKILLS = [
     {
@@ -87,7 +88,7 @@ export const WORK_HISTORY = [
         designation: 'UI Engineer - 2',
         timeline: 'June 2023 - March 2024',
         projects: ['Iris 2.0', 'FK Studio Dashboard', 'KBOT'],
-        image: flipkart,
+        image: Flipkart,
         latest: true
     },
     {
@@ -202,15 +203,13 @@ export const BLOGS = [
 
 export const NAVITEMS = [
     { id: 1, title: 'Skills', link: '' },
-    { id: 2, title: 'Work', link: '' },
+    { id: 2, title: 'Work History', link: '' },
     { id: 3, title: 'Projects', link: '' },
-    { id: 4, title: 'Blog', link: '' },
-    { id: 5, title: 'Contact', link: '' },
-    { id: 3, title: 'Projects', link: '' },
-    { id: 1, title: 'Work', link: '' },
-    { id: 4, title: 'Blog', link: '' },
-    { id: 2, title: 'Skills', link: '' },
-    { id: 4, title: 'Blog', link: '' }
+    { id: 4, title: 'Blogs', link: '' },
+    { id: 5, title: 'Resume', link: '' },
+    { id: 5, title: 'Apps', link: '' },
+    { id: 1, title: 'Documentation', link: '' },
+    { id: 4, title: 'Contact', link: '' }
 ];
 
 export const SOCIALS = [

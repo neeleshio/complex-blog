@@ -11,13 +11,13 @@ const Projects = () => {
             {/* heading */}
             <div className="text-[2.8rem] font-semibold px-56">
                 <h2 className="inline text-[2.8rem] font-semibold">Featured Projects.</h2>
-                <span className="text-[#6e6e73] pl-2">
+                <span className="text-cgrey pl-2">
                     Current and previous companies I worked for.
                 </span>
             </div>
 
             <CustomScroll height={40}>
-                <div className="rounded-[18px] w-[40rem] h-[40rem] shadow-[2px_4px_12px_#00000014] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
+                {/* <div className="rounded-[18px] w-[40rem] h-[40rem] shadow-[2px_4px_12px_#00000014] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
                     <Image
                         alt="projects-cover-pic"
                         src={chattodopic}
@@ -31,7 +31,7 @@ const Projects = () => {
                             working on projects.
                         </span>
                     </div>
-                </div>
+                </div> */}
 
                 {/* list of projects */}
                 {PROJECTS.map((el) => (

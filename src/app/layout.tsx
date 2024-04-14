@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '../containers/Header';
+import './styles.scss';
 
 export const metadata: Metadata = {
     title: 'Complex',
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body>
-                {/* <Header /> */}
-                {children}
-            </body>
+            <body>{children}</body>
         </html>
     );
 }

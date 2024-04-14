@@ -8,7 +8,7 @@ function Work() {
         <div>
             <div className="text-[2.8rem] font-semibold px-56">
                 <h2 className="inline text-[2.8rem] font-semibold">Work history.</h2>
-                <span className="text-[#6e6e73] pl-2">
+                <span className="text-cgrey pl-2">
                     Current and previous companies I worked for.
                 </span>
             </div>

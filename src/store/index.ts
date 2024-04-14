@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeSlice from './slices/themeSlice';
 import navSlice from './slices/navSlice';
+import blogSlice from './slices/blogSlice';
 
 export const store = configureStore({
     reducer: {
         themeSlice,
-        navSlice
+        navSlice,
+        blogSlice
     }
 });
 

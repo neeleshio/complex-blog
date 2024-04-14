@@ -3,43 +3,39 @@
 @import './fonts.css';
 
 :root {
+    font-size: 62.5%;
     --max-width: 1100px;
     --border-radius: 12px;
     --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono',
         'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono',
         'Courier New', monospace;
 
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 245, 245, 247;
-    --background-end-rgb: 245, 245, 247;
+    /* variables */
+    --primary-color: #1d1d1f;
+    --primary-bg: #f5f5f7;
+    --secondary-color: #6e6e73;
+    --invert-primary: #ffffff;
+    --invert-secondary: #000000;
+    --nav-bg: #f5f5f7;
+    --nav-bg-invert: #454545;
+    --menu-backdrop-bg: #e8e8ed66;
+    --menu-bg: #f5f5f7;
+    --menu-color: #333336;
+    --menu-color-light: #6e6e73;
+}
 
-    --primary-glow: conic-gradient(
-        from 180deg at 50% 50%,
-        #16abff33 0deg,
-        #0885ff33 55deg,
-        #54d6ff33 120deg,
-        #0071ff33 160deg,
-        transparent 360deg
-    );
-    --secondary-glow: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-
-    --tile-start-rgb: 239, 245, 249;
-    --tile-end-rgb: 228, 232, 233;
-    --tile-border: conic-gradient(
-        #00000080,
-        #00000040,
-        #00000030,
-        #00000020,
-        #00000010,
-        #00000010,
-        #00000080
-    );
-
-    --callout-rgb: 238, 240, 241;
-    --callout-border-rgb: 172, 175, 176;
-    --card-rgb: 180, 185, 188;
-    --card-border-rgb: 131, 134, 135;
-    font-size: 62.5%;
+.dark {
+    --primary-color: #e2e2e0;
+    --primary-bg: #0a0a08;
+    --secondary-color: #a0a09a;
+    --invert-primary: #000000;
+    --invert-secondary: #ffffff;
+    --nav-bg: #454545;
+    --nav-bg-invert: #f5f5f7;
+    --menu-backdrop-bg: #2c2b2b66;
+    --menu-bg: #161617;
+    --menu-color: #e8e8ed;
+    --menu-color-light: #86868b;
 }
 
 * {
@@ -52,7 +48,7 @@
 html,
 body {
     max-width: 100vw;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     font-family:
         system-ui,
         -apple-system,
@@ -68,9 +64,12 @@ body {
 }
 
 body {
-    color: #1d1d1f;
     font-size: 1.6rem;
-    background-color: #f5f5f7;
+    color: var(--primary-color);
+    background-color: var(--primary-bg);
+    transition:
+        background-color 300ms,
+        color 300ms;
 }
 
 li {
@@ -80,138 +79,4 @@ li {
 a {
     color: inherit;
     text-decoration: none;
-}
-
-.custom-transform {
-    transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
-}
-
-.custom-transform:hover {
-    transform: scale3d(1.01, 1.01, 1.01);
-}
-
-@keyframes animate-background {
-    0% {
-        background-color: #0071e3;
-        color: #ffffff;
-    }
-
-    100% {
-        background-color: #ffffff;
-        color: #1d1d1f;
-    }
-}
-
-.ribbon {
-    background-color: #0071e3;
-    color: #ffffff;
-    animation: animate-background 1s cubic-bezier(0.42, 0, 0.58, 1) 1.8s forwards;
-}
-
-@keyframes ribbon-drop {
-    0% {
-        transform: translateY(-100%);
-        /* height: 0rem; */
-    }
-
-    100% {
-        transform: translateY(0);
-        /* height: 4.7rem; */
-    }
-}
-
-.ribbon-drop-wrapper {
-    animation: ribbon-drop 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-    /* height: 7rem; */
-}
-
-.project-svg-cont svg {
-    width: 12px;
-    height: 12px;
-}
-
-.custom-color {
-    background-image: linear-gradient(
-        to right,
-        #f8ab5e 0,
-        #f36961 20%,
-        #a176c8 40%,
-        #759beb 60%,
-        #65beb3 80%,
-        #70db96 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
-}
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    /* background: #f5f5f7; */
-}
-
-.left-scroll-btn {
-    transition:
-        transform 0.5s ease-in,
-        opacity 0.7s cubic-bezier(0.15, 0, 0.2, 1) 0.1s;
-}
-
-.left-scroll-btn button:hover {
-    transition: 0.3s ease-in-out;
-}
-
-.trans {
-    /* transform: translateY(-50%); */
-}
-
-.nav-menu-backdrop {
-    backdrop-filter: blur(20px);
-    /* visibility 0.32s step-start 80ms; */
-}
-
-.nav-menu-backdrop-open {
-    transition:
-        opacity 0.32s cubic-bezier(0.4, 0, 0.6, 1) 80ms,
-        visibility 0.32s step-start 80ms;
-    /* visibility 0.32s step-start 80ms; */
-}
-
-.nav-menu-backdrop-end {
-    transition:
-        opacity 0.32s cubic-bezier(0.4, 0, 0.6, 1) 80ms,
-        visibility 0.32s step-end 80ms;
-    /* visibility 0.32s step-start 80ms; */
-}
-
-.nav-menu {
-    transition: all 240ms cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.li-text {
-    transform: translateY(-4px);
-    transition-property: opacity, transform;
-    transition-duration: 0.24s;
-    transition-delay: 0s;
-}
-
-.li-text-open {
-    transform: translateY(0);
-    transition-duration: 0.32s;
-    transition-delay: 0.12s;
-}
-
-.link-text {
-    transition: color 0.32s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-nav {
-    /* backdrop-filter: saturate(180%) blur(100px); */
-}
-
-button {
-    cursor: pointer;
 }

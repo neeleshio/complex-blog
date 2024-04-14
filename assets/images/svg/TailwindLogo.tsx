@@ -1,4 +1,4 @@
-const TailwindLogo = () => (
+const TailwindLogo = ({ dark }) => (
     <svg
         width="80"
         height="80"
@@ -8,7 +8,7 @@ const TailwindLogo = () => (
         <g clip-path="url(#clip0_151_2)">
             <path
                 d="M196 0H60C26.8629 0 0 26.8629 0 60V196C0 229.137 26.8629 256 60 256H196C229.137 256 256 229.137 256 196V60C256 26.8629 229.137 0 196 0Z"
-                fill="#f5f5f7"
+                fill={dark ? '#0a0a08' : '#f5f5f7'}
             />
             <path
                 fill-rule="evenodd"

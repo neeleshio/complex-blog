@@ -1,6 +1,7 @@
 import LogoSvg from '@/assets/images/svg/Logo';
 import React, { FC } from 'react';
-import logo from '../../../assets/images/png/logo.png';
+import logoblack from '../../../assets/images/png/logoblack.png';
+import logowhite from '../../../assets/images/png/logowhite.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchIcon from '@/assets/images/svg/SearchIcon';
@@ -21,10 +22,15 @@ type NavbarProps = {
 
 const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark }) => {
     return (
-        <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#f5f5f7] z-[999]">
+        <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[999]">
             <div className="flex items-center">
                 <Link href="/" className="mr-10">
-                    <Image alt="logo" src={logo} width={100} />
+                    <div className={`${dark ? 'visible' : 'hidden'}`}>
+                        <Image alt="logo" src={logowhite} width={100} />
+                    </div>
+                    <div className={`${dark ? 'hidden' : 'visible'}`}>
+                        <Image alt="logo" src={logoblack} width={100} />
+                    </div>
                 </Link>
                 <ul className="flex items-center gap-10">
                     {navItems.map((el) => (
@@ -42,14 +48,14 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                         </li>
                     ))}
                 </ul>
-                <div className="flex ml-12 gap-14">
-                    <button className="flex justify-center items-center border-none">
-                        <SearchIcon />
+                <div className="flex ml-14 gap-16">
+                    <button className="flex justify-center bg-navbg items-center border-none">
+                        <SearchIcon dark={dark} />
                     </button>
                     <button
-                        className="flex justify-center items-center border-none"
+                        className="flex justify-center bg-navbg items-center border-none"
                         onClick={() => dispatch(handleToggleTheme())}>
-                        {dark ? <Sun /> : <Moon />}
+                        {dark ? <Sun dark={dark} /> : <Moon />}
                     </button>
                 </div>
             </div>

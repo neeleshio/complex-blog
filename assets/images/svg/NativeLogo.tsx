@@ -1,11 +1,11 @@
-const NativeLogo = () => (
+const NativeLogo = ({ dark }) => (
     <svg
         width="80"
         height="80"
         viewBox="0 0 150 150"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
-        <circle cx="75" cy="75" r="75" fill="#f5f5f7" />
+        <circle cx="75" cy="75" r="75" fill={dark ? '#0a0a08' : '#f5f5f7'} />
         <path
             d="M46.785 60C33.6 63.4 25 69.225 25 75.875C25 86.41 47.025 95 74.25 95C77.95 95 80.55 94.805 84 94.515"
             stroke="#3760A9"
