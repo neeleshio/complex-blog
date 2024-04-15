@@ -1,0 +1,121 @@
+# Virtual DOM and DOM update process
+
+> Web development, especially with React, involves a fascinating interplay between two concepts: the Real DOM (Document Object Model) and the Virtual DOM. These concepts are at the heart of how React efficiently manages and updates the structure and content of web pages.
+
+![react-vdom](/react-vdom.png)
+
+## Real DOM vs Virtual DOM: A Side-by-Side Comparison
+
+### 1. Definition
+
+-   **Real/Actual/Browser DOM**: The Real DOM is the actual, live, and directly manipulatable structure of a web page in browser memory.
+-   **Virtual DOM**: The Virtual DOM, on the other hand, is a lightweight JavaScript abstraction representing the web page’s structure in memory.
+
+### 2. Updation
+
+-   **Real DOM**: Any change triggers an immediate update to the Real DOM.
+-   **Virtual DOM**: React updates the Virtual DOM instead of the Real DOM when changes occur.
+
+### 3. Tight Coupling
+
+-   **Real DOM**: Tightly coupled with the browser’s rendering engine; directly reflects the displayed web page.
+-   **Virtual DOM**: Not coupled with the browser’s rendering engine; maintained separately by React.
+
+### Representation
+
+-   **Real DOM**: Not just a JavaScript representation; it’s the actual DOM structure of HTML elements.
+-   **Virtual DOM**: JavaScript representation of DOM elements and properties.
+
+### Rendering
+
+-   **Real DOM**: Rendered directly in the browser’s view.
+-   **Virtual DOM**: Not rendered in the browser’s view; used by React for updates and optimizations.
+
+### Performance
+
+-   **Real DOM**: Directly manipulating the Real DOM can be slow, especially for large or frequently updated web pages.
+-   **Virtual DOM**: React optimizes updates by comparing the Virtual DOM to the previous one, reducing the number of Real DOM updates.
+
+### Developer Friendly
+
+-   **Real DOM**: Complex and requires manual optimizations for performance.
+-   **Virtual DOM**: Offers a more declarative and user-friendly API; optimizations handled by React.
+
+### Cross-Platform
+
+-   _Real DOM_: Primarily used in web browsers for web development.
+-   _Virtual DOM_: Can be adapted for various environments, such as React Native for mobile app development.
+
+## Diffing & Reconciliation: Making Updates Efficient
+
+### Diffing (Virtual DOM Diffing)
+
+**Definition**: Diffing, or “differential reconciliation,” identifies differences between the previous Virtual DOM tree and the current one.
+
+**Purpose**: It minimizes the changes needed to update the actual DOM.
+
+-   React creates a new Virtual DOM tree when a component updates.
+-   It compares this new Virtual DOM with the previous one to identify differences.
+-   The goal is to minimize the changes required to update the actual DOM.
+
+### Reconciliation (Virtual DOM Reconciliation)
+
+**Definition:** Reconciliation applies the identified differences to the actual DOM, ensuring it reflects the updated Virtual DOM.
+
+**Purpose:** It keeps the user interface in sync with the latest component state and structure.
+
+**How it Works:**
+
+-   React generates virtual patches based on the differences found during diffing.
+-   These patches describe operations like inserting elements, removing elements, or updating attributes.
+-   React efficiently applies these patches to the real DOM, making the necessary changes.
+
+## DOM Update Process in React: Step by Step
+
+DOM updates in React occur through a series of steps involving the Virtual DOM and reconciliation process. Here’s a step-by-step explanation of how DOM updates work in React.
+
+### Step 1: Initial Render
+
+-   You create a React component with JSX code, defining the initial structure of the user interface.
+-   When the component is first rendered, React creates a Virtual DOM representation of the UI. This Virtual DOM is a lightweight JavaScript object that mirrors the structure of the actual DOM.
+
+### Step 2: Updating State or Props
+
+-   Changes to the user interface often happen due to updates in component state or props.
+-   When you update the state or props of a component using setState or when new props are received, React triggers a re-render of the component.
+
+### Step 3: Re-rendering
+
+-   React re-renders the component, generating a new Virtual DOM representation that reflects the updated state or props.
+
+### Step 4: Diffing
+
+-   React performs a process called “diffing” to analyze the differences between the old Virtual DOM and the new one.
+-   The goal of diffing is to identify the minimal set of changes needed to update the actual DOM to match the new Virtual DOM.
+
+### Step 5: Generating Patches
+
+-   Based on the differences identified during diffing, React generates a set of “virtual patches” or instructions that describe how to update the actual DOM.
+-   These patches represent operations like “insert this element,” “remove that element,” or “update this attribute.”
+
+### Step 6: Reconciliation
+
+-   React proceeds with the “reconciliation” process, where it efficiently applies the virtual patches to the actual DOM.
+-   During reconciliation, React makes the necessary changes to the real DOM, ensuring it reflects the updated state and structure of the component.
+-   React includes various optimizations to minimize the impact on performance, such as batching multiple updates and avoiding unnecessary re-renders.
+-   After reconciliation is complete, the actual DOM now matches the updated Virtual DOM.
+-   The user sees the updated user interface with the changes applied.
+
+### Step 7: Further State Change
+
+-   If there’s another state change, React repeats steps 3 to 6.
+
+### Step 8: Final Reconciliation
+
+-   React applies the patches from the second diffing process to the actual DOM, ensuring it reflects the latest state and structure.
+
+## Conclusion
+
+Understanding the Real DOM, Virtual DOM, and the update process in React is essential for building efficient and performant web applications. React’s use of the Virtual DOM, coupled with diffing and reconciliation, allows for seamless updates while minimizing unnecessary changes to the actual DOM. This approach is at the core of React’s reputation for delivering fast and responsive user interfaces.
+
+Incorporate these concepts into your React development workflow, and you’ll be better equipped to build web applications that offer an outstanding user experience.

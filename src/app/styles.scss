@@ -172,3 +172,17 @@ button {
         color: #1d1d1f;
     }
 }
+
+.blog-share {
+    button {
+        border: none;
+        background-color: transparent;
+        padding-right: 16px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+            fill: #6e6e73;
+        }
+    }
+}
