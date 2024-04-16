@@ -1,0 +1,49 @@
+# JSX Transform - New Update
+
+> Browsers don’t understand JSX out of the box, so most React users rely on a compiler like Babel or TypeScript to transform JSX code into regular JavaScript.
+
+![jsx-transform](/jsx-transform.png)
+
+### few benefits of the new update:
+
+-   With the new transform, you can **use JSX without importing React**.
+-   Depending on your setup, its compiled output may **slightly improve the bundle size**.
+-   It will enable future improvements that **reduce the number of concepts** you need to learn React.
+
+## What’s difference in the new transform:
+
+When you use JSX, the compiler transforms it into React function calls that the browser can understand. **The old JSX transform** turned JSX into React.createElement(...) calls.
+
+```javascript
+import React from 'react';
+
+function App() {
+    return <h1>Hello World</h1>;
+}
+
+// Under the hood, the old JSX transform turns it into regular JavaScript
+// functions.
+
+import React from 'react';
+
+function App() {
+    return React.createElement('h1', null, 'Hello world');
+}
+```
+
+Instead of transforming JSX to React.createElement, **React 17** introduces two new entry points to the React package that are intended to only be used by compilers like Babel and TypeScript which automatically imports special functions from those new entry points in the React package and calls them.
+
+```javascript
+function App() {
+    return <h1>Hello World</h1>;
+}
+
+// This is what the new JSX transform compiles it to:
+
+// Inserted by a compiler (don't import it yourself!)
+import { jsx as _jsx } from 'react/jsx-runtime';
+
+function App() {
+    return _jsx('h1', { children: 'Hello world' });
+}
+```

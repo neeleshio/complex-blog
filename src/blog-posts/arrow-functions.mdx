@@ -1,0 +1,119 @@
+# Arrow Functions
+
+> An arrow function expression is a compact alternative to a traditional function expression, introduced in ES6.
+
+![arrow-function](/arrow-functions.png)
+
+Using Arrow functions, curly braces, parenthesis, function keyword & return keywords become optional.
+
+Arrow functions are always Anonymous functions, so to call them we need to assign it to a variable.
+
+```javascript
+const square = (a) => a * a;
+
+console.log(square(2)); // 4
+```
+
+## Hoisting
+
+Like traditional functions, arrow functions are not hoisted so we can't call them before their declaration.
+
+```javascript
+foo(); // Uncaught TypeError: foooo is not a function
+
+bar(); // Uncaught ReferenceError: fooo is not defined
+
+var foo = () => {
+    console.log('hello from foo');
+};
+
+const bar = () => {
+    console.log('hello from bar');
+};
+```
+
+Because it behaves just like another variable. It doesn't behave like a function.
+
+## Characteristics
+
+### 1. Using the arrow function, curly braces, parentheses, function & return keywords become optional.
+
+### 2. Arrow functions are always Anonymous functions, so to call arrow function we need to assign it to a variable.
+
+### 3. Arrow function expressions should only be used for non-method functions because they do not havetheir own 'this'.
+
+```javascript
+const obj = {
+   fname: 'neel',
+   lname: 'shett',
+   getName: () => console.log(this.fname, this) ---> 'this' points to the global window object.
+}
+
+obj.getName() // undefined, Window {window: Window, self: Window, document: document, name: 'iframeResult', location: Location, …}
+```
+
+<br />
+### 4. Arrow functions do not have arguments binding unlike regular functions.
+
+```javascript
+const x = () => {
+    console.log(arguments);
+};
+
+x(4, 6, 7); // ReferenceError: Can't find variable: arguments
+```
+
+but with regular function,
+
+```javascript
+let x = function () {
+    console.log(arguments);
+};
+
+x(4, 6, 7); // Arguments [4, 6, 7]
+```
+
+To solve this issue, we can use spread operator:
+
+```javascript
+let x = (...args) => {
+    console.log(args);
+};
+
+x(4, 6, 7); // [4, 6, 7]
+```
+
+<br />
+### 5. Arrow functions provide better syntax to write promises & callbacks.
+
+ES5
+
+```javascript
+asyncFunction()
+    .then(function () {
+        return asyncFunction1();
+    })
+    .then(function () {
+        return asyncFunction2();
+    })
+    .then(function () {
+        finish;
+    });
+```
+
+ES6
+
+```javascript
+asyncFunction()
+    .then(() => asyncFunction1())
+    .then(() => asyncFunction2())
+    .then(() => finish);
+```
+
+<br />
+### 6. You cannot use an arrow function as a constructor.
+
+```javascript
+let Foo = () => {};
+let foo = new Foo(); // TypeError: Foo is not a constructor
+```

@@ -21,7 +21,8 @@ module.exports = {
                 'backdrop-bg': 'var(--menu-backdrop-bg)',
                 'menu-bg': 'var(--menu-bg)',
                 'menu-color': 'var(--menu-color)',
-                'menu-color-light': 'var(--menu-color-light)'
+                'menu-color-light': 'var(--menu-color-light)',
+                'project-card-bg': 'var(--project-card-bg)'
             }
         },
         screens: {

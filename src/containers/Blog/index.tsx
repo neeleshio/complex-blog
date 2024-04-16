@@ -2,6 +2,7 @@ import { BRCardFull } from '@/src/components/Blogs';
 import BRCardLarge from '@/src/components/Blogs/BRCardLarge';
 import BRCardMedium from '@/src/components/Blogs/BRCardMedium';
 import BRCardSmall from '@/src/components/Blogs/BRCardSmall';
+import { BLOG_DATA, LATEST_BLOG } from '@/src/data/blogdata';
 import React from 'react';
 
 const Blogs = () => {
@@ -9,19 +10,16 @@ const Blogs = () => {
         <section>
             <section className="w-[98rem] m-auto pt-10 mt-10 mb-32">
                 <h2 className="text-[3rem] mb-[2.4rem]">Latest Blogs</h2>
-                <BRCardFull />
-                <div className="flex gap-16 mt-[4rem]">
-                    <BRCardLarge />
-                    <BRCardLarge />
+                <BRCardFull {...LATEST_BLOG} />
+                <div className="gap-16 mt-16 grid-cols-2 grid">
+                    {BLOG_DATA.slice(0, 4).map((el) => (
+                        <BRCardLarge {...el} />
+                    ))}
                 </div>
                 <div className="flex gap-16 mt-16">
-                    <BRCardLarge />
-                    <BRCardLarge />
-                </div>
-                <div className="flex gap-16 mt-16">
-                    <BRCardMedium />
-                    <BRCardMedium />
-                    <BRCardMedium />
+                    {BLOG_DATA.slice(2, 5).map((el) => (
+                        <BRCardMedium {...el} />
+                    ))}
                 </div>
             </section>
             <section className="bg-[#ffffff]">

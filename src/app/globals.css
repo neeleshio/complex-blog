@@ -22,6 +22,7 @@
     --menu-bg: #f5f5f7;
     --menu-color: #333336;
     --menu-color-light: #6e6e73;
+    --project-card-bg: #ffffff;
 }
 
 .dark {
@@ -36,6 +37,7 @@
     --menu-bg: #161617;
     --menu-color: #e8e8ed;
     --menu-color-light: #86868b;
+    --project-card-bg: #1d1d1f;
 }
 
 * {

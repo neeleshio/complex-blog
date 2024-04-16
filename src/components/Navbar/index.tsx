@@ -44,7 +44,7 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                                     })
                                 )
                             }>
-                            <Link href="/">{el.title}</Link>
+                            <Link href={el.link}>{el.title}</Link>
                         </li>
                     ))}
                 </ul>

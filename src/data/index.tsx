@@ -205,7 +205,7 @@ export const NAVITEMS = [
     { id: 1, title: 'Skills', link: '' },
     { id: 2, title: 'Work History', link: '' },
     { id: 3, title: 'Projects', link: '' },
-    { id: 4, title: 'Blogs', link: '' },
+    { id: 4, title: 'Blogs', link: '/blogs' },
     { id: 5, title: 'Resume', link: '' },
     { id: 5, title: 'Apps', link: '' },
     { id: 1, title: 'Documentation', link: '' },

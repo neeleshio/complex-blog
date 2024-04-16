@@ -1,21 +1,26 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-const BRCardMedium = () => {
+const BRCardMedium = ({ title, topic, link, date, img }) => {
     return (
-        <div className="bg-white rounded-[16px]">
-            <div className="h-[17rem]"></div>
+        <Link href={link} className="bg-white rounded-[16px]">
+            <div className="h-[17rem]">
+                <Image
+                    src={img}
+                    width={300}
+                    height={170}
+                    className="object-cover rounded-t-[16px]"
+                />
+            </div>
             <div className="flex flex-col p-[1.7rem] justify-between">
                 <div>
-                    <div className="text-[1.2rem] mb-4 font-semibold text-[#6e6e73]">
-                        PRESS RELEASE
-                    </div>
-                    <div className="text-[1.9rem] font-semibold">
-                        Apple Jing’an to welcome its first customers Thursday, March 21, in Shanghai
-                    </div>
+                    <div className="text-[1.2rem] mb-4 font-semibold text-[#6e6e73]">{topic}</div>
+                    <div className="text-[1.9rem] font-semibold">{title}</div>
                 </div>
-                <div className="text-[1.4rem] mt-5 font-semibold text-[#6e6e73]">17 March 2024</div>
+                <div className="text-[1.4rem] mt-5 font-semibold text-[#6e6e73]">{date}</div>
             </div>
-        </div>
+        </Link>
     );
 };
 

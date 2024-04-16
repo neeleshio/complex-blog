@@ -4,7 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image, { ImageProps } from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Header } from '@/src/containers';
+import { Footer, Header } from '@/src/containers';
 import { Provider } from 'react-redux';
 import { store } from '@/src/store';
 import SectionHeader from '@/src/components/SectionHeader';
@@ -57,10 +57,12 @@ const components = {
             </div>
         </div>
     ),
-    p: ({ children }) => <p className="text-[1.7rem] text-[#1d1d1f] mb-6">{children}</p>,
-    code: ({ children }) => (
+    p: ({ children }) => (
+        <p className="text-[1.7rem] text-[#1d1d1f] mb-6 font-medium">{children}</p>
+    ),
+    code: ({ className, children }) => (
         <SyntaxHighlighter
-            language="javascript"
+            language={className.split('-')[1]}
             style={nightOwl}
             customStyle={customStyle}
             wrapLines>
@@ -88,7 +90,26 @@ export function CustomMDX(props) {
             <SectionHeader />
             <div className="w-[98rem] m-auto px-32 py-24">
                 <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+                <div className="mt-[10rem] mb-[6rem] blog-share flex">
+                    <div className="mr-8">Share on</div>
+                    <div className="flex">
+                        <button>
+                            <FaWhatsapp />
+                        </button>
+                        <button>
+                            <FaXTwitter />
+                        </button>
+                        <button>
+                            <IoIosMail />
+                        </button>
+                        <button>
+                            <IoIosLink />
+                        </button>
+                    </div>
+                </div>
+                <hr />
             </div>
+            <Footer />
         </Provider>
     );
 }

@@ -1,0 +1,76 @@
+# Higher order components
+
+> A higher-order component (HOC) is an advanced technique in React for reusing component logic.
+
+![hoc](/hoc.png)
+
+**HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.**
+
+## Defnition:
+
+Concretely, a higher-order component is a function that takes a component and returns a new component.
+
+The Higher-Order Component is a pattern to extend and reuse an existing component. You do not want to duplicate code logic across components. It is extra work and causes adverse situations like bugs maintenance issues. Also, you may want to enhance a component and use it for a completely different purpose.
+
+## Let's write an HOC.
+
+### Counter 1 Component:
+
+```javascript
+import React from 'react';
+import withCounter from './withCounter';
+
+function Counter1({ handleIncrement }) {
+    return (
+        <>
+            <button onClick={handleIncrement}>Increment</button>
+        </>
+    );
+}
+
+export default withCounter(Counter1);
+```
+
+### Counter 2 Component:
+
+```javascript
+import React from 'react';
+import withCounter from './withCounter';
+
+function Counter2({ handleIncrement }) {
+    return (
+        <div>
+            <button onClick={handleIncrement}>Increment</button>
+        </>
+    );
+}
+
+export default withCounter(Counter2);
+```
+
+### HOC Component:
+
+```javascript
+import React, { useState } from 'react';
+
+function withCounter(WrapperComponent) {
+    const HOC = () => {
+        const [count, setCount] = useState(0);
+
+        const handleIncrement = () => {
+            setCount((prev) => prev + 1);
+        };
+
+        return (
+            <>
+                <div>{count}</div>
+                <WrapperComponent handleIncrement={handleIncrement} />
+            </>
+        );
+    };
+
+    return HOC;
+}
+
+export default withCounter;
+```

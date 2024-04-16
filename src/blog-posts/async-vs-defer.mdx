@@ -1,0 +1,58 @@
+# Async vs Defer attributes
+
+> JavaScript is considered a “parser blocking resource” causing blocking of HTML parsing. Thankfully, the latest technologies such as HTML5 gives you 3 ways to tell browser when to run JavaScript code.
+
+![async vs defer](/async-vs-defer.png)
+
+## Async
+
+The script is downloaded in parallel to parsing the page, and executed as soon as it is available (before parsing completes).
+
+-   Downloads in the background at a low priority (same as defer)
+-   Can interrupt page rendering to execute
+-   Executes as soon as possible and in no particular order
+
+```html
+<script async src="myscript.js"></script>
+```
+
+## Defer
+
+The script is downloaded in parallel to parsing the page, and executed after the page has finished parsing.
+
+-   Downloads in the background at a low priority (same as async)
+-   Won't interrupt page rendering to execute
+-   Executes in sequence just before the DOMContentLoaded event
+
+```html
+<script defer src="myscript.js"></script>
+```
+
+If neither **async** or **defer** is present: The HTML is parsed until the script tag is reached. The script is downloaded and executed immediately, blocking parsing until the script execution gets completed.
+
+<br />
+## When to use Async?
+
+Async is best for very high priority JavaScript resources that should run as early as possible in the loading process.
+
+**Note**: In the interest of page speed, async should be used with care and typically only for files upon which initial rendering of the page depends.
+
+## When to use Defer?
+
+Defer is ideal for general JavaScript resources that aren't critical to the initial rendering of the page and can be run later in the loading process.
+
+<br />
+
+## Can async & defer Be Used On The Same File Reference?
+
+While using both async and defer attributes on the same script reference is valid HTML, it's not recommended as async and defer are best used purposefully, depending on the way any given JavaScript resource should fit into the loading process.
+
+Using both on the same script reference may also cause inconsistent or undesirable cross-browser behavior.
+
+## Conclusion
+
+Any given resource on a page is first downloaded and then applied to or run on the page. While the loading behavior of async and defer are the same - loading in the background without render blocking - the difference lies in their behavior when executing.
+
+JavaScript files with the async attribute will run in no particular order as soon as they're loaded, whereas defer'd resources run in sequence (in the order they appear in the HTML) toward the end of the initial loading process, right before the DOMContentLoaded event.
+
+The async and defer attributes are great tools to eliminate render blocking JavaScript.
