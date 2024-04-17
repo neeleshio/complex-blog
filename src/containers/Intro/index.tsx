@@ -5,7 +5,7 @@ import React from 'react';
 
 const Intro = () => {
     return (
-        <div className="px-56 py-28 flex justify-between items-center flex-wrap">
+        <div className="mx-56 py-28 flex justify-between items-center flex-wrap xl:mx-28 lg:gap-8 lg:pb-14 lg:mx-14">
             <Name />
             <Socials SOCIALS={SOCIALS} />
         </div>

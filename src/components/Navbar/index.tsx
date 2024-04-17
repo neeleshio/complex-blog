@@ -7,6 +7,7 @@ import Link from 'next/link';
 import SearchIcon from '@/assets/images/svg/SearchIcon';
 import Moon from '@/assets/images/svg/Moon';
 import Sun from '@/assets/images/svg/Sun';
+import HamburgIcon from '@/assets/images/svg/Hamburg';
 
 type NavItemsType = {
     id: number;
@@ -23,7 +24,7 @@ type NavbarProps = {
 const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark }) => {
     return (
         <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[999]">
-            <div className="flex items-center">
+            <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div className={`${dark ? 'visible' : 'hidden'}`}>
                         <Image alt="logo" src={logowhite} width={100} />
@@ -32,7 +33,7 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                         <Image alt="logo" src={logoblack} width={100} />
                     </div>
                 </Link>
-                <ul className="flex items-center gap-10">
+                <ul className="flex items-center gap-10 lg:hidden">
                     {navItems.map((el) => (
                         <li
                             className="px-4"
@@ -56,6 +57,9 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                         className="flex justify-center bg-navbg items-center border-none"
                         onClick={() => dispatch(handleToggleTheme())}>
                         {dark ? <Sun dark={dark} /> : <Moon />}
+                    </button>
+                    <button className="justify-center bg-navbg items-center border-none hidden lg:flex">
+                        <HamburgIcon dark={dark} />
                     </button>
                 </div>
             </div>

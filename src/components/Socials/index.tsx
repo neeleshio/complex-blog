@@ -14,7 +14,7 @@ type SocialItem = {
 const Socials = ({ SOCIALS }: SocialsProps) => {
     return (
         <div className="max-w-72">
-            <div className="flex items-center pb-7">
+            <div className="flex items-center pb-7 lg:hidden">
                 <div className="rounded-full overflow-hidden w-[40px] h-[40px]">
                     <Image alt="display-pic" src={displayPic} width={40} height={40} />
                 </div>
@@ -25,7 +25,7 @@ const Socials = ({ SOCIALS }: SocialsProps) => {
                     </a>
                 </div>
             </div>
-            <div className="flex justify-around items-center">
+            <div className="flex justify-around items-center lg:gap-4">
                 {SOCIALS.map(({ id, icon: Icon }: SocialItem) => (
                     <span key={id}>
                         <Icon />
