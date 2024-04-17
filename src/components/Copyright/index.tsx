@@ -2,7 +2,7 @@ import React from 'react';
 
 const Copyright = () => {
     return (
-        <div className="my-2 text-[#6e6e73] text-[1.2rem] flex w-full justify-between">
+        <div className="my-2 text-[#6e6e73] text-[1.2rem] flex w-full justify-between sm:text-[0.9rem]">
             <div className="flex">
                 <span>Copyright © 2024. All rights reserved.</span>
                 <div className="text-[#424245]">

@@ -75,9 +75,9 @@ const CustomScroll = ({ children, height }: CustomScrollProps) => {
 const DummyCardWrapper = ({ children, height }: CustomScrollProps) => {
     return (
         <>
-            <div className={`min-w-56 h-[${height}rem] xl:min-w-28 lg:min-w-14`} />
+            <div className={`min-w-56 h-[${height}rem] xl:min-w-28 lg:min-w-14 sm:min-w-7`} />
             {children}
-            <div className={`min-w-56 h-[${height}rem] xl:min-w-28 lg:min-w-14`} />
+            <div className={`min-w-56 h-[${height}rem] xl:min-w-28 lg:min-w-14 sm:min-w-7`} />
         </>
     );
 };

@@ -6,8 +6,10 @@ import React from 'react';
 function Work() {
     return (
         <div>
-            <div className="text-[2.8rem] font-semibold px-56 xl:px-28 lg:px-14">
-                <h2 className="inline text-[2.8rem] font-semibold">Work history.</h2>
+            <div className="text-[2.8rem] sm:text-[2.4rem] font-semibold px-56 xl:px-28 lg:px-14 sm:px-7">
+                <h2 className="inline text-[2.8rem] sm:text-[2.4rem] font-semibold">
+                    Work history.
+                </h2>
                 <span className="text-cgrey pl-2">
                     Current and previous companies I worked for.
                 </span>

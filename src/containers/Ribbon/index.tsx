@@ -29,7 +29,7 @@ const Ribbon = () => {
     return (
         <div className="ribbon-drop-wrapper">
             <div className="ribbon">
-                <span className="text-[1.4rem] flex justify-center items-center py-6 font-light">
+                <span className="text-[1.4rem] flex justify-center items-center py-6 font-light flex-wrap">
                     Total experience of{' '}
                     <span className="font-semibold">&nbsp;{totalExp}&nbsp;</span>years in building
                     scalable frontend applications.
