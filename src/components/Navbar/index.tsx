@@ -58,7 +58,16 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                         onClick={() => dispatch(handleToggleTheme())}>
                         {dark ? <Sun dark={dark} /> : <Moon />}
                     </button>
-                    <button className="justify-center bg-navbg items-center border-none hidden lg:flex">
+                    <button
+                        className="justify-center bg-navbg items-center border-none hidden lg:flex"
+                        onClick={() =>
+                            dispatch(
+                                handleOpenNavMenu({
+                                    target: 'skills',
+                                    action: true
+                                })
+                            )
+                        }>
                         <HamburgIcon dark={dark} />
                     </button>
                 </div>

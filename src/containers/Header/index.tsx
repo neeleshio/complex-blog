@@ -11,6 +11,7 @@ import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
 import BlogNavbar from '@/src/components/BlogNavbar';
 import { usePathname, useSearchParams } from 'next/navigation';
+import MobileNavMenu from '@/src/components/MobileNavMenu';
 
 const Header = () => {
     const dispatch = useAppDispatch();
@@ -59,6 +60,12 @@ const Header = () => {
                 dispatch={dispatch}
                 data={navMenuItems}
                 height={navMenuHeight}
+            />
+            <MobileNavMenu
+                open={open}
+                navItems={NAVITEMS}
+                handleOpenNavMenu={handleOpenNavMenu}
+                dispatch={dispatch}
             />
         </>
     );
