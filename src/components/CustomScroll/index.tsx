@@ -58,7 +58,7 @@ const CustomScroll = ({ children, height }: CustomScrollProps) => {
             onMouseLeave={() => setMouseOver(false)}
             onScrollCapture={() => setScrollCapture((prev) => prev + 1)}>
             <div
-                className="flex overflow-x-scroll overflow-y-hidden w-screen pt-[1.6rem] items-center"
+                className="flex overflow-x-scroll overflow-y-hidden w-screen pt-[1.6rem] items-center sm:pt-[0.5rem]"
                 ref={scrollRef}>
                 <DummyCardWrapper height={height}>{children}</DummyCardWrapper>
             </div>

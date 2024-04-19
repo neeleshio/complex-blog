@@ -215,19 +215,23 @@ export const NAVITEMS = [
 export const SOCIALS = [
     {
         id: 'linkedin',
-        icon: Linkedin
+        icon: Linkedin,
+        link: 'https://linkedin.com/in/neeleshio'
     },
     {
         id: 'github',
-        icon: Github
+        icon: Github,
+        link: 'https://github.com/neeleshio'
     },
     {
         id: 'email',
-        icon: Mail
+        icon: Mail,
+        link: 'mailto:neeleshiodev@gmail.com'
     },
     {
         id: 'phone',
-        icon: Phone
+        icon: Phone,
+        link: 'https://web.whatsapp.com'
     }
 ];
 

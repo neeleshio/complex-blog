@@ -49,7 +49,7 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                         </li>
                     ))}
                 </ul>
-                <div className="flex ml-14 gap-16">
+                <div className="flex ml-14 gap-16 sm:gap-10">
                     <button className="flex justify-center bg-navbg items-center border-none">
                         <SearchIcon dark={dark} />
                     </button>

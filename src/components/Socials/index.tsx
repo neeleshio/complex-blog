@@ -9,6 +9,7 @@ type SocialsProps = {
 type SocialItem = {
     id: string;
     icon: FC;
+    link: string;
 };
 
 const Socials = ({ SOCIALS }: SocialsProps) => {
@@ -26,10 +27,10 @@ const Socials = ({ SOCIALS }: SocialsProps) => {
                 </div>
             </div>
             <div className="flex justify-around items-center lg:gap-4">
-                {SOCIALS.map(({ id, icon: Icon }: SocialItem) => (
-                    <span key={id}>
+                {SOCIALS.map(({ id, icon: Icon, link }: SocialItem) => (
+                    <a key={id} href={link} target="_blank">
                         <Icon />
-                    </span>
+                    </a>
                 ))}
             </div>
         </div>
