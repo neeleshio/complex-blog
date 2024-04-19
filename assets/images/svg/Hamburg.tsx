@@ -2,7 +2,7 @@ const HamburgIcon = () => (
     <svg width="18" height="18" viewBox="0 0 18 18">
         <polyline
             id="globalnav-menutrigger-bread-bottom"
-            class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
+            className="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
             fill="none"
             stroke="currentColor"
             stroke-width="1.2"
@@ -32,7 +32,7 @@ const HamburgIcon = () => (
         </polyline>
         <polyline
             id="globalnav-menutrigger-bread-top"
-            class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
+            className="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
             fill="none"
             stroke="currentColor"
             stroke-width="1.2"

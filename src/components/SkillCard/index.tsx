@@ -8,7 +8,7 @@ type SkillCardProps = {
 
 const SkillCard = ({ name, icon: Icon, dark }: SkillCardProps) => {
     return (
-        <div className="flex flex-col items-center justify-end flex-shrink-0 mr-20 sm:mr-12">
+        <div className="flex flex-col items-center justify-end flex-shrink-0 mr-20 sm:mr-12 mb-8">
             <div className="w-24 h-[8rem] flex justify-center items-center">
                 <Icon dark={dark} />
             </div>
