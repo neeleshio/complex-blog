@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '@/src/store';
-import { Blogs, Header } from '@/src/containers';
+import { Blogs, Footer, Header } from '@/src/containers';
 import SectionHeader from '@/src/components/SectionHeader';
 
 export default function BlogsPage() {
@@ -14,6 +14,7 @@ export default function BlogsPage() {
             <div>
                 <Blogs />
             </div>
+            <Footer />
         </Provider>
     );
 }

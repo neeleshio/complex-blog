@@ -5,13 +5,8 @@ import React from 'react';
 const BRCardMedium = ({ title, topic, link, date, img }) => {
     return (
         <Link href={link} className="bg-white rounded-[16px]">
-            <div className="h-[17rem]">
-                <Image
-                    src={img}
-                    width={300}
-                    height={170}
-                    className="object-cover rounded-t-[16px]"
-                />
+            <div className="h-[17rem] relative">
+                <Image src={img} fill className="object-cover rounded-t-[16px] absolute" />
             </div>
             <div className="flex flex-col p-[1.7rem] justify-between">
                 <div>

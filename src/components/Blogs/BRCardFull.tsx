@@ -4,7 +4,7 @@ import React from 'react';
 
 const BRCardFull = ({ title, topic, link, date, img }) => {
     return (
-        <Link href={link} className="flex min-h-[36rem] w-full">
+        <Link href={link} className="flex min-h-[36rem] w-full ml:hidden">
             <div className="bg-black w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
                     src={img}
