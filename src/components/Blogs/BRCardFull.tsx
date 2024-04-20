@@ -4,7 +4,9 @@ import React from 'react';
 
 const BRCardFull = ({ title, topic, link, date, img }) => {
     return (
-        <Link href={link} className="flex min-h-[36rem] w-full ml:hidden">
+        <Link
+            href={link}
+            className="flex min-h-[36rem] w-full ml:hidden shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029]">
             <div className="bg-black w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
                     src={img}

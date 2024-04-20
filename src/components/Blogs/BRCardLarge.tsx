@@ -4,7 +4,9 @@ import React from 'react';
 
 const BRCardLarge = ({ title, topic, link, date, img }) => {
     return (
-        <Link className="bg-white rounded-[16px] block w-full" href={`/blogs/${link}`}>
+        <Link
+            className="bg-white rounded-[16px] block w-full shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029]"
+            href={`/blogs/${link}`}>
             <div className="h-[26rem] relative lg:h-[22rem] ml:h-[18rem]">
                 <Image src={img} fill className="rounded-t-[16px] object-cover absolute" />
             </div>

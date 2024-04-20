@@ -206,8 +206,8 @@ export const NAVITEMS = [
     { id: 3, title: 'Projects', link: '' },
     { id: 4, title: 'Quick Articles', link: '' },
     { id: 4, title: 'Blog', link: '/blogs' },
-    { id: 5, title: 'Resume', link: '' },
-    { id: 1, title: 'Documentation', link: '' },
+    { id: 5, title: 'Resume', link: '/' },
+    { id: 1, title: 'Documentation', link: '/' },
     { id: 4, title: 'Contact', link: '' }
 ];
 

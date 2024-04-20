@@ -26,6 +26,15 @@ const Header = () => {
         if (mobileNavOpen) {
             document.body.style.overflow = 'hidden';
         }
+
+        if (!mobileNavOpen) {
+            dispatch(
+                handleOpenNavMenu({
+                    action: false,
+                    target: ''
+                })
+            );
+        }
     }, [mobileNavOpen]);
 
     useEffect(() => {
