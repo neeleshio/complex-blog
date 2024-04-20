@@ -22,7 +22,8 @@ module.exports = {
                 'menu-bg': 'var(--menu-bg)',
                 'menu-color': 'var(--menu-color)',
                 'menu-color-light': 'var(--menu-color-light)',
-                'project-card-bg': 'var(--project-card-bg)'
+                'project-card-bg': 'var(--project-card-bg)',
+                'footer-text-color': 'var(--footer-text-color)'
             }
         },
         screens: {

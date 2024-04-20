@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const ColumnCard = ({ obj }) => {
+const FooterCard = ({ obj }) => {
     return (
         <div className="text-[1.2rem] sm:last:hidden sm:text-[1rem]">
             {obj.map((el) => (
@@ -10,7 +10,7 @@ const ColumnCard = ({ obj }) => {
                     </h3>
                     <ul>
                         {el['data'].map((el) => (
-                            <li className="text-[#6e6e73] mb-[0.8rem]">
+                            <li className="text-footer-text-color mb-[0.8rem] hover:underline">
                                 <Link href="">{el['name']}</Link>
                             </li>
                         ))}
@@ -21,4 +21,4 @@ const ColumnCard = ({ obj }) => {
     );
 };
 
-export default ColumnCard;
+export default FooterCard;

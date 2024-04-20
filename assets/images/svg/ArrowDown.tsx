@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowDown = () => {
+const ArrowDown = ({ dark }) => {
     return (
         <svg
             width="16"
@@ -12,7 +12,7 @@ const ArrowDown = () => {
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M16 2L8 10L0 2L2 0L8 6L14 0L16 2Z"
-                fill="black"
+                fill={dark ? 'white' : 'black'}
             />
         </svg>
     );

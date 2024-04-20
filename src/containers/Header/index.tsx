@@ -25,6 +25,8 @@ const Header = () => {
     useEffect(() => {
         if (mobileNavOpen) {
             document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
         }
 
         if (!mobileNavOpen) {
@@ -36,6 +38,14 @@ const Header = () => {
             );
         }
     }, [mobileNavOpen]);
+
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [open]);
 
     useEffect(() => {
         if (target) {
@@ -106,6 +116,7 @@ const Header = () => {
                 handleOpenNavMenu={handleOpenNavMenu}
                 mobileNavMenuItems={mobileNavMenuItems}
                 target={target}
+                dark={dark}
             />
         </>
     );

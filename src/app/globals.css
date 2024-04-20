@@ -24,6 +24,7 @@
     --menu-color: #333336;
     --menu-color-light: #6e6e73;
     --project-card-bg: #ffffff;
+    --footer-text-color: #6e6e73;
 }
 
 .dark {
@@ -39,6 +40,7 @@
     --menu-color: #e8e8ed;
     --menu-color-light: #86868b;
     --project-card-bg: #1d1d1f;
+    --footer-text-color: #ffffffa4;
 }
 
 * {

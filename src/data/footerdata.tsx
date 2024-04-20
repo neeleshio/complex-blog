@@ -1,46 +1,7 @@
-// export const FOOTER_DATA = [
-//     {
-//         'Shop and Learn': [
-//             { name: 'Store', link: '' },
-//             { name: 'Mac', link: '' },
-//             { name: 'iPad', link: '' },
-//             { name: 'iPhone', link: '' },
-//             { name: 'AirPods', link: '' },
-//             { name: 'TV & Home', link: '' },
-//             { name: 'AirTag', link: '' },
-//             { name: 'Accessories', link: '' },
-//             { name: 'Gift Cards', link: '' }
-//         ],
-//         'Apple wallet': [
-//             { name: 'Store', link: '' },
-//             { name: 'Mac', link: '' },
-//             { name: 'iPad', link: '' }
-//         ]
-//     },
-//     {
-//         Entertainment: [
-//             { name: 'Store', link: '' },
-//             { name: 'Mac', link: '' },
-//             { name: 'iPad', link: '' },
-//             { name: 'iPhone', link: '' },
-//             { name: 'AirPods', link: '' }
-//         ],
-//         Account: [
-//             { name: 'Store', link: '' },
-//             { name: 'Mac', link: '' },
-//             { name: 'iPad', link: '' },
-//             { name: 'TV & Home', link: '' },
-//             { name: 'AirTag', link: '' },
-//             { name: 'Accessories', link: '' },
-//             { name: 'Gift Cards', link: '' }
-//         ]
-//     }
-// ];
-
 export const FOOTER_DATA = [
     [
         {
-            heading: 'Shop and Learn',
+            heading: 'React',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -54,7 +15,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
-            heading: 'Apple wallet',
+            heading: 'JavaScript',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -64,7 +25,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
-            heading: 'Entertainment',
+            heading: 'HTML & CSS',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -74,7 +35,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
-            heading: 'Account',
+            heading: 'NextJs',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -88,7 +49,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
-            heading: 'Shop and Learn',
+            heading: 'Redux',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -102,7 +63,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
-            heading: 'Apple wallet',
+            heading: 'Testing',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -112,7 +73,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
-            heading: 'Entertainment',
+            heading: 'Web Performance',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -122,7 +83,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
-            heading: 'Accounooooot',
+            heading: 'Web Security',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -136,7 +97,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
-            heading: 'Shop and Learn',
+            heading: 'RestAPI',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },
@@ -150,7 +111,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
-            heading: 'Apple wallet',
+            heading: 'React Native',
             data: [
                 { name: 'Store', link: '' },
                 { name: 'Mac', link: '' },

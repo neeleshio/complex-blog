@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
-import React, { FC } from 'react';
+import Image from 'next/image';
+import React from 'react';
 
 type WorkCardProps = {
     company: string;
@@ -8,11 +8,23 @@ type WorkCardProps = {
     projects: string[];
     image: any;
     latest: boolean;
+    link: string;
+    navigate: (link: string) => void;
 };
 
-const WorkCard = ({ company, designation, timeline, image: Img, latest }: WorkCardProps) => {
+const WorkCard = ({
+    company,
+    designation,
+    timeline,
+    image: Img,
+    latest,
+    link,
+    navigate
+}: WorkCardProps) => {
     return (
-        <div className="rounded-[18px] shadow-[2px_4px_12px_#0071e314] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#0071e324] cursor-pointer custom-transform min-w-[40rem] h-[50rem] sm:min-w-[35rem] sm:h-[45rem]">
+        <div
+            className="rounded-[18px] shadow-[2px_4px_12px_#0071e314] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#0071e324] cursor-pointer custom-transform min-w-[40rem] h-[50rem] sm:min-w-[35rem] sm:h-[45rem]"
+            onClick={() => navigate(link)}>
             {latest ? (
                 <div className="flex flex-col h-full justify-between rounded-[18px] bg-white overflow-hidden">
                     <div className="flex flex-col p-12">
@@ -54,29 +66,6 @@ const WorkCard = ({ company, designation, timeline, image: Img, latest }: WorkCa
                     </div>
                 </div>
             )}
-            {/* <div className="absolute top-0 flex flex-col p-12">
-                {latest ? (
-                    <>
-                        <span className="text-cgrey uppercase text-[1.2rem] pb-5 font-semibold">
-                            {designation}
-                        </span>
-                        <span className="text-[2.5rem] font-semibold">{company}</span>
-                        <span className="pt-4 text-[1.3rem] font-light">{timeline}</span>
-                    </>
-                ) : (
-                    <>
-                        <span className="text-[#f5f5f7] uppercase text-[1.2rem] pb-5 font-semibold">
-                            {designation}
-                        </span>
-                        <span className="text-[2.5rem] text-invert-secondary font-semibold">
-                            {company}
-                        </span>
-                        <span className="pt-4 text-[1.3rem] text-invert-secondary font-light">
-                            {timeline}
-                        </span>
-                    </>
-                )}
-            </div> */}
         </div>
     );
 };

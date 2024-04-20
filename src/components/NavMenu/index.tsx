@@ -39,8 +39,6 @@ const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height }) => {
         if (moreData.length === 0) return;
         if (Object.keys(moreData).length === 0) return;
 
-        console.log('moreData', moreData);
-
         return moreData.map((el) => (
             <div className="pr-[4.4rem]">
                 <h2 className="text-[1.2rem] text-menu-color-light font-light pb-4">{el.title}</h2>

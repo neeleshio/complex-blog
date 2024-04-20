@@ -4,8 +4,11 @@ import chattodopic from '@/assets/images/png/chattodopic.png';
 import ProjectCard from '@/src/components/ProjectCard';
 import { PROJECTS } from '@/src/data';
 import CustomScroll from '@/src/components/CustomScroll';
+import useOpenLink from '@/src/hooks/useOpenLink';
 
 const Projects = () => {
+    const { navigate } = useOpenLink();
+
     return (
         <div className="pt-[5.4rem] proj-scroll">
             {/* heading */}
@@ -37,7 +40,7 @@ const Projects = () => {
 
                 {/* list of projects */}
                 {PROJECTS.map((el) => (
-                    <ProjectCard {...el} />
+                    <ProjectCard {...el} navigate={navigate} />
                 ))}
             </CustomScroll>
         </div>

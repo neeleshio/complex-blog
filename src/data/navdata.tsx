@@ -4,19 +4,24 @@ export const NAVMENU_DATA = {
             title: 'Core',
             data: [
                 {
-                    name: 'React'
+                    name: 'React',
+                    link: ''
                 },
                 {
-                    name: 'JavaScript'
+                    name: 'JavaScript',
+                    link: ''
                 },
                 {
-                    name: 'TypeScript'
+                    name: 'TypeScript',
+                    link: ''
                 },
                 {
-                    name: 'Redux'
+                    name: 'Redux',
+                    link: ''
                 },
                 {
-                    name: 'NextJs'
+                    name: 'NextJs',
+                    link: ''
                 }
             ]
         },
@@ -24,16 +29,20 @@ export const NAVMENU_DATA = {
             title: 'Libraries',
             data: [
                 {
-                    name: 'Jest'
+                    name: 'Jest',
+                    link: ''
                 },
                 {
-                    name: 'Tailwind CSS'
+                    name: 'Tailwind CSS',
+                    link: ''
                 },
                 {
-                    name: 'Styled Comps'
+                    name: 'Styled Comps',
+                    link: ''
                 },
                 {
-                    name: 'Storybook'
+                    name: 'Storybook',
+                    link: ''
                 }
             ]
         },
@@ -41,10 +50,12 @@ export const NAVMENU_DATA = {
             title: 'Backend',
             data: [
                 {
-                    name: 'Restful'
+                    name: 'Restful',
+                    link: ''
                 },
                 {
-                    name: 'Express'
+                    name: 'Express',
+                    link: ''
                 }
             ]
         }
@@ -54,13 +65,16 @@ export const NAVMENU_DATA = {
             title: 'Full Time',
             data: [
                 {
-                    name: 'Recrosoft - Flipkart'
+                    name: 'Recrosoft - Flipkart',
+                    link: 'https://www.flipkartcareers.com/#!/lifeatflipkart'
                 },
                 {
-                    name: 'CampK12'
+                    name: 'CampK12',
+                    link: 'https://campk12.com/'
                 },
                 {
-                    name: 'PiChain Labs'
+                    name: 'PiChain Labs',
+                    link: 'https://pichainlabs.com/'
                 }
             ]
         },
@@ -68,10 +82,12 @@ export const NAVMENU_DATA = {
             title: 'Internships',
             data: [
                 {
-                    name: 'FrontRow'
+                    name: 'FrontRow',
+                    link: 'https://www.linkedin.com/company/frontrow-in'
                 },
                 {
-                    name: 'Living Heritage'
+                    name: 'Living Heritage',
+                    link: 'https://www.livingheritage.life/'
                 }
             ]
         }
@@ -81,10 +97,12 @@ export const NAVMENU_DATA = {
             title: 'React',
             data: [
                 {
-                    name: 'JsGPT'
+                    name: 'JsGPT',
+                    link: 'https://jsgpt.vercel.app/'
                 },
                 {
-                    name: 'Standup'
+                    name: 'Standup',
+                    link: 'https://standup-now.vercel.app/'
                 }
             ]
         },
@@ -92,7 +110,8 @@ export const NAVMENU_DATA = {
             title: 'Vanilla JS',
             data: [
                 {
-                    name: 'Debounce Visualizer'
+                    name: 'Debounce Visualizer',
+                    link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
                 }
             ]
         }
@@ -102,13 +121,16 @@ export const NAVMENU_DATA = {
             title: 'React',
             data: [
                 {
-                    name: 'Higher-order components'
+                    name: 'Higher-order components',
+                    link: '/blogs/higher-order-components'
                 },
                 {
-                    name: 'JSX transform'
+                    name: 'JSX transform',
+                    link: '/blogs/jsx-transform'
                 },
                 {
-                    name: 'Real DOM vs Virtual DOM'
+                    name: 'Real DOM vs Virtual DOM',
+                    link: '/blogs/real-dom-vs-virtual-dom'
                 }
             ]
         },
@@ -116,10 +138,12 @@ export const NAVMENU_DATA = {
             title: 'JavaScript',
             data: [
                 {
-                    name: 'Arrow Functions'
+                    name: 'Arrow Functions',
+                    link: '/blogs/arrow-functions'
                 },
                 {
-                    name: 'Async vs Defer'
+                    name: 'Async vs Defer',
+                    link: '/blogs/async-vs-defer'
                 }
             ]
         }
@@ -129,10 +153,12 @@ export const NAVMENU_DATA = {
             title: 'Connect with me',
             data: [
                 {
-                    name: 'LinkedIn'
+                    name: 'LinkedIn',
+                    link: 'https://linkedin.com/in/neeleshio'
                 },
                 {
-                    name: 'Github'
+                    name: 'Github',
+                    link: 'https://github.com/neeleshio'
                 }
             ]
         },
@@ -140,7 +166,8 @@ export const NAVMENU_DATA = {
             title: 'Mail me',
             data: [
                 {
-                    name: 'neeleshiodev@gmail.com'
+                    name: 'neeleshiodev@gmail.com',
+                    link: 'mailto:neeleshiodev@gmail.com'
                 }
             ]
         }

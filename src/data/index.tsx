@@ -89,7 +89,8 @@ export const WORK_HISTORY = [
         timeline: 'June 2023 - March 2024',
         projects: ['Iris 2.0', 'FK Studio Dashboard', 'KBOT'],
         image: Flipkart,
-        latest: true
+        latest: true,
+        link: 'https://www.flipkartcareers.com/#!/lifeatflipkart'
     },
     {
         company: 'CampK12',
@@ -102,7 +103,8 @@ export const WORK_HISTORY = [
             'Analytics'
         ],
         image: campk12,
-        latest: false
+        latest: false,
+        link: 'https://campk12.com/'
     },
     {
         company: 'PiChain Labs',
@@ -110,7 +112,8 @@ export const WORK_HISTORY = [
         timeline: 'Nov 2020 - Nov 2021',
         projects: ['Esign Web', 'Estamp Web', 'PSPDFKit'],
         image: pichain,
-        latest: false
+        latest: false,
+        link: 'https://pichainlabs.com/'
     },
     {
         company: 'FrontRow',
@@ -118,7 +121,8 @@ export const WORK_HISTORY = [
         timeline: 'Jul 2020 - Sep 2020',
         projects: ['Analytics Dashboard', 'API development'],
         image: frontrow,
-        latest: false
+        latest: false,
+        link: 'https://www.linkedin.com/company/frontrow-in'
     }
 ];
 
@@ -237,7 +241,7 @@ export const SOCIALS = [
 export const QUICK_LINKS = [
     {
         name: 'Resume',
-        link: ''
+        link: 'https://drive.google.com/file/d/1EhqJYhtKqkmMIAT2u-TY8qljVgJ91taO/view?usp=drive_link'
     },
     {
         name: 'Contact',
@@ -245,6 +249,6 @@ export const QUICK_LINKS = [
     },
     {
         name: 'LinkedIn',
-        link: ''
+        link: 'https://linkedin.com/in/neeleshio'
     }
 ];

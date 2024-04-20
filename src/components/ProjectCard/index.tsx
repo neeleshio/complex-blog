@@ -6,6 +6,8 @@ type ProjectCardProps = {
     description: string;
     stack: React.FC[];
     latest: boolean;
+    link: string;
+    navigate: (link: string) => void;
 };
 
 const ProjectCard = ({
@@ -14,13 +16,13 @@ const ProjectCard = ({
     description,
     stack,
     latest,
-    link
+    link,
+    navigate
 }: ProjectCardProps) => {
     return (
-        <a
-            href={link}
-            target="_blank"
-            className="flex flex-col justify-center rounded-[18px] min-w-[31rem] h-[40rem] bg-project-card-bg shadow-[2px_4px_12px_#00000014] mr-8 p-12 pt-20 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
+        <div
+            className="flex flex-col justify-center rounded-[18px] min-w-[31rem] h-[40rem] bg-project-card-bg shadow-[2px_4px_12px_#00000014] mr-8 p-12 pt-20 my-8 hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform"
+            onClick={() => navigate(link)}>
             <div className="flex flex-col justify-start h-full items-center max-h-[30rem]">
                 <Image />
 
@@ -42,7 +44,7 @@ const ProjectCard = ({
                     {description}
                 </span>
             </div>
-        </a>
+        </div>
     );
 };
 
