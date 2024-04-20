@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
 import NavMenu from '@/src/components/NavMenu';
 import { useAppDispatch, useAppSelector } from '@/src/hooks';
-import { handleOpenNavMenu } from '@/src/store/slices/navSlice';
+import { handleOpenNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
@@ -15,11 +15,18 @@ import MobileNavMenu from '@/src/components/MobileNavMenu';
 
 const Header = () => {
     const dispatch = useAppDispatch();
-    const { open, target } = useAppSelector(navSelector);
+    const { open, target, mobileNavOpen } = useAppSelector(navSelector);
     const { dark } = useAppSelector(themeSelector);
     const [navMenuItems, setNavMenuItems] = useState([]);
+    const [mobileNavMenuItems, setMobileNavMenuItems] = useState([]);
     const [navMenuHeight, setNavMenuHeight] = useState('');
     const pathname = usePathname();
+
+    useEffect(() => {
+        if (mobileNavOpen) {
+            document.body.style.overflow = 'hidden';
+        }
+    }, [mobileNavOpen]);
 
     useEffect(() => {
         if (target) {
@@ -31,6 +38,24 @@ const Header = () => {
                 const height = (125 + firstColumnDataLength * 44).toString();
                 setNavMenuHeight(height);
                 setNavMenuItems(data);
+            } else {
+                setNavMenuItems([]);
+                dispatch(
+                    handleOpenNavMenu({
+                        action: false,
+                        target: ''
+                    })
+                );
+            }
+
+            if (data && data.length > 0) {
+                const newObj = [];
+
+                data.map((el) => {
+                    newObj.push(...el.data);
+                });
+
+                setMobileNavMenuItems(newObj);
             }
         }
     }, [target]);
@@ -44,6 +69,7 @@ const Header = () => {
                     dispatch={dispatch}
                     handleToggleTheme={handleToggleTheme}
                     dark={dark}
+                    handleOpenMobileNav={handleOpenMobileNav}
                 />
             ) : (
                 <BlogNavbar
@@ -52,6 +78,7 @@ const Header = () => {
                     dispatch={dispatch}
                     handleToggleTheme={handleToggleTheme}
                     dark={dark}
+                    handleOpenMobileNav={handleOpenMobileNav}
                 />
             )}
             <NavMenu
@@ -62,10 +89,14 @@ const Header = () => {
                 height={navMenuHeight}
             />
             <MobileNavMenu
-                open={open}
+                mobileNavOpen={mobileNavOpen}
                 navItems={NAVITEMS}
-                handleOpenNavMenu={handleOpenNavMenu}
                 dispatch={dispatch}
+                navMenuItems={navMenuItems}
+                handleOpenMobileNav={handleOpenMobileNav}
+                handleOpenNavMenu={handleOpenNavMenu}
+                mobileNavMenuItems={mobileNavMenuItems}
+                target={target}
             />
         </>
     );

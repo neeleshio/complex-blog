@@ -7,6 +7,7 @@ import Link from 'next/link';
 import SearchIcon from '@/assets/images/svg/SearchIcon';
 import Moon from '@/assets/images/svg/Moon';
 import Sun from '@/assets/images/svg/Sun';
+import HamburgIcon from '@/assets/images/svg/Hamburg';
 
 type NavItemsType = {
     id: number;
@@ -20,16 +21,23 @@ type NavbarProps = {
     dispatch: FC;
 };
 
-const BlogNavbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark }) => {
+const BlogNavbar = ({
+    navItems,
+    handleOpenNavMenu,
+    dispatch,
+    handleToggleTheme,
+    dark,
+    handleOpenMobileNav
+}) => {
     return (
         <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[999]">
-            <div className="flex items-center">
+            <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div>
                         <Image alt="logo" src={logowhite} width={100} />
                     </div>
                 </Link>
-                <ul className="flex items-center gap-10">
+                <ul className="flex items-center gap-10 lg:hidden">
                     {navItems.map((el) => (
                         <li
                             className="px-4 text-[#e2e2e0]"
@@ -45,7 +53,7 @@ const BlogNavbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, 
                         </li>
                     ))}
                 </ul>
-                <div className="flex ml-14 gap-16">
+                <div className="flex ml-14 gap-16 sm:gap-10">
                     <button className="flex justify-center bg-[#454545] items-center border-none">
                         <SearchIcon dark={true} />
                     </button>
@@ -53,6 +61,11 @@ const BlogNavbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, 
                         className="flex justify-center bg-[#454545] items-center border-none"
                         onClick={() => dispatch(handleToggleTheme())}>
                         {dark ? <Sun dark={true} /> : <Moon color="#e2e2e0" />}
+                    </button>
+                    <button
+                        className="justify-center bg-[#454545] items-center border-none hidden lg:flex"
+                        onClick={() => dispatch(handleOpenMobileNav(true))}>
+                        <HamburgIcon dark={true} />
                     </button>
                 </div>
             </div>

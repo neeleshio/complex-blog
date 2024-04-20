@@ -4,13 +4,8 @@ import React from 'react';
 const BRCardLarge = ({ title, topic, link, date, img }) => {
     return (
         <a className="bg-white rounded-[16px] block w-full" href={`/blogs/${link}`}>
-            <div className="h-[26rem]">
-                <Image
-                    src={img}
-                    width={474}
-                    height={260}
-                    className="rounded-t-[16px] object-cover"
-                />
+            <div className="h-[26rem] relative lg:h-[22rem]">
+                <Image src={img} fill className="rounded-t-[16px] object-cover absolute" />
             </div>
             <div className="flex flex-col p-[3.2rem] justify-between">
                 <div>

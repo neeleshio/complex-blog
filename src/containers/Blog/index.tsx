@@ -7,22 +7,22 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <section>
-            <section className="w-[98rem] m-auto pt-10 mt-10 mb-32">
+        <section className="flex flex-col justify-center items-center">
+            <section className="w-[98rem] pt-10 mt-10 mb-32 lg:w-[80rem] ml:w-[60rem] sm:w-full px-6">
                 <h2 className="text-[3rem] mb-[2.4rem]">Latest Blogs</h2>
                 <BRCardFull {...LATEST_BLOG} />
-                <div className="gap-16 mt-16 grid-cols-2 grid">
+                <div className="gap-16 mt-16 grid-cols-2 grid md:grid-cols-1 md:px-32 sm:px-0">
                     {BLOG_DATA.slice(0, 4).map((el) => (
                         <BRCardLarge {...el} />
                     ))}
                 </div>
-                <div className="flex gap-16 mt-16">
+                {/* <div className="flex gap-16 mt-16">
                     {BLOG_DATA.slice(2, 5).map((el) => (
                         <BRCardMedium {...el} />
                     ))}
-                </div>
+                </div> */}
             </section>
-            <section className="bg-[#ffffff]">
+            {/* <section className="bg-[#ffffff]">
                 <div className="py-[8rem] w-[98rem] m-auto">
                     <h2 className="text-[3.2rem] mb-[4rem]">More from Blog Wall</h2>
                     <div>
@@ -41,7 +41,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </section>
     );
 };

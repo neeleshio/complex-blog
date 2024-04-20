@@ -1,10 +1,10 @@
-const HamburgIcon = () => (
+const HamburgIcon = ({ dark }) => (
     <svg width="18" height="18" viewBox="0 0 18 18">
         <polyline
             id="globalnav-menutrigger-bread-bottom"
             className="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
             fill="none"
-            stroke="currentColor"
+            stroke={dark ? '#e2e2e0' : '#565656'}
             stroke-width="1.2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -34,7 +34,7 @@ const HamburgIcon = () => (
             id="globalnav-menutrigger-bread-top"
             className="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
             fill="none"
-            stroke="currentColor"
+            stroke={dark ? '#e2e2e0' : '#565656'}
             stroke-width="1.2"
             stroke-linecap="round"
             stroke-linejoin="round"

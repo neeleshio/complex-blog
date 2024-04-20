@@ -21,7 +21,14 @@ type NavbarProps = {
     dispatch: FC;
 };
 
-const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark }) => {
+const Navbar = ({
+    navItems,
+    handleOpenNavMenu,
+    dispatch,
+    handleToggleTheme,
+    dark,
+    handleOpenMobileNav
+}) => {
     return (
         <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[999]">
             <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
@@ -60,14 +67,7 @@ const Navbar = ({ navItems, handleOpenNavMenu, dispatch, handleToggleTheme, dark
                     </button>
                     <button
                         className="justify-center bg-navbg items-center border-none hidden lg:flex"
-                        onClick={() =>
-                            dispatch(
-                                handleOpenNavMenu({
-                                    target: 'skills',
-                                    action: true
-                                })
-                            )
-                        }>
+                        onClick={() => dispatch(handleOpenMobileNav(true))}>
                         <HamburgIcon dark={dark} />
                     </button>
                 </div>

@@ -6,7 +6,12 @@ const BRCardFull = ({ title, topic, link, date, img }) => {
     return (
         <Link href={link} className="flex min-h-[36rem] w-full">
             <div className="bg-black w-[65%] rounded-l-[16px] flex justify-center items-center">
-                <Image src={img} width={320} height={320} className="object-cover" />
+                <Image
+                    src={img}
+                    width={320}
+                    height={320}
+                    className="object-cover rounded-t-[16px]"
+                />
             </div>
             <div className="w-[35%] p-[3.2rem] rounded-r-[16px] bg-white flex flex-col justify-between">
                 <div>

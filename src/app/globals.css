@@ -1,5 +1,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'tailwindcss/base';
 @import './fonts.css';
 
 :root {

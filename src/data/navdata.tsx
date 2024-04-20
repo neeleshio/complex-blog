@@ -30,7 +30,10 @@ export const NAVMENU_DATA = {
                     name: 'Tailwind CSS'
                 },
                 {
-                    name: 'Jest'
+                    name: 'Styled Comps'
+                },
+                {
+                    name: 'Storybook'
                 }
             ]
         },
@@ -58,9 +61,6 @@ export const NAVMENU_DATA = {
                 },
                 {
                     name: 'PiChain Labs'
-                },
-                {
-                    name: 'Redux'
                 }
             ]
         },
@@ -72,6 +72,75 @@ export const NAVMENU_DATA = {
                 },
                 {
                     name: 'Living Heritage'
+                }
+            ]
+        }
+    ],
+    PROJECTS: [
+        {
+            title: 'React',
+            data: [
+                {
+                    name: 'JsGPT'
+                },
+                {
+                    name: 'Standup'
+                }
+            ]
+        },
+        {
+            title: 'Vanilla JS',
+            data: [
+                {
+                    name: 'Debounce Visualizer'
+                }
+            ]
+        }
+    ],
+    'QUICK ARTICLES': [
+        {
+            title: 'React',
+            data: [
+                {
+                    name: 'Higher-order components'
+                },
+                {
+                    name: 'JSX transform'
+                },
+                {
+                    name: 'Real DOM vs Virtual DOM'
+                }
+            ]
+        },
+        {
+            title: 'JavaScript',
+            data: [
+                {
+                    name: 'Arrow Functions'
+                },
+                {
+                    name: 'Async vs Defer'
+                }
+            ]
+        }
+    ],
+    CONTACT: [
+        {
+            title: 'Connect with me',
+            data: [
+                {
+                    name: 'LinkedIn'
+                },
+                {
+                    name: 'Github'
+                }
+            ]
+        },
+        {
+            title: 'Mail me',
+            data: [
+                {
+                    name: 'neeleshiodev@gmail.com'
                 }
             ]
         }

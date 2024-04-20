@@ -32,6 +32,9 @@ module.exports = {
             lg: { max: '1023px' },
             // => @media (max-width: 1023px) { ... }
 
+            ml: { max: '849px' },
+            // => @media (max-width: 1023px) { ... }
+
             md: { max: '767px' },
             // => @media (max-width: 767px) { ... }
 
@@ -39,5 +42,8 @@ module.exports = {
             // => @media (max-width: 639px) { ... }
         }
     },
-    plugins: [require('@tailwindcss/typography')]
+    plugins: [require('@tailwindcss/typography')],
+    corePlugins: {
+        preflight: false
+    }
 };

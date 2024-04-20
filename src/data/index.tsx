@@ -128,28 +128,24 @@ export const PROJECTS = [
         image: Jsgpt,
         description: 'OpenAI proxy completion API powered chatbot webapp.',
         stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
-        latest: true
+        latest: true,
+        link: 'https://jsgpt.vercel.app/'
     },
     {
         name: 'Stand up',
         image: Standup,
         description: 'A break remainder PWA which reminds you to take a break from ur desk.',
         stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
-        latest: true
+        latest: true,
+        link: 'https://standup-now.vercel.app/'
     },
     {
         name: 'Debounce',
         image: DebounceLogo,
         description: 'Debounce & throttling techniques visualizer using a search bar.',
         stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
-        latest: true
-    },
-    {
-        name: 'Debounce2',
-        image: DebounceLogo,
-        description: 'Debounce & throttling techniques visualizer using a search bar.',
-        stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
-        latest: true
+        latest: true,
+        link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
     }
 ];
 
@@ -157,12 +153,12 @@ export const BLOGS = [
     {
         title: (
             <>
-                <span className="text-[#007aff]">50 JavaScript concepts, </span> must know basic to
-                intermediate JS concepts.
+                <span className="text-[#007aff]">Async vs Defer script, </span> when and where to
+                use.
             </>
         ),
         image: JsIcon,
-        link: 'https://github.com/neeleshio/50-javascript-concepts'
+        link: '/blogs/async-vs-defer'
     },
     {
         title: <span className="custom-color">50 React Concepts.</span>,
@@ -172,12 +168,15 @@ export const BLOGS = [
     {
         title: (
             <>
-                50 More JS concepts,{' '}
-                <span className="text-[#ac39ff]"> must know advanced JS concepts.</span>
+                50 JS concepts,
+                <span className="text-[#ac39ff]">
+                    {' '}
+                    must know basic to intermediate JS concepts.
+                </span>
             </>
         ),
         image: JsIcon2,
-        link: 'https://github.com/neeleshio/50-more-javascript-concepts'
+        link: '/blogs/async-vs-defer'
     },
     {
         title: (
@@ -205,9 +204,9 @@ export const NAVITEMS = [
     { id: 1, title: 'Skills', link: '' },
     { id: 2, title: 'Work History', link: '' },
     { id: 3, title: 'Projects', link: '' },
-    { id: 4, title: 'Blogs', link: '/blogs' },
+    { id: 4, title: 'Quick Articles', link: '' },
+    { id: 4, title: 'Blog', link: '/blogs' },
     { id: 5, title: 'Resume', link: '' },
-    { id: 5, title: 'Apps', link: '' },
     { id: 1, title: 'Documentation', link: '' },
     { id: 4, title: 'Contact', link: '' }
 ];

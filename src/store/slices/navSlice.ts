@@ -4,11 +4,13 @@ import { RootState } from '..';
 type navState = {
     open: boolean;
     target: string;
+    mobileNavOpen: boolean;
 };
 
 const initialState: navState = {
     open: false,
-    target: ''
+    target: '',
+    mobileNavOpen: false
 };
 
 const navSlice = createSlice({
@@ -19,11 +21,14 @@ const navSlice = createSlice({
             const { target, action } = payload;
             state.open = action;
             state.target = target;
+        },
+        handleOpenMobileNav(state, { payload }) {
+            state.mobileNavOpen = payload;
         }
     }
 });
 
-export const { handleOpenNavMenu } = navSlice.actions;
+export const { handleOpenNavMenu, handleOpenMobileNav } = navSlice.actions;
 
 export const navSelector = (state: RootState) => state.navSlice;
 
