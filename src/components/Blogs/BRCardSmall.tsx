@@ -6,7 +6,7 @@ const BRCardSmall = ({ title, topic, link, date, img, router }: BlogCardProps) =
     return (
         <div
             className="bg-project-card-bg flex items-center cursor-pointer"
-            onClick={() => router.push(`/blogs/${link}`)}>
+            onClick={() => router.push(`/blogs/${link}?title=${title}`)}>
             <div className="min-h-[13rem] min-w-[13rem] rounded-[1.6rem] relative md:min-h-[10rem] md:min-w-[10rem]">
                 <Image src={img} fill className="object-cover rounded-[16px] absolute" />
             </div>
