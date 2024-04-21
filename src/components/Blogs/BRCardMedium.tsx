@@ -1,23 +1,25 @@
+import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
-const BRCardMedium = ({ title, topic, link, date, img }) => {
+const BRCardMedium = ({ title, topic, link, date, img, router }: BlogCardProps) => {
     return (
-        <Link
-            href={link}
-            className="bg-white rounded-[16px] shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029]">
+        <div
+            className="bg-project-card-bg rounded-[16px] shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] custom-transform"
+            onClick={() => router.push(`/blogs/${link}`)}>
             <div className="h-[17rem] relative">
                 <Image src={img} fill className="object-cover rounded-t-[16px] absolute" />
             </div>
             <div className="flex flex-col p-[1.7rem] justify-between">
                 <div>
-                    <div className="text-[1.2rem] mb-4 font-semibold text-[#6e6e73]">{topic}</div>
+                    <div className="text-[1.2rem] mb-4 font-semibold text-menu-color-light">
+                        {topic}
+                    </div>
                     <div className="text-[1.9rem] font-semibold">{title}</div>
                 </div>
-                <div className="text-[1.4rem] mt-5 font-semibold text-[#6e6e73]">{date}</div>
+                <div className="text-[1.4rem] mt-5 font-semibold text-menu-color-light">{date}</div>
             </div>
-        </Link>
+        </div>
     );
 };
 

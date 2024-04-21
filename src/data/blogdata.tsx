@@ -4,7 +4,7 @@ export const LATEST_BLOG = {
     link: 'jsx-transform',
     tags: ['react', 'javascript', 'jsx', 'nextjs', 'babel', 'typescript'],
     date: '14 April 2024',
-    img: '/jsx-transform.png'
+    img: '/react-3d.png'
 };
 
 export const BLOG_DATA = [

@@ -1,15 +1,19 @@
+import { BlogCardProps } from '@/src/types';
+import Image from 'next/image';
 import React from 'react';
 
-const BRCardSmall = () => {
+const BRCardSmall = ({ title, topic, link, date, img, router }: BlogCardProps) => {
     return (
-        <div className="bg-white flex items-center">
-            <div className="min-h-[13rem] min-w-[13rem] bg-black rounded-[1.6rem]"></div>
+        <div
+            className="bg-project-card-bg flex items-center cursor-pointer"
+            onClick={() => router.push(`/blogs/${link}`)}>
+            <div className="min-h-[13rem] min-w-[13rem] rounded-[1.6rem] relative md:min-h-[10rem] md:min-w-[10rem]">
+                <Image src={img} fill className="object-cover rounded-[16px] absolute" />
+            </div>
             <div className="font-semibold pl-[2.4rem]">
-                <div className="text-[1.2rem] mb-[0.4rem]">PRESS RELEASE</div>
-                <div className="text-[1.7rem]">
-                    USHER’s Road to Halftime on Apple Music launches today
-                </div>
-                <div className="text-[1.4rem] mt-[0.8rem]">05 February 2024</div>
+                <div className="text-[1.2rem] mb-[0.4rem] text-menu-color-light">{topic}</div>
+                <div className="text-[1.7rem]">{title}</div>
+                <div className="text-[1.4rem] mt-[0.8rem] text-menu-color-light">{date}</div>
             </div>
         </div>
     );
