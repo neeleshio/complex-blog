@@ -8,9 +8,7 @@ import { Footer, Header } from '@/src/containers';
 import { Provider } from 'react-redux';
 import { store } from '@/src/store';
 import SectionHeader from '@/src/components/SectionHeader';
-import { FaWhatsapp } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { IoIosMail, IoIosLink } from 'react-icons/io';
+import { ShareButtons } from '@/src/components';
 
 const customStyle = {
     fontSize: '1.4rem',
@@ -23,42 +21,31 @@ const components = {
     h1: ({ children }) => (
         <div className="mb-[2rem] sm:text-center">
             <div className="mb-12 sm:text-center">
-                <div className="text-[#6e6e73] text-[1.2rem] font-semibold">JAVASCRIPT</div>
-                <div className="text-[#6e6e73] text-[1.4rem] font-medium mt-[0.5rem]">
+                <div className="text-cgrey text-[1.2rem] font-semibold">JAVASCRIPT</div>
+                <div className="text-cgrey text-[1.4rem] font-medium mt-[0.5rem]">
                     04 March 2024
                 </div>
             </div>
-            <h1 className="text-[#1d1d1f] font-semibold text-[4.8rem] leading-[50px] md:text-[3.2rem] sm:leading-[40px]">
+            <h1 className="text-primary-color font-semibold text-[4.8rem] leading-[50px] md:text-[3.2rem] sm:leading-[40px]">
                 {children}
             </h1>
         </div>
     ),
     blockquote: ({ children }) => (
         <div className="mb-16 sm:text-center">
-            <div className="text-[2.2rem] font-medium text-[#1d1d1f] leading-[28px] md:text-[1.8rem] md:leading-[24px]">
+            <div className="text-[2.2rem] font-medium text-primary-color leading-[28px] md:text-[1.8rem] md:leading-[24px]">
                 {children?.[1]?.['props']?.['children']}
             </div>
 
-            <div>
-                <div className="mt-[3.2rem] blog-share">
-                    <button>
-                        <FaWhatsapp />
-                    </button>
-                    <button>
-                        <FaXTwitter />
-                    </button>
-                    <button>
-                        <IoIosMail />
-                    </button>
-                    <button>
-                        <IoIosLink />
-                    </button>
-                </div>
+            <div className="mt-[3.2rem]">
+                <ShareButtons />
             </div>
         </div>
     ),
     p: ({ children }) => (
-        <p className="text-[1.7rem] text-[#1d1d1f] mb-6 font-medium">{children}</p>
+        <p className="text-[1.7rem] text-primary-color mb-6 font-medium sm:text-[1.5rem]">
+            {children}
+        </p>
     ),
     code: ({ className, children }) => (
         <SyntaxHighlighter
@@ -79,33 +66,24 @@ const components = {
         />
     ),
     li: ({ children }) => <li className="list-disc mx-16 mb-6">{children}</li>,
-    h2: ({ children }) => <h2 className="mb-10 mt-10 text-[#235bc1] text-[2.7rem]">{children}</h2>,
-    h3: ({ children }) => <h3 className="mb-6 text-[2rem]">{children}</h3>
+    h2: ({ children }) => (
+        <h2 className="mb-10 mt-10 text-[#235bc1] text-[2.7rem] sm:text-[2.5rem] sm:mb-8">
+            {children}
+        </h2>
+    ),
+    h3: ({ children }) => <h3 className="mb-6 text-[2rem] sm:text-[1.8rem]">{children}</h3>
 };
 
 export function CustomMDX(props) {
     return (
         <Provider store={store}>
             <Header />
-            <SectionHeader />
+            <SectionHeader title="Blog" />
             <div className="w-[98rem] m-auto px-32 py-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
-                <div className="mt-[10rem] mb-[6rem] blog-share flex">
+                <div className="mt-[10rem] mb-[6rem] flex">
                     <div className="mr-8">Share on</div>
-                    <div className="flex">
-                        <button>
-                            <FaWhatsapp />
-                        </button>
-                        <button>
-                            <FaXTwitter />
-                        </button>
-                        <button>
-                            <IoIosMail />
-                        </button>
-                        <button>
-                            <IoIosLink />
-                        </button>
-                    </div>
+                    <ShareButtons />
                 </div>
                 <hr />
             </div>

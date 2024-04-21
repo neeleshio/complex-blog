@@ -10,7 +10,7 @@ export default function BlogsPage() {
     return (
         <Provider store={store}>
             <Header />
-            <SectionHeader />
+            <SectionHeader title="Blog Wall" />
             <div>
                 <Blogs />
             </div>

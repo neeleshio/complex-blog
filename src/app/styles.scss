@@ -159,6 +159,11 @@ button {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+.dark .bg-blur {
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(29, 29, 31, 0.7);
+}
+
 .blog {
     h1 {
         font-size: 4.8rem;
@@ -179,10 +184,22 @@ button {
         background-color: transparent;
         padding-right: 16px;
 
+        @media screen and (max-width: 639px) {
+            padding: 0 8px;
+        }
+
         svg {
             width: 18px;
             height: 18px;
             fill: #6e6e73;
+        }
+    }
+}
+
+.dark .blog-share {
+    button {
+        svg {
+            fill: #a0a09a;
         }
     }
 }

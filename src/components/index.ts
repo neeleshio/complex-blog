@@ -13,3 +13,4 @@ export { default as SectionHeader } from './SectionHeader';
 export { default as SkillCard } from './SkillCard';
 export { default as Socials } from './Socials';
 export { default as WorkCard } from './WorkCard';
+export { default as ShareButtons } from './ShareButtons';
