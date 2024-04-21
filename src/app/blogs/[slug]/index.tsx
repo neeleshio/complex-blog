@@ -90,7 +90,7 @@ const components = {
     )
 };
 
-export function BlogPag(props: BlogPageProps) {
+export function BlogPage(props: BlogPageProps) {
     return (
         <Provider store={store}>
             <Header />
