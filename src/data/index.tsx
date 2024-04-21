@@ -150,6 +150,14 @@ export const PROJECTS = [
         stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
         latest: true,
         link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
+    },
+    {
+        name: 'Debounce',
+        image: DebounceLogo,
+        description: 'Debounce & throttling techniques visualizer using a search bar.',
+        stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
+        latest: true,
+        link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
     }
 ];
 

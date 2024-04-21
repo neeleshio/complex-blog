@@ -21,21 +21,21 @@ const customStyle = {
 
 const components = {
     h1: ({ children }) => (
-        <div className="mb-[2rem]">
-            <div className="mb-12">
+        <div className="mb-[2rem] sm:text-center">
+            <div className="mb-12 sm:text-center">
                 <div className="text-[#6e6e73] text-[1.2rem] font-semibold">JAVASCRIPT</div>
                 <div className="text-[#6e6e73] text-[1.4rem] font-medium mt-[0.5rem]">
                     04 March 2024
                 </div>
             </div>
-            <h1 className="text-[#1d1d1f] font-semibold text-[4.8rem] leading-[50px]">
+            <h1 className="text-[#1d1d1f] font-semibold text-[4.8rem] leading-[50px] md:text-[3.2rem] sm:leading-[40px]">
                 {children}
             </h1>
         </div>
     ),
     blockquote: ({ children }) => (
-        <div className="mb-16">
-            <div className="text-[2.2rem] font-medium text-[#1d1d1f] leading-[28px]">
+        <div className="mb-16 sm:text-center">
+            <div className="text-[2.2rem] font-medium text-[#1d1d1f] leading-[28px] md:text-[1.8rem] md:leading-[24px]">
                 {children?.[1]?.['props']?.['children']}
             </div>
 
@@ -88,7 +88,7 @@ export function CustomMDX(props) {
         <Provider store={store}>
             <Header />
             <SectionHeader />
-            <div className="w-[98rem] m-auto px-32 py-24">
+            <div className="w-[98rem] m-auto px-32 py-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
                 <div className="mt-[10rem] mb-[6rem] blog-share flex">
                     <div className="mr-8">Share on</div>
