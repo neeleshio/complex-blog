@@ -1,16 +1,19 @@
+import { SHARE_BUTTONS } from '@/src/data';
+import useOpenLink from '@/src/hooks/useOpenLink';
 import React from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { IoIosMail, IoIosLink } from 'react-icons/io';
+import { useSearchParams } from 'next/navigation';
 
 const ShareButtons = () => {
-    const icons = [FaWhatsapp, FaXTwitter, IoIosMail, IoIosLink];
+    const { navigate } = useOpenLink();
+    const searchParams = useSearchParams();
+
+    const title = searchParams?.get('title');
 
     return (
         <div className="flex blog-share">
-            {icons.map((Icon) => (
-                <button>
-                    <Icon color="red" />
+            {SHARE_BUTTONS(title).map(({ icon: Icon, link }) => (
+                <button onClick={() => navigate(link)}>
+                    <Icon />
                 </button>
             ))}
         </div>

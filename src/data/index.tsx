@@ -30,6 +30,9 @@ import DebounceLogo from '@/assets/images/svg/DebounceLogo';
 import StorybookLogo from '@/assets/images/svg/StorybookLogo';
 import TSLogo from '@/assets/images/svg/TSLogo';
 import Flipkart from '@/assets/images/svg/Flipkart';
+import { FaWhatsapp } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { IoIosMail, IoIosLink } from 'react-icons/io';
 
 export const SKILLS = [
     {
@@ -258,5 +261,28 @@ export const QUICK_LINKS = [
     {
         name: 'LinkedIn',
         link: 'https://linkedin.com/in/neeleshio'
+    }
+];
+
+export const SHARE_BUTTONS = (title: string) => [
+    {
+        name: 'whatsapp',
+        icon: FaWhatsapp,
+        link: `https://api.whatsapp.com:/send?text=${title}`
+    },
+    {
+        name: 'twitter',
+        icon: FaXTwitter,
+        link: `https://twitter.com/intent/tweet?text=${title}`
+    },
+    {
+        name: 'mail',
+        icon: IoIosMail,
+        link: `mailto:?subject=${title}&body=Hi,I found this website and thought you might like it http://www.geocities.com/wowhtml/"`
+    },
+    {
+        name: 'copy',
+        icon: IoIosLink,
+        link: ''
     }
 ];
