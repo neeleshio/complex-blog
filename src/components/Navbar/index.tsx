@@ -30,7 +30,7 @@ const Navbar = ({
     handleOpenMobileNav
 }) => {
     return (
-        <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[999]">
+        <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]">
             <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div className={`${dark ? 'visible' : 'hidden'}`}>

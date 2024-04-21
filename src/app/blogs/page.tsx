@@ -1,20 +1,11 @@
-'use client';
+import BlogsWall from '@/src/pages/BlogsWall';
+import type { Metadata } from 'next';
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from '@/src/store';
-import { Blogs, Footer, Header } from '@/src/containers';
-import SectionHeader from '@/src/components/SectionHeader';
+export const metadata: Metadata = {
+    title: 'NSIO | Blog',
+    description: 'Blogs written by Neelesh'
+};
 
-export default function BlogsPage() {
-    return (
-        <Provider store={store}>
-            <Header />
-            <SectionHeader title="Blog Wall" />
-            <div>
-                <Blogs />
-            </div>
-            <Footer />
-        </Provider>
-    );
+export default function Blogs() {
+    return <BlogsWall />;
 }

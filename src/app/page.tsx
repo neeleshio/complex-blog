@@ -1,34 +1,11 @@
-'use client';
+import HomePage from '../pages/HomePage';
+import type { Metadata } from 'next';
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from '@/src/store';
-import {
-    Articles,
-    Footer,
-    Header,
-    Intro,
-    Projects,
-    QuickLinks,
-    Skills,
-    Work
-} from '@/src/containers';
-import Ribbon from '@/src/containers/Ribbon';
+export const metadata: Metadata = {
+    title: 'Neelesh | Frontend Developer',
+    description: 'Designed and Built by Neelesh'
+};
 
-export default function HomePage() {
-    return (
-        <Provider store={store}>
-            <Header />
-            <Ribbon />
-            <div>
-                <Intro />
-                <Skills />
-                <Work />
-                <Projects />
-                <Articles />
-                <QuickLinks />
-                <Footer />
-            </div>
-        </Provider>
-    );
+export default function Home() {
+    return <HomePage />;
 }
