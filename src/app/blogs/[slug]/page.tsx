@@ -2,7 +2,7 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from 'next';
-import { BlogPage } from '@/src/pages/BlogPage';
+import { BlogPage } from '.';
 
 const contentDir = path.join(process.cwd(), '/src/blog-posts');
 
