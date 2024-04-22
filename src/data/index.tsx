@@ -102,7 +102,7 @@ export const WORK_HISTORY = [
         id: 1,
         company: 'Recrosoft - Flipkart',
         designation: 'UI Engineer - 2',
-        timeline: 'June 2023 - March 2024',
+        timeline: 'June 2023 - Current',
         projects: ['Iris 2.0', 'FK Studio Dashboard', 'KBOT'],
         image: Flipkart,
         latest: true,

@@ -27,7 +27,7 @@ type ChildrenProp = {
 const customStyle = {
     fontSize: '1.4rem',
     borderRadius: 6,
-    boxShadow: '0px 0px 43px -1px rgba(88, 86, 86, 0.75)',
+    boxShadow: '0px 0px 13px -1px rgba(88, 86, 86, 0.75)',
     margin: '4rem 0'
 };
 
@@ -86,7 +86,7 @@ const components = {
         </h2>
     ),
     h3: ({ children }: ChildrenProp) => (
-        <h3 className="mb-6 text-[2rem] sm:text-[1.8rem]">{children}</h3>
+        <h3 className="mb-6 text-[1.8rem] font-semibold">{children}</h3>
     )
 };
 
