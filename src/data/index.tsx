@@ -36,50 +36,62 @@ import { IoIosMail, IoIosLink } from 'react-icons/io';
 
 export const SKILLS = [
     {
+        id: 1,
         name: 'React',
         icon: ReactLogo
     },
     {
+        id: 2,
         name: 'JavaScript',
         icon: Js
     },
     {
+        id: 3,
         name: 'TypeScript',
         icon: TSLogo
     },
     {
+        id: 4,
         name: 'Redux',
         icon: ReduxLogo
     },
     {
+        id: 5,
         name: 'NextJs',
         icon: NextLogo
     },
     {
+        id: 6,
         name: 'RestFul',
         icon: RestLogo
     },
     {
+        id: 7,
         name: 'Express',
         icon: ExpressLogo
     },
     {
+        id: 8,
         name: 'Jest',
         icon: JestLogo
     },
     {
+        id: 9,
         name: 'Tailwind CSS',
         icon: TailwindLogo
     },
     {
+        id: 10,
         name: 'Styled Comps',
         icon: StyledCompLogo
     },
     // {
+    //     id: 11,
     //     name: 'Storybook',
     //     icon: StorybookLogo
     // },
     {
+        id: 12,
         name: 'React Native',
         icon: NativeLogo
     }
@@ -87,6 +99,7 @@ export const SKILLS = [
 
 export const WORK_HISTORY = [
     {
+        id: 1,
         company: 'Recrosoft - Flipkart',
         designation: 'UI Engineer - 2',
         timeline: 'June 2023 - March 2024',
@@ -96,6 +109,7 @@ export const WORK_HISTORY = [
         link: 'https://www.flipkartcareers.com/#!/lifeatflipkart'
     },
     {
+        id: 2,
         company: 'CampK12',
         designation: 'SDE-1 Frontend',
         timeline: 'Jan 2022 - May 2023',
@@ -110,6 +124,7 @@ export const WORK_HISTORY = [
         link: 'https://campk12.com/'
     },
     {
+        id: 3,
         company: 'PiChain Labs',
         designation: 'Frontend Developer',
         timeline: 'Nov 2020 - Nov 2021',
@@ -119,6 +134,7 @@ export const WORK_HISTORY = [
         link: 'https://pichainlabs.com/'
     },
     {
+        id: 4,
         company: 'FrontRow',
         designation: 'Software Developer Intern',
         timeline: 'Jul 2020 - Sep 2020',
@@ -131,6 +147,7 @@ export const WORK_HISTORY = [
 
 export const PROJECTS = [
     {
+        id: 1,
         name: 'JsGPT',
         image: Jsgpt,
         description: 'OpenAI proxy completion API powered chatbot webapp.',
@@ -139,6 +156,7 @@ export const PROJECTS = [
         link: 'https://jsgpt.vercel.app/'
     },
     {
+        id: 2,
         name: 'Stand up',
         image: Standup,
         description: 'A break remainder PWA which reminds you to take a break from ur desk.',
@@ -147,6 +165,7 @@ export const PROJECTS = [
         link: 'https://standup-now.vercel.app/'
     },
     {
+        id: 3,
         name: 'Debounce',
         image: DebounceLogo,
         description: 'Debounce & throttling techniques visualizer using a search bar.',
@@ -155,6 +174,7 @@ export const PROJECTS = [
         link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
     },
     {
+        id: 4,
         name: 'Debounce',
         image: DebounceLogo,
         description: 'Debounce & throttling techniques visualizer using a search bar.',
@@ -166,6 +186,7 @@ export const PROJECTS = [
 
 export const BLOGS = [
     {
+        id: 1,
         title: (
             <>
                 <span className="text-[#007aff]">Async vs Defer script, </span> when and where to
@@ -176,11 +197,13 @@ export const BLOGS = [
         link: '/blogs/async-vs-defer'
     },
     {
+        id: 2,
         title: <span className="custom-color">50 React Concepts.</span>,
         image: ReactBlogIcon,
         link: 'https://github.com/neeleshio/50-reactjs-concepts'
     },
     {
+        id: 3,
         title: (
             <>
                 50 JS concepts,
@@ -194,6 +217,7 @@ export const BLOGS = [
         link: '/blogs/async-vs-defer'
     },
     {
+        id: 4,
         title: (
             <>
                 <span className="text-[#68CC45]">Html-Css concepts,</span> every developer should
@@ -204,6 +228,7 @@ export const BLOGS = [
         link: 'https://github.com/neeleshio/50-html-css-concepts'
     },
     {
+        id: 5,
         title: (
             <>
                 <span className="text-[#68CC45]">Html-Css concepts,</span> every developer should
@@ -220,10 +245,10 @@ export const NAVITEMS = [
     { id: 2, title: 'Work History', link: '' },
     { id: 3, title: 'Projects', link: '' },
     { id: 4, title: 'Quick Articles', link: '' },
-    { id: 4, title: 'Blog', link: '/blogs' },
-    { id: 5, title: 'Resume', link: '/' },
-    { id: 1, title: 'Documentation', link: '/' },
-    { id: 4, title: 'Contact', link: '' }
+    { id: 5, title: 'Blog', link: '/blogs' },
+    { id: 6, title: 'Resume', link: '/' },
+    { id: 7, title: 'Documentation', link: '/' },
+    { id: 8, title: 'Contact', link: '' }
 ];
 
 export const SOCIALS = [
@@ -251,14 +276,17 @@ export const SOCIALS = [
 
 export const QUICK_LINKS = [
     {
+        id: 1,
         name: 'Resume',
         link: 'https://drive.google.com/file/d/1EhqJYhtKqkmMIAT2u-TY8qljVgJ91taO/view?usp=drive_link'
     },
     {
+        id: 2,
         name: 'Contact',
         link: 'mailto:neeleshiodev@gmail.com'
     },
     {
+        id: 3,
         name: 'LinkedIn',
         link: 'https://linkedin.com/in/neeleshio'
     }
@@ -266,21 +294,25 @@ export const QUICK_LINKS = [
 
 export const SHARE_BUTTONS = (title: string) => [
     {
+        id: 1,
         name: 'whatsapp',
         icon: FaWhatsapp,
         link: `https://api.whatsapp.com:/send?text=${title}`
     },
     {
+        id: 2,
         name: 'twitter',
         icon: FaXTwitter,
         link: `https://twitter.com/intent/tweet?text=${title}`
     },
     {
+        id: 3,
         name: 'mail',
         icon: IoIosMail,
         link: `mailto:?subject=${title}&body=Hi,I found this website and thought you might like it http://www.geocities.com/wowhtml/"`
     },
     {
+        id: 4,
         name: 'copy',
         icon: IoIosLink,
         link: ''

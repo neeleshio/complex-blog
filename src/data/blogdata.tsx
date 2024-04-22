@@ -1,4 +1,5 @@
 export const LATEST_BLOG = {
+    id: 1,
     title: 'JSX Transform - New Update',
     topic: 'React',
     link: 'jsx-transform',
@@ -9,6 +10,7 @@ export const LATEST_BLOG = {
 
 export const BLOG_DATA = [
     {
+        id: 1,
         title: 'Arrow Functions',
         topic: 'JavaScript',
         link: 'arrow-functions',
@@ -17,6 +19,7 @@ export const BLOG_DATA = [
         img: '/arrow-functions.png'
     },
     {
+        id: 2,
         title: 'Async vs Defer attributes',
         topic: 'JavaScript',
         link: 'async-vs-defer',
@@ -25,6 +28,7 @@ export const BLOG_DATA = [
         img: '/async-vs-defer.png'
     },
     {
+        id: 3,
         title: 'Virtual DOM and DOM update process',
         topic: 'React',
         link: 'real-dom-vs-virtual-dom',
@@ -42,6 +46,7 @@ export const BLOG_DATA = [
         img: '/react-vdom.png'
     },
     {
+        id: 4,
         title: 'Higher order components',
         topic: 'React',
         link: 'higher-order-components',
@@ -50,6 +55,7 @@ export const BLOG_DATA = [
         img: '/hoc.png'
     },
     {
+        id: 5,
         title: 'JSX Transform - New Update',
         topic: 'React',
         link: 'jsx-transform',

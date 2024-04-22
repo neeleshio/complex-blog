@@ -1,5 +1,4 @@
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { FC } from 'react';
 
 export type BlogCardProps = {
     title: string;

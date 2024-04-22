@@ -1,5 +1,5 @@
 import React from 'react';
-import { BRCardFull, BRCardLarge, BRCardMedium, BRCardSmall } from '@/src/components/Blogs';
+import { BRCardFull, BRCardLarge, BRCardMedium, BRCardSmall } from '@/src/components/BlogCards';
 import { BLOG_DATA, LATEST_BLOG } from '@/src/data/blogdata';
 import { useRouter } from 'next/navigation';
 

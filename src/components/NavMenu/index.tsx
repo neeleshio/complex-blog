@@ -9,7 +9,7 @@ type NavMenuProps = {
     data: [];
 };
 
-const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height }) => {
+const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height, link }) => {
     const [data_1, ...moreData] = data;
 
     const firstColumn = () => {
@@ -25,7 +25,7 @@ const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height }) => {
                     {data_1['data'].map((el) => (
                         <li
                             className={`text-[2.2rem] text-menu-color font-semibold pt-[0.9rem] pb-[0.7rem] py-[1.1rem] ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}>
-                            <Link className="link-text" href={''}>
+                            <Link className="link-text" href={el.link} target="_blank">
                                 {el.name}
                             </Link>
                         </li>
@@ -46,7 +46,7 @@ const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height }) => {
                     {el['data'].map((elx) => (
                         <li
                             className={`text-[1.2rem] text-menu-color font-semibold py-[0.7rem] px-[1.1rem] pl-0  ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}>
-                            <Link className="link-text" href={''}>
+                            <Link className="link-text" href={elx.link} target="_blank">
                                 {elx.name}
                             </Link>
                         </li>
