@@ -81,7 +81,7 @@ const components = {
     ),
     li: ({ children }: ChildrenProp) => <li className="list-disc mx-16 mb-6">{children}</li>,
     h2: ({ children }: ChildrenProp) => (
-        <h2 className="mb-10 mt-10 text-[#235bc1] text-[2.7rem] sm:text-[2.5rem] sm:mb-8">
+        <h2 className="mb-10 mt-20 text-[#235bc1] text-[2.7rem] sm:text-[2.5rem] sm:mb-8">
             {children}
         </h2>
     ),

@@ -1,0 +1,138 @@
+# Specificity, Cascading and Inheritance in CSS
+
+> the cascade, specificity, and inheritance — which control how CSS is applied to HTML and how conflicts between style declarations are resolved.
+
+![Specificity](/specificity.png)
+
+## Specificity
+
+Specificity is all about resolving conflicts that arise from multiple CSS rules which target the same element.
+
+-   Specificity is basically the algorithm that the browser uses to decide which property value is applied to an element.
+-   If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element.
+
+### When to use !important?
+
+One way to use !important is if you have to override a style that cannot be overridden in any other way because !important has the highest specificity over all other selectors.
+
+```javascript
+!important > Inline style attribute > Id selector > Class selector > Element selector > Universal selector.
+```
+
+## Cascading
+
+In plain English, Cascade means a waterfall or something arranged or occurring in a series or in a succession of stages so that each stage derives from or acts upon the product of the preceding.
+
+-   The “cascading” in CSS refers to the fact that styling rules “cascade” down from several sources. This means that CSS has an inherent hierarchy and styles of a higher precedence will overwrite rules of a lower precedence. Here precedence means **priority of importance**.
+
+-   Stylesheets cascade — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
+
+```css
+h1 {
+    color: blue;
+}
+h1 {
+    color: red;
+}
+```
+
+```html
+<h1>This is my heading.</h1>
+```
+
+<div>
+
+<h3 className="text-red-700">This is my heading.</h3>
+<br />
+
+Result: The h1 content ends up being colored blue.
+
+</div>
+<br/>
+
+## Inheritance
+
+In CSS, inheritance controls what happens when no value is specified for a property on an element.
+
+When no value for an inherited property has been specified on an element, the element gets the computed value of that property on its parent element.
+
+Some examples:
+
+-   color
+-   font-size
+-   font-weight
+-   font-family
+
+```css
+p {
+    color: green;
+}
+```
+
+```html
+<p>This paragraph has <em>emphasized text</em> in it.</p>
+```
+
+<div className="flex">
+    <h3 className="text-green-700">This paragraph has</h3>
+    <h3 className="text-green-700 italic pl-2">emphasized text</h3>
+    <h3 className="text-green-700 pl-2">in it.</h3>
+</div>
+<br />
+
+Result: The word "emphasized text" will also appear green, since the em element has inherited the value of the color property from the p element.
+
+<br />
+<h3 className="text-red-400">Noninherited properties</h3>
+<br />
+
+These are properties that are not inherited or computed from the element’s parent. Its value is explicitly set or by its initial value.
+
+A typical example of a non-inherited property is the border property. Consider the following style rules and the markup:
+
+```css
+p {
+    border: medium solid;
+}
+```
+
+```html
+<p>This paragraph has <em>emphasized text</em> in it.</p>
+```
+
+The words "emphasized text" will not have another border (since the initial value of border-style is none).
+
+Some other examples:
+
+-   margin
+-   border
+-   padding
+-   height
+-   width
+
+## What is inherit property?
+
+When you set inherit explicitly on an element, the element takes the value from it’s parent.
+
+-   This applies not only to inheritable properties, but to all CSS properties.
+-   Only direct child elements can inherit a CSS property from its parent element using the inherit.
+
+Overriding inheritance, an example:
+
+Using our previous example with border, if we explicitly set the inheritance with inherit, we get the following:
+
+```css
+p {
+    border: medium solid;
+}
+
+em {
+    border: inherit;
+}
+```
+
+```html
+<p>This paragraph has <em>emphasized text</em> in it.</p>
+```
+
+This will apply border to both the p & em elements.

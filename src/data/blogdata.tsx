@@ -62,5 +62,23 @@ export const BLOG_DATA = [
         tags: ['react', 'javascript', 'jsx', 'nextjs', 'babel', 'typescript'],
         date: '14 April 2024',
         img: '/jsx-transform.png'
+    },
+    {
+        id: 6,
+        title: 'Specificity, Cascading and Inheritance in CSS',
+        topic: 'CSS',
+        link: 'specificity-cascading-and-inheritance',
+        tags: [
+            'css',
+            'javascript',
+            'html',
+            'specificity',
+            'stylesheet',
+            'cascading',
+            'sass',
+            'tailwind'
+        ],
+        date: '22 April 2024',
+        img: '/specificity.png'
     }
 ];
