@@ -15,16 +15,6 @@ const CustomScroll = ({ children, height }: CustomScrollProps) => {
     const [leftArrow, setLeftArrow] = useState(false);
     const [rightArrow, setRightArrow] = useState(false);
 
-    const handleScroll = (position: string) => {
-        if (scrollRef.current) {
-            if (position === 'right') {
-                scrollRef.current.scrollLeft = scrollRef.current.scrollLeft + 440;
-            } else {
-                scrollRef.current.scrollLeft = scrollRef.current.scrollLeft - 440;
-            }
-        }
-    };
-
     useEffect(() => {
         if (mouseOver && scrollRef.current) {
             let { scrollLeft, offsetWidth, scrollWidth } = scrollRef.current;
@@ -50,6 +40,16 @@ const CustomScroll = ({ children, height }: CustomScrollProps) => {
             setLeftArrow(false);
         }
     }, [mouseOver, scrollCapture]);
+
+    const handleScroll = (position: string) => {
+        if (scrollRef.current) {
+            if (position === 'right') {
+                scrollRef.current.scrollLeft = scrollRef.current.scrollLeft + 440;
+            } else {
+                scrollRef.current.scrollLeft = scrollRef.current.scrollLeft - 440;
+            }
+        }
+    };
 
     return (
         <div

@@ -104,7 +104,7 @@ export const WORK_HISTORY = [
         designation: 'UI Engineer - 2',
         timeline: 'June 2023 - Current',
         projects: ['Iris 2.0', 'FK Studio Dashboard', 'KBOT'],
-        image: Flipkart,
+        image: flipkart,
         latest: true,
         link: 'https://www.flipkartcareers.com/#!/lifeatflipkart'
     },

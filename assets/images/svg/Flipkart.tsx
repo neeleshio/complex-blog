@@ -1,4 +1,4 @@
-const Flipkart = ({ dark }) => (
+const Flipkart = () => (
     <svg
         width="390"
         height="280"
