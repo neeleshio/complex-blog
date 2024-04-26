@@ -2,13 +2,18 @@ import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
 import React from 'react';
 
-const BRCardSmall = ({ title, topic, link, date, img, router }: BlogCardProps) => {
+const BlogCardSmall = ({ title, topic, link, date, img, router }: BlogCardProps) => {
     return (
         <div
             className="bg-project-card-bg flex items-center cursor-pointer"
             onClick={() => router.push(`/blogs/${link}?title=${title}`)}>
             <div className="min-h-[13rem] min-w-[13rem] rounded-[1.6rem] relative md:min-h-[10rem] md:min-w-[10rem]">
-                <Image src={img} fill className="object-cover rounded-[16px] absolute" />
+                <Image
+                    alt={title}
+                    src={img}
+                    fill
+                    className="object-cover rounded-[16px] absolute"
+                />
             </div>
             <div className="font-semibold pl-[2.4rem]">
                 <div className="text-[1.2rem] mb-[0.4rem] text-menu-color-light">{topic}</div>
@@ -19,4 +24,4 @@ const BRCardSmall = ({ title, topic, link, date, img, router }: BlogCardProps) =
     );
 };
 
-export default BRCardSmall;
+export default BlogCardSmall;

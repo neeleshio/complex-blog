@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-function Backdrop({ open, children }) {
+type BackdropProps = {
+    open: boolean;
+    children: ReactNode;
+};
+
+function Backdrop({ open, children }: BackdropProps) {
     return (
         <div
             className={`h-screen w-screen fixed bg-backdrop-bg z-[999] nav-menu-backdrop ${open ? 'opacity-100 visible nav-menu-backdrop-open' : 'opacity-0 invisible nav-menu-backdrop-end'}`}>

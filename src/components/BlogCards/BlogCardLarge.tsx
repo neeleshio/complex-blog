@@ -2,13 +2,18 @@ import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
 import React from 'react';
 
-const BRCardLarge = ({ title, topic, link, date, img, router }: BlogCardProps) => {
+const BlogCardLarge = ({ title, topic, link, date, img, router }: BlogCardProps) => {
     return (
         <div
-            className="rounded-[16px] block w-full shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] border-[#f5f5f72e] border border-solid cursor-pointer custom-transform"
+            className="rounded-[16px] block max-w-[45rem] w-full md:max-w-[100%] shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] border-[#f5f5f72e] border border-solid cursor-pointer custom-transform"
             onClick={() => router.push(`/blogs/${link}?title=${title}`)}>
             <div className="h-[26rem] relative lg:h-[22rem] ml:h-[18rem]">
-                <Image src={img} fill className="rounded-t-[16px] object-cover absolute blog-img" />
+                <Image
+                    alt={title}
+                    src={img}
+                    fill
+                    className="rounded-t-[16px] object-cover absolute blog-img"
+                />
             </div>
             <div className="flex flex-col p-[3.2rem] justify-between ml:p-[2.4rem]">
                 <div>
@@ -23,4 +28,4 @@ const BRCardLarge = ({ title, topic, link, date, img, router }: BlogCardProps) =
     );
 };
 
-export default BRCardLarge;
+export default BlogCardLarge;

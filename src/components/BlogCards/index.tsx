@@ -1,4 +1,4 @@
-export { default as BRCardFull } from './BRCardFull';
-export { default as BRCardLarge } from './BRCardLarge';
-export { default as BRCardMedium } from './BRCardMedium';
-export { default as BRCardSmall } from './BRCardSmall';
+export { default as BlogCardFull } from './BlogCardFull';
+export { default as BlogCardLarge } from './BlogCardLarge';
+export { default as BlogCardMedium } from './BlogCardMedium';
+export { default as BlogCardSmall } from './BlogCardSmall';

@@ -2,13 +2,14 @@ import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
 import React from 'react';
 
-const BRCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) => {
+const BlogCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) => {
     return (
         <div
             className="flex min-h-[36rem] w-full ml:hidden shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] border-[#f5f5f72e] border border-solid rounded-[18px] cursor-pointer custom-transform"
             onClick={() => router.push(`/blogs/${link}?title=${title}`)}>
             <div className="bg-invert-secondary w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
+                    alt={title}
                     src={img}
                     width={320}
                     height={320}
@@ -26,4 +27,4 @@ const BRCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) =>
     );
 };
 
-export default BRCardFull;
+export default BlogCardFull;

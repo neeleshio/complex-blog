@@ -1,5 +1,10 @@
 import React from 'react';
-import { BRCardFull, BRCardLarge, BRCardMedium, BRCardSmall } from '@/src/components/BlogCards';
+import {
+    BlogCardFull,
+    BlogCardLarge,
+    BlogCardMedium,
+    BlogCardSmall
+} from '@/src/components/BlogCards';
 import { BLOG_DATA, LATEST_BLOG } from '@/src/data/blogdata';
 import { useRouter } from 'next/navigation';
 
@@ -12,15 +17,15 @@ const Blogs = () => {
                 <h2 className="text-[3rem] mb-[2.4rem] ml:text-[2.8rem] ml:mb-[1.6rem]">
                     Latest Blogs
                 </h2>
-                <BRCardFull {...LATEST_BLOG} router={router} />
+                <BlogCardFull {...LATEST_BLOG} router={router} />
                 <div className="gap-16 mt-16 grid-cols-2 grid md:grid-cols-1 ml:mt-6 sm:px-0">
                     {BLOG_DATA.slice(0, 4).map((el) => (
-                        <BRCardLarge {...el} router={router} />
+                        <BlogCardLarge {...el} router={router} />
                     ))}
                 </div>
                 <div className="grid gap-16 mt-16 grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                     {BLOG_DATA.slice(0, 6).map((el) => (
-                        <BRCardMedium {...el} router={router} />
+                        <BlogCardMedium {...el} router={router} />
                     ))}
                 </div>
             </section>
@@ -32,7 +37,7 @@ const Blogs = () => {
                     <div className="grid grid-cols-2 md:grid-cols-1">
                         {BLOG_DATA.slice(0, 6).map((el, idx) => (
                             <div className="py-[3.2rem] border-bottom pr-[5rem]">
-                                <BRCardSmall {...el} router={router} />
+                                <BlogCardSmall {...el} router={router} />
                             </div>
                         ))}
                     </div>

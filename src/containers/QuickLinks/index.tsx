@@ -1,5 +1,4 @@
 import { QUICK_LINKS } from '@/src/data';
-import useOpenLink from '@/src/hooks/useOpenLink';
 import Link from 'next/link';
 import React from 'react';
 

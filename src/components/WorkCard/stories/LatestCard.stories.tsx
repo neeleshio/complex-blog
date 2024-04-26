@@ -4,7 +4,7 @@ import LatestWork from '../LatestWork';
 import { fn } from '@storybook/test';
 
 const meta = {
-    title: 'LatestWork',
+    title: 'Components/WorkCard/LatestWork',
     component: LatestWork,
     parameters: {
         layout: 'centered'

@@ -5,7 +5,7 @@ import ReactLogo from '@/assets/images/svg/ReactLogo';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'SkillCard',
+    title: 'Components/SkillCard',
     component: SkillCard,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

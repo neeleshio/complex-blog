@@ -85,11 +85,11 @@ export const SKILLS = [
         name: 'Styled Comps',
         icon: StyledCompLogo
     },
-    // {
-    //     id: 11,
-    //     name: 'Storybook',
-    //     icon: StorybookLogo
-    // },
+    {
+        id: 11,
+        name: 'Storybook',
+        icon: StorybookLogo
+    },
     {
         id: 12,
         name: 'React Native',
