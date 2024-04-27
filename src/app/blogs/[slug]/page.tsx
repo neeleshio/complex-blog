@@ -13,13 +13,16 @@ export const metadata: Metadata = {
 
 type BlogProps = {
     params: { slug: string };
-    searchParams: { title: string };
+    searchParams: { title: string; date: string; topic: string };
 };
 
-export default async function Blog({ params: { slug }, searchParams: { title } }: BlogProps) {
+export default async function Blog({
+    params: { slug },
+    searchParams: { title, date, topic }
+}: BlogProps) {
     const fileName = slug + '.mdx';
     const filePath = path.join(contentDir, fileName);
     const fileContent = fs.readFileSync(filePath, 'utf8');
 
-    return <BlogPage source={fileContent} title={title} />;
+    return <BlogPage source={fileContent} title={title} date={date} topic={topic} />;
 }

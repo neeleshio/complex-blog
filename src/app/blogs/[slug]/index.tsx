@@ -18,6 +18,8 @@ type BlogPageProps = {
     source: string;
     components?: MDXComponents | MergeComponents | null | undefined;
     title: string;
+    date: string;
+    topic: string;
 };
 
 type ChildrenProp = {
@@ -34,12 +36,6 @@ const customStyle = {
 const components = {
     h1: ({ children }: ChildrenProp) => (
         <div className="mb-[2rem] sm:text-center">
-            <div className="mb-12 sm:text-center">
-                <div className="text-cgrey text-[1.2rem] font-semibold">JAVASCRIPT</div>
-                <div className="text-cgrey text-[1.4rem] font-medium mt-[0.5rem]">
-                    04 March 2024
-                </div>
-            </div>
             <h1 className="text-primary-color font-semibold text-[4.8rem] leading-[50px] md:text-[3.2rem] sm:leading-[40px]">
                 {children}
             </h1>
@@ -95,7 +91,13 @@ export function BlogPage(props: BlogPageProps) {
         <Provider store={store}>
             <Header />
             <SectionHeader title={props.title} />
-            <div className="w-[98rem] m-auto px-32 py-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
+            <div className="sm:text-center w-[98rem] m-auto px-32 pt-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
+                <div className="text-cgrey text-[1.2rem] font-semibold">
+                    {props.topic.toUpperCase()}
+                </div>
+                <div className="text-cgrey text-[1.4rem] font-medium mt-[0.5rem]">{props.date}</div>
+            </div>
+            <div className="w-[98rem] m-auto px-32 pt-12 pb-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <MDXRemote
                     source={props.source}
                     components={{ ...components, ...(props.components || {}) }}

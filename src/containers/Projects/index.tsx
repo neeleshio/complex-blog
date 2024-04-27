@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import React from 'react';
-import chattodopic from '@/assets/images/png/chattodopic.png';
 import ProjectCard from '@/src/components/ProjectCard';
 import { PROJECTS } from '@/src/data';
 import CustomScroll from '@/src/components/CustomScroll';
