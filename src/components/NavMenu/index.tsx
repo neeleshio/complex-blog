@@ -1,16 +1,22 @@
 import Link from 'next/link';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import Backdrop from '../Backdrop';
 
-type NavMenuProps = {
-    handleOpenNavMenu: (state: boolean) => {};
-    dispatch: FC;
-    open: boolean;
-    data: [];
+type NavMenuItemsType = {
+    title: string;
+    data: [{ name: string; link: string }];
 };
 
-const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height, link }) => {
-    const [data_1, ...moreData] = data;
+type NavMenuProps = {
+    dispatch: FC;
+    open: boolean;
+    navMenuItems: NavMenuItemsType[];
+    height: string;
+    handleNavMenu: (state: { target: ''; action: boolean }) => {};
+};
+
+const NavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }: NavMenuProps) => {
+    const [data_1, ...moreData] = navMenuItems;
 
     const firstColumn = () => {
         if (data_1 === undefined) return;
@@ -61,7 +67,7 @@ const NavMenu = ({ handleOpenNavMenu, dispatch, open, data, height, link }) => {
             <div
                 style={{ height: open ? `${height}px` : `44px` }}
                 className={`w-full bg-primary-bg shadow-[0px_-10px_40px_1px_rgba(0,0,0,0.75)] nav-menu ${open ? `overflow-hidden` : 'invisible overflow-hidden'}`}
-                onMouseLeave={() => dispatch(handleOpenNavMenu('', false))}>
+                onMouseLeave={() => dispatch(handleNavMenu({ target: '', action: false }))}>
                 <div className={`px-56 pt-20 pb-[5rem] flex`}>
                     {firstColumn()}
 

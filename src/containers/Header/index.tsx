@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
 import NavMenu from '@/src/components/NavMenu';
 import { useAppDispatch, useAppSelector } from '@/src/hooks';
-import { handleOpenNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
+import { handleNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
@@ -31,7 +31,7 @@ const Header = () => {
 
         if (!mobileNavOpen) {
             dispatch(
-                handleOpenNavMenu({
+                handleNavMenu({
                     action: false,
                     target: ''
                 })
@@ -60,7 +60,7 @@ const Header = () => {
             } else {
                 setNavMenuItems([]);
                 dispatch(
-                    handleOpenNavMenu({
+                    handleNavMenu({
                         action: false,
                         target: ''
                     })
@@ -84,7 +84,7 @@ const Header = () => {
             {pathname === '/' ? (
                 <Navbar
                     navItems={NAVITEMS}
-                    handleOpenNavMenu={handleOpenNavMenu}
+                    handleNavMenu={handleNavMenu}
                     dispatch={dispatch}
                     handleToggleTheme={handleToggleTheme}
                     dark={dark}
@@ -93,7 +93,7 @@ const Header = () => {
             ) : (
                 <BlogNavbar
                     navItems={NAVITEMS}
-                    handleOpenNavMenu={handleOpenNavMenu}
+                    handleNavMenu={handleNavMenu}
                     dispatch={dispatch}
                     handleToggleTheme={handleToggleTheme}
                     dark={dark}
@@ -102,18 +102,17 @@ const Header = () => {
             )}
             <NavMenu
                 open={open}
-                handleOpenNavMenu={handleOpenNavMenu}
+                handleNavMenu={handleNavMenu}
                 dispatch={dispatch}
-                data={navMenuItems}
+                navMenuItems={navMenuItems}
                 height={navMenuHeight}
             />
             <MobileNavMenu
                 mobileNavOpen={mobileNavOpen}
                 navItems={NAVITEMS}
                 dispatch={dispatch}
-                navMenuItems={navMenuItems}
                 handleOpenMobileNav={handleOpenMobileNav}
-                handleOpenNavMenu={handleOpenNavMenu}
+                handleNavMenu={handleNavMenu}
                 mobileNavMenuItems={mobileNavMenuItems}
                 target={target}
                 dark={dark}

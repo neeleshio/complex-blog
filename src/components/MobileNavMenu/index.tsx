@@ -1,18 +1,29 @@
 import ArrowDown from '@/assets/images/svg/ArrowDown';
 import Wrong from '@/assets/images/svg/Wrong';
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
+
+type MobileNavMenuProps = {
+    mobileNavOpen: boolean;
+    dispatch: FC;
+    navItems: { id: number; title: string; link: string }[];
+    mobileNavMenuItems: { name: string; link: string }[];
+    target: string;
+    dark: boolean;
+    handleOpenMobileNav: (state: boolean) => {};
+    handleNavMenu: (state: { target: string; action: boolean }) => {};
+};
 
 const MobileNavMenu = ({
     mobileNavOpen,
-    handleOpenMobileNav,
     dispatch,
     navItems,
-    handleOpenNavMenu,
     mobileNavMenuItems,
     target,
-    dark
-}) => {
+    dark,
+    handleOpenMobileNav,
+    handleNavMenu
+}: MobileNavMenuProps) => {
     return (
         <div
             style={{ height: mobileNavOpen ? `100%` : `0px` }}
@@ -30,10 +41,8 @@ const MobileNavMenu = ({
                             className={`text-[2.2rem] font-semibold py-2 px-20 ${mobileNavOpen ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}
                             onClick={() => {
                                 el.title === target
-                                    ? dispatch(handleOpenNavMenu({ action: false, target: '' }))
-                                    : dispatch(
-                                          handleOpenNavMenu({ action: false, target: el.title })
-                                      );
+                                    ? dispatch(handleNavMenu({ action: false, target: '' }))
+                                    : dispatch(handleNavMenu({ action: false, target: el.title }));
                                 el.link && dispatch(handleOpenMobileNav(false));
                             }}>
                             <Link

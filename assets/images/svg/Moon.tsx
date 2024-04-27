@@ -1,5 +1,5 @@
 type colorProp = {
-    color: string;
+    color?: string;
 };
 
 const Moon = ({ color }: colorProp) => (

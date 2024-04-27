@@ -1,5 +1,5 @@
 type colorProp = {
-    color: string;
+    dark?: boolean;
 };
 
 const Sun = ({ dark }: colorProp) => (

@@ -17,18 +17,21 @@ type NavItemsType = {
 
 type NavbarProps = {
     navItems: NavItemsType[];
-    // handleOpenNavMenu: (e: object, state: boolean) => {};
     dispatch: FC;
+    dark: boolean;
+    handleNavMenu: (state: { target: string; action: boolean }) => {};
+    handleToggleTheme: () => {};
+    handleOpenMobileNav: (state: boolean) => {};
 };
 
 const BlogNavbar = ({
     navItems,
-    handleOpenNavMenu,
     dispatch,
-    handleToggleTheme,
     dark,
+    handleNavMenu,
+    handleToggleTheme,
     handleOpenMobileNav
-}) => {
+}: NavbarProps) => {
     return (
         <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000]">
             <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
@@ -43,7 +46,7 @@ const BlogNavbar = ({
                             className="px-4 text-[#e2e2e0]"
                             onMouseEnter={() =>
                                 dispatch(
-                                    handleOpenNavMenu({
+                                    handleNavMenu({
                                         target: el.title,
                                         action: true
                                     })

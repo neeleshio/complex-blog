@@ -1,4 +1,3 @@
-import LogoSvg from '@/assets/images/svg/Logo';
 import React, { FC } from 'react';
 import logoblack from '../../../assets/images/png/logoblack.png';
 import logowhite from '../../../assets/images/png/logowhite.png';
@@ -17,18 +16,21 @@ type NavItemsType = {
 
 type NavbarProps = {
     navItems: NavItemsType[];
-    // handleOpenNavMenu: (e: object, state: boolean) => {};
     dispatch: FC;
+    dark: boolean;
+    handleNavMenu: (state: { target: string; action: boolean }) => {};
+    handleToggleTheme: () => {};
+    handleOpenMobileNav: (state: boolean) => {};
 };
 
 const Navbar = ({
     navItems,
-    handleOpenNavMenu,
     dispatch,
-    handleToggleTheme,
     dark,
+    handleNavMenu,
+    handleToggleTheme,
     handleOpenMobileNav
-}) => {
+}: NavbarProps) => {
     return (
         <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]">
             <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
@@ -46,7 +48,7 @@ const Navbar = ({
                             className="px-4"
                             onMouseEnter={() =>
                                 dispatch(
-                                    handleOpenNavMenu({
+                                    handleNavMenu({
                                         target: el.title,
                                         action: true
                                     })

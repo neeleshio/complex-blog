@@ -17,7 +17,7 @@ const navSlice = createSlice({
     name: 'navbar',
     initialState,
     reducers: {
-        handleOpenNavMenu(state, { payload }) {
+        handleNavMenu(state, { payload }) {
             const { target, action } = payload;
             state.open = action;
             state.target = target;
@@ -28,7 +28,7 @@ const navSlice = createSlice({
     }
 });
 
-export const { handleOpenNavMenu, handleOpenMobileNav } = navSlice.actions;
+export const { handleNavMenu, handleOpenMobileNav } = navSlice.actions;
 
 export const navSelector = (state: RootState) => state.navSlice;
 
