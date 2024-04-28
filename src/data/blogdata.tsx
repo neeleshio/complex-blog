@@ -80,5 +80,14 @@ export const BLOG_DATA = [
         ],
         date: '22 April 2024',
         img: '/specificity.png'
+    },
+    {
+        id: 7,
+        title: 'Setting-up React without using create-react-app',
+        topic: 'React',
+        link: 'react-without-create-react-app',
+        tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
+        date: '28 April 2024',
+        img: '/react-wo-cra.png'
     }
 ];

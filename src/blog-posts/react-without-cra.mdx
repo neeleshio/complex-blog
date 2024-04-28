@@ -1,0 +1,154 @@
+# Setting up React without create-react-app
+
+> We will create a new react project from scratch without using the normal recommended way of using create-react-app. In the process, We will learn and work with Webpack, Babel, and many other different technologies that React uses under the hood.
+
+![react-wo-cra](/react-wo-cra.png)
+
+## Prerequisites
+
+We will be working in a Node environment to install different packages, you will need to have **Node** installed on your machine.
+
+## 1. Create a Node project
+
+```shell
+# terminal
+npm init
+```
+
+This will initialize a new Node project and add the package.json file.
+
+## 2. Create index.html
+
+At the root level, create a folder named public. then create an index.html file inside it.
+
+Now, write an empty div with an id named "root" inside your index.html file's body element.
+
+```html
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+</html>
+```
+
+## 2. Install React dependencies
+
+```shell
+npm i react react-dom
+```
+
+### React:
+
+The react package contains only the <span className="hgl">functionality</span> necessary to define React components.
+
+**Such as:**
+
+-   Hooks (useEffect, useState, ... etc)
+-   Class lifecycle methods (componentDidMount, componentWillUnmount, ... etc)
+-   DOM Attributes (onClick, onChange, onFocus, ... etc )
+-   HTML Attributes (className, id, href, disabled, ... etc)
+-   JSX
+
+<br />
+### React DOM:
+
+This package serves as the entry point to the DOM and server renderers for React. ReactDOM is used to render components and elements on the web, so, ReactDOM library is responsible to actually render UI in the browser.
+
+**Why React team split React and React-DOM into 2 different packages:**
+
+-   React-DOM binds the idea of React to a web browser. React has nothing to do with a browser or web for that matter. That’s why we’re seeing tools and frameworks like React-Native, React-Three being developed. These tools and frameworks don’t use React-DOM, but they do in fact use the idea behind React.
+-   As we look at packages like react-native, react-art, react-canvas, and react-three, it's become clear that the beauty and essence of React has nothing to do with browsers or the DOM.
+-   To make this more clear and to make it easier to build more environments that React can render to, we’re splitting the main react package into two: react and react-dom.
+
+## 4. Create index.js
+
+At the root level, create a js file name index.js. import React and ReactDOM into the index.js file.
+
+```javascript
+//index.js
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+```
+
+Now, lets connect react with the browser DOM using createRoot method provided by react-dom.
+
+```javascript
+//index.js
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render();
+```
+
+## 5. Create App.js
+
+At the root level, create a folder named src. then inside src create a js file named App.js. This App.js file holds all our app's components.
+
+```javascript
+// src/App.js
+import React from 'react';
+
+const App = () => {
+    return <div>App</div>;
+};
+
+export default App;
+```
+
+Now. lets import the App component & pass it into root.render() method we declared in the index.js file. This will inject our react app into the HTML.
+
+```javascript
+//index.js
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './src/App';
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);
+```
+
+## 6. Install React dependencies
+
+Babel is a toolchain or a JavaScript compiler that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+
+Here are the main things Babel can do for you::
+
+-   **Compatibility:** React uses contemporary JavaScript syntax, which is incompatible with older browsers. Babel React enables developers to write React code in the most recent syntax, which is subsequently compiled into JavaScript that can be run by older browsers.
+-   **JSX Syntax:** React components are written in JSX, which is not supported by older browsers. Babel allows developers to use JSX syntax and compiles it into JavaScript that older browsers can run.
+-   **Flexibility:** Babel isn’t just for React JS; it can be used with any JavaScript project. It contains a large ecosystem of plugins that may be used to change certain JavaScript features. Babel allows developers to build more efficient and maintainable code while maintaining browser compatibility.
+
+Let's install the below babel packages as a dev dependencies.
+
+```shell
+npm install -D @babel/core babel-loader @babel/cli @babel/preset-env @babel/preset-react
+```
+
+-   **@babel/core:** The core/main package that is needed to use Babel in our project.
+-   **babel-loader:** This package will be used to connect Babel and Webpack to use them together.
+-   **@babel/cli:** Babel comes with a built-in CLI which can be used to compile files from the command line.
+-   **@babel/preset-env:** This is a preset (collection/a set of plugins) of different babel packages that are needed to convert all ES6 JavaScript syntax into older JavaScript versions. Instead of installing them one by one, they are all together in one package.
+-   **@babel/preset-react:** This is also preset that contains babel packages needed to convert React JSX syntax into the version of JavaScript supported by older browsers.
+
+## 7. Install Webpack dependencies
+
+At its core, webpack is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a dependency graph from one or more entry points and then combines every module your project needs into one or more bundles.
+
+When building React apps you will end up with many files with different formats and you will need them bundled in a single JavaScript file that will be served with the index.html.
+
+```shell
+npm install --save-dev webpack webpack-cli webpack-dev-server
+```
+
+-   **webpack:** The actual package that enables us to use webpack in our project.
+-   **webpack-cli:** Allows us to run webpack commands in the command line.
+-   **webpack-dev-server:** The Webpack server that will act as our local server during the development environment. Under the hood, It provides live reloading. This should be used for development only, it uses <span className="hgl">webpack-dev-middleware</span>, which provides fast in-memory access to the webpack assets.

@@ -53,7 +53,7 @@ const components = {
         </div>
     ),
     p: ({ children }: ChildrenProp) => (
-        <p className="text-[1.7rem] text-primary-color mb-6 font-medium sm:text-[1.5rem]">
+        <p className="text-[1.7rem] text-primary-color mb-6 font-normal sm:text-[1.5rem]">
             {children}
         </p>
     ),
@@ -81,9 +81,7 @@ const components = {
             {children}
         </h2>
     ),
-    h3: ({ children }: ChildrenProp) => (
-        <h3 className="mb-6 text-[1.8rem] font-semibold">{children}</h3>
-    )
+    h3: ({ children }: ChildrenProp) => <h3 className="mb-6 text-[2rem] font-bold">{children}</h3>
 };
 
 export function BlogPage(props: BlogPageProps) {
