@@ -1,10 +1,10 @@
 export const LATEST_BLOG = {
     id: 1,
-    title: 'JSX Transform - New Update',
+    title: 'Setting-up React without using create-react-app',
     topic: 'React',
-    link: 'jsx-transform',
-    tags: ['react', 'javascript', 'jsx', 'nextjs', 'babel', 'typescript'],
-    date: '14 April 2024',
+    link: 'react-without-create-react-app',
+    tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
+    date: '28 April 2024',
     img: '/react-3d.png'
 };
 
