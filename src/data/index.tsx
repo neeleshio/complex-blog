@@ -33,6 +33,8 @@ import Flipkart from '@/assets/images/svg/Flipkart';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { IoIosMail, IoIosLink } from 'react-icons/io';
+import WebpackLogo from '@/assets/images/svg/WebpackLogo';
+import BabelLogo from '@/assets/images/svg/BabelLogo';
 
 export const SKILLS = [
     {
@@ -92,6 +94,16 @@ export const SKILLS = [
     },
     {
         id: 12,
+        name: 'Webpack',
+        icon: WebpackLogo
+    },
+    {
+        id: 13,
+        name: 'Babel',
+        icon: BabelLogo
+    },
+    {
+        id: 14,
         name: 'React Native',
         icon: NativeLogo
     }

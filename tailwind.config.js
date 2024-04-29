@@ -24,7 +24,8 @@ module.exports = {
                 'menu-color': 'var(--menu-color)',
                 'menu-color-light': 'var(--menu-color-light)',
                 'project-card-bg': 'var(--project-card-bg)',
-                'footer-text-color': 'var(--footer-text-color)'
+                'footer-text-color': 'var(--footer-text-color)',
+                'blog-border-color': 'var(--blog-border-color)'
             }
         },
         screens: {

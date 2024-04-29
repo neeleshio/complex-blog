@@ -3,9 +3,9 @@ export const FOOTER_DATA = [
         {
             heading: 'React',
             data: [
-                { id: 1, name: 'Store', link: '' },
-                { id: 2, name: 'Mac', link: '' },
-                { id: 3, name: 'iPad', link: '' },
+                { id: 1, name: 'JSX', link: '' },
+                { id: 2, name: 'React-dom', link: '' },
+                { id: 3, name: 'Virtual', link: '' },
                 { id: 4, name: 'iPhone', link: '' },
                 { id: 5, name: 'AirPods', link: '' },
                 { id: 6, name: 'TV & Home', link: '' },

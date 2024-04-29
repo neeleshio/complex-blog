@@ -24,6 +24,7 @@
     --menu-color-light: #6e6e73;
     --project-card-bg: #ffffff;
     --footer-text-color: #6e6e73;
+    --blog-border-color: #e4e4e7;
 }
 
 .dark {
@@ -40,6 +41,7 @@
     --menu-color-light: #86868b;
     --project-card-bg: #1d1d1f;
     --footer-text-color: #ffffffa4;
+    --blog-border-color: #303030;
 }
 
 * {
