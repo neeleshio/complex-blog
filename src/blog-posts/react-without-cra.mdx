@@ -10,12 +10,12 @@ We will be working in a Node environment to install different packages, you will
 
 ## 1. Create a Node project
 
+This will initialize a new Node project and add the package.json file.
+
 ```shell
 # terminal
 npm init
 ```
-
-This will initialize a new Node project and add the package.json file.
 
 ## 2. Create index.html
 
@@ -152,3 +152,266 @@ npm install --save-dev webpack webpack-cli webpack-dev-server
 -   **webpack:** The actual package that enables us to use webpack in our project.
 -   **webpack-cli:** Allows us to run webpack commands in the command line.
 -   **webpack-dev-server:** The Webpack server that will act as our local server during the development environment. Under the hood, It provides live reloading. This should be used for development only, it uses <span className="hgl">webpack-dev-middleware</span>, which provides fast in-memory access to the webpack assets.
+
+## 8. Configure Webpack
+
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    mode: 'production',
+    entry: './index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js'
+    }
+};
+```
+
+We just created configurations that will be used by Webpack when bundling our react project.
+
+Lets go line by line, code by code:
+
+**1. path:**
+
+-   path is Node.js native utility module.
+-   Unlike regular NPM modules, you don't need to install it because it's already inside Node.js
+
+**2. HtmlWebpackPlugin:**
+
+We didn't install HtmlWebpackPlugin yet, so lets install it.
+
+```shell
+ npm install --D html-webpack-plugin
+```
+
+The <span className="hgl">html-webpack-plugin</span> simplifies creation of HTML files to serve your webpack bundles. We will look into it bit later.
+
+**3. module.exports:**
+
+-   module.exports is the keyword we use to declare all we want to export from that file.
+-   Its a commonJS way of exporting things from the file.
+
+**4. mode:**
+
+Webpack provide us 2 modes: development and production.
+
+Providing the mode configuration option tells webpack to use its built-in optimizations accordingly.
+
+**5. entry:**
+
+Specifies the main file (the entry) or the root js file of our application which will be the index.js file we created.
+
+**6. output:**
+
+output key contains a set of options instructing webpack on how and where it should output your bundles, assets, and anything else you bundle or load with webpack.
+
+We are specifying the filename as index.bundle.js and saving it in the dist folder inside the root, here \_\_dirname means our project's root folder & inside that we are telling the webpack to create a folder called dist.
+
+**path.resolve:** The path.resolve() method resolves a sequence of paths or path segments into an absolute path means the resolve method creates proper string representing path to your file.
+
+## 9. Webpack rules
+
+We need to write some rules to tell webpack how it needs to handle different files of our project.
+
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    mode: 'production',
+    entry: './index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/
+            }
+        ]
+    }
+};
+```
+
+Lets write the rules inside the rules array which is inside the module object.
+
+**1. test:**
+
+-   test is commonly used to match all the files those end with extension that we pass within regular expression.
+-   Here we want to match all the files with .js & .jsx.
+
+```shell
+test: /\.(js|jsx)$/,
+```
+
+if we want to include a perticular file or files, then we can use **include**.
+
+```shell
+include: [
+            path.resolve(__dirname, "app/src"),
+            path.resolve(__dirname, "app/test")
+          ],
+```
+
+**2. exclude:**
+
+If we don’t want webpack to consider some files then we can exclude them using **exclude**.
+
+```javascript
+exclude: /node_modules/,
+```
+
+## 10. Configure babel
+
+Now is the time to provide the loader for the webpack. In the above explaination we specified the files that webpack has to consider so now lets pass the babel loader into webpack which transpile the files.
+
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    mode: 'production',
+    entry: './index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            }
+        ]
+    }
+};
+```
+
+```javascript
+use: {
+    loader: 'babel-loader';
+}
+```
+
+now, we need to provide the babel presets (@babel/preset-env and @babel/preset-react) to the babel loader by using options.
+
+```javascript
+use: {
+    loader: 'babel-loader',
+    options: {
+        presets: ['@babel/preset-env', '@babel/preset-react']
+    }
+}
+```
+
+## 11. Connect the optimised bundle with the HTML file.
+
+we can just connect them manually using script tag like below in our index.html file.
+
+```html
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- HERE -->
+        👇
+        <script src="index_bundle.js"></script>
+    </body>
+</html>
+```
+
+But what if we use hash to generate our file name dynamically on every new build like below,
+
+```javascript
+filename: 'index_[hash].js';
+```
+
+So for this purpose we have **html-webpack-plugin** plugin. Usage as below,
+
+```javascript
+plugins: [
+    new HtmlWebpackPlugin({
+        template: path.join(__dirname, 'public', 'index.html')
+    })
+];
+```
+
+We just need to provide the path of our index.html file to the **new HtmlWebpackPlugin()** method.
+
+<span className="hgl">The final webpack config will look like this 👇</span>
+
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    mode: 'production',
+    entry: './index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'public', 'index.html')
+        })
+    ]
+};
+```
+
+## 12. Add scripts in package.json
+
+For development server, use **webpack serve**.
+
+For production build, use **webpack**
+
+```json
+"scripts": {
+    "dev": "webpack serve",
+    "build": "webpack"
+  }
+```
+
+## 13. Run or Build your application
+
+start a development server.
+
+```shell
+npm run dev
+```
+
+build an optimised single bundle file.
+
+```shell
+npm run build
+```

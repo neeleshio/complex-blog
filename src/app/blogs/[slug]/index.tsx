@@ -30,7 +30,7 @@ const customStyle = {
     fontSize: '1.4rem',
     borderRadius: 6,
     boxShadow: '0px 0px 13px -1px rgba(88, 86, 86, 0.75)',
-    margin: '4rem 0'
+    margin: '2rem 0 4rem 0'
 };
 
 const components = {

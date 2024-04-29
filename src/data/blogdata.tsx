@@ -2,7 +2,7 @@ export const LATEST_BLOG = {
     id: 1,
     title: 'Setting-up React without using create-react-app',
     topic: 'React',
-    link: 'react-without-create-react-app',
+    link: 'react-without-cra',
     tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
     date: '28 April 2024',
     img: '/react-3d.png'
@@ -85,7 +85,7 @@ export const BLOG_DATA = [
         id: 7,
         title: 'Setting-up React without using create-react-app',
         topic: 'React',
-        link: 'react-without-create-react-app',
+        link: 'react-without-cra',
         tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
         date: '28 April 2024',
         img: '/react-wo-cra.png'
