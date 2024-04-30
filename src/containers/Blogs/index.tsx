@@ -12,7 +12,7 @@ const Blogs = () => {
     const router = useRouter();
 
     return (
-        <section className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
             <section className="w-[98rem] pt-10 mt-10 mb-32 lg:w-[80rem] ml:w-[75rem] md:w-[55rem] sm:w-full px-6">
                 <h2 className="text-[3rem] mb-[2.4rem] ml:text-[2.8rem] ml:mb-[1.6rem]">
                     Latest Blogs
@@ -24,7 +24,7 @@ const Blogs = () => {
                     ))}
                 </div>
                 <div className="grid gap-16 mt-16 grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                    {BLOG_DATA.slice(1, 7).map((el) => (
+                    {BLOG_DATA.slice(2, 8).map((el) => (
                         <BlogCardMedium {...el} router={router} />
                     ))}
                 </div>
@@ -35,7 +35,7 @@ const Blogs = () => {
                         More from Blog Wall
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-1">
-                        {BLOG_DATA.slice(1, 7).map((el, idx) => (
+                        {BLOG_DATA.slice(2, 8).map((el, idx) => (
                             <div className="py-[3.2rem] border-bottom pr-[5rem]">
                                 <BlogCardSmall {...el} router={router} />
                             </div>
@@ -43,7 +43,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </section>
-        </section>
+        </div>
     );
 };
 

@@ -9,7 +9,7 @@ function Work() {
     const { navigate } = useOpenLink();
 
     return (
-        <div>
+        <section>
             <SectionHeading
                 title="Work history."
                 subtitle="Current and previous companies I worked for."
@@ -22,7 +22,7 @@ function Work() {
                     ))}
                 </ButtonScroll>
             </div>
-        </div>
+        </section>
     );
 }
 

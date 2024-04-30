@@ -9,7 +9,7 @@ const Articles = () => {
     const { navigate } = useOpenLink();
 
     return (
-        <div>
+        <section>
             <div className="pt-[5.4rem] overflow-hidden">
                 <SectionHeading
                     title="Blog."
@@ -21,7 +21,7 @@ const Articles = () => {
                     ))}
                 </CustomScroll>
             </div>
-        </div>
+        </section>
     );
 };
 

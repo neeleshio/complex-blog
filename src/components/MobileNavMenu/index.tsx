@@ -28,7 +28,7 @@ const MobileNavMenu = ({
         <div
             style={{ height: mobileNavOpen ? `100%` : `0px` }}
             className={`h-full fixed z-[999] bg-primary-bg w-full top-0 nav-menu ${mobileNavOpen ? `` : 'invisible'}`}>
-            <div className="">
+            <nav>
                 <div
                     className="pr-[2.3rem] py-7 flex justify-end"
                     onClick={() => dispatch(handleOpenMobileNav(false))}>
@@ -75,7 +75,7 @@ const MobileNavMenu = ({
                         </li>
                     ))}
                 </ul>
-            </div>
+            </nav>
         </div>
     );
 };

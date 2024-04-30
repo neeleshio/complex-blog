@@ -20,7 +20,7 @@ const AllBlogs = () => {
     }, []);
 
     return (
-        <section className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
             <section className="w-[98rem] pt-10 mt-10 mb-32 lg:w-[80rem] ml:w-[75rem] md:w-[55rem] sm:w-full px-6 flex flex-col">
                 <div className="border border-blog-border-color border-solid border-t-0 border-r-0 border-l-0">
                     <h2 className="text-[3rem] mb-[2.4rem] ml:text-[2.8rem] ml:mb-[1.6rem]">
@@ -40,16 +40,21 @@ const AllBlogs = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="w-[30%] pt-4 pl-[3.2rem] md:w-full md:pl-0 md:pb-[4rem]">
+                    <aside className="w-[30%] pt-4 pl-[3.2rem] md:w-full md:pl-0 md:pb-[4rem]">
                         <p className="font-medium">Recommended Topics</p>
 
                         <div className="mt-[3rem] flex flex-wrap gap-4">
-                            {topics.length > 0 && topics.map((el) => <Bubble title={el} />)}
+                            {topics.length > 0 &&
+                                topics.map((el) => (
+                                    <div className="inline bg-cgrey py-4 rounded-full capitalize text-invert-primary text-[1.3rem] px-6">
+                                        {el}
+                                    </div>
+                                ))}
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </section>
-        </section>
+        </div>
     );
 };
 

@@ -32,8 +32,8 @@ const Navbar = ({
     handleOpenMobileNav
 }: NavbarProps) => {
     return (
-        <nav className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]">
-            <div className="flex items-center lg:justify-between lg:px-8 lg:w-full">
+        <header className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]">
+            <nav className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div className={`${dark ? 'visible' : 'hidden'}`}>
                         <Image alt="logo" src={logowhite} width={100} />
@@ -73,8 +73,8 @@ const Navbar = ({
                         <HamburgIcon dark={dark} />
                     </button>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 };
 

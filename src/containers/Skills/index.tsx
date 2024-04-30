@@ -9,13 +9,13 @@ const Skills = () => {
     const { dark } = useSelector(themeSelector);
 
     return (
-        <div className="mb-[10rem] md:mb-24">
+        <section className="mb-[10rem] md:mb-24">
             <CustomScroll height={9.4}>
                 {SKILLS.map((el) => (
                     <SkillCard {...el} dark={dark} />
                 ))}
             </CustomScroll>
-        </div>
+        </section>
     );
 };
 

@@ -20,15 +20,15 @@ export default function HomePage() {
         <Provider store={store}>
             <Header />
             <Ribbon />
-            <div>
+            <main>
                 <Intro />
                 <Skills />
                 <Work />
                 <Projects />
                 <Articles />
                 <QuickLinks />
-                <Footer />
-            </div>
+            </main>
+            <Footer />
         </Provider>
     );
 }

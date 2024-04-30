@@ -9,7 +9,7 @@ const Projects = () => {
     const { navigate } = useOpenLink();
 
     return (
-        <div className="pt-[5.4rem] proj-scroll">
+        <section className="pt-[5.4rem] proj-scroll">
             <SectionHeading
                 title="Featured Projects."
                 subtitle="Current and previous companies I worked for."
@@ -19,7 +19,7 @@ const Projects = () => {
                     <ProjectCard {...el} navigate={navigate} />
                 ))}
             </CustomScroll>
-        </div>
+        </section>
     );
 };
 

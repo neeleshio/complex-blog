@@ -11,9 +11,9 @@ export default function BlogsWall() {
         <Provider store={store}>
             <Header />
             <SectionHeader title="Blog Wall" />
-            <div>
+            <main>
                 <Blogs />
-            </div>
+            </main>
             <Footer />
         </Provider>
     );

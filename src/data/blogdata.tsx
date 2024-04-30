@@ -65,7 +65,7 @@ export const BLOG_DATA = [
     },
     {
         id: 6,
-        title: 'Specificity, Cascading and Inheritance in CSS and specificity, cascading and Inheritance in CSS',
+        title: 'Specificity, Cascading and Inheritance in CSS',
         topic: 'CSS',
         link: 'specificity-cascading-and-inheritance',
         tags: [
@@ -89,5 +89,14 @@ export const BLOG_DATA = [
         tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
         date: '28 April 2024',
         img: '/react-wo-cra.png'
+    },
+    {
+        id: 8,
+        title: 'Semantic HTML and SEO',
+        topic: 'HTML',
+        link: 'semantic-html-and-seo',
+        tags: ['html', 'seo', 'semantic'],
+        date: '30 April 2024',
+        img: '/semantic-html.png'
     }
 ];
