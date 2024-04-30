@@ -215,9 +215,12 @@ button {
 .hgl {
     background-color: #e8f3e8;
     padding: 0 0.5rem;
+}
 
-    :hover {
+.dark {
+    .hgl {
         background-color: #f4e156;
+        color: black;
     }
 }
 
@@ -228,6 +231,13 @@ button {
     border-radius: 4px;
     padding: 0 0.5rem;
     font-size: 15px;
+}
+
+.dark {
+    .tag {
+        color: rgb(0, 255, 174);
+        background-color: #373739;
+    }
 }
 
 .article-container {
