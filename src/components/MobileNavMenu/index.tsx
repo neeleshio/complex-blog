@@ -27,7 +27,7 @@ const MobileNavMenu = ({
     return (
         <div
             style={{ height: mobileNavOpen ? `100%` : `0px` }}
-            className={`h-full fixed z-[999] bg-primary-bg w-full top-0 nav-menu ${mobileNavOpen ? `` : 'invisible'}`}>
+            className={`h-full fixed z-[1000] bg-primary-bg w-full top-0 nav-menu ${mobileNavOpen ? `` : 'invisible'}`}>
             <nav>
                 <div
                     className="pr-[2.3rem] py-7 flex justify-end"
