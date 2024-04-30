@@ -91,9 +91,11 @@ export function BlogPage(props: BlogPageProps) {
             <SectionHeader title={props.title} />
             <div className="sm:text-center w-[98rem] m-auto px-32 pt-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <div className="text-cgrey text-[1.2rem] font-semibold">
-                    {props.topic.toUpperCase()}
+                    {props?.topic?.toUpperCase()}
                 </div>
-                <div className="text-cgrey text-[1.4rem] font-medium mt-[0.5rem]">{props.date}</div>
+                <div className="text-cgrey text-[1.4rem] font-medium mt-[0.5rem]">
+                    {props?.date}
+                </div>
             </div>
             <div className="w-[98rem] m-auto px-32 pt-12 pb-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <MDXRemote

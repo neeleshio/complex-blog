@@ -1,0 +1,151 @@
+# Semantic HTML and SEO
+
+> Semantic HTML plays a crucial role in optimizing your website for SEO. It provide clear and meaningful structure to your content, making it easier for search engines to understand and index your pages.
+
+![semantic-html](/semantic-html.png)
+
+{/* Assistive web technologies like screen readers utilize semantic tags to enhance the internet experience for users with disabilities. */}
+
+### The typical structure of a webpage looks like this:
+
+-   Header - the top part with the logo
+-   Navigation -
+-   Main Content
+-   Footer
+
+## HTML Accessibility: A Win-Win
+
+We're not focusing on semantic HTML because it _theoretically provides clarity_. It's not just about making code cleaner either. It helps search engines and assistive devices (aka Web Accessibility Tools) understand a webpage's content better.
+
+-   Semantic HTML 🤝 Users
+-   Semantic HTML 🤝 Crawlers
+
+### Here's the technical explanation:
+
+As the browser processes the content, it generates several models, including the Document Object Model (DOM), CSS Object Model (CSSOM), and the Accessibility Object Model (AOM). Assistive devices like screen readers leverage the AOM to understand and interpret content. A semantically rich AOM can be the difference between an accessible webpage and a confusing one.
+
+## Benefits
+
+### Help crawlers and users access your content:
+
+    Our goal is to make it simple for search engine bots to crawl, understand, and index your content. By using accessible HTML elements like <span className="tag">< main ></span> for main content, <span className="tag">< aside ></span> for extra information, <span className="tag">< nav ></span> and for navigation, crawlers can easily figure out your page's layout. This leads to better indexing and gives your website the advantage it needs.
+
+### Help search engines match your content to user queries effectively:
+
+    The goal is to show context to crawlers, allowing search engines to link your content precisely to user searches. For example, using <span className="tag">< figure ></span> and <span className="tag">< figcaption ></span> elements to label an image and its caption helps search engines understand the connection between the image and its description, improving the image's SEO performance.
+
+## Some important Semantic Tags for Structure
+
+### 1. main:
+
+Specifies the main content of a document. The content inside the <span className="tag">< main ></span> element should be unique to the document and should not be replicated across a set of documents.
+
+-   Telling a search engine what content on a webpage to index is as easy as using the <span className="tag">< main ></span> HTML element.
+-   This makes it super easy for the search engines to get to the main content and index it.
+
+<br />
+
+### 2. header:
+
+Represents content that should be considered the introductory information of a page or section. It typically contains content like a logo, wrapped section's heading, a search form, or any relevant widgets.
+
+-   The <span className="tag">< header ></span> element can also be used to wrap around headings (H1, H2, etc.) but that’s not really necessary.
+    <br />
+
+### 3. nav:
+
+The <span className="tag">< nav ></span> element is what you wrap around your navigation links.
+
+<br />
+
+### 4. section:
+
+Defines a section in a document. It is a thematic grouping of content, typically with a heading.
+
+<br />
+
+### 5. aside:
+
+Defines content aside from the content it is placed in. The aside content should be related to the surrounding content, such as a pull quote or sidebars.
+
+-   An aside element defines content that’s less important. It’s often used for sidebars—areas that add complementary but nonessential information.
+    <br />
+
+### 6. article:
+
+The article tag defines content that could stand independently of the page or site it’s on. It does not necessarily mean a “blog post.” A self-contained item that can be used in various contexts.
+
+-   Defines content that forms an independent part of a document or site page, like a blog post, a forum post, or a news story.
+
+### 7. footer:
+
+Defines a footer for a document or a section. It typically contains information about the author of the document, copyright information, and some site navigation.
+
+### 8. figure:
+
+Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+
+### 9. figcaption:
+
+Defines a caption for a <span className="tag">< figure ></span> element. It can be placed as the first or last child of a <span className="tag">< figure ></span> block.
+
+## Some important Semantic Tags for Text
+
+### 1. h1 (heading):
+
+The H1 tag marks the top level heading. There’s usually only one H1 heading per page.
+
+<br />
+### 2. h2 to h6 (subheadings):
+
+The subheadings of various levels of importance. There can be multiple headings of the same level on a single page.
+
+<br />
+### 3. p (paragraph):
+
+A standalone paragraph of text.
+
+<br />
+### 4. a (anchor):
+
+Used to mark up a hyperlink from one page to another.
+
+<br />
+### 5. ol (ordered list):
+
+A list of items that are displayed in a particular order, starting with bullet points. One <span className="tag">< li ></span> (list item) tag contains a single item in the list.
+
+<br />
+### 6. ul (unordered list):
+
+A list of items that do not need to be displayed in a particular order, starting with ordinal numbers. One <span className="tag">< li ></span> (list item) tag contains a single item of the list.
+
+<br />
+### 7. q / blockquote:
+
+A quotation of the text. Use <span className="tag">< blockquote ></span> for long, multi-line quotations and <span className="tag">< q ></span> for shorter, inline quotations.
+
+<br />
+### 8. em (emphasis):
+
+Used for text that should be emphasized.
+
+<br />
+### 9. strong (strong emphasis):
+
+Used for text that should be strongly emphasized.
+
+<br />
+### 10. code:
+
+A block of computer code.
+
+## Nest the Heading Tags with Semantics in Mind
+
+Always order header elements by importance.
+
+For example, all the H3 headings that follow a certain H2 heading should be subtopics of that H2.
+
+<br />
+
+![semantic-h1](/semantic-h1.png)
