@@ -98,5 +98,23 @@ export const BLOG_DATA = [
         tags: ['html', 'seo', 'semantic'],
         date: '30 April 2024',
         img: '/semantic-html.png'
+    },
+    {
+        id: 9,
+        title: 'Sitemap.xml vs Robots.txt',
+        topic: 'HTML',
+        link: 'sitemap-vs-robotstxt',
+        tags: [
+            'sitemap',
+            'seo',
+            'html',
+            'robots.txt',
+            'webcrawling',
+            'crawling',
+            'indexing',
+            'ranking'
+        ],
+        date: '30 April 2024',
+        img: '/sitemap-vs-robotstxt.png'
     }
 ];

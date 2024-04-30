@@ -1,0 +1,122 @@
+# Sitemap.xml vs Robots.txt
+
+> Robots.txt and sitemap.xml are essential files that can help search engines better understand your particular website and index it correctly. For this reason, robots.txt and XML sitemaps go hand in hand.
+
+![sitemap-vs-robot](/sitemap-vs-robottxt.png)
+
+Before discussing robots.txt and sitemap.xml, you’ll first need to understand two relevant terms: website indexing and web crawling.
+
+### Crawling:
+
+Crawling refers to following the links on a page to new pages, and continuing to find and follow links on new pages to other new pages.
+
+-   Crawling is the discovery of pages and links that lead to more pages.
+
+-   A web crawler is a software program that follows all the links on a page, leading to new pages, and continues that process until it has no more new links or pages to crawl.
+
+-   Google’s web crawler is named Googlebot.
+
+-   Google prioritizes crawling pages that are:
+
+    -   Popular (linked to often)
+    -   High quality
+    -   Frequently updated
+
+Websites that publish new, quality content get higher priority.
+
+### Indexing:
+
+Indexing is storing, analyzing, and organizing the content and connections between pages.
+
+-   Indexing is storing and organizing the information found on the pages. The bot renders the code on the page in the same way a browser does. It catalogs all the content, links, and metadata on the page.
+
+-   Indexing requires a massive amount of computer resources, and it’s not just data storage. It takes an enormous amount of computing resources to render millions of web pages. You may have noticed this if you open too many browser tabs!
+
+## Sitemap.xml
+
+An XML sitemap is a blueprint of what you consider the most important parts of your website.
+
+-   While the name “sitemap” might suggest an illustrated layout of your site, it’s actually just a list of page links.
+-   Although web crawlers should be able to find the pages on your site well enough if they are properly linked (both internally and externally), an XML sitemap ensures that they will crawl and index the content you consider most pertinent and not, say, tag pages or a now irrelevant blog post from five years ago.
+-   XML sitemaps aren’t mandatory, but they are valuable tools, particularly if you have a large website with many pages or — on the other end of the spectrum — a relatively new site that doesn’t have many external links yet.
+-   You have the option of submitting your sitemap directly to search engines, but crawlers will be able to find it when they visit your site if you have a robots.txt file directing them to it.
+
+Here is a very basic XML sitemap that includes the location of a 2 URLs:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+        <loc>https://www.neeleshio.cloud/</loc>
+        <lastmod>2024-04-30T11:12:08+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://www.neeleshio.cloud/blogs</loc>
+        <lastmod>2024-04-30T11:12:08+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+</urlset>
+```
+
+There are also several free generators online, such as [XML.Sitemaps.com](https://www.xml-sitemaps.com/).
+
+## Robot.txt
+
+A robots.txt file is a file that you can place in your website’s root directory to instruct crawlers how you want your site to be crawled.
+
+-   These instructions can include which pages you want them to crawl, which ones they should avoid, or instructions to block specific bots from crawling the site entirely.
+-   When crawlers visit a site, it’s the robots.txt file they usually visit first. It’s also where you should place your XML sitemap location so the crawlers can easily find it.
+
+-   The robots.txt disallow command only blocks crawling of a page. The URL can still be indexed if Google discovers a link to the disallowed page. Google can include the URL and anchor text of links to the page in their search results, but wouldn’t have the page’s content.
+
+-   If you don’t want a page included in Google’s search engine results, you must add a noindex tag to the page (and allow Google to see that tag).
+
+Here is a simple robots.txt file with two rules:
+
+```txt
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
+```
+
+See [Google's support page for robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt) for more information.
+
+## How to check for crawling and indexing issues
+
+### 1. Google Search
+
+You can see how Google is indexing your website with the command <span className="tag">“site:”</span> — a special search operator. Enter this into Google’s search box to see all the pages they have indexed on your website:
+
+```json
+site:yourdomain.com
+```
+
+You can check for all the pages that share the same directory (or path) on your site if you include that in the search query:
+
+```json
+site:yourdomain.com/blog/
+```
+
+You can combine “site:” with “inurl:” and also use the negative sign to remove matches to get more granular results.
+
+```json
+site:yourdomain.com -site:support.yourdomain.com inurl:2019
+```
+
+Check that the titles and descriptions are indexed in a way that provides the best experience. Make sure there are no unexpected, weird pages or something indexed that should not be.
+
+<br />
+### 2. Google Search Console
+
+If you have a website, you need to verify your website with [Google Search Console](https://search.google.com/search-console/). The data provided here is invaluable.
+
+Google provides reports on [search ranking performance](https://search.google.com/search-console/performance/search-analytics): impressions and clicks by page, country, or device type, up to 16 months of data.
+
+## Conclusion
+
+Robots.txt and XML sitemaps may not be at the top of your SEO considerations, but they shouldn’t be overlooked. By taking the time to create a sitemap and adding a robots.txt file to your site, you’ll have more of a say in how your website is crawled and ultimately indexed, which should have a positive impact on your overall SEO.

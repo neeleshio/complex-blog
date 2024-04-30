@@ -97,7 +97,7 @@ export function BlogPage(props: BlogPageProps) {
                     {props?.date}
                 </div>
             </div>
-            <div className="w-[98rem] m-auto px-32 pt-12 pb-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
+            <div className="w-[98rem] m-auto px-32 pt-12 pb-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8 article-container">
                 <MDXRemote
                     source={props.source}
                     components={{ ...components, ...(props.components || {}) }}
