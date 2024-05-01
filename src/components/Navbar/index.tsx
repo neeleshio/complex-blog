@@ -12,6 +12,7 @@ type NavItemsType = {
     id: number;
     title: string;
     link: string;
+    target: string | undefined;
 };
 
 type NavbarProps = {
@@ -54,7 +55,9 @@ const Navbar = ({
                                     })
                                 )
                             }>
-                            <Link href={el.link}>{el.title}</Link>
+                            <Link href={el.link} target={el?.target ? '_blank' : '_self'}>
+                                {el.title}
+                            </Link>
                         </li>
                     ))}
                 </ul>
