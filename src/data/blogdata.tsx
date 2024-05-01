@@ -116,5 +116,23 @@ export const BLOG_DATA = [
         ],
         date: '30 April 2024',
         img: '/sitemap-vs-robotstxt.png'
+    },
+    {
+        id: 10,
+        title: 'React SEO and Challenges',
+        topic: 'React',
+        link: 'react-seo-and-challenges',
+        tags: [
+            'sitemap',
+            'seo',
+            'html',
+            'robots.txt',
+            'webcrawling',
+            'crawling',
+            'indexing',
+            'ranking'
+        ],
+        date: '1 May 2024',
+        img: '/react-seo-and-challenges.png'
     }
 ];

@@ -1,0 +1,193 @@
+# React SEO and Challenges
+
+> While React is often lauded for making front-end development more efficient, this popular library can be problematic for search engines.
+
+![react-seo-best-practices](/react-seo-and-challenges.png)
+
+React doesn’t recommend directly creating or updating UI elements, but instead recommends describing the “state” of the UI. React will then update the DOM to match the state in the most efficient way.
+
+As a result, all the changes to the UI or DOM must be made via React’s engine. Although convenient for developers, this may mean longer load times for users and more work for search engines to find and index the content, causing potential issues for SEO with React webpages.
+
+## How Googlebot crawls the webpages
+
+Executing JavaScript is expensive, given that Googlebots need to look at more than 130 trillion webpages. So when Googlebot crawls a webpage, it parses the HTML immediately and then queues the JavaScript to run later.
+
+-   Google’s documentation mentions that a page stays in the render queue for a few seconds, though it may be longer.
+
+## Why React SEO Remains Challenging 👇
+
+## 1. Empty First-pass Content:
+
+We know React applications rely heavily on JavaScript and often run into problems with search engines. This is because React employs an app shell model by default.
+
+-   The initial HTML does not contain any meaningful content, and a user or a bot must execute JavaScript to see the page’s actual content.
+-   This approach means that Googlebot detects an empty page during the first pass. The content is seen by Google only when the page is rendered. When dealing with thousands of pages, this will delay the indexing of content.
+
+## Solution:
+
+### 1. Render react app on the server:
+
+Server-side rendering technique enables the server to render the React app and send the rendered version to our users and search engines so they can view the content instantly while JavaScript loads and executes in the background.
+
+        -   Frameworks like Next.js or Gatsby have popularized this approach.
+
+## 2. Load Time and User Experience:
+
+Fetching, parsing, and executing JavaScript takes time. JavaScript may also need to make network calls to fetch the content, and the user may need to wait a while before they can view the requested information.
+
+-   A longer load time may affect the user experience score, prompting Google to rank a site lower.
+
+## Solution:
+
+### 1. Lazy Loading:
+
+Lazy loading is a technique where you load components only when they are needed.
+
+-   By splitting your application into smaller, more manageable chunks, you reduce the initial load time.
+-   React provides the React.lazy() function, which allows you to implement lazy loading effortlessly.
+
+```javascript
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+```
+
+### 2. Code splitting:
+
+Code splitting takes lazy loading a step further. It involves breaking your application code into smaller bundles that can be loaded on-demand.
+
+-   Tools like Webpack enable you to implement code splitting effectively.
+
+<br />
+### 3. Server-Side Rendering (SSR):
+
+Server-side rendering is a technique that can significantly improve the initial load time of your React.js application.
+
+-   It renders the initial HTML on the server, sending a fully formed page to the client, reducing client-side rendering time.
+
+<br />
+### 4. Tree Shaking:
+
+Tree shaking is a method for eliminating dead code from your application bundle.
+
+-   With tools like Webpack, you can remove unused modules and reduce the size of your JavaScript bundle, resulting in faster load times.
+
+<br />
+### 5. Optimize Images and Assets:
+
+Optimizing images and assets is often overlooked but can significantly impact performance.
+
+-   Use modern image formats like WebP, employ compression techniques, and leverage content delivery networks (CDNs) to serve assets efficiently.
+
+## 3. Page Metadata:
+
+Meta <span className="tag">< meta ></span> tags are helpful because they allow Google and social media websites to show appropriate titles, thumbnails, and descriptions for pages.
+
+Meta tags (standard, non-open graph meta tags) are HTML code snippets that tell search engines (like Google) what kind of information you want them to show in their search results.
+
+-   React renders all the content, including meta tags, on the client.
+-   Since the app shell is the same for the entire website/application, it may be hard to adapt the metadata for individual pages and applications.
+
+## Solution:
+
+### React Helmet:
+
+Leveraging Helmet for metadata inclusion can significantly simplify the process of making a React app SEO and social media friendly.
+
+Helmet lets us insert metadata into the <span className="tag">< head ></span> tag in much the same way we would using standard HTML syntax.
+
+```shell
+npm i react-helmet-async
+```
+
+Two components we'll be importing from react-helmet-async are called Helmet and HelmetProvider.
+
+-   **HelmetProvider**: will wrap the entire app component in order to create context and prevent memory leaks. Therefore, this component will only need to be imported in the root App component.
+-   **Helmet**: will be imported into any page component where you want to implement meta tags. Think of <span className="tag">< Helmet ></span> as the <span className="tag">< head ></span> tag for the page in question.
+
+```jsx
+// src/App.js
+import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
+import NavBar from './NavBar';
+import Landing from `./Landing`;
+
+export default function App() {
+    const helmetContext = {};
+
+    return (
+        <HelmetProvider context={helmetContext}>
+            <NavBar />
+            <Landing />
+        </HelmetProvider>
+    )
+}
+```
+
+```jsx
+// containers/Landing.js
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+export default function Landing() {
+    return (
+        <>
+            <Helmet>
+                <title>Learning React Helmet!</title>
+                <meta
+                    name="description"
+                    content="Beginner friendly page for learning React Helmet."
+                />
+            </Helmet>
+
+            <h1>Cool Landing Page!</h1>
+        </>
+    );
+}
+```
+
+### Open Graph Meta Tags:
+
+Metadata isn't only about Google search results. We also want social media posts that reference our site to show up as cool preview cards.
+
+-   These are meta tags that lay the groundwork for social networks to interpret your content in a meaningful way.
+
+-   In short, OG tags help you create a much more pleasing appearance for your posts on your social networks besides just sharing text.
+
+-   When it comes to metadata and meta tags, there's a ton of different variants to remember. Facebook uses og (open graph) tags, Twitter uses its own twitter variant, and so on.
+
+```jsx
+// containers/Landing.js
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+export default function Landing({ title, description, name, type }) {
+    return (
+        <>
+            <Helmet>
+                {/* Standard metadata tags */}
+                <title>{title}</title>
+                <meta name="description" content={description} />
+                {/* End standard metadata tags */}
+                {/* Facebook tags */}
+                <meta property="og:type" content={type} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                {/* End Facebook tags */}
+                {/* Twitter tags */}
+                <meta name="twitter:creator" content={name} />}
+                <meta name="twitter:card" content={type} />
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={description} />
+                {/* End Twitter tags */}
+            </Helmet>
+
+            <h1>Cool Landing Page!</h1>
+        </>
+    );
+}
+```
+
+## 4. Sitemap and Robots.txt:
+
+React doesn't include Sitemap.xml and Robots.txt by default but we can genarate them pretty easily using 3rd party packages or 3rd party websites.
+
+For more info about these files, have created a dedicated article - [Sitemap.xml vs Robots.txt](/blogs/sitemap-vs-robotstxt).

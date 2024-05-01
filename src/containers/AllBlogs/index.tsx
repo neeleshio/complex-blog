@@ -28,7 +28,7 @@ const AllBlogs = () => {
                     </h2>
                 </div>
                 <div className="flex mt-16 md:flex-col-reverse">
-                    <div className="w-[70%] pr-20 border border-blog-border-color border-solid border-t-0 border-b-0 border-l-0 md:w-full md:border-none md:pr-0 lg:pr-0">
+                    <div className="w-[70%] pr-20 flex flex-col-reverse border border-blog-border-color border-solid border-t-0 border-b-0 border-l-0 md:w-full md:border-none md:pr-0 lg:pr-0">
                         {BLOG_DATA.map((el, idx) => (
                             <div
                                 className="pt-2 pb-[2.7rem] pr-[5rem] border-blog-border-color mb-[2rem] md:pr-0"
