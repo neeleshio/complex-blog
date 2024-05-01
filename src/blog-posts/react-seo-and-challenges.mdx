@@ -31,6 +31,25 @@ Server-side rendering technique enables the server to render the React app and s
 
         -   Frameworks like Next.js or Gatsby have popularized this approach.
 
+<br />
+
+### 2. Pre-rendering:
+
+Pre-rendering is a technique used in web development to improve a webpage’s loading performance by generating and storing the HTML, CSS, and JavaScript before the user requests it. When the user navigates to the page, the pre-rendered version is displayed immediately, resulting in a faster first paint time.
+
+There are a few ways that we can perform pre-rendering, for example, by using a pre-rendering service or a browser API like <span className="tag">< link rel="prerender" ></span> or <span className="tag">< link rel="prefetch" ></span>.
+
+-   <span className="hgl">react-snap</span> is a third-party library that pre-renders a web application
+    into static HTML. It uses Puppeteer, a headless Chrome Node.js API, to generate pre-rendered HTML
+    files for different routes in a web app. It works not just with React applications, but also with
+    Preact and Vue.
+
+-   react-snap generates static pages from SPAs to assist crawlers and optimize this behavior.
+
+```shell
+npm install --save-dev react-snap
+```
+
 ## 2. Load Time and User Experience:
 
 Fetching, parsing, and executing JavaScript takes time. JavaScript may also need to make network calls to fetch the content, and the user may need to wait a while before they can view the requested information.

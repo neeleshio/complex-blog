@@ -8,3 +8,10 @@ export type BlogCardProps = {
     img: string;
     router: AppRouterInstance;
 };
+
+export type NavItemsType = {
+    id: number;
+    title: string;
+    link: string;
+    target?: string | undefined;
+};

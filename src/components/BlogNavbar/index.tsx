@@ -8,12 +8,7 @@ import SearchIcon from '@/assets/images/svg/SearchIcon';
 import Moon from '@/assets/images/svg/Moon';
 import Sun from '@/assets/images/svg/Sun';
 import HamburgIcon from '@/assets/images/svg/Hamburg';
-
-type NavItemsType = {
-    id: number;
-    title: string;
-    link: string;
-};
+import { NavItemsType } from '@/src/types';
 
 type NavbarProps = {
     navItems: NavItemsType[];
@@ -52,7 +47,9 @@ const BlogNavbar = ({
                                     })
                                 )
                             }>
-                            <Link href="/">{el.title}</Link>
+                            <Link href={el.link} target={el?.target ? '_blank' : '_self'}>
+                                {el.title}
+                            </Link>
                         </li>
                     ))}
                 </ul>

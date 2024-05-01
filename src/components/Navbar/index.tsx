@@ -7,13 +7,7 @@ import SearchIcon from '@/assets/images/svg/SearchIcon';
 import Moon from '@/assets/images/svg/Moon';
 import Sun from '@/assets/images/svg/Sun';
 import HamburgIcon from '@/assets/images/svg/Hamburg';
-
-type NavItemsType = {
-    id: number;
-    title: string;
-    link: string;
-    target: string | undefined;
-};
+import { NavItemsType } from '@/src/types';
 
 type NavbarProps = {
     navItems: NavItemsType[];

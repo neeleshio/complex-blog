@@ -1,12 +1,13 @@
 import ArrowDown from '@/assets/images/svg/ArrowDown';
 import Wrong from '@/assets/images/svg/Wrong';
+import { NavItemsType } from '@/src/types';
 import Link from 'next/link';
 import React, { FC } from 'react';
 
 type MobileNavMenuProps = {
     mobileNavOpen: boolean;
     dispatch: FC;
-    navItems: { id: number; title: string; link: string }[];
+    navItems: NavItemsType[];
     mobileNavMenuItems: { name: string; link: string }[];
     target: string;
     dark: boolean;
@@ -47,7 +48,8 @@ const MobileNavMenu = ({
                             }}>
                             <Link
                                 className="pb-[1rem] flex items-center justify-between"
-                                href={el.link}>
+                                href={el.link}
+                                target={el?.target ? '_blank' : '_self'}>
                                 <span>{el.title}</span>
                                 {!el.link &&
                                     (el.title === target ? (
