@@ -5,11 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
 import NavMenu from '@/src/components/NavMenu';
 import { useAppDispatch, useAppSelector } from '@/src/hooks';
-import {
-    handleNavMenu,
-    handleOpenMobileNav,
-    handleMobileNavMenuItems
-} from '@/src/store/slices/navSlice';
+import { handleNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
@@ -95,7 +91,6 @@ const Header = () => {
                 });
 
                 setMobileNavMenuItems(newObj);
-                dispatch(handleMobileNavMenuItems(newObj));
             }
         }
     }, [target]);
