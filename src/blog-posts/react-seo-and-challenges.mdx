@@ -107,7 +107,7 @@ Meta tags (standard, non-open graph meta tags) are HTML code snippets that tell 
 
 ## Solution:
 
-### React Helmet:
+### 1. React Helmet:
 
 Leveraging Helmet for metadata inclusion can significantly simplify the process of making a React app SEO and social media friendly.
 
@@ -163,7 +163,11 @@ export default function Landing() {
 }
 ```
 
-### Open Graph Meta Tags:
+Make use of chrome extensions like [META SEO inspector](https://chromewebstore.google.com/detail/ibkclpciafdglkjkcibmohobjkcfkaef) to check meta tag data.
+
+<br />
+
+### 2. Open Graph Meta Tags:
 
 Metadata isn't only about Google search results. We also want social media posts that reference our site to show up as cool preview cards.
 
@@ -205,8 +209,53 @@ export default function Landing({ title, description, name, type }) {
 }
 ```
 
+### 3. Canonical Tags:
+
+Canonical tags are used in SEO to help search engines index the correct URL and avoid duplicate content.
+
+-   A canonical tag is a piece of HTML code (rel="canonical") that specifies the main version of duplicate or similar web pages.
+
+-   If several pages are identical or similar enough, search crawlers might struggle to decide which page deserves the highest rank and will need more time to identify valuable content. This wastes your "crawl budget" and dilutes the SEO standing of all affected pages.
+
+```jsx
+<Helmet>
+    {/* Canonical Tag */}
+    <link rel="canonical" href={'https://www.yourwebsite.com/your-page'} />
+
+    {/* Other standard meta tags */}
+    <meta name="description" content="Description of your page content." />
+    {/* Other meta tags as needed */}
+</Helmet>
+```
+
+**There are two types of tags you can include depending on the page's type:**
+
+&emsp; **1.** A canonical tag on a duplicate page pointing to the master version.
+
+![canocical-1](/canonical1.png)
+
+&emsp; **2.** A self-referencing canonical tag on the master version
+
+![canocical-2](/canonical2.png)
+
 ## 4. Sitemap and Robots.txt:
 
 React doesn't include Sitemap.xml and Robots.txt by default but we can genarate them pretty easily using 3rd party packages or 3rd party websites.
 
 For more info about these files, have created a dedicated article - [Sitemap.xml vs Robots.txt](/blogs/sitemap-vs-robotstxt?title=Sitemap.xml%20vs%20Robots.txt&topic=HTML&date=30%20April%202024).
+
+## Conclusion:
+
+In breif, consider the following factors to have a better SEO for your website:
+
+-   Make use of Semantic HTML
+-   Use Server-side rendering
+-   Image optimization(lazy load, webp format, alt tags)
+-   Make use of lazy loading & code splitting
+-   Meta tags
+-   Mobile responsiveness
+-   SSL certificate
+-   XML Sitemaps
+-   Optimize the robot.txt to help search bots understand how to crawl pages on your website
+-   Make use of Redux for optimization
+-   Have 404 error page
