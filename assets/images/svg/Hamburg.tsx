@@ -5,9 +5,9 @@ const HamburgIcon = ({ dark }) => (
             className="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
             fill="none"
             stroke={dark ? '#e2e2e0' : '#565656'}
-            stroke-width="1.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             points="2 12, 16 12">
             <animate
                 id="globalnav-anim-menutrigger-bread-bottom-open"
@@ -35,9 +35,9 @@ const HamburgIcon = ({ dark }) => (
             className="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
             fill="none"
             stroke={dark ? '#e2e2e0' : '#565656'}
-            stroke-width="1.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             points="2 5, 16 5">
             <animate
                 id="globalnav-anim-menutrigger-bread-top-open"

@@ -28,7 +28,9 @@ const BlogNavbar = ({
     handleOpenMobileNav
 }: NavbarProps) => {
     return (
-        <header className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000]">
+        <header
+            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000]"
+            aria-label="header-blog">
             <nav className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div>

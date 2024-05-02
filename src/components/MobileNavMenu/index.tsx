@@ -30,10 +30,13 @@ const MobileNavMenu = ({
             style={{ height: mobileNavOpen ? `100%` : `0px` }}
             className={`h-full fixed z-[1000] bg-primary-bg w-full top-0 nav-menu ${mobileNavOpen ? `` : 'invisible'}`}>
             <nav>
-                <div
-                    className="pr-[2.3rem] py-7 flex justify-end"
-                    onClick={() => dispatch(handleOpenMobileNav(false))}>
-                    <Wrong dark={dark} />
+                <div className="flex justify-end pr-[2.3rem] py-7">
+                    <button
+                        className="bg-transparent border-none"
+                        aria-label="close-nav"
+                        onClick={() => dispatch(handleOpenMobileNav(false))}>
+                        <Wrong dark={dark} />
+                    </button>
                 </div>
 
                 <ul className="overflow-auto mt-6">

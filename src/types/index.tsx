@@ -15,3 +15,11 @@ export type NavItemsType = {
     link: string;
     target?: string | undefined;
 };
+
+export type NavMenuItemsType = {
+    title: string;
+    data: {
+        name: string;
+        link: string;
+    }[];
+};

@@ -27,7 +27,9 @@ const Navbar = ({
     handleOpenMobileNav
 }: NavbarProps) => {
     return (
-        <header className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]">
+        <header
+            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]"
+            aria-label="header-home">
             <nav className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="/" className="mr-10">
                     <div className={`${dark ? 'visible' : 'hidden'}`}>
@@ -48,7 +50,8 @@ const Navbar = ({
                                         action: true
                                     })
                                 )
-                            }>
+                            }
+                            key={el.id}>
                             <Link href={el.link} target={el?.target ? '_blank' : '_self'}>
                                 {el.title}
                             </Link>
@@ -60,6 +63,7 @@ const Navbar = ({
                         <SearchIcon dark={dark} />
                     </button>
                     <button
+                        aria-label={dark ? 'lightmode-btn' : 'darkmode-btn'}
                         className="flex justify-center bg-navbg items-center border-none"
                         onClick={() => dispatch(handleToggleTheme())}>
                         {dark ? <Sun dark={dark} /> : <Moon />}

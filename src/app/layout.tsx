@@ -4,7 +4,9 @@ import './styles.scss';
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className="">{children}</body>
+            <body aria-label="body" className="">
+                {children}
+            </body>
         </html>
     );
 }

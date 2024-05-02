@@ -5,12 +5,14 @@ type navState = {
     open: boolean;
     target: string;
     mobileNavOpen: boolean;
+    mobileNavMenuItems: [];
 };
 
 const initialState: navState = {
     open: false,
     target: '',
-    mobileNavOpen: false
+    mobileNavOpen: false,
+    mobileNavMenuItems: []
 };
 
 const navSlice = createSlice({
@@ -24,11 +26,14 @@ const navSlice = createSlice({
         },
         handleOpenMobileNav(state, { payload }) {
             state.mobileNavOpen = payload;
+        },
+        handleMobileNavMenuItems(state, { payload }) {
+            state.mobileNavOpen = payload;
         }
     }
 });
 
-export const { handleNavMenu, handleOpenMobileNav } = navSlice.actions;
+export const { handleNavMenu, handleOpenMobileNav, handleMobileNavMenuItems } = navSlice.actions;
 
 export const navSelector = (state: RootState) => state.navSlice;
 

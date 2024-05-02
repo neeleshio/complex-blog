@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 import Backdrop from '../Backdrop';
-
-type NavMenuItemsType = {
-    title: string;
-    data: [{ name: string; link: string }];
-};
+import { NavMenuItemsType } from '@/src/types';
 
 type NavMenuProps = {
     dispatch: FC;

@@ -5,20 +5,38 @@ import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
 import NavMenu from '@/src/components/NavMenu';
 import { useAppDispatch, useAppSelector } from '@/src/hooks';
-import { handleNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
+import {
+    handleNavMenu,
+    handleOpenMobileNav,
+    handleMobileNavMenuItems
+} from '@/src/store/slices/navSlice';
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
 import BlogNavbar from '@/src/components/BlogNavbar';
 import { usePathname, useSearchParams } from 'next/navigation';
 import MobileNavMenu from '@/src/components/MobileNavMenu';
+import { NavMenuItemsType } from '@/src/types';
+
+type mobileNavMenuItemsType = {
+    name: string;
+    link: string;
+};
+
+type NavMenuDataType = {
+    SKILLS: NavMenuItemsType[];
+    'WORK HISTORY': NavMenuItemsType[];
+    PROJECTS: NavMenuItemsType[];
+    'QUICK ARTICLES': NavMenuItemsType[];
+    CONTACT: NavMenuItemsType[];
+};
 
 const Header = () => {
     const dispatch = useAppDispatch();
     const { open, target, mobileNavOpen } = useAppSelector(navSelector);
     const { dark } = useAppSelector(themeSelector);
-    const [navMenuItems, setNavMenuItems] = useState([]);
-    const [mobileNavMenuItems, setMobileNavMenuItems] = useState([]);
+    const [navMenuItems, setNavMenuItems] = useState<NavMenuItemsType[]>([]);
+    const [mobileNavMenuItems, setMobileNavMenuItems] = useState<mobileNavMenuItemsType[] | []>([]);
     const [navMenuHeight, setNavMenuHeight] = useState('');
     const pathname = usePathname();
 
@@ -49,8 +67,10 @@ const Header = () => {
 
     useEffect(() => {
         if (target) {
-            const _target = target.toUpperCase();
-            const data = NAVMENU_DATA[_target];
+            const targetNavItem: string = target.toUpperCase();
+            const navMenuDataCopy: NavMenuDataType = { ...NAVMENU_DATA };
+            const data: NavMenuItemsType[] =
+                navMenuDataCopy[targetNavItem as keyof NavMenuDataType];
 
             if (data && data.length > 0) {
                 const firstColumnDataLength = data[0]['data'].length;
@@ -68,13 +88,14 @@ const Header = () => {
             }
 
             if (data && data.length > 0) {
-                const newObj = [];
+                const newObj: mobileNavMenuItemsType[] = [];
 
                 data.map((el) => {
                     newObj.push(...el.data);
                 });
 
                 setMobileNavMenuItems(newObj);
+                dispatch(handleMobileNavMenuItems(newObj));
             }
         }
     }, [target]);
