@@ -1,0 +1,157 @@
+# Testing React app with Jest and RTL
+
+> React testing ensures the product’s quality and reliability and must be done thoroughly before rolling out the product to the customers.
+
+![testing-react-app](/testing-react-app.png)
+
+## Jest vs React testing library
+
+-   Jest is a test runner that finds tests, runs the tests, and determines whether the tests passed or failed. Additionally, Jest offers functions for test suites, test cases, and assertions.
+
+-   React Testing Library provides virtual DOMs for testing React components.
+
+-   Any time we run tests without a web browser, we must have a virtual DOM to render the app, interact with the elements, and observe if the virtual DOM behaves like it should (like changing the width of a div on a button click).
+
+-   React Testing Library is not specific to any testing framework; we can use it with any other testing library, although Jest is recommended and preferred by many developers.
+
+-   For rendering and accessing the virtual DOM, we import and use render and screen from React Testing Library.
+
+## Why we need testing?
+
+-   To catch bugs.
+-   Increases confidence in application.
+-   Speedup QA time.
+-   Can serve as documentation.
+
+## Types of tests
+
+-   **Unit tests:** These types of tests are performed to test the functionality of an individual component in complete isolation.
+-   **Integration tests:** These tests ensure the proper functioning of different components working together. It tests the interaction between the parent and child components or when the components contain some dependencies.
+-   **End to End test:** (Cypress): These tests ensure a proper user experience is received from the user perspective by testing an entire application.
+
+## Test block:
+
+-   Render a component we need to test.
+-   Find elements we need to interact with.
+-   Interact with those elements.
+-   Assert that the results are as expected.
+
+## Types of Queries:
+
+### getBy:
+
+Returns the matching node for a query, and throw a descriptive error if no elements match or if more than one match is found (use getAllBy instead if more than one element is expected).
+
+-   90% of the time we'll be using getBy over findBy & queryBy.
+
+<br />
+### findBy:
+
+Returns a Promise which resolves when an element is found which matches the given query. The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms. If you need to find more than one element, use findAllBy.
+
+-   If we need to use Async Await then we have to use findBy.
+
+<br />
+### queryBy:
+
+Returns the matching node for a query, and return null if no elements match. This is useful for asserting an element that is not present. Throws an error if more than one match is found (use queryAllBy instead).
+
+-   When we want to use negative assertions then we have to use queryBy.
+
+```javascript
+const text = screen.queryByText(/dogs/i);
+
+expect(text).not.toBeInTheDocument();
+```
+
+Single element:
+
+-   getBy
+-   findBy
+-   queryBy
+
+Multiple elements:
+
+-   getAllBy
+-   findAllBy
+-   queryAllBy
+
+## Matchers:
+
+When you're writing tests, you often need to check that values meet certain conditions. expect gives you access to a number of "matchers" that let you validate different things.
+
+### Some of the matchers:
+
+First priority:
+
+-   getByRole
+-   getByLabelText
+-   getByPlaceholderText
+-   getByText
+
+Second priority:
+
+-   getByAltText
+-   getByTitle
+
+Last priority:
+
+-   getByTestId
+
+## When to use getAllBy?
+
+When we need to find 2 or more elements.
+
+```javascript
+const headings = screen.getAllByRole('heading');
+
+expect(headings).toHaveLength(2);
+//or
+expect(headings.length).toBe(2);
+```
+
+getALLBy returns an array with all the elements.
+
+We can also extract values from the elemets.
+
+```javascript
+const para = screen.getByTextId('para');
+
+expect(para.value).toBe('something');
+expect(para.textContent).toBe('something');
+```
+
+## Describe block
+
+Describe block used to group test blocks.
+
+## Typing an input field
+
+```javascript
+import { fireEvent } from '@testing-library/react';
+
+fireEvent.change(inputElement, { target: { value: 'hey' } });
+
+expect(inputElement.value).toBe('hey');
+```
+
+## Click Event:
+
+```javascript
+fireEvent.click(buttonElement);
+```
+
+## Mock function calls:
+
+Jest provides <span className="hgl">jest.fn()</span>
+
+The mock fn can remembers how many times it gets called & hat has been passed to it.
+
+```javascript
+except(mock).toHaveBeenCalled();
+except(mock).toHaveBeenCalledWith({ name: 'alex', age: 23 });
+```
+
+Jest [cheatsheet](https://devhints.io/jest)
+
+React-testing-library [cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)

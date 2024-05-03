@@ -134,5 +134,14 @@ export const BLOG_DATA = [
         ],
         date: '1 May 2024',
         img: '/react-seo-and-challenges.png'
+    },
+    {
+        id: 11,
+        title: 'Testing React app with Jest and RTL',
+        topic: 'React',
+        link: 'testing-react-app',
+        tags: ['react', 'testing', 'rtl', 'jest', 'react-testing-library', 'unit testing'],
+        date: '3 May 2024',
+        img: '/testing-react-app.png'
     }
 ];
