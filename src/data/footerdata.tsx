@@ -1,6 +1,7 @@
 export const FOOTER_DATA = [
     [
         {
+            id: 1,
             heading: 'React',
             data: [
                 { id: 1, name: 'JSX', link: '' },
@@ -15,6 +16,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
+            id: 2,
             heading: 'JavaScript',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -25,6 +27,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
+            id: 1,
             heading: 'HTML & CSS',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -35,6 +38,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
+            id: 2,
             heading: 'NextJs',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -49,6 +53,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
+            id: 1,
             heading: 'Redux',
             data: [
                 { id: 1, name: 'Mac', link: '' },
@@ -63,6 +68,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
+            id: 2,
             heading: 'Testing',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -73,6 +79,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
+            id: 1,
             heading: 'Web Performance',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -83,6 +90,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
+            id: 2,
             heading: 'Web Security',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -97,6 +105,7 @@ export const FOOTER_DATA = [
     ],
     [
         {
+            id: 1,
             heading: 'RestAPI',
             data: [
                 { id: 1, name: 'Store', link: '' },
@@ -111,6 +120,7 @@ export const FOOTER_DATA = [
             ]
         },
         {
+            id: 2,
             heading: 'React Native',
             data: [
                 { id: 1, name: 'Store', link: '' },

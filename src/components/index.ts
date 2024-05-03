@@ -7,7 +7,7 @@ export { default as FooterCard } from './FooterCard';
 export { default as MobileNavMenu } from './MobileNavMenu';
 export { default as Name } from './Name';
 export { default as Navbar } from './Navbar';
-export { default as NavMenu } from './NavMenu';
+export { default as DesktopNavMenu } from './DesktopNavMenu';
 export { default as ProjectCard } from './ProjectCard';
 export { default as SectionHeader } from './SectionHeader';
 export { default as SkillCard } from './SkillCard';

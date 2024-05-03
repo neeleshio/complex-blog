@@ -3,14 +3,13 @@
 import Navbar from '@/src/components/Navbar';
 import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
-import NavMenu from '@/src/components/NavMenu';
+import DesktopNavMenu from '@/src/components/DesktopNavMenu';
 import { useAppDispatch, useAppSelector } from '@/src/hooks';
 import { handleNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice';
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
 import BlogNavbar from '@/src/components/BlogNavbar';
-import { usePathname, useSearchParams } from 'next/navigation';
 import MobileNavMenu from '@/src/components/MobileNavMenu';
 import { NavMenuItemsType } from '@/src/types';
 
@@ -27,14 +26,17 @@ type NavMenuDataType = {
     CONTACT: NavMenuItemsType[];
 };
 
-const Header = () => {
+type HeaderPropsType = {
+    page: 'home' | 'blog';
+};
+
+const Header = ({ page }: HeaderPropsType) => {
     const dispatch = useAppDispatch();
     const { open, target, mobileNavOpen } = useAppSelector(navSelector);
     const { dark } = useAppSelector(themeSelector);
     const [navMenuItems, setNavMenuItems] = useState<NavMenuItemsType[]>([]);
     const [mobileNavMenuItems, setMobileNavMenuItems] = useState<mobileNavMenuItemsType[] | []>([]);
     const [navMenuHeight, setNavMenuHeight] = useState('');
-    const pathname = usePathname();
 
     useEffect(() => {
         if (mobileNavOpen) {
@@ -97,7 +99,7 @@ const Header = () => {
 
     return (
         <>
-            {pathname === '/' ? (
+            {page === 'home' && (
                 <Navbar
                     navItems={NAVITEMS}
                     handleNavMenu={handleNavMenu}
@@ -106,7 +108,8 @@ const Header = () => {
                     dark={dark}
                     handleOpenMobileNav={handleOpenMobileNav}
                 />
-            ) : (
+            )}
+            {page === 'blog' && (
                 <BlogNavbar
                     navItems={NAVITEMS}
                     handleNavMenu={handleNavMenu}
@@ -116,7 +119,8 @@ const Header = () => {
                     handleOpenMobileNav={handleOpenMobileNav}
                 />
             )}
-            <NavMenu
+
+            <DesktopNavMenu
                 open={open}
                 handleNavMenu={handleNavMenu}
                 dispatch={dispatch}

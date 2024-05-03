@@ -11,7 +11,7 @@ type NavMenuProps = {
     handleNavMenu: (state: { target: ''; action: boolean }) => {};
 };
 
-const NavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }: NavMenuProps) => {
+const DesktopNavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }: NavMenuProps) => {
     const [data_1, ...moreData] = navMenuItems;
 
     const firstColumn = () => {
@@ -74,4 +74,4 @@ const NavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }: NavMen
     );
 };
 
-export default NavMenu;
+export default DesktopNavMenu;

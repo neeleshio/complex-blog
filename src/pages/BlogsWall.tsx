@@ -9,7 +9,7 @@ import SectionHeader from '@/src/components/SectionHeader';
 export default function BlogsWall() {
     return (
         <Provider store={store}>
-            <Header />
+            <Header page="blog" />
             <SectionHeader title="Blog Wall" />
             <main>
                 <Blogs />

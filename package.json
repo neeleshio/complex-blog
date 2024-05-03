@@ -10,7 +10,7 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --silent --watch --verbose"
     },
     "dependencies": {
         "@mdx-js/loader": "^3.0.1",

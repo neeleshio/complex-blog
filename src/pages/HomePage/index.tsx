@@ -18,7 +18,7 @@ import Ribbon from '@/src/containers/Ribbon';
 export default function HomePage() {
     return (
         <Provider store={store}>
-            <Header />
+            <Header page="home" />
             <Ribbon />
             <main>
                 <Intro />

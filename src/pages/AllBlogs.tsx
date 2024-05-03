@@ -9,7 +9,7 @@ import AllBlogs from '../containers/AllBlogs';
 export default function AllBlogsPage() {
     return (
         <Provider store={store}>
-            <Header />
+            <Header page="blog" />
             <main>
                 <AllBlogs />
             </main>
