@@ -152,6 +152,57 @@ except(mock).toHaveBeenCalled();
 except(mock).toHaveBeenCalledWith({ name: 'alex', age: 23 });
 ```
 
+## Mock API call:
+
+It's a three-step process. First, we must import the dependencies:
+
+```javascript
+import axios from 'axios';
+```
+
+Then, mock the dependency:
+
+```javascript
+jest.mock('axios');
+```
+
+And finally, fake the function outputs:
+
+```javascript
+axios.get.mockResolvedValue({ data: fakeUsers });
+```
+
+```jsx
+import axios from 'axios';
+import { render, screen, waitFor } from '@testing-library/react';
+import App from './App';
+
+jest.mock('axios');
+
+const fakeUsers = [
+    {
+        id: 1,
+        name: 'Test User 1',
+        username: 'testuser1'
+    },
+    {
+        id: 2,
+        name: 'Test User 2',
+        username: 'testuser2'
+    }
+];
+
+describe('App component', () => {
+    test('it displays a row for each user', async () => {
+        axios.get.mockResolvedValue({ data: fakeUsers });
+        render(<App />);
+
+        const userList = await waitFor(() => screen.findAllByTestId('user-item'));
+        expect(userList).toHaveLength(2);
+    });
+});
+```
+
 Jest [cheatsheet](https://devhints.io/jest)
 
 React-testing-library [cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
