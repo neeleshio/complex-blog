@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
 import React from 'react';
@@ -12,9 +13,9 @@ const BlogCardLarge = ({ title, topic, link, date, img, router }: BlogCardProps)
             <div className="h-[26rem] relative lg:h-[22rem] ml:h-[18rem]">
                 <Image
                     alt={title}
-                    src={img}
-                    fill
                     className="rounded-t-[16px] object-cover absolute blog-img"
+                    fill
+                    src={img}
                 />
             </div>
             <div className="flex flex-col p-[3.2rem] justify-between ml:p-[2.4rem]">

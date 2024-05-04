@@ -1,3 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/forbid-component-props */
+/* eslint-disable jsx-a11y/alt-text */
 'use client';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -59,19 +62,19 @@ const components = {
     ),
     code: ({ className, children }: { className: string; children: string }) => (
         <SyntaxHighlighter
+            customStyle={customStyle}
             language={className.split('-')[1]}
             style={nightOwl}
-            customStyle={customStyle}
             wrapLines>
             {children}
         </SyntaxHighlighter>
     ),
     img: (props: { src: string; alt: string }) => (
         <Image
-            sizes="100vw"
-            width={0}
             height={0}
+            sizes="100vw"
             style={{ width: '100%', height: 'auto', objectFit: 'cover', paddingBottom: '3rem' }}
+            width={0}
             {...(props as ImageProps)}
         />
     ),
@@ -84,10 +87,10 @@ const components = {
     h3: ({ children }: ChildrenProp) => <h3 className="mb-6 text-[2rem] font-bold">{children}</h3>
 };
 
-export function BlogPage(props: BlogPageProps) {
+export const BlogPage = (props: BlogPageProps) => {
     return (
         <Provider store={store}>
-            <Header />
+            <Header page={'blog'} />
             <SectionHeader title={props.title} />
             <div className="sm:text-center w-[98rem] m-auto px-32 pt-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8">
                 <div className="text-cgrey text-[1.2rem] font-semibold">
@@ -99,8 +102,8 @@ export function BlogPage(props: BlogPageProps) {
             </div>
             <div className="w-[98rem] m-auto px-32 pt-12 pb-24 lg:w-[80rem] lg:px-24 ml:w-[75rem] ml:px-20 md:w-[60rem] md:px-14 sm:w-full sm:px-8 article-container">
                 <MDXRemote
-                    source={props.source}
                     components={{ ...components, ...(props.components || {}) }}
+                    source={props.source}
                 />
                 <div className="mt-[10rem] mb-[6rem] flex">
                     <div className="mr-8">Share on</div>
@@ -111,4 +114,4 @@ export function BlogPage(props: BlogPageProps) {
             <Footer />
         </Provider>
     );
-}
+};

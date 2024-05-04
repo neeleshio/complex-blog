@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import HomePage from '../pages/HomePage';
 import type { Metadata } from 'next';
 

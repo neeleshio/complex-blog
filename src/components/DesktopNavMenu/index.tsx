@@ -26,7 +26,8 @@ const DesktopNavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }:
                 <ul>
                     {data_1['data'].map((el) => (
                         <li
-                            className={`text-[2.2rem] text-menu-color font-semibold pt-[0.9rem] pb-[0.7rem] py-[1.1rem] ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}>
+                            className={`text-[2.2rem] text-menu-color font-semibold pt-[0.9rem] pb-[0.7rem] py-[1.1rem] ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}
+                            key={el.name}>
                             <Link className="link-text" href={el.link} target="_blank">
                                 {el.name}
                             </Link>
@@ -42,12 +43,13 @@ const DesktopNavMenu = ({ dispatch, open, navMenuItems, height, handleNavMenu }:
         if (Object.keys(moreData).length === 0) return;
 
         return moreData.map((el) => (
-            <div className="pr-[4.4rem]">
+            <div className="pr-[4.4rem]" key={el.title}>
                 <h2 className="text-[1.2rem] text-menu-color-light font-light pb-4">{el.title}</h2>
                 <ul>
                     {el['data'].map((elx) => (
                         <li
-                            className={`text-[1.2rem] text-menu-color font-semibold py-[0.7rem] px-[1.1rem] pl-0  ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}>
+                            className={`text-[1.2rem] text-menu-color font-semibold py-[0.7rem] px-[1.1rem] pl-0  ${open ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}
+                            key={elx.name}>
                             <Link className="link-text" href={elx.link} target="_blank">
                                 {elx.name}
                             </Link>

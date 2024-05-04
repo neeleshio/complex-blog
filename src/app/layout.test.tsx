@@ -6,7 +6,7 @@ describe('RootLayout', () => {
     test('dark className should not be present in the body tag', () => {
         render(
             <RootLayout>
-                <div></div>
+                <div />
             </RootLayout>
         );
 

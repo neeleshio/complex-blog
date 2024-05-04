@@ -1,0 +1,180 @@
+# The Best ESlint Rules For React Projects
+
+> ESLint is a popular open-source JavaScript linting utility. It analyzes your code for potential errors, and enforces coding standards while improving code quality. It can also help you as a developer to identify and fix common mistakes, use best practices, and maintain consistency across your codebase.
+
+![eslint](/eslint.png)
+
+## How to use ESLint?
+
+### Install it:
+
+```shell
+npm install eslint --save-dev
+```
+
+### Initialize it:
+
+```shell
+npx eslint --init
+```
+
+### Configure it:
+
+The moment you’re done with the installation and initialization you’ll have a .eslintrc.json file in your directory. In it, you’ll see some rules configured like this:
+
+```json
+{
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
+    }
+}
+```
+
+### Use it:
+
+Add it to package.json file.
+
+```json
+"scripts": {
+  ...
+  "lint": "eslint .",
+  "lint:fix": "eslint --fix --ext .js,.jsx ."
+  ...
+}
+```
+
+```shell
+npm run lint
+```
+
+## Official React Plugin
+
+An obvious pick for React projects, but eslint-plugin-react along with their plugin:react/recommended rule set is a must. This will give you some sensible rules such as requiring a key to be specified in JSX arrays.
+
+```shell
+npm install eslint-plugin-react --save-dev
+```
+
+```json
+ "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ]
+```
+
+eslint-config-airbnb is another good (if a bit loose) base rule set on top of eslint-plugin-react to start from.
+
+## List of some useful eslint rules.
+
+&emsp; **1. react/no-array-index-key**
+
+-   Warn if an element uses an Array index in its key.
+
+&emsp; **2. react/jsx-sort-props**
+
+-   Some developers prefer to sort props names alphabetically to be able to find necessary props easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
+
+&emsp; **3. react/button-has-type**
+
+-   The default value of type attribute for button HTML element is "submit" which is often not the desired behavior and may lead to unexpected page reloads. This rules enforces an explicit type attribute for all the button elements and checks that its value is valid per spec (i.e., is one of "button", "submit", and "reset").
+
+&emsp; **4. react/destructuring-assignment**
+
+-   Enforce consistent usage of destructuring assignment of props, state, and context
+
+&emsp; **5. react/forbid-component-props**
+
+-   By default this rule prevents passing of props that add lots of complexity (className, style) to Components. This rule only applies to Components (e.g. <span className="tag">< Foo /></span>) and not DOM nodes (e.g. <span className="tag">< div /></span>). The list of forbidden props can be customized with the forbid option.
+
+&emsp; **6. react/function-component-definition**
+
+-   This rule is aimed to enforce consistent function types for function components. By default it prefers function declarations for named components and function expressions for unnamed components.
+
+&emsp; **7. react/prefer-stateless-function**
+
+-   Stateless functional components are simpler than class based components and will benefit from future React performance optimizations specific to these components.
+
+&emsp; **8. react/jsx-pascal-case**
+
+-   Enforces coding style that user-defined JSX components are defined and referenced in PascalCase.
+
+&emsp; **9. react/no-children-prop**
+
+-   Disallow passing of children as props. Children should always be actual children, not passed in as a prop.
+
+&emsp; **10. react/no-danger**
+
+-   Dangerous properties in React are those whose behavior is known to be a common source of application vulnerabilities. The properties names clearly indicate they are dangerous and should be avoided unless great care is taken.
+
+&emsp; **11. react/no-unstable-nested-components**
+
+-   Creating components inside components will cause React to throw away the state of those nested components on each re-render of their parent.
+
+&emsp; **12. react/jsx-fragments**
+
+-   In JSX, a React fragment is created either with <span className="tag">< React.Fragmen >...< /React.Fragment > </span>, or, using the shorthand syntax, <span className="tag"> < >...< / ></span>.
+
+&emsp; **13. react/jsx-no-leaked-render**
+
+-   Using the && operator to render some element conditionally in JSX can cause unexpected values being rendered, or even crashing the rendering.
+
+&emsp; **14. react/jsx-max-depth**
+
+-   This option validates a specific depth for JSX. as soon as your components start reaching too far to the right, you know they're getting too big.
+
+&emsp; **15. react/jsx-key**
+
+-   Warn if an element that likely requires a key prop along with checkFragmentShorthand, checkKeyMustBeforeSpread, warnOnDuplicates.
+
+&emsp; **16. react/jsx-no-useless-fragment**
+
+-   A fragment is redundant if it contains only one child, or if it is the child of a html element, and is not a keyed fragment.
+
+&emsp; **17. react/self-closing-comp**
+
+-   Components without children can be self-closed to avoid unnecessary extra closing tag.
+
+&emsp; **18. react/jsx-one-expression-per-line**
+
+-   This option limits every line in JSX to one expression each.
+
+<br />
+
+**Rules usage:**
+
+```json
+{
+    "rules": {
+        "react/no-array-index-key": "error",
+        "react/jsx-sort-props": "warn",
+        "react/button-has-type": "error",
+        "react/destructuring-assignment": [
+            "error",
+            "always",
+            { "destructureInSignature": "always" }
+        ],
+        "react/forbid-component-props": ["warn", { "forbid": ["className", "style"] }],
+        "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
+        "react/prefer-stateless-function": "error",
+        "react/jsx-pascal-case": "error",
+        "react/no-children-prop": "error",
+        "react/no-danger": "error",
+        "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
+        "react/jsx-fragments": "error",
+        "react/jsx-no-leaked-render": ["error", { "validStrategies": ["ternary"] }],
+        "react/jsx-max-depth": ["error", { "max": 5 }],
+        "react/jsx-key": [
+            "error",
+            {
+                "checkFragmentShorthand": true,
+                "checkKeyMustBeforeSpread": true,
+                "warnOnDuplicates": true
+            }
+        ],
+        "react/jsx-no-useless-fragment": "warn",
+        "react/self-closing-comp": "warn",
+        "react/jsx-one-expression-per-line": "off"
+    }
+}
+```

@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import AllBlogsPage from '@/src/pages/AllBlogs';
 import { Metadata } from 'next';
 

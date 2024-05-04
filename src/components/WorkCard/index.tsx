@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { StaticImageData } from 'next/image';
 import React from 'react';
 import PreviousWork from './PreviousWork';

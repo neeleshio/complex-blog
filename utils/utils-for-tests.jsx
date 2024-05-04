@@ -18,7 +18,7 @@ function renderWithProviders(
         ...renderOptions
     } = {}
 ) {
-    function Wrapper({ children }) {
+    const Wrapper = ({ children }) => {
         return <Provider store={store}>{children}</Provider>;
     }
 

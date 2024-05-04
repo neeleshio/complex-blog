@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import BlogsWall from '@/src/pages/BlogsWall';
 import type { Metadata } from 'next';
 

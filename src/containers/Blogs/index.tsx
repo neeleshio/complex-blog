@@ -24,7 +24,7 @@ const Blogs = () => {
                     ))}
                 </div>
                 <div className="grid gap-16 mt-16 grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                    {BLOG_DATA.slice(5, 11).map((el) => (
+                    {BLOG_DATA.slice(4, 10).map((el) => (
                         <BlogCardMedium {...el} router={router} />
                     ))}
                 </div>
@@ -35,7 +35,7 @@ const Blogs = () => {
                         More from Blog Wall
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-1">
-                        {BLOG_DATA.slice(5, 11).map((el, idx) => (
+                        {BLOG_DATA.slice(6, 12).map((el, idx) => (
                             <div className="py-[3.2rem] border-bottom pr-[5rem]">
                                 <BlogCardSmall {...el} router={router} />
                             </div>

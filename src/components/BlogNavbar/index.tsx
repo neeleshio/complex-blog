@@ -48,7 +48,8 @@ const BlogNavbar = ({
                                         action: true
                                     })
                                 )
-                            }>
+                            }
+                            key={el.id}>
                             <Link href={el.link} target={el?.target ? '_blank' : '_self'}>
                                 {el.title}
                             </Link>
@@ -56,7 +57,9 @@ const BlogNavbar = ({
                     ))}
                 </ul>
                 <div className="flex ml-14 gap-16 sm:gap-10">
-                    <button className="flex justify-center bg-[#454545] items-center border-none">
+                    <button
+                        className="flex justify-center bg-[#454545] items-center border-none"
+                        type="search">
                         <SearchIcon dark={true} />
                     </button>
                     <button

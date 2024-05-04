@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
@@ -24,5 +25,5 @@ export default async function Blog({
     const filePath = path.join(contentDir, fileName);
     const fileContent = fs.readFileSync(filePath, 'utf8');
 
-    return <BlogPage source={fileContent} title={title} date={date} topic={topic} />;
+    return <BlogPage date={date} source={fileContent} title={title} topic={topic} />;
 }

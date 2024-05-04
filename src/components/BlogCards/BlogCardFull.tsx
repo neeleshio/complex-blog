@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import { BlogCardProps } from '@/src/types';
 import Image from 'next/image';
 import React from 'react';
@@ -12,10 +13,10 @@ const BlogCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) 
             <div className="bg-invert-secondary w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
                     alt={title}
+                    className="object-cover rounded-t-[16px]"
+                    height={320}
                     src={img}
                     width={320}
-                    height={320}
-                    className="object-cover rounded-t-[16px]"
                 />
             </div>
             <div className="w-[35%] p-[3.2rem] rounded-r-[16px] bg-primary-bg flex flex-col justify-between">

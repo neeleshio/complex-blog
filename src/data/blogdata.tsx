@@ -143,5 +143,14 @@ export const BLOG_DATA = [
         tags: ['react', 'testing', 'rtl', 'jest', 'react-testing-library', 'unit testing'],
         date: '3 May 2024',
         img: '/testing-react-app.png'
+    },
+    {
+        id: 12,
+        title: 'The Best ESlint rules for React projects',
+        topic: 'React',
+        link: 'best-eslint-rules',
+        tags: ['react', 'testing', 'linting', 'eslint', 'prittier'],
+        date: '4 May 2024',
+        img: '/eslint.png'
     }
 ];

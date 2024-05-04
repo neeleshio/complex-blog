@@ -5,7 +5,7 @@ import { WORK_HISTORY } from '@/src/data';
 import useOpenLink from '@/src/hooks/useOpenLink';
 import React from 'react';
 
-function Work() {
+const Work = () => {
     const { navigate } = useOpenLink();
 
     return (
@@ -18,12 +18,12 @@ function Work() {
             <div className="flex">
                 <ButtonScroll height={50}>
                     {WORK_HISTORY.map((el) => (
-                        <WorkCard {...el} navigate={navigate} />
+                        <WorkCard {...el} navigate={navigate} key={el.id} />
                     ))}
                 </ButtonScroll>
             </div>
         </section>
     );
-}
+};
 
 export default Work;

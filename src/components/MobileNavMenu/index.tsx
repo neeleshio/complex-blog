@@ -42,6 +42,7 @@ const MobileNavMenu = ({
                 <ul className="overflow-auto mt-6">
                     {navItems.map((el) => (
                         <li
+                            key={el.id}
                             className={`text-[2.2rem] font-semibold py-2 px-20 ${mobileNavOpen ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}
                             onClick={() => {
                                 el.title === target
@@ -54,8 +55,8 @@ const MobileNavMenu = ({
                                 href={el.link}
                                 target={el?.target ? '_blank' : '_self'}>
                                 <span>{el.title}</span>
-                                {!el.link &&
-                                    (el.title === target ? (
+                                {!el.link ? (
+                                    el.title === target ? (
                                         <div className="w-[1.6rem] h-4 flex rotate-180">
                                             <ArrowDown dark={dark} />
                                         </div>
@@ -63,20 +64,22 @@ const MobileNavMenu = ({
                                         <div className="w-[1.6rem] h-4 flex ">
                                             <ArrowDown dark={dark} />
                                         </div>
-                                    ))}
+                                    )
+                                ) : null}
                             </Link>
 
-                            {el.title === target && (
+                            {el.title === target ? (
                                 <ul className="text-[1.6rem] font-normal ml-8">
                                     {mobileNavMenuItems.map((el) => (
                                         <li
+                                            key={el.name}
                                             className={`py-[0.8rem] ${mobileNavOpen ? 'li-text-open opacity-100' : 'li-text opacity-0'}`}
                                             onClick={() => dispatch(handleOpenMobileNav(false))}>
                                             {el.name}
                                         </li>
                                     ))}
                                 </ul>
-                            )}
+                            ) : null}
                         </li>
                     ))}
                 </ul>
