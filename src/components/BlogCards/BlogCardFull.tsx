@@ -7,9 +7,11 @@ const BlogCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) 
     return (
         <div
             className="flex min-h-[36rem] w-full ml:hidden shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] border-[#f5f5f72e] border border-solid rounded-[18px] cursor-pointer custom-transform"
-            onClick={() =>
+            onClick={() => router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)}
+            onKeyDown={() =>
                 router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)
-            }>
+            }
+            role="link">
             <div className="bg-invert-secondary w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
                     alt={title}

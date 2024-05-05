@@ -18,6 +18,10 @@ npm install eslint --save-dev
 npx eslint --init
 ```
 
+This command prompts you to multiple options, choose the following options:
+
+![eslint-init](/eslint-init.png)
+
 ### Configure it:
 
 The moment you’re done with the installation and initialization you’ll have a .eslintrc.json file in your directory. In it, you’ll see some rules configured like this:
@@ -178,3 +182,67 @@ eslint-config-airbnb is another good (if a bit loose) base rule set on top of es
     }
 }
 ```
+
+## Some useful eslint plugins
+
+### 1. eslint-plugin-jsx-a11y:
+
+-   jsx-a11y is all about ensuring your DOM elements are accessible. This plugin will prompt you to include the correct ARIA attributes such as labels and roles, in addition to things like alt text.
+-   Static AST checker for accessibility rules on JSX elements.
+-   This plugin does a static evaluation of the JSX to spot accessibility issues in React apps.
+
+```shell
+npm install eslint-plugin-jsx-a11y --save-dev
+```
+
+Add jsx-a11y to the plugins section of your .eslintrc configuration file. You can omit the eslint-plugin- prefix:
+
+```shell
+{
+  "plugins": ["jsx-a11y"]
+}
+```
+
+Enable all the recommended or strict rules at once. Add plugin:jsx-a11y/recommended or plugin:jsx-a11y/strict in extends:
+
+```shell
+{
+  "extends": ["plugin:jsx-a11y/recommended"]
+}
+```
+
+### 2. React Refresh:
+
+-   Requires that .tsx/.jsx files only export components. Why? Because this optimises your app for fash refresh to get a smoother development experience. If you're using Vite, you'll be utilising fash refresh under the hood and will want to enable this rule.
+-   Validate that your components can safely be updated with fast refresh
+
+```shell
+npm i -D eslint-plugin-react-refresh
+```
+
+```shell
+{
+  "plugins": ["react-refresh"],
+  "rules": {
+    "react-refresh/only-export-components": "warn"
+  }
+}
+```
+
+### 3. Rules of Hooks:
+
+-   react-hooks with the plugin:react-hooks/recommended rule set will save you more than a few headaches. Importantly, you can't call hooks conditionally, and will be warned if you state dependencies aren't exhaustive.
+
+```shell
+npm install eslint-plugin-react-hooks --save-dev
+```
+
+```shell
+{
+  "extends": ["plugin:react-hooks/recommended"]
+}
+```
+
+## Conclusion
+
+Using the rules above will improve your code quality, consistency, and reduce the risk of bugs. However, every project is different and every team has their own styles and conventions, so I'd suggest tweaking rules to your needs. With that said, it's better to start with a stricter rule set then loosen it to reduce any false positives or noise. This encourages you to think critically about the code you write, and make the conscious decision to ignore rules if you need rather than be ignorant to certain anti-patterns.

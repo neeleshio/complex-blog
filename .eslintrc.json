@@ -1,5 +1,5 @@
 {
-    "extends": "next/core-web-vitals",
+    "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"],
     "rules": {
         "react/no-array-index-key": "error",
         "react/destructuring-assignment": [
@@ -27,6 +27,8 @@
         "react/jsx-no-useless-fragment": "warn",
         "react/self-closing-comp": "warn",
         "react/jsx-one-expression-per-line": "off",
-        "react/no-unescaped-entities": "off"
-    }
+        "react/no-unescaped-entities": "off",
+        "react-refresh/only-export-components": "warn"
+    },
+    "plugins": ["jsx-a11y", "react-refresh"]
 }
