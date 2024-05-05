@@ -1,4 +1,4 @@
-# The Best ESlint Rules For React Projects
+# The Best ESlint Rules & Plugins For React Projects
 
 > ESLint is a popular open-source JavaScript linting utility. It analyzes your code for potential errors, and enforces coding standards while improving code quality. It can also help you as a developer to identify and fix common mistakes, use best practices, and maintain consistency across your codebase.
 
@@ -241,6 +241,97 @@ npm install eslint-plugin-react-hooks --save-dev
 {
   "extends": ["plugin:react-hooks/recommended"]
 }
+```
+
+## Prettier
+
+Prettier is an opinionated code formatter for JavaScript and other popular languages. Prettier enforces a consistent format by parsing code and reprinting it with its own rules that take the maximum line length into account, wrapping code when necessary.
+
+-   While ESLint takes care of your code style, Prettier takes care of your code formatting.
+-   Prettier enforces a consistent code style across your entire codebase.
+
+## Integrating Prettier with ESLint
+
+-   Linters(ESLint) usually contain not only code quality rules, but also stylistic rules.
+-   Most stylistic rules are unnecessary when using Prettier, but worse – they might conflict with Prettier! Use Prettier for code formatting concerns, and linters for code-quality concerns.
+
+-   Luckily it’s easy to turn off rules that conflict or are unnecessary with Prettier, by using these pre-made configs:
+
+<br />
+### 1. Let's install the necessary prettier packages
+
+```shell
+npm install -D prettier eslint-plugin-prettier eslint-config-prettier
+```
+
+**eslint-plugin-prettier:**
+
+-   Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.
+-   Plugins usually contain implementations for additional rules that ESLint will check for. This plugin uses Prettier under the hood and will raise ESLint errors when your code differs from Prettier's expected output.
+
+**eslint-config-prettier:**
+
+-   Turns off all rules that are unnecessary or might conflict with Prettier.
+-   This config turns off formatting-related rules that might conflict with Prettier, allowing you to use Prettier with other ESLint configs like eslint-config-airbnb.
+
+<br />
+### 2. Add prettier to your ESLint configuration
+
+```shell
+# .eslintrc.json
+
+ "plugins": ["prettier"]
+ "extends": ["plugin:prettier/recommended"],
+```
+
+<br />
+### 3. Config prettier
+
+Now for our Prettier configurations, we need to create a file called .prettierrc, then add your Prettier rules in that file.
+
+```shell
+# .prettierrc
+
+{
+    "semi": true,
+    "tabWidth": 4,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "bracketSameLine": true
+}
+```
+
+### 4. Run prettier
+
+<br />
+
+_Use this command if you just need to check the issues._
+
+```shell
+npx prettier . --check
+```
+
+_Use this command if you want to fix the issues automatically._
+
+```shell
+npx prettier . --write
+```
+
+### 5. For VS Code
+
+For VS Code, you can install ESLint & Prettier extensions to take more advantage.
+
+-   Once you have these two extensions, you can add these settings in your .vscode/settings.json or you can add them in your global settings.
+-   This will make prettier as our default formatter.
+-   And it will automatically format our file whenever we save a file.
+
+```json
+ "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 ```
 
 ## Conclusion

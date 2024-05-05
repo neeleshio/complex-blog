@@ -146,11 +146,20 @@ export const BLOG_DATA = [
     },
     {
         id: 12,
-        title: 'The Best ESlint rules for React projects',
+        title: 'The Best ESlint Rules and Plugins for React projects',
         topic: 'React',
-        link: 'best-eslint-rules',
+        link: 'best-eslint-rules-and-plugins',
         tags: ['react', 'testing', 'linting', 'eslint', 'prittier'],
         date: '4 May 2024',
         img: '/eslint.png'
+    },
+    {
+        id: 13,
+        title: 'Git Hooks and Husky',
+        topic: 'GIT',
+        link: 'git-hooks-and-husky',
+        tags: ['git', 'husky', 'devops', 'cicd', 'automate'],
+        date: '5 May 2024',
+        img: '/git-hooks.jpg'
     }
 ];

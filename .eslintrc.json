@@ -1,5 +1,9 @@
 {
-    "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"],
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended"
+    ],
     "rules": {
         "react/no-array-index-key": "error",
         "react/destructuring-assignment": [
@@ -30,5 +34,5 @@
         "react/no-unescaped-entities": "off",
         "react-refresh/only-export-components": "warn"
     },
-    "plugins": ["jsx-a11y", "react-refresh"]
+    "plugins": ["jsx-a11y", "react-refresh", "prettier"]
 }

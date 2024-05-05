@@ -1,0 +1,72 @@
+# Git Hooks and Husky
+
+> Protect your Git repository from mistakes, automate manual processes, gather data about Git activity, and much more with Git hooks.
+
+![git-hooks](/git-hooks.jpg)
+
+Git hooks are shell scripts found in the hidden .git/hooks directory of a Git repository. These scripts trigger actions in response to specific events, so they can help you automate your development lifecycle.
+
+Although you may never have noticed them, every Git repository includes 12 sample scripts.
+
+## Some default scripts:
+
+```shell
+# .git/hooks
+applypatch-msg.sample
+commit-msg.sample
+fsmonitor-watchman.sample
+post-update.sample
+pre-applypatch.sample
+pre-commit.sample
+pre-merge-commit.sample
+prepare-commit-msg.sample
+pre-push.sample
+pre-rebase.sample
+pre-receive.sample
+update.sample
+```
+
+The sample Git hooks included in your new repo indicate common triggers available to you.
+
+## Write a simple Git hook
+
+### 1. Create a hook file:
+
+-   Create a new file named <span className="hgl">.git/hooks/pre-commit</span>.
+-   Open it in a text editor.
+-   Add the following code, which queries Git for a list of the files about to be committed for the current branch name and then enters a while loop until it gets a response from the user:
+
+```shell
+#!/bin/sh
+
+echo "You are about to commit" $(git diff --cached --name-only --diff-filter=ACM)
+echo "to" $(git branch --show-current)
+
+while : ; do
+    read -p "Do you really want to do this? [y/n] " RESPONSE < /dev/tty
+    case "${RESPONSE}" in
+        [Yy]* ) exit 0; break;;
+        [Nn]* ) exit 1;;
+    esac
+done
+```
+
+### 2. Mark the file executable:
+
+```shell
+chmod +x .git/hooks/pre-commit
+```
+
+### 3. Test it out:
+
+Let's commit any of our file & see what happens.
+
+```shell
+git add hello.txt
+git commit -m 'superman'
+
+You are about to commit hello.txt to main
+Do you really want to do this? [y/n]
+```
+
+As you can see it ask us to confirm before actually commiting. If you type y, then it will commit otherwise it won't proceed further.
