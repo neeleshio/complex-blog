@@ -21,7 +21,11 @@ const LatestWork = ({
     return (
         <div
             className="rounded-[18px] shadow-[2px_4px_12px_#0071e314] relative mr-8 my-8 hover:shadow-[2px_4px_16px_#0071e324] cursor-pointer custom-transform min-w-[40rem] h-[50rem] sm:min-w-[35rem] sm:h-[45rem]"
-            onClick={() => navigate(link)}>
+            onClick={() => navigate(link)}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && navigate(link)}
+            aria-label="work-card">
             <div className="flex flex-col h-full justify-between rounded-[18px] bg-white overflow-hidden">
                 <div className="flex flex-col p-12">
                     <span className="text-[#6e6e73] uppercase text-[1.2rem] pb-5 font-semibold">
