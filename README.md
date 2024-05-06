@@ -10,35 +10,28 @@ Framework:
 
 CSS Framework:
 
-- Sass ✅
-- Tailwind CSS ✅
-- Styled components
+- Sass
+- Tailwind CSS
 
 Linter - ESLint
 
-- next/core-web-vitals ✅
-- airbnb 
-- custom rules ✅
+- next/core-web-vitals 
+- custom rules 
 
 ESLint Plugins:
-- jsx-a11y ✅
-- react-refresh ✅
-- prettier ✅
+- jsx-a11y 
+- react-refresh 
+- prettier 
 
 Formater:
 
-- Prettier ✅
-- ESLint
+- Prettier 
 
 State management:
 
-- Context API
-- Recoil
-- Redux Toolkit ✅
+- Redux Toolkit 
 
 Testing:
 
-- Jest ✅
-- React-Testing-Library ✅
-- Enzyme
-- Jasmine
+- Jest 
+- React-Testing-Library 
