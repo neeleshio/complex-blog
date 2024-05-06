@@ -35,3 +35,10 @@ State management:
 - Context API
 - Recoil
 - Redux Toolkit ✅
+
+Testing:
+
+- Jest ✅
+- React-Testing-Library ✅
+- Enzyme
+- Jasmine
