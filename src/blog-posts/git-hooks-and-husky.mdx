@@ -70,3 +70,81 @@ Do you really want to do this? [y/n]
 ```
 
 As you can see it ask us to confirm before actually commiting. If you type y, then it will commit otherwise it won't proceed further.
+
+## Husky
+
+Husky is a tool to use git hooks easily to automatically run scripts on git lifecycle events.
+
+-   This allows us to automate tasks like code linting and testing before committing or pushing changes, creating a safety net for catching potential issues and maintaining consistency.
+
+-   Husky will allow you to automatically run ESLint and Prettier on staged files (files about to be committed).
+
+## Install Husky
+
+```shell
+npx husky-init && npm install
+```
+
+Once installation completed we will have .husky/pre-commit file in our project's root. Here we can add script that should run before git commit.
+
+```shell
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+
+npm run lint:fix
+```
+
+Update lint:fix script in package.json with below script , this will make sure no warnings allowed in code before commit.
+
+```shell
+{
+  "scripts":{
+#   other scripts...
+  "lint:fix": "eslint --fix . --max-warnings=0 prettier --write --ignore-unknown"
+  }
+}
+```
+
+That's it. Now if you git commit your files, it will automatically checks for eslint errors and formatting errors and fixes them before commiting your files.
+
+## Run only on staged files
+
+The above implementation scans all the files everytime we commit. But an ideal setup should be to run the linting scripts only on staged files.
+
+So for that purpose we have <span className="hgl">lint-staged</span> package.
+
+<br />
+
+### Install lint-staged:
+
+Let's install both husky and lint-staged with the below cmd.
+
+```shell
+npx mrm@2 lint-staged
+```
+
+Then add a configuration to the project’s package.json that will automatically format supported files in a pre-commit hook.
+
+```shell
+"scripts": { ...other scripts },
+"lint-staged": {
+    "*.{js, jsx, ts, tsx}": [
+        "eslint --cache --fix"
+    ],
+    "*": [
+        "prettier --write --ignore-unknown"
+    ]
+}
+```
+
+Finally add npx lint-staged to <span className="hgl">.husky/pre-commit</span> file.
+
+```shell
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+```
+
+Now, on git commit, prettier and eslint scans only the staged files.

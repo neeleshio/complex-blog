@@ -71,75 +71,75 @@ eslint-config-airbnb is another good (if a bit loose) base rule set on top of es
 
 ## List of some useful eslint rules.
 
-&emsp; **1. react/no-array-index-key**
+### &emsp; 1. react/no-array-index-key
 
 -   Warn if an element uses an Array index in its key.
 
-&emsp; **2. react/jsx-sort-props**
+### &emsp; **2. react/jsx-sort-props**
 
 -   Some developers prefer to sort props names alphabetically to be able to find necessary props easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
 
-&emsp; **3. react/button-has-type**
+### &emsp; **3. react/button-has-type**
 
 -   The default value of type attribute for button HTML element is "submit" which is often not the desired behavior and may lead to unexpected page reloads. This rules enforces an explicit type attribute for all the button elements and checks that its value is valid per spec (i.e., is one of "button", "submit", and "reset").
 
-&emsp; **4. react/destructuring-assignment**
+### &emsp; **4. react/destructuring-assignment**
 
 -   Enforce consistent usage of destructuring assignment of props, state, and context
 
-&emsp; **5. react/forbid-component-props**
+### &emsp; **5. react/forbid-component-props**
 
 -   By default this rule prevents passing of props that add lots of complexity (className, style) to Components. This rule only applies to Components (e.g. <span className="tag">< Foo /></span>) and not DOM nodes (e.g. <span className="tag">< div /></span>). The list of forbidden props can be customized with the forbid option.
 
-&emsp; **6. react/function-component-definition**
+### &emsp; **6. react/function-component-definition**
 
 -   This rule is aimed to enforce consistent function types for function components. By default it prefers function declarations for named components and function expressions for unnamed components.
 
-&emsp; **7. react/prefer-stateless-function**
+### &emsp; **7. react/prefer-stateless-function**
 
 -   Stateless functional components are simpler than class based components and will benefit from future React performance optimizations specific to these components.
 
-&emsp; **8. react/jsx-pascal-case**
+### &emsp; **8. react/jsx-pascal-case**
 
 -   Enforces coding style that user-defined JSX components are defined and referenced in PascalCase.
 
-&emsp; **9. react/no-children-prop**
+### &emsp; **9. react/no-children-prop**
 
 -   Disallow passing of children as props. Children should always be actual children, not passed in as a prop.
 
-&emsp; **10. react/no-danger**
+### &emsp; **10. react/no-danger**
 
 -   Dangerous properties in React are those whose behavior is known to be a common source of application vulnerabilities. The properties names clearly indicate they are dangerous and should be avoided unless great care is taken.
 
-&emsp; **11. react/no-unstable-nested-components**
+### &emsp; **11. react/no-unstable-nested-components**
 
 -   Creating components inside components will cause React to throw away the state of those nested components on each re-render of their parent.
 
-&emsp; **12. react/jsx-fragments**
+### &emsp; **12. react/jsx-fragments**
 
 -   In JSX, a React fragment is created either with <span className="tag">< React.Fragmen >...< /React.Fragment > </span>, or, using the shorthand syntax, <span className="tag"> < >...< / ></span>.
 
-&emsp; **13. react/jsx-no-leaked-render**
+### &emsp; **13. react/jsx-no-leaked-render**
 
 -   Using the && operator to render some element conditionally in JSX can cause unexpected values being rendered, or even crashing the rendering.
 
-&emsp; **14. react/jsx-max-depth**
+### &emsp; **14. react/jsx-max-depth**
 
 -   This option validates a specific depth for JSX. as soon as your components start reaching too far to the right, you know they're getting too big.
 
-&emsp; **15. react/jsx-key**
+### &emsp; **15. react/jsx-key**
 
 -   Warn if an element that likely requires a key prop along with checkFragmentShorthand, checkKeyMustBeforeSpread, warnOnDuplicates.
 
-&emsp; **16. react/jsx-no-useless-fragment**
+### &emsp; **16. react/jsx-no-useless-fragment**
 
 -   A fragment is redundant if it contains only one child, or if it is the child of a html element, and is not a keyed fragment.
 
-&emsp; **17. react/self-closing-comp**
+### &emsp; **17. react/self-closing-comp**
 
 -   Components without children can be self-closed to avoid unnecessary extra closing tag.
 
-&emsp; **18. react/jsx-one-expression-per-line**
+### &emsp; **18. react/jsx-one-expression-per-line**
 
 -   This option limits every line in JSX to one expression each.
 
