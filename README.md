@@ -2,19 +2,14 @@
 
 Personal portfolio site along with self written blogs and much more.
 
-Framework:
-
--   CRA
+UI Framework:
 -   NextJs ✅
--   Vite
 
 CSS Framework:
-
 - Sass
 - Tailwind CSS
 
 Linter - ESLint
-
 - next/core-web-vitals 
 - custom rules 
 
@@ -24,14 +19,11 @@ ESLint Plugins:
 - prettier 
 
 Formater:
-
 - Prettier 
 
 State management:
-
 - Redux Toolkit 
 
 Testing:
-
 - Jest 
 - React-Testing-Library 
