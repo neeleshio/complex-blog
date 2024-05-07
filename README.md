@@ -7,7 +7,6 @@ Personal portfolio site along with self written blogs and much more.
 -   **Portfolio**: https://neeleshio.cloud
 -   **Blog**: https://neeleshio.cloud/blogs
 
-<br/>
 
 ### Technologies Used:
 
@@ -19,7 +18,6 @@ Personal portfolio site along with self written blogs and much more.
 | &emsp;**Testing**: Jest & React-Testing-Library                | &emsp;&emsp;**Blogs**: NextJs MDX                                  |
 | &emsp;**Other tools**: Husky & lint-staged                     | &emsp;&emsp;**Deployment**: Vercel                                 |
 
-<br/>
 
 ### Todos:
 
@@ -38,3 +36,11 @@ Personal portfolio site along with self written blogs and much more.
 | Search bar | - | - | ❌ |
 | Dark mode button | ✅ | - | - |
 | Logo (Both dark and Light) | ✅ | - | - |
+
+### Tested components:
+
+1. layout.tsx
+2. Name.tsx
+3. QuickLinks.tsx
+4. Skills.tsx
+5. Work.tsx
