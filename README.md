@@ -18,3 +18,23 @@ Personal portfolio site along with self written blogs and much more.
 | &emsp;**Linter**: ESLint - next/core-web-vitals & custom rules | &emsp;&emsp;**ESLint Plugins**: jsx-a11y, react-refresh & prettier |
 | &emsp;**Testing**: Jest & React-Testing-Library                | &emsp;&emsp;**Blogs**: NextJs MDX                                  |
 | &emsp;**Other tools**: Husky & lint-staged                     | &emsp;&emsp;**Deployment**: Vercel                                 |
+
+<br/>
+
+### Todos:
+
+| HomePage | Done | In Progress | Not started |
+| ---------| -----| ----------- | ----------- |
+| Navbar | ✅ | - | - |  
+| Hero | ✅ | - | - |
+| Social links | ✅ | - | - |
+| Projects section | ✅ | - | - |
+| Articles section | ✅ | - | - |
+| Quick links section | ✅ | - | - |
+| Footer | ✅ | - | - |
+
+| Navbar | Done | In Progress | Not started |
+| ---------| -----| ----------- | ----------- |
+| Search bar | - | - | ❌ |
+| Dark mode button | ✅ | - | - |
+| Logo (Both dark and Light) | ✅ | - | - |
