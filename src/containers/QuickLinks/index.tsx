@@ -9,8 +9,10 @@ const QuickLinks = () => {
 
             <div className="flex">
                 <ul className="text-[1.4rem] flex sm:text-[1.2rem]">
-                    {QUICK_LINKS.map(({ name, link }) => (
-                        <li className="border px-6 py-3 border-current border-solid rounded-full mr-4">
+                    {QUICK_LINKS.map(({ id, name, link }) => (
+                        <li
+                            className="border px-6 py-3 border-current border-solid rounded-full mr-4"
+                            key={id}>
                             <Link href={link} target="_blank">
                                 {name}
                             </Link>
