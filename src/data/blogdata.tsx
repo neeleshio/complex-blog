@@ -179,5 +179,23 @@ export const BLOG_DATA = [
         tags: ['html', 'webapis', 'html5', 'storage', 'geolocation', 'webworker'],
         date: '7 May 2024',
         img: '/window-vs-document.png'
+    },
+    {
+        id: 16,
+        title: 'Browser Resource Hints: Preload, Preconnect and Prefetch',
+        topic: 'HTML',
+        link: 'preload-preconnect-prefetch',
+        tags: [
+            'html',
+            'preload',
+            'preconnect',
+            'prefetch',
+            'resource-hint',
+            'optimisation',
+            'dns-lookup',
+            'prerender'
+        ],
+        date: '8 May 2024',
+        img: '/prefetch.png'
     }
 ];

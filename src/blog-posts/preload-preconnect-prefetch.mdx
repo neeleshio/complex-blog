@@ -1,0 +1,122 @@
+# Browser Resource Hints: Preload, Preconnect and Prefetch
+
+> Modern web browsers use all sorts of different techniques to improve the overall performance of your website - from prioritizing the most important resources and fetching them first to guessing which page the user will visit next.
+
+![prefetch](/prefetch.png)
+
+## How Browsers Work (In a Nutshell)
+
+We could divide the whole process of a browser loading a page into three steps:
+
+-   Establishing connection.
+-   Downloading, parsing, and rendering the code.
+-   Making the page interactive.
+
+During the first stage, the browser needs to establish a connection with the server in order to download the resources. That includes looking up the domain name and resolving it to an IP address, setting up a connection to the server, and encrypting the connection for security.
+
+-   Once everything is done, the browser can proceed with downloading and parsing the information, constructing the Document Object Model (DOM) and CSS Object Model (CSSOM), and then rendering the content.
+-   The last part is to make the page interactive. All of the processes mentioned above take place in the main thread.
+-   So after the browser’s main thread is done with parsing, rendering, and painting the page, it’s time to take care of deferred JavaScript files to make the page available for scrolling, touch, and other interactions.
+
+## Prefetch
+
+All the resource hints use the rel attribute of the link element that you’ll find in the head of your HTML documents.
+
+-   link rel=prefetch is a low priority resource hint that allows the browser to fetch resources that might be needed later and store them in the browser's cache.
+-   Because prefetch sets a very low priority, don’t use this hint for files of high importance.
+-   One of the great use cases is utilizing prefetch to improve subsequent pages’ load time. For instance, you can apply the prefetch directive during the authentication of a user.
+-   This way, you can take advantage of the time it takes them to input their credentials to preload the resources needed for the page they will see next.
+
+```html
+<link rel="prefetch" href="main.js" />
+```
+
+There are two other types of prefetching that are equally important:
+
+### 1. DNS Prefetching:
+
+The browser needs to perform a DNS lookup to convert a hostname (the URL) to an IP address before connecting to the host (origin server).
+
+-   Although this usually takes only milliseconds, if a website loads files from a third-party domain name, something that most websites do, the browser has to perform a DNS lookup for each domain.
+-   Some sites (e.g., news websites) use a lot of external resources, which means that there might be dozens of DNS lookups required per page.
+-   In these cases, using the dns-prefetch hint might save a few milliseconds as the instruction tells the browser to start that process right away, rather than as the need is discovered later in the loading process.
+
+```html
+<link rel="dns-prefetch" href="https://images.example.com" />
+```
+
+### 2. Prerendering:
+
+Prerendering is very similar to prefetching in that it optimizes resources which the user may navigate to next. The difference is that prerender actually renders the entire page instead of specific resources.
+
+```html
+<link rel="prerender" href="blog.html" />
+```
+
+## Preconnect
+
+Like dns-prefetch, the preconnect directive helps the browser establish early connections before sending an initial request to the server.
+
+-   The preconnect hint takes it a step further. While it performs DNS lookups, it also includes TLS negotiations and TCP handshakes. This, in turn, eliminates round trip latency and saves even more time.
+-   Preconnecting speeds up future loads from a given origin by preemptively performing part or all of the handshake (DNS+TCP for HTTP, and DNS+TCP+TLS for HTTPS origins).
+
+In most cases, preconnect is the preferable option to dns-prefetch, but the problem is preconnect isn’t supported by some browsers:
+
+-   The good thing is that you can use them together to get the most out of them. You can benefit from preconnect in browsers that support it with a fallback to dns-prefetch:
+
+```html
+<link rel="preconnect" href="https://example.com" />
+
+<link rel="dns-prefetch" href="https://example.com" />
+```
+
+**Note**: link rel="preconnect" will provide a benefit to any future cross-origin HTTP request, navigation or subresource. It has no benefit on same-origin requests because the connection is already open.
+
+-   If a page needs to make connections to many third-party domains, preconnecting them all can be counterproductive. The rel="preconnect" hint is best used for only the most critical connections.
+-   For the others, just use dns-prefetch to save time on the first step — the DNS lookup.
+
+## Preload
+
+The preload value of the link element's rel attribute lets you declare fetch requests in the HTML's head, specifying resources that your page will need very soon, which you want to start loading early in the page lifecycle, before browsers' main rendering machinery kicks in.
+
+-   This ensures they are available earlier and are less likely to block the page's render, improving performance.
+-   Even though the name contains the term load, it doesn't load and execute the script but only schedules it to be downloaded and cached with a higher priority.
+
+Preload is used to force the browser to download a resource sooner than the browser would discover it because it is crucial for the page.
+
+-   The preload directive works best on resources that are part of the critical rendering path but are not easily discovered by the browser. For instance, fonts, CSS, or critical JavaScript.
+-   You have to add the as attribute, which indicates the resource’s content type you want to preload.
+
+```html
+<link rel="preload" href="style.css" as="style" />
+
+<link rel="preload" href="main.js" as="script" />
+```
+
+**Note**: preloading fonts without crossorigin will double fetch.
+
+If we think something is not that important then we can pass preload="none", for example audio or videos:
+
+```html
+<video controls preload="none">
+    <source src="movie.mp4" type="video/mp4" />
+    <source src="movie.ogg" type="video/ogg" />
+</video>
+```
+
+preload=none tells the browser that there is a video, but to download 0 bytes of the file.
+
+## Conclusion
+
+-   dns-prefetch and preconnect are used to prioritize domain names (e.g., https://example.com).
+-   prefetch and preload are used to prioritize the loading of resources.While prefetch is used for improving the load time of subsequent pages, preload works best on critical resources for the current page.
+-   prerender references an entire page (e.g., blog.html).
+-   prefetch, prerender, and preconnect are resource hints, and they are executed as the browser sees fit. The preload directive is a command which is mandatory for the browsers.
+-   When using preload, don’t forget to supply the as and crossorigin attributes to avoid double fetch.
+-   Although the resource hints are low-priority instructions, they still pose a threat to your site’s performance. Use them in moderation and only when necessary.
+-   preload is a powerful directive that can override the browser’s analyzer’s priorities. Don’t forget that modern browsers are pretty good at prioritizing resources, so use the preload “hint” sparingly.
+
+## References
+
+-   [Preload, Preconnect, Prefetch: Improve Your Site's Performance with Resource Hints - NitroPack](https://nitropack.io/blog/post/resource-hints-performance-optimization)
+-   [mdn web docs: HTML atrribute: rel](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)
