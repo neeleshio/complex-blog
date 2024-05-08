@@ -36,12 +36,8 @@ const CustomScroll = ({ children, height }: CustomScrollProps) => {
                 setLeftArrow(true);
             }
         } else {
-            let { offsetWidth } = scrollRef.current;
-
-            if (offsetWidth > 639) {
-                setRightArrow(false);
-                setLeftArrow(false);
-            }
+            setRightArrow(false);
+            setLeftArrow(false);
         }
     }, [mouseOver, scrollCapture]);
 
