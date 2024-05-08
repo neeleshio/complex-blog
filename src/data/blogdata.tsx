@@ -206,5 +206,23 @@ export const BLOG_DATA = [
         tags: ['html', 'web', 'accessibility', 'aria', 'role', 'practices'],
         date: '8 May 2024',
         img: '/web-accessibilty.png'
+    },
+    {
+        id: 18,
+        title: 'Rendering Webpage in the browser - BTS',
+        topic: 'HTML',
+        link: 'rendering-webpage-in-browser',
+        tags: ['html', 'web', 'accessibility', 'aria', 'role', 'practices'],
+        date: '8 May 2024',
+        img: '/rendering-process.png'
+    },
+    {
+        id: 19,
+        title: 'Reflow and Repaint',
+        topic: 'HTML',
+        link: 'reflow-and-repaint',
+        tags: ['reflow', 'repaint', 'dom', 'rendering', 'cssdom', 'rendertree'],
+        date: '8 May 2024',
+        img: '/repaint.png'
     }
 ];
