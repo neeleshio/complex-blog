@@ -1,0 +1,52 @@
+# Difference between document and window objects
+
+> It can be easy to have misconceptions on the difference between the document and window objects for javascript.
+
+![window-vs-document](/window-vs-document.png)
+
+## Window
+
+window is the first thing that gets loaded into the browser. This window object has the majority of the properties like:
+
+-   length
+-   innerWidth
+-   innerHeight
+-   document
+-   fullScreen etc.
+
+Also window object has some methods like:
+
+-   alert()
+-   atob()
+-   blur()
+-   setInterval()
+-   prompt() etc.
+
+## Document
+
+The document object represents a web page that is loaded in the browser, i.e, your html, aspx, php or other documents.
+
+The document actually gets loaded inside the window object and has properties available to it like:
+
+-   body
+-   title
+-   URL
+-   baseURI
+-   cookie etc.
+
+Also document object has some methods like:
+
+-   addEventListener()
+-   querySelector()
+-   getElementById()
+-   createElement()
+-   renameNode() etc.
+
+## IFrame
+
+An iframe actually is considered as a new window with its own document loaded into it.
+
+-   The original, parent window, is responsible for other windows to be loaded, not the document.
+-   The property to access a frame is window.frames, which is an array of all the frames.
+-   If you only have one iframe you access it by using window.frames[0].
+-   Since the iframe is also a window object, accessing window properties of that frame is done by using window.frames[0].innerHeight.

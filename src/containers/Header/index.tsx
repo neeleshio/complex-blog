@@ -99,7 +99,7 @@ const Header = ({ page }: HeaderPropsType) => {
 
     return (
         <>
-            {page === 'home' && (
+            {page === 'home' ? (
                 <Navbar
                     navItems={NAVITEMS}
                     handleNavMenu={handleNavMenu}
@@ -108,8 +108,8 @@ const Header = ({ page }: HeaderPropsType) => {
                     dark={dark}
                     handleOpenMobileNav={handleOpenMobileNav}
                 />
-            )}
-            {page === 'blog' && (
+            ) : null}
+            {page === 'blog' ? (
                 <BlogNavbar
                     navItems={NAVITEMS}
                     handleNavMenu={handleNavMenu}
@@ -118,7 +118,7 @@ const Header = ({ page }: HeaderPropsType) => {
                     dark={dark}
                     handleOpenMobileNav={handleOpenMobileNav}
                 />
-            )}
+            ) : null}
 
             <DesktopNavMenu
                 open={open}

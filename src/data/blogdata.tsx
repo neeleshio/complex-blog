@@ -161,5 +161,23 @@ export const BLOG_DATA = [
         tags: ['git', 'husky', 'devops', 'cicd', 'automate'],
         date: '5 May 2024',
         img: '/git-hooks.jpg'
+    },
+    {
+        id: 14,
+        title: 'HTML, HTML5 and Web APIs',
+        topic: 'HTML',
+        link: 'html-html5-and-webapis',
+        tags: ['html', 'webapis', 'html5', 'storage', 'geolocation', 'webworker'],
+        date: '7 May 2024',
+        img: '/html5.png'
+    },
+    {
+        id: 15,
+        title: 'Difference between document and window objects',
+        topic: 'HTML',
+        link: 'diff-btw-document-and-window',
+        tags: ['html', 'webapis', 'html5', 'storage', 'geolocation', 'webworker'],
+        date: '7 May 2024',
+        img: '/window-vs-document.png'
     }
 ];

@@ -30,24 +30,38 @@ The script is downloaded in parallel to parsing the page, and executed after the
 
 If neither **async** or **defer** is present: The HTML is parsed until the script tag is reached. The script is downloaded and executed immediately, blocking parsing until the script execution gets completed.
 
-<br />
 ## When to use Async?
 
 Async is best for very high priority JavaScript resources that should run as early as possible in the loading process.
 
-**Note**: In the interest of page speed, async should be used with care and typically only for files upon which initial rendering of the page depends.
+**Note**: we should only use async when we have scripts that can run independently and don't rely on the DOM structure.
+
+If its an Analytics script, prefer async because you get better statistics over the website & it also not depends on the DOM.
 
 ## When to use Defer?
 
-Defer is ideal for general JavaScript resources that aren't critical to the initial rendering of the page and can be run later in the loading process.
+Use defer when we need to maintain script execution order or it depends on the DOM structure.
 
-<br />
+We usually put our script at the bottom of the page or at the end of the body, instead of that we can consider put it in the head with the defer attribute. So that it gets downloaded in parallel and it gets executed once the DOM parsed completely.
 
 ## Can async & defer Be Used On The Same File Reference?
 
 While using both async and defer attributes on the same script reference is valid HTML, it's not recommended as async and defer are best used purposefully, depending on the way any given JavaScript resource should fit into the loading process.
 
 Using both on the same script reference may also cause inconsistent or undesirable cross-browser behavior.
+
+## Should I put script in head or body?
+
+-   Place library script such as the jQuery library in the head section.
+-   Place normal script in the head unless it becomes a performance/page load issue.
+-   Place script that impacts the render of the page at the end of the body
+-   Most of the time it's safe to put it at the bottom of the page unless the documentation specifies otherwise.
+
+**Note:** Always put link tags in the head section.
+
+## CSS should be included in head or body?
+
+CSS should be loaded first so we have to put it in the head itself and JS in the body, for the simple reason that I would rather my visitors see a styled non interactive page first, then get the interactive part after the CSS has loaded.
 
 ## Conclusion
 

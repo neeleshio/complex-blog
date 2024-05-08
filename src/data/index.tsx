@@ -257,14 +257,19 @@ export const NAVITEMS = [
     { id: 2, title: 'Work History', link: '' },
     { id: 3, title: 'Projects', link: '' },
     { id: 4, title: 'Quick Articles', link: '' },
-    { id: 5, title: 'Blog', link: '/blogs' },
+    { id: 5, title: 'Blog', link: '/blogs', target: '_blank' },
     {
         id: 6,
         title: 'Resume',
         link: 'https://drive.google.com/file/d/1HywlFjChFdpJCmHmA-kjR1-jypJjEWnA/view?usp=drive_link',
         target: '_blank'
     },
-    { id: 7, title: 'Documentation', link: '/' },
+    {
+        id: 7,
+        title: 'Documentation',
+        link: 'https://github.com/neeleshio/complex/edit/main/README.md',
+        target: '_blank'
+    },
     { id: 8, title: 'Contact', link: '' }
 ];
 

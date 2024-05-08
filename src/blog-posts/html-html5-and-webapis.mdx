@@ -1,0 +1,66 @@
+# HTML, HTML5 and Web APIs
+
+> HyperText Markup Language is the standard markup language for documents designed to be displayed in a web browser. It defines the content and structure of web content.
+
+![html5](/html5.png)
+
+## HTML vs HTML5
+
+-   Both HTML and HTML5 are hypertext markup languages, primarily used to develop web pages or applications.
+-   HTML5 is the latest version of HTML and supports new markup language functionalities such as multimedia, new tags and elements as well as new APIs.
+-   HTML5 also supports audio and video.
+
+## HTML5 APIs
+
+HTML/HTML5 APIs are a collection of JS libraries which can be used directly in HTML files without incorporating any customize JavaScript code.
+
+-   An API is a set of pre-built programs that can be used with the help of JavaScript.
+-   APIs are used to implement already written code to fulfill the needs of the project you are working on.
+
+## HTML Geolocation API:
+
+The Geolocation API is used to get the current location of the user or the page visitor. It will show the user’s location only if the user allows it to do so, as it compromises the security and privacy of the user.
+
+```javascript
+const pos = navigator.geolocation;
+```
+
+### Methods available in Geolocation API:
+
+1. getCurrentPosition() Method: The getCurrentPosition() method returns an object with properties such as latitude, longitude, accuracy, altitude etc.
+
+2. watchPosition() Method: This method will return the current position of the user as well as the updated location when the position of the user changes or the user travels from one location to another location.
+
+3. clearWatch() Method: This method will stop the watchPosition() method to not tracing the user anymore.
+
+## HTML Drag and Drop API:
+
+Drag and Drop is a common feature nowadays, where you can drag an item from one place and drop it in another.
+
+## HTML Web Storage API:
+
+HTML web storage API is used to store the data on the web browser.
+
+-   Early, the data was stored in the form of cookies that can store a small amount of data.
+-   But, HTML5 introduces us to the Web Storage API that can store large data as compared to cookies.
+-   Using this API for storing data is more secure than using cookies.
+
+### 1. window.sessionStorage:
+
+This object temporarily stores the data on the web browser such that if the browser is refreshed or closed the data stored will be lost.
+
+### 2. window.localStorage:
+
+localStorage permanently stores the data on the browser with no expiration such that will not be lost even if the browser is refreshed.
+
+## HTML Web Worker API:
+
+Web Workers who will do all the computationally expensive tasks without interrupting the user interface and typically run on separate threads.
+
+-   If you try to do intensive task with JavaScript that is time-consuming and require hefty calculations browser will freeze up the web page and prevent the user from doing anything until the job is completed. It happens because JavaScript code always runs in the foreground.
+-   HTML5 introduces a new technology called web worker that is specifically designed to do background work independently of other user-interface scripts, without affecting the performance of the page.
+-   Unlike normal JavaScript operations, web worker doesn't interrupt the user and the web page remains responsive because they are running the tasks in the background.
+
+```javascript
+const worker = new Worker('worker.js');
+```
