@@ -1,0 +1,105 @@
+# Web Accessibility Best Practices
+
+> Web accessibility is the inclusive practice of ensuring there are no barriers that prevent interaction with, or access to, websites on the World Wide Web by people of all kinds.
+
+![web-accessibility](/web-accessibilty.png)
+
+## Accessibility Practices
+
+-   Keyboard Navigation
+-   Screen Readers (Assistive technologies)
+-   ARIA_Attributes
+-   Semantic HTML
+
+## Keyboard Navigation
+
+Some users like who can't hold mouse or who doesn't have access to mouse might rely on a keyboard instead of a mouse for navigation.
+
+head over to youtube.com and click on the shift + ? button a modal pops up with a list of the keyboard shortcut to access the website.
+
+![keyboard-shortcuts](/keyboard-shortcuts.png)
+
+-   On every website, you can navigate using the tab keyboard.
+-   Remember div and spans are not tabbed accessible unless they are added with the attribute tabindex=”0".
+
+```html
+<div role="link" tabindex="0">Card Component</div>
+```
+
+## Screen Readers
+
+Screen readers are a form of assistive technology that helps users who are blind, visually impaired, or have learning disabilities navigate the web.
+
+-   They translate text into auditory or tactile output by reading it out loud.
+
+### Alt text (Accessible Images)
+
+Make sure you always add an alt attribute to the images, A screen reader will announce that it’s looking at an image and read the alt text.
+
+-   Besides, it will also benefit from seo and cases where your image is not loaded, and hovering on that can describe the defined text of the image.
+
+## ARIA Properties
+
+Accessible Rich Internet Applications (ARIA) provide a set of attributes that includes roles, labels, and states that help us communicate semantic information to assistive technology.
+
+-   aria-label
+-   aria-labelledby
+-   aria-expanded
+-   aria-hidden
+-   role.
+
+### 1. aria-label:
+
+The aria-label attribute provides the text label for an object, such as a button. When a screen reader encounters the object, the aria-label text is read so that the user will know what it is.
+
+### 2. aria-labelledby:
+
+The purpose of aria-labelledby is the same as that of aria-label.
+
+-   It provides the user with a recognizable, accessible name for an interactive element.
+-   If an element has both attributes set, aria-labelledby will be used.
+-   aria-labelledby takes precedence over all other methods of providing an accessible name, including aria-label, < label >, and the element's inner text.
+
+The aria-labelledby property has the highest precedence when browsers calculate accessible names.
+
+### 3. aria-expanded:
+
+The aria-expanded indicates to assistive technology whether the controlled element is expanded or collapsed.
+
+The aria-expanded attribute is set on an element to indicate if a control is expanded or collapsed, and whether or not the controlled elements are displayed or hidden.
+
+```html
+<button aria-expanded="false" aria-controls="widget1">Show widget</button>
+```
+
+```html
+<button aria-expanded="true" aria-controls="widget1">Hide widget</button>
+```
+
+### 4. aria-hidden:
+
+The aria-hidden state indicates whether the element is exposed to an accessibility API.
+
+-   Adding aria-hidden="true" to an element removes that element and all of its children from the accessibility tree.
+-   This can improve the experience for assistive technology users.
+
+```html
+<button>
+    <span class="fa fa-tweet" aria-hidden="true"></span>
+    <span class="label"> Tweet </span>
+</button>
+```
+
+### 5. role:
+
+Developers can format one element to look like the other. For instance, we can even format a div to look like a button. So in this case, to help screen readers or any assistive technologies, it's a good practice to provide a role for that perticular element.
+
+```html
+<span role="logo">LOGO</span>
+
+<a role="button">Start Here</a>
+```
+
+## Semantic HTML:
+
+A dedicated article on [Semantic HTML](/blogs/semantic-html-and-seo?title=Semantic%20HTML%20and%20SEO&topic=HTML&date=30%20April%202024).

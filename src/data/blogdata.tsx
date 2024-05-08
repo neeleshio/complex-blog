@@ -197,5 +197,14 @@ export const BLOG_DATA = [
         ],
         date: '8 May 2024',
         img: '/prefetch.png'
+    },
+    {
+        id: 17,
+        title: 'Web Accessibility Best Practices',
+        topic: 'HTML',
+        link: 'web-accessibility-practices',
+        tags: ['html', 'web', 'accessibility', 'aria', 'role', 'practices'],
+        date: '8 May 2024',
+        img: '/web-accessibilty.png'
     }
 ];
