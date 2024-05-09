@@ -3,3 +3,92 @@
 > Reflow and Repaint are two important concepts in browser rendering process. Once the render tree is created, reflow and repaint steps takes place in the browser.
 
 ![repaint](/repaint.png)
+
+## Repaint
+
+The Repaint occurs when changes are made to the appearance of the elements that change the visibility, but doesn't affect the layout.
+
+Triggers examples: opacity, color, background-color, visibility.
+
+## ReFlow
+
+Reflow means re-calculating the positions and geometries of elements in the document.
+
+-   The Reflow happens when changes are made to the elements, that affect the layout of the partial or whole page.
+-   The Reflow of the element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+
+According to Opera, most reflows essentially cause the page to be re-rendered:
+
+-   Reflows are very expensive in terms of performance, and is one of the main causes of slow DOM scripts, especially on devices with low
+    processing power, such as phones.
+-   In many cases, they are equivalent to laying out the entire page again.
+
+## What Causes the Reflows and Repaints
+
+-   Reflow will happen when Adding, Removing, Updating the DOM nodes.
+-   Hiding DOM Element with display: none will cause both reflow and repaint.
+-   Hiding DOM Element with visibility: hidden will cause the only repaint, because no layout or position change.
+-   Moving, animating a DOM node will trigger reflow and repaint
+-   Resizing the window will trigger reflow
+-   Changing font-style alters the geometry of the element. That means that it may affect the position or size of other elements on the page, both of which require the browser to perform reflow. Once those layout operations have completed any damaged pixels will need to be a repaint.
+-   Adding or removing Stylesheet will cause the reflow/repaint.
+-   Script manipulating the DOM is the expensive operation because they have recalculated each time the document, or part of the document modified.
+
+## How to minimise repaints and reflows
+
+### 1. Reduce DOM depth:
+
+Reducing DOM depth means that, maybe you don’t need to have those 20 < div > and < span > elements all children of the same parent element.
+
+-   When a reflow occurs, the DOM tree nodes above and below of the node that was changed will also change (reflow) and naturally the more nodes we have in our tree, the more effort the browser will need to spend.
+
+### 2. Have a clean CSS sheet:
+
+Since repainting means time and resource consumption for the browser, having as few properties and attributes as possible is one good way of helping the browser show stuff on screen.
+
+-   Remember to remove all styles from your CSS sheet that you don't need.
+-   Also, keep in mind to not abuse too much of CSS selectors since they cost more CPU power.
+
+### 3. Don't change individual CSS styles:
+
+A lot of times, we need to change a bunch of styles when a user performs an action. In this scenario, it is best if we just apply a class to the element instead of changing 3 or 4 CSS styles.
+
+```javascript
+// bad
+let left = 8,
+    top = 8;
+
+element.style.left = left + 'px';
+element.style.top = top + 'px';
+
+// better
+element.classList.add = ' modifier';
+```
+
+### 4. Batch DOM updates:
+
+-   Use a documentFragment to hold temp changes
+-   Clone, update, replace the node
+-   Hide the element with display: none (1 reflow, 1 repaint), add 100 changes, restore the display (total 2 reflow, 2 repaint)
+
+### 5. Avoid to much computed styles:
+
+Every time we ask for a computed style like “.offsetTop” or “.clientHeight” the browser needs to make a huge effort to retrieve the correct value. Avoiding this type of requests is one massive improvement you can apply to your code.
+
+-   Basically just request the information you need once, save the result and iterate over it.
+
+### 6. Avoid inline styles:
+
+As we saw, setting styles via the style attribute causes reflows and by consequence, adding multiple styles, even on the same element, each one could be causing a reflow. If possible, combine all the styles in one single class.
+
+### 7. Reduce the “unnecessary” smoothness:
+
+Usually, when we need to animate an element on the screen, e.g. moving it vertically, we can move it 1px at a time, but for longer animations it may cause the CPU to start struggling to deal with the amount of reflows and subsequent calculations.
+
+-   Instead, we can move the element 3px or 4px at a time reducing drastically the amount of reflows and calculations that the CPU needs to perform.
+
+## References
+
+-   [faressoft/dom_performance_reflow_repaint.md](https://gist.github.com/faressoft/36cdd64faae21ed22948b458e6bf04d5)
+-   [Understanding Reflow and Repaint in the browser](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg)
+-   [Avoid Reflow & Repaint: hi-interactive](https://www.hi-interactive.com/blog/avoid-reflow-repaint)
