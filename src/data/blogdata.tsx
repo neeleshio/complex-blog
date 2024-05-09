@@ -224,5 +224,14 @@ export const BLOG_DATA = [
         tags: ['reflow', 'repaint', 'dom', 'rendering', 'cssdom', 'rendertree'],
         date: '8 May 2024',
         img: '/repaint.png'
+    },
+    {
+        id: 20,
+        title: 'CSS Box Model and Display Properties',
+        topic: 'CSS',
+        link: 'box-model-and-display-properties',
+        tags: ['css', 'box-model', 'display', 'block', 'inline', 'inline-block'],
+        date: '9 May 2024',
+        img: '/box-model.png'
     }
 ];

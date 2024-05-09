@@ -1,0 +1,82 @@
+# CSS Box Model and Display Properties
+
+> Everything in CSS has a box around it, and understanding these boxes is key to being able to create more complex layouts with CSS, or to align items with other items.
+
+![box-model](/box-model.png)
+
+The CSS box model is a container that contains multiple properties including borders, margin, padding, and the content itself.
+
+## Key components of box model
+
+-   **Content**: The content of the box, where text and images appear.
+-   **Padding**: Padding is used to create space around the element, inside any defined border.
+-   **Border**: The border is used to cover the content & any padding, & also allows setting the style, color, and width of the border.
+-   **Margin**: Margin is used to create space around the element ie., around the border area or between 2 elements.
+
+## Box-sizing
+
+The box-sizing property allows us to include or exclude the padding and border in an element's total width and height.
+
+<br />
+### 1. border-box:
+
+The border-box property allows us to include the padding and border in an element's total width and height.
+
+```css
+box-sizing: border-box;
+```
+
+### 2. content-box:
+
+content-box is is the default value of box-sizing.
+
+The content-box property allows us to exclude the padding and border in an element's total width and height.
+
+```css
+box-sizing: content-box;
+```
+
+## Margin Collapsing
+
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+
+**Note**: This does not happen on left and right margins! Only top and bottom margins!
+
+<br />
+
+![margin-collapsing](/margin-collapsing.png)
+
+## Display Properties
+
+The display CSS property sets whether an element is treated as a block or inline box and the layout used for its children, such as flow layout, grid or flex.
+
+-   Every HTML element has a default display value, depending on what type of element it is.
+-   The default display value for most elements is block or inline.
+
+## Block-level Elements
+
+A block-level element ALWAYS starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).
+
+-   They always take full width and stack on each other even if we give them 50% width or 25% width.
+-   The browsers automatically add some top and bottom margin to the element.
+-   Two commonly used block elements are: < p > and < div >.
+-   You can add margins and padding on all four sides of any block element.
+
+## Inline Elements
+
+An inline element DOES NOT start on a new line and only takes up as much width as necessary.
+
+-   Two commonly used block elements are:  < a > and < span >.
+-   Not able to add top & bottom margin but left & right can be added.
+-   Padding can be added but that won't to be relative to the layout meaning the padding gonna spread on top of other elements.
+-   Not able to add width & height.
+
+![inline-element](/inline-element.png)
+
+## Inline-block Elements
+
+The major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+-   Everthing is similar to block level element except it won't take up full width avaialble but just the content width and won't break to next line.
+-   They can have padding and margins added on all four sides.
+-   Not gonna spread on other elements, it will take its own space in the layout.
