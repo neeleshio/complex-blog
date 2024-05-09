@@ -40,7 +40,11 @@ box-sizing: content-box;
 
 Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
 
+-   This is not a bug, this is pursosely designed like that to avoid too much spacing.
+
 **Note**: This does not happen on left and right margins! Only top and bottom margins!
+
+_Solution: Margin collapsing only occur in flow layout. So, this can be avoided by using flex, grid or position layout._
 
 <br />
 

@@ -11,7 +11,8 @@ const BlogCardFull = ({ title, topic, link, date, img, router }: BlogCardProps) 
             onKeyDown={() =>
                 router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)
             }
-            role="link">
+            role="link"
+            tabIndex={0}>
             <div className="bg-invert-secondary w-[65%] rounded-l-[16px] flex justify-center items-center">
                 <Image
                     alt={title}

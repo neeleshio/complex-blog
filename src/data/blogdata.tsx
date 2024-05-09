@@ -233,5 +233,14 @@ export const BLOG_DATA = [
         tags: ['css', 'box-model', 'display', 'block', 'inline', 'inline-block'],
         date: '9 May 2024',
         img: '/box-model.png'
+    },
+    {
+        id: 21,
+        title: 'CSS Frameworks and Preprocessors',
+        topic: 'CSS',
+        link: 'css-frameworks-and-preprocessors',
+        tags: ['css', 'framework', 'preprocessor', 'library', 'sass', 'mui'],
+        date: '9 May 2024',
+        img: '/css-frameworks.png'
     }
 ];

@@ -6,7 +6,11 @@ const BlogCardSmallInvert = ({ title, topic, link, date, img, router }: BlogCard
     return (
         <div
             className="flex items-center cursor-pointer justify-between bg-transparent"
-            onClick={() =>
+            onClick={() => router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) =>
+                e.key === 'Enter' &&
                 router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)
             }>
             <div className="font-semibold h-[10rem] flex flex-col justify-between pr-4">
