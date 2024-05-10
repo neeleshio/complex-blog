@@ -1,0 +1,150 @@
+# CSS Selectors
+
+> CSS selectors are patterns used in CSS to select and style HTML elements on a page, allowing us to dictate how styles apply to specific HTML elements.
+
+![css-selectors](/css-selectors.png)
+
+CSS selectors are used to "find" (or select) the HTML elements you want to style. We can divide CSS selectors into five categories:
+
+-   Simple selectors (select elements based on name, id, class)
+-   Combinator selectors (select elements based on a specific relationship between them)
+-   Pseudo-class selectors (select elements based on a certain state)
+-   Pseudo-elements selectors (select and style a part of an element)
+-   Attribute selectors (select elements based on an attribute or attribute value)
+
+## Simple Selectors
+
+It is used to select the HTML elements based on their element tag name, id, class, etc.
+
+## Combinator selectors
+
+The CSS nesting module allows you to write nested rules that use combinators to create complex selectors.
+
+-   CSS combinators are explaining the relationship between two selectors. CSS selectors are the patterns used to select the elements for style purposes.
+
+There are four types of combinators available in CSS:
+
+<br />
+
+### 1. Adjacent Sibling selector (+):
+
+Use a plus sign (adjacent combinator) to select an element that is a direct sibling to a first element:
+
+<br />
+
+![adjacent-selector](/adjacent-selector.png)
+
+### 2. General Sibling selector (~):
+
+Use a tilde sign (general sibling combinator) to select every element that is preceded by the first element, without having to be a direct sibling to the first element.
+
+<br />
+
+![general-sibling](/general-sibling.png)
+
+### 3. Child selector (>):
+
+Use a > sign (child combinator) to select element(s) that are direct children to another element.
+
+<br />
+
+![child-selector](/child-selector.png)
+
+### 4. Descendant selector (space):
+
+Leave a space (descendant combinator) between selectors to select element(s) that are descendant of another element.
+
+<br />
+
+![descendent-selector](/descendent-selector.png)
+
+## Attribute Selector
+
+The [attribute] selector is used to select elements with a specified attribute.
+
+The following example selects all < a > elements with a target attribute and all the text inputs:
+
+```css
+a[target] {
+    background-color: yellow;
+}
+
+input[type='text'] {
+    font-size: 2rem;
+}
+```
+
+## Pseudo-class selectors
+
+Pseudo-classes allow us to define styles based on an element's state or its relation to other elements, like,
+
+-   Hovering over a button
+-   Selecting the first item in a list. etc.
+
+Pesudo-classes start with a colon character (:).
+
+<span className="hgl">:link, :visited, :hover & :active</span> These 4 pseudo-classes are useful to select
+elements such as links in various states.
+
+```css
+a:link {
+    background: aliceblue;
+}
+a:visited {
+    background: blanchedalmond;
+}
+
+button:hover {
+    background: yellow;
+}
+button:disabled {
+    background: grey;
+}
+
+input:focus {
+    border: 1px solid blue;
+}
+
+div:first-child {
+    color: red;
+}
+div::nth-child(2) {
+    color: green;
+}
+```
+
+## Pseudo-elements selectors
+
+pseudo-elements give you the power to target and style specific parts of an element, such as,
+
+-   Its first line
+-   before and after its content. etc.
+
+Pseudo-elements start with two colons (::).
+
+The ::before pseudo-element is used to insert content before the content of an element and the ::after pseudo-element is similar to ::before and is used to insert content after the content of an element.
+
+```css
+.alert::before {
+    content: '⚠️ ';
+    margin-right: 0.25rem;
+}
+
+.alert::after {
+    content: '● ';
+    margin-right: 0.25rem;
+}
+```
+
+### Some useful pseudo-elements selectors
+
+-   ::first-letter
+-   ::first-line
+-   ::placeholder
+-   ::selection
+-   ::marker
+
+## References
+
+-   [CSS Selectors: A Visual Guide](https://fffuel.co/css-selectors/)
+-   [w3shools - selectors](https://www.w3schools.com/css/css_selectors.asp)

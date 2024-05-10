@@ -242,5 +242,14 @@ export const BLOG_DATA = [
         tags: ['css', 'framework', 'preprocessor', 'library', 'sass', 'mui'],
         date: '9 May 2024',
         img: '/css-frameworks.png'
+    },
+    {
+        id: 22,
+        title: 'CSS Selectors',
+        topic: 'CSS',
+        link: 'css-selectors',
+        tags: ['css', 'selectors', 'id', 'class'],
+        date: '10 May 2024',
+        img: '/css-selectors.png'
     }
 ];
