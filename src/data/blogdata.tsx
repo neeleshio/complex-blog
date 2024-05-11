@@ -277,6 +277,24 @@ export const BLOG_DATA = [
         link: 'guide-to-css-media-queries',
         tags: ['css', 'media-queries', 'rem', 'em', 'px', 'pixels', 'font-size'],
         date: '11 May 2024',
-        img: '/css-units.png'
+        img: '/media-queries.png'
+    },
+    {
+        id: 25,
+        title: 'CSS Transform and Transition Properties',
+        topic: 'CSS',
+        link: 'css-transform-and-transition',
+        tags: ['css', 'transform', 'transition', 'animation'],
+        date: '11 May 2024',
+        img: '/transition-and-transform.png'
+    },
+    {
+        id: 26,
+        title: 'Reset vs Normalize CSS',
+        topic: 'CSS',
+        link: 'reset-vs-normalize-css',
+        tags: ['css', 'reset', 'normalize', 'animation'],
+        date: '11 May 2024',
+        img: '/reset-css.png'
     }
 ];

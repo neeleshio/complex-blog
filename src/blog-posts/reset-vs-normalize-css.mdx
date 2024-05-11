@@ -1,0 +1,48 @@
+# Reset vs Normalize CSS
+
+> The Normalize and Reset files are used to create baseline styles for cross-browser consistency when creating webpages.
+
+![reset-css](/reset-css.png)
+
+## Reset CSS
+
+CSS resets aim to remove ALL the built-in or default browser styling. Resetting is a "slash and burn" approach that starts from scratch.
+
+-   Different browsers provide different default styles. Reset removes these styles.
+-   Reset removes all default styles, so paragraphs become without margins, lists without bullets, tables without borders etc.
+-   Standard elements like H1-6, p, strong, em, etc. end up looking exactly alike, having no decoration at all. You're then supposed to add all decoration yourself.
+
+## Normalize CSS
+
+Normalize CSS aims to make built-in browser styling consistent across browsers.
+
+-   Normalize tries to make the default styles consistent between the browser by fixing the default styles so that they look the same in every browser.
+-   Elements like H1-6 will appear bold, larger et cetera in a consistent way across browsers. You're then supposed to add only the difference in decoration your design needs.
+
+## Some Features of Normalize CSS
+
+-   Normalize.css preserves useful defaults rather than "unstyling" everything.
+-   Normalize.css corrects some common bugs that are out of scope for reset.css.
+-   Normalize.css doesn't clutter your dev tools.
+
+## Which one to use?
+
+-   Normalize.css is mainly a set of styles, based on what its author thought would look good, and make it look consistent across browsers.
+
+-   Reset basically strips styling from elements so you have more control over the styling of everything.
+
+**You can use BOTH.**
+
+_Some styles from Reset, some from Normalize.css._
+
+-   For example, from Normalize.css, there's a style to make sure all input elements have the same font, which doesn't occur (between text inputs and textareas). Reset has no such style, so inputs have different fonts, which is not normally wanted.
+-   So bascially, using the two CSS files does a better job 'Equalizing' everything.
+
+```shell
+npm i normalize.css
+```
+
+## References
+
+-   [What is the difference between Normalize.css and Reset CSS? - stackoverflow](https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css)
+-   [hacker news - ycombinator](https://news.ycombinator.com/item?id=37891344)

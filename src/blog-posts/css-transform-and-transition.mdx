@@ -1,0 +1,238 @@
+# CSS Transform and Transition Properties
+
+> This post will introduce you to CSS transitions and CSS transforms: the CSS power couple.
+
+![transition-and-transform](/transition-and-transform.png)
+
+When used together, these properties allow you to create simple animations and add valuable interaction and visual feedback for your users.
+
+### At their most basic level:
+
+-   Transforms move or change the appearance of an element.
+-   Transitions make the element smoothly and gradually change from one state to another.
+
+## Transform
+
+Transitions are to make an element change from one state to another.
+
+-   With the CSS transform property you can rotate, move, skew, and scale elements.
+-   Transforms are triggered when an element changes states, such as on mouse-hover or mouse-click.
+
+## Transform Properties
+
+### 1. Scale:
+
+The scale value allows you to increase or decrease the size of an element.
+
+For example:
+
+-   The value 2 would transform the size to be 2 times its original size.
+-   The value 0.5 would transform the size to be half its original size.
+
+```css
+div:hover {
+    transform: scale(2);
+}
+
+div:hover {
+    transform: scaleX(1.5);
+}
+
+div:hover {
+    transform: scaleY(2.5);
+}
+```
+
+### 2. Rotate:
+
+With the rotate value, the element rotates clockwise or counterclockwise by a specified number of degrees.
+
+-   A positive value, such as 90deg, rotates the element clockwise.
+-   while a negative value, such as -90deg, rotates it counterclockwise.
+
+```css
+div:hover {
+    transform: rotate(90deg);
+}
+```
+
+You can rotate more than a full rotation with numbers over than 360, such as 1080deg, for three full rotations.
+
+```css
+div:hover {
+    transform: rotate(1080deg);
+}
+```
+
+### 3. Translate:
+
+The translate value moves an element left/right and up/down. The movement is based on the parameters given for the X (horizontal) Y (vertical) axes.
+
+-   A positive X value moves the element to the right, while a negative X moves the element to the left.
+-   A positive Y value moves the element downwards and a negative Y value, upwards.
+
+In this example, the element will move 20 pixels to the right and 20 pixels down.
+
+```css
+div:hover {
+    transform: translate(20px, 20px);
+}
+
+/* or */
+
+div:hover {
+    transform: translateX(20px);
+    transform: translateY(20px);
+}
+```
+
+### 4. Skew:
+
+With the skew value, the element skews (or tilts) one direction or the other based on the values given for the X and Y axes.
+
+![skew](/skew.png)
+
+-   A positive X value tilts the element left, while a negative X value tilts it right.
+-   A positive Y value tilts the element down, and a negative Y value tilts is up.
+-   Or use a shorthand to include both X and Y properties:
+
+```css
+div {
+    transform: skewX(25deg);
+    transform: skewY(10deg);
+
+    /* or */
+
+    transform: skew(25deg, 10deg);
+}
+```
+
+## Transition
+
+Transitions are the grease in the wheel of CSS transforms.
+
+-   Without a transition, an element being transformed would change abruptly from one state to another.
+-   By applying a transition you can control the change, making it smooth and gradual.
+
+## Transition properties:
+
+-   transition-property (required)
+-   transition-duration (required)
+-   transition-timing (optional)
+-   transition-delay (optional)
+
+shorthand:
+
+```css
+div {
+    transition: [property] [duration] [timing-function] [delay];
+}
+```
+
+### 1. transition-property (required):
+
+Specifies the name or names of the CSS properties to which transitions should be applied.
+
+-   Only properties listed here are animated during transitions.
+
+```css
+transition-property: none;
+transition-property: all;
+
+transition-property: background;
+transition-property: height;
+
+transition-property: transform;
+
+/* Multiple values */
+transition-property: all, height, color;
+```
+
+### 2. transition-duration (required):
+
+The transition-duration property specifies the time span of the transition. You can specify in seconds or milliseconds.
+
+```css
+div {
+    transition-duration: 3s;
+}
+
+/* shorthand */
+div {
+    transition: all 3s;
+}
+```
+
+### 3. transition-timing (optional):
+
+The transition-timing-function property allows you to define the speed of the transition over the duration.
+
+-   The default timing is ease, which starts out slow, quickly speeds up, and then slows down at the end.
+
+The other timing options are:
+
+-   linear
+-   ease
+-   ease-in
+-   ease-out
+-   ease-in-out.
+
+```css
+div {
+  transition-timing-function: ease-in-out;
+}
+
+{/* shorthand */}
+.circle0 {
+    @extend .circle;
+    background: PaleTurquoise;
+    transition: all 1.5s linear;
+}
+
+.circle1 {
+    @extend .circle;
+    background: salmon;
+    transition: all 1.5s ease;
+}
+
+.circle2 {
+    @extend .circle;
+    background: lightskyblue;
+    transition: all 1.5s ease-in;
+}
+```
+
+For more advanced timing options, you can define a custom timing function with a cubic-bezier.
+
+<br />
+
+### transition-delay (optional):
+
+The transition-delay property allows you to specify when the transform will start.
+
+-   By default, the transition starts as soon as it is triggered (e.g., on mouse hover).
+-   However, if you want to transition to start after it is triggered you can use the transition delay property.
+
+```css
+div {
+    transition-delay: 250ms;
+}
+
+/* shorthand */
+.box1 {
+    transition: all 1.3s; /* no delay */
+}
+
+.box2 {
+    transition: all 1.3s 0.5s; /* 0.5s delay */
+}
+
+.box3 {
+    transition: all 1.3s 1s; /* 1s delay */
+}
+```
+
+## References
+
+-   [CSS Transitions and Transforms - thoughtbot](https://thoughtbot.com/blog/transitions-and-transforms)
+-   [Using CSS transitions - mdn web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
