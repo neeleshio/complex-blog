@@ -1,0 +1,103 @@
+# CSS Units
+
+> CSS units allow you to measure and specify different property values. You use them to modify CSS properties such as margins, padding, height, width etc.
+
+![css-units](/css-units.png)
+
+### Absolute length units
+
+-   px
+-   cm
+-   mm
+
+### Font-Relative length units
+
+-   rem
+-   em
+
+### Viewport-Relative length units
+
+-   vw
+-   vh
+-   vmin
+-   vmax
+-   % (special case)
+
+## Why to choose Relative units over Absolute units?
+
+Relative units are not fixed. Their values are "relative" to another value. This means that when that other value changes, the relative unit value will also change.
+
+-   An absolute unit will always be the same, regardless of the viewport or font size.
+
+## Which Unit should you choose?
+
+![which-unit](/which-unit.png)
+
+### 1. Root font-size:
+
+Either percentage or nothing (browser default). Percentage-based values can scale more smoothly compared to fixed numbers.
+
+```css
+:root {
+    font-size: 75%;
+}
+```
+
+### 2. Padding, Margin and Border:
+
+For padding & margin, better to use rem unit. For border use pixels.
+
+### 3. Width and Height:
+
+For width & height, its better to avoid fixed units, most of the time we never use any width and height for the element as the content decides its width and height.
+
+### 4. Max-Min width & height:
+
+Min-height & width specifies the minimum height & width that an element should have, preventing it from becoming smaller than the specified value.
+
+For max-min width & height, its ok to use pixels.
+
+### 5. Top, bottom, left & right.
+
+As these properties mainly depends on its ancestor, its better to use %.
+
+## Difference between rem & em units
+
+**Rem** (short for “root-em”) unit dictate an element's font size relative to the size of the root element.
+
+-   By default, most browsers use a font size value of 16px.
+
+**Em** unit dicatate an element's font-size relative to its nearest parent.
+
+## Why not to use em units.
+
+The main problem experienced when working with em units is due to the effect on the inheritance of em values.
+
+-   Since every element inherits the font-size of its nearest parent, em values compound linearly as the level of nesting increases.
+
+## Why you should adjust the root font size.
+
+'Rem' units compared to 'px' are capable of creating more responsive websites.
+
+So if we try to convert px values into rem, we'll need to do some math as the default browser font-size is 16px.
+
+-   In lieu of dealing with such cumbersome calculations, we can set the root (HTML) font-size to 62.5%.
+-   When the root font/HTML size is 100%, the font-size is 16px by default. But, if you set it to 62.5%, the new root value will be 10px.
+
+```css
+:root {
+    font-size: 62.5%; /* 16px x 62.5% = 10px */
+}
+```
+
+-   Now, 10px (1rem) is way too tiny and is a recipe for disaster in terms of good user experience.
+-   So we should set it to 1.6rem (16x) again in the body.
+-   Everything looks the same on the surface. But still, this time, the new rem set-up will be more responsive than that of the 'px' version.
+
+```css
+body {
+    font-size: 1.6rem;
+}
+```
+
+Now we're able to translate all the values into rem units easily.

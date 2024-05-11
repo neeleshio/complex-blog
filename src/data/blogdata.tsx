@@ -251,5 +251,32 @@ export const BLOG_DATA = [
         tags: ['css', 'selectors', 'id', 'class'],
         date: '10 May 2024',
         img: '/css-selectors.png'
+    },
+    {
+        id: 23,
+        title: 'CSS Position Property',
+        topic: 'CSS',
+        link: 'css-position-property',
+        tags: ['css', 'position', 'absolute', 'relative', 'fixed', 'static'],
+        date: '10 May 2024',
+        img: '/css-position.png'
+    },
+    {
+        id: 24,
+        title: 'CSS Units',
+        topic: 'CSS',
+        link: 'css-units',
+        tags: ['css', 'units', 'rem', 'em', 'px', 'pixels', 'font-size'],
+        date: '10 May 2024',
+        img: '/css-units.png'
+    },
+    {
+        id: 25,
+        title: 'A Guide to CSS Media Queries',
+        topic: 'CSS',
+        link: 'guide-to-css-media-queries',
+        tags: ['css', 'media-queries', 'rem', 'em', 'px', 'pixels', 'font-size'],
+        date: '11 May 2024',
+        img: '/css-units.png'
     }
 ];

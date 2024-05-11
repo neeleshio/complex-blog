@@ -1,0 +1,136 @@
+# A Guide to CSS Media Queries
+
+> Media queries can modify the appearance (and even behavior) of a website or app based on a matched set of conditions about the user’s device, browser or system settings.
+
+![media-queries](/media-queries.png)
+
+CSS Media queries are a way to target browser by certain characteristics, features, and user preferences, then apply styles or run other code based on those things.
+
+```css
+/* When the browser is at least 600px and above */
+@media screen and (min-width: 600px) {
+    .element {
+        /* Apply some styles */
+    }
+}
+```
+
+Media queries are commonly associated with CSS, but they can be used in HTML and JavaScript as well.
+
+## HTML Media Queries
+
+There’s the < link > element that goes right in the document < head >. In this example. we’re telling the browser that we want to use different stylesheets at different viewport sizes:
+
+```html
+<html>
+    <head>
+        <!-- Served to all users -->
+        <link rel="stylesheet" href="all.css" media="all" />
+        <!-- Served to screens that are at least 20em wide -->
+        <link rel="stylesheet" href="small.css" media="(min-width: 20em)" />
+        <!-- Served to screens that are at least 64em wide -->
+        <link rel="stylesheet" href="medium.css" media="(min-width: 64em)" />
+        <!-- Served to print media, like printers -->
+        <link rel="stylesheet" href="print.css" media="print" />
+    </head>
+    <!-- ... -->
+</html>
+```
+
+### Why would you want to do that?
+
+It can be a nice way to fine-tune the performance of your site by splitting styles up in a way that they’re downloaded and served by the devices that need them.
+
+-   So, if a small screen device like a phone visits the site, it will only download the stylesheets in the media queries that match its viewport size.
+-   But if a larger desktop screen comes along, it will download the entire bunch because it matches all of those queries (well, minus the print query in this specific example).
+
+**Note**: Just to be clear, this doesn’t always prevent the stylesheets that don’t match those media queries from downloading, it just assigns them a <span className="hgl">low loading priority level</span>.
+
+## CSS Media Queries
+
+CSS is the most common place to spot a media query in the wild.
+
+-   They go right in the stylesheet in an @media rule that wraps elements with conditions for when and where to apply a set of styles when a browser matches those conditions.
+
+```css
+/* Viewports between 320px and 480px wide */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .card {
+        background: #bada55;
+    }
+}
+```
+
+```css
+@media print {
+    /* styles for print media only */
+}
+
+@media (max-width: 65rem) {
+    /* styles for any device that has a display width of 65rem or less */
+}
+
+@media screen and (min-width: 800px) {
+    /* styles for screen viewports that have a width of 800px or more */
+}
+```
+
+### 1. Media Types:
+
+-   all: Matches all devices
+-   print: Matches documents that are viewed in a print preview or any media that breaks the content up into pages intended to print.
+-   screen: Matches devices with a screen
+
+### 2. Operators
+
+Media queries support logical operators like many programming languages so that we can match media types based on certain conditions.
+
+The @media rule is itself a logical operator that is basically stating that “if” the following types and features are matches, then do some stuff.
+
+-   **and**: Matches screen between min & max width.
+
+```css
+/* Matches screen between 320px AND 768px */
+@media screen (min-width: 320px) and (max-width: 768px) {
+    .element {
+        /* Styles! */
+    }
+}
+```
+
+-   **or (or comma-separated)**: Matches screen where either of the conditions met.
+
+```css
+/* 
+  Matches screens where either the user prefers dark mode or the screen is at least 1200px wide */
+@media screen (prefers-color-scheme: dark), (min-width 1200px) {
+    .element {
+        /* Styles! */
+    }
+}
+```
+
+-   **not**: Perhaps we want to target devices by what they do not support or match.
+
+```css
+/*This declaration removes the body’s background color when the device is a printer and can only show one color.*/
+@media print and (not(color)) {
+    body {
+        background-color: none;
+    }
+}
+```
+
+-   **only**: The only logical operator is a little bit special and hides the entire query for older browsers. The older browers which doesn't support only will also won't support media queries.
+-   Note: legacy browsers that don’t support Media Queries level 3 are rare now so in most cases the use of only is unnecessary.
+
+```css
+@media only all and (min-width: 320px) and (max-width: 480px) {
+    /* ignored by older browsers */
+}
+```
+
+## References
+
+-   [A Complete Guide to CSS Media Queries - CSS Tricks](https://css-tricks.com/a-complete-guide-to-css-media-queries/)
+-   [CSS Media Queries: Quick Reference & Guide](https://www.digitalocean.com/community/tutorials/css-media-queries)

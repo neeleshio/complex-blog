@@ -1,0 +1,53 @@
+# CSS Position Property
+
+> The position CSS property sets how an element is positioned in a document.
+
+![css-position](/css-position.png)
+
+The position property specifies the type of positioning method used for an element:
+
+-   static
+-   relative
+-   absolute
+-   fixed
+-   sticky
+
+## Static
+
+Default value. Elements render in order, as they appear in the document flow.
+
+## Fixed
+
+-   Elements with fixed position acts a Inline-Block elements.
+-   Viewport as its positioning context or relative to the viewport by default.
+-   Give 100% as width to occupy the whole screen. If it overflows then give it a box-sizing: border-box.
+-   No matter if u have block level element or an inline level element, you can apply this Fixed positioning property.
+-   Use fixed positioning for background images of a page.
+
+## Absolute
+
+As Fixed element are always relative to the viewport, Absolute elements are relative to the nearest ancestors having position property or the parent which having position: relative property applied to it.
+
+## Relative
+
+Relative elements are relative to its origin position.
+
+-   remain in the normal flow of the document. But, unlike static elements, the left, right, top, bottom and z-index properties affect the position of the element.
+-   If u dont want the element to go out of its parent element when u applied position: relative, then use overflow: hidden property.
+
+## Sticky
+
+Its a combination of fixed and relative properties. It acts like a relatively positioned element until a certain scroll point and then it acts like a fixed element.
+
+-   Top or Bottom property has to be given, otherwise wont work.
+-   It stays at its position until it hits the top or bottom of the viewport.
+-   Then acts as a fixed element until its parent gone out of the view.
+-   Once its parent out of the view, sticky element will also be out of the view.
+
+## Z-index
+
+By default, z-index: auto; will be applied. and auto is equals to 0.
+
+-   Z-index doesn’t work for non-positioned elements.
+
+**Note**: One exception from this behaviour is flexbox: Applying the z-index  to flex-items (so the elements inside of the flex-container) will change the order of these items even if no position  property was applied.
