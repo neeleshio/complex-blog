@@ -12,7 +12,7 @@ const Projects = () => {
         <section className="pt-[5.4rem] proj-scroll">
             <SectionHeading
                 title="Featured Projects."
-                subtitle="Current and previous companies I worked for."
+                subtitle="Some of my personal projects I worked on."
             />
             <CustomScroll height={40}>
                 {PROJECTS.map((el) => (

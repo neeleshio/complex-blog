@@ -11,10 +11,7 @@ const Articles = () => {
     return (
         <section>
             <div className="pt-[5.4rem] overflow-hidden">
-                <SectionHeading
-                    title="Blog."
-                    subtitle="Current and previous companies I worked for."
-                />
+                <SectionHeading title="Blog." subtitle="Top blog posts I recently published." />
                 <CustomScroll height={24}>
                     {BLOGS.map((el) => (
                         <ArticleCard {...el} navigate={navigate} />

@@ -35,6 +35,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { IoIosMail, IoIosLink } from 'react-icons/io';
 import WebpackLogo from '@/assets/images/svg/WebpackLogo';
 import BabelLogo from '@/assets/images/svg/BabelLogo';
+import CssIcon from '@/assets/images/svg/blogIcons/CssIcon';
+import BlogLogo from '@/assets/images/svg/BlogLogo';
 
 export const SKILLS = [
     {
@@ -187,12 +189,12 @@ export const PROJECTS = [
     },
     {
         id: 4,
-        name: 'Debounce',
-        image: DebounceLogo,
-        description: 'Debounce & throttling techniques visualizer using a search bar.',
+        name: 'Blog Wall',
+        image: BlogLogo,
+        description: 'Personal Mdx & Nextjs powered blog site showcase.',
         stack: [ReactIcon, OpenaiIcon, ReduxIcon, StyledCompIcon],
         latest: true,
-        link: 'https://neeleshio.github.io/debounce-throttle-visualizer/'
+        link: 'https://www.neeleshio.cloud/blogs'
     }
 ];
 
@@ -206,49 +208,46 @@ export const BLOGS = [
             </>
         ),
         image: JsIcon,
-        link: '/blogs/async-vs-defer'
+        link: '/blogs/async-vs-defer?title=Async%20vs%20Defer%20attributes&topic=JavaScript&date=16%20April%202024'
     },
     {
         id: 2,
-        title: <span className="custom-color">50 React Concepts.</span>,
+        title: <span className="custom-color">React SEO and Challenges.</span>,
         image: ReactBlogIcon,
-        link: 'https://github.com/neeleshio/50-reactjs-concepts'
+        link: '/blogs/react-seo-and-challenges?title=React%20SEO%20and%20Challenges&topic=React&date=1%20May%202024'
     },
     {
         id: 3,
         title: (
             <>
-                50 JS concepts,
-                <span className="text-[#ac39ff]">
-                    {' '}
-                    must know basic to intermediate JS concepts.
-                </span>
+                CSS Transform
+                <span className="text-[#ac39ff]"> and Transition Properties</span>
             </>
         ),
-        image: JsIcon2,
-        link: '/blogs/async-vs-defer'
+        image: CssIcon,
+        link: '/blogs/css-transform-and-transition?title=CSS%20Transform%20and%20Transition%20Properties&topic=CSS&date=11%20May%202024'
     },
     {
         id: 4,
         title: (
             <>
-                <span className="text-[#68CC45]">Html-Css concepts,</span> every developer should
-                know.
+                <span className="text-[#68CC45]">Resource Hints:</span> Preload, Preconnect and
+                Prefetch
             </>
         ),
         image: HtmlIcon,
-        link: 'https://github.com/neeleshio/50-html-css-concepts'
+        link: '/blogs/preload-preconnect-prefetch?title=Browser%20Resource%20Hints:%20Preload,%20Preconnect%20and%20Prefetch&topic=HTML&date=8%20May%202024'
     },
     {
         id: 5,
         title: (
             <>
-                <span className="text-[#68CC45]">Html-Css concepts,</span> every developer should
-                know.
+                CSS Frameworks
+                <span className="text-[#ac39ff]"> and Preprocessors</span>
             </>
         ),
-        image: HtmlIcon,
-        link: 'https://github.com/neeleshio/50-html-css-concepts'
+        image: CssIcon,
+        link: '/blogs/css-frameworks-and-preprocessors?title=CSS%20Frameworks%20and%20Preprocessors&topic=CSS&date=9%20May%202024'
     }
 ];
 
@@ -261,7 +260,7 @@ export const NAVITEMS = [
     {
         id: 6,
         title: 'Resume',
-        link: 'https://drive.google.com/file/d/1HywlFjChFdpJCmHmA-kjR1-jypJjEWnA/view?usp=drive_link',
+        link: 'https://drive.google.com/file/d/1HywlFjChFdpJCmHmA-kjR1-jypJjEWnA/view?usp=sharing',
         target: '_blank'
     },
     {
@@ -300,7 +299,7 @@ export const QUICK_LINKS = [
     {
         id: 1,
         name: 'Resume',
-        link: 'https://drive.google.com/file/d/1EhqJYhtKqkmMIAT2u-TY8qljVgJ91taO/view?usp=drive_link'
+        link: 'https://drive.google.com/file/d/1HywlFjChFdpJCmHmA-kjR1-jypJjEWnA/view?usp=sharing'
     },
     {
         id: 2,
