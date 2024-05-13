@@ -114,7 +114,7 @@ const AllBlogs = () => {
                     <aside className="w-[30%] pt-4 pl-[3.2rem] md:w-full md:pl-0 md:pb-[4rem]">
                         <p className="font-medium">Filter by Topics</p>
 
-                        <div className="mt-[3rem] flex flex-col gap-8">
+                        <div className="mt-[3rem] flex flex-col gap-8 md:flex-row md:flex-wrap">
                             {Object.entries(topics).map(([key, value]) => (
                                 <div
                                     key={key}
