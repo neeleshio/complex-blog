@@ -1,7 +1,10 @@
+import { TOPICS } from '../constants';
+const { REACT, CSS, HTML, JAVASCRIPT, GIT } = TOPICS;
+
 export const LATEST_BLOG = {
     id: 1,
     title: 'Setting-up React without using create-react-app',
-    topic: 'React',
+    topic: REACT,
     link: 'react-without-cra',
     tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
     date: '28 April 2024',
@@ -12,7 +15,7 @@ export const BLOG_DATA = [
     {
         id: 1,
         title: 'Arrow Functions',
-        topic: 'JavaScript',
+        topic: JAVASCRIPT,
         link: 'arrow-functions',
         tags: ['javascript', 'typescript', 'es6', 'functions'],
         date: '16 April 2024',
@@ -21,7 +24,7 @@ export const BLOG_DATA = [
     {
         id: 2,
         title: 'Async vs Defer attributes',
-        topic: 'JavaScript',
+        topic: JAVASCRIPT,
         link: 'async-vs-defer',
         tags: ['javascript', 'typescript', 'dom', 'vanillajs', 'html'],
         date: '16 April 2024',
@@ -30,7 +33,7 @@ export const BLOG_DATA = [
     {
         id: 3,
         title: 'Virtual DOM and DOM update process',
-        topic: 'React',
+        topic: REACT,
         link: 'real-dom-vs-virtual-dom',
         tags: [
             'react',
@@ -48,7 +51,7 @@ export const BLOG_DATA = [
     {
         id: 4,
         title: 'Higher order components',
-        topic: 'React',
+        topic: REACT,
         link: 'higher-order-components',
         tags: ['react', 'javascript', 'nextjs', 'typescript', 'hoc', 'reuse'],
         date: '14 April 2024',
@@ -57,7 +60,7 @@ export const BLOG_DATA = [
     {
         id: 5,
         title: 'JSX Transform - New Update',
-        topic: 'React',
+        topic: REACT,
         link: 'jsx-transform',
         tags: ['react', 'javascript', 'jsx', 'nextjs', 'babel', 'typescript'],
         date: '14 April 2024',
@@ -66,7 +69,7 @@ export const BLOG_DATA = [
     {
         id: 6,
         title: 'Specificity, Cascading and Inheritance in CSS',
-        topic: 'CSS',
+        topic: CSS,
         link: 'specificity-cascading-and-inheritance',
         tags: [
             'css',
@@ -84,7 +87,7 @@ export const BLOG_DATA = [
     {
         id: 7,
         title: 'Setting-up React without using create-react-app',
-        topic: 'React',
+        topic: REACT,
         link: 'react-without-cra',
         tags: ['js', 'javascript', 'html', 'react', 'babel', 'webpack', 'npm', 'react-dom'],
         date: '28 April 2024',
@@ -93,16 +96,25 @@ export const BLOG_DATA = [
     {
         id: 8,
         title: 'Semantic HTML and SEO',
-        topic: 'HTML',
+        topic: HTML,
         link: 'semantic-html-and-seo',
-        tags: ['html', 'seo', 'semantic'],
+        tags: [
+            'html',
+            'seo',
+            'semantic',
+            'webcrawling',
+            'crawling',
+            'indexing',
+            'ranking',
+            'accessibility'
+        ],
         date: '30 April 2024',
         img: '/semantic-html.png'
     },
     {
         id: 9,
         title: 'Sitemap.xml vs Robots.txt',
-        topic: 'HTML',
+        topic: HTML,
         link: 'sitemap-vs-robotstxt',
         tags: [
             'sitemap',
@@ -120,7 +132,7 @@ export const BLOG_DATA = [
     {
         id: 10,
         title: 'React SEO and Challenges',
-        topic: 'React',
+        topic: REACT,
         link: 'react-seo-and-challenges',
         tags: [
             'sitemap',
@@ -130,60 +142,86 @@ export const BLOG_DATA = [
             'webcrawling',
             'crawling',
             'indexing',
-            'ranking'
+            'ranking',
+            'googlebot',
+            'metadata',
+            'ogtag',
+            'react helmet',
+            'helmet',
+            'tree shaking',
+            'prerendering',
+            'ssr'
         ],
         date: '1 May 2024',
         img: '/react-seo-and-challenges.png'
     },
     {
         id: 11,
-        title: 'Testing React app with Jest and RTL',
-        topic: 'React',
+        title: 'Testing React App with Jest and RTL',
+        topic: REACT,
         link: 'testing-react-app',
-        tags: ['react', 'testing', 'rtl', 'jest', 'react-testing-library', 'unit testing'],
+        tags: [
+            'react',
+            'testing',
+            'rtl',
+            'jest',
+            'react-testing-library',
+            'unit testing',
+            'matchers',
+            'mock'
+        ],
         date: '3 May 2024',
         img: '/testing-react-app.png'
     },
     {
         id: 12,
         title: 'The Best ESlint Rules and Plugins for React projects',
-        topic: 'React',
+        topic: REACT,
         link: 'best-eslint-rules-and-plugins',
-        tags: ['react', 'testing', 'linting', 'eslint', 'prittier'],
+        tags: ['react', 'testing', 'linting', 'eslint', 'prittier', 'plugins', 'rules'],
         date: '4 May 2024',
         img: '/eslint.png'
     },
     {
         id: 13,
         title: 'Git Hooks and Husky',
-        topic: 'GIT',
+        topic: GIT,
         link: 'git-hooks-and-husky',
-        tags: ['git', 'husky', 'devops', 'cicd', 'automate'],
+        tags: ['git', 'husky', 'devops', 'cicd', 'automate', 'git hooks', 'hooks'],
         date: '5 May 2024',
         img: '/git-hooks.jpg'
     },
     {
         id: 14,
         title: 'HTML, HTML5 and Web APIs',
-        topic: 'HTML',
+        topic: HTML,
         link: 'html-html5-and-webapis',
-        tags: ['html', 'webapis', 'html5', 'storage', 'geolocation', 'webworker'],
+        tags: [
+            'html',
+            'webapis',
+            'html5',
+            'storage',
+            'geolocation',
+            'webworker',
+            'localstorage',
+            'sessionstorage'
+        ],
         date: '7 May 2024',
         img: '/html5.png'
     },
     {
         id: 15,
         title: 'Difference between document and window objects',
-        topic: 'HTML',
+        topic: HTML,
         link: 'diff-btw-document-and-window',
-        tags: ['html', 'webapis', 'html5', 'storage', 'geolocation', 'webworker'],
+        tags: ['html', 'document', 'window', 'iframe', 'difference'],
         date: '7 May 2024',
         img: '/window-vs-document.png'
     },
     {
         id: 16,
         title: 'Browser Resource Hints: Preload, Preconnect and Prefetch',
-        topic: 'HTML',
+        topic: HTML,
         link: 'preload-preconnect-prefetch',
         tags: [
             'html',
@@ -201,7 +239,7 @@ export const BLOG_DATA = [
     {
         id: 17,
         title: 'Web Accessibility Best Practices',
-        topic: 'HTML',
+        topic: HTML,
         link: 'web-accessibility-practices',
         tags: ['html', 'web', 'accessibility', 'aria', 'role', 'practices'],
         date: '8 May 2024',
@@ -210,90 +248,123 @@ export const BLOG_DATA = [
     {
         id: 18,
         title: 'Rendering Webpage in the browser - BTS',
-        topic: 'HTML',
+        topic: HTML,
         link: 'rendering-webpage-in-browser',
-        tags: ['html', 'web', 'accessibility', 'aria', 'role', 'practices'],
+        tags: [
+            'html',
+            'rendering',
+            'webpage',
+            'browser',
+            'dom',
+            'cssom',
+            'parsing',
+            'tree',
+            'layout',
+            'paint',
+            'repaint',
+            'reflow'
+        ],
         date: '8 May 2024',
         img: '/rendering-process.png'
     },
     {
         id: 19,
         title: 'Reflow and Repaint',
-        topic: 'HTML',
+        topic: HTML,
         link: 'reflow-and-repaint',
-        tags: ['reflow', 'repaint', 'dom', 'rendering', 'cssdom', 'rendertree'],
+        tags: ['reflow', 'repaint', 'dom', 'rendering', 'cssdom', 'rendertree', 'dom', 'cssom'],
         date: '8 May 2024',
         img: '/repaint.png'
     },
     {
         id: 20,
         title: 'CSS Box Model and Display Properties',
-        topic: 'CSS',
+        topic: CSS,
         link: 'box-model-and-display-properties',
-        tags: ['css', 'box-model', 'display', 'block', 'inline', 'inline-block'],
+        tags: [
+            'css',
+            'box-model',
+            'display',
+            'block',
+            'inline',
+            'inline-block',
+            'box-sizing',
+            'border-box'
+        ],
         date: '9 May 2024',
         img: '/box-model.png'
     },
     {
         id: 21,
         title: 'CSS Frameworks and Preprocessors',
-        topic: 'CSS',
+        topic: CSS,
         link: 'css-frameworks-and-preprocessors',
-        tags: ['css', 'framework', 'preprocessor', 'library', 'sass', 'mui'],
+        tags: [
+            'css',
+            'framework',
+            'preprocessor',
+            'library',
+            'sass',
+            'mui',
+            'tailwind',
+            'less',
+            'bootstrap',
+            'difference'
+        ],
         date: '9 May 2024',
         img: '/css-frameworks.png'
     },
     {
         id: 22,
         title: 'CSS Selectors',
-        topic: 'CSS',
+        topic: CSS,
         link: 'css-selectors',
-        tags: ['css', 'selectors', 'id', 'class'],
+        tags: ['css', 'selectors', 'id', 'class', 'combinators', 'sibling', 'psudo', 'attributes'],
         date: '10 May 2024',
         img: '/css-selectors.png'
     },
     {
         id: 23,
         title: 'CSS Position Property',
-        topic: 'CSS',
+        topic: CSS,
         link: 'css-position-property',
-        tags: ['css', 'position', 'absolute', 'relative', 'fixed', 'static'],
+        tags: ['css', 'position', 'absolute', 'relative', 'fixed', 'static', 'sticky', 'z-index'],
         date: '10 May 2024',
         img: '/css-position.png'
     },
     {
         id: 24,
         title: 'CSS Units',
-        topic: 'CSS',
+        topic: CSS,
         link: 'css-units',
-        tags: ['css', 'units', 'rem', 'em', 'px', 'pixels', 'font-size'],
+        tags: ['css', 'units', 'rem', 'em', 'px', 'pixels', 'font-size', 'root'],
         date: '10 May 2024',
         img: '/css-units.png'
     },
     {
         id: 25,
         title: 'A Guide to CSS Media Queries',
-        topic: 'CSS',
+        topic: CSS,
         link: 'guide-to-css-media-queries',
-        tags: ['css', 'media-queries', 'rem', 'em', 'px', 'pixels', 'font-size'],
+        tags: ['css', 'media-queries', 'html'],
         date: '11 May 2024',
         img: '/media-queries.png'
     },
     {
-        id: 25,
+        id: 26,
         title: 'CSS Transform and Transition Properties',
-        topic: 'CSS',
+        topic: CSS,
         link: 'css-transform-and-transition',
-        tags: ['css', 'transform', 'transition', 'animation'],
+        tags: ['css', 'transform', 'transition', 'animation', 'translate', 'scale', 'rotate'],
         date: '11 May 2024',
         img: '/transition-and-transform.png'
     },
     {
-        id: 26,
+        id: 27,
         title: 'Reset vs Normalize CSS',
-        topic: 'CSS',
+        topic: CSS,
         link: 'reset-vs-normalize-css',
-        tags: ['css', 'reset', 'normalize', 'animation'],
+        tags: ['css', 'reset', 'normalize'],
         date: '11 May 2024',
         img: '/reset-css.png'
     }
