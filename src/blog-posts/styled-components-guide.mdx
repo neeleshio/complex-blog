@@ -1,0 +1,141 @@
+# Styled Components Guide
+
+> styled-components is the leading framework in CSS-in-JS libraries all over the world.
+
+![styled-components](/styled-components.png)
+
+Styled Components is a widely adopted CSS-in-JS library that enables developers:
+
+-   To write CSS code directly within their JavaScript components.
+-   By leveraging the power of template literals, Styled Components allows for the creation of dynamic and scoped styles.
+
+## Scoped Styles for Enhanced Isolation:
+
+One of the core benefits of Styled Components is the encapsulation of styles within the components they are associated with
+
+-   Each Styled Component generates a unique class name, ensuring that styles are isolated and do not collide with other components.
+-   This scoped approach eliminates the potential for unintended style clashes and greatly improves the maintainability of your codebase.
+
+## Features: 👇
+
+## 1. Style inheritance
+
+We can inherit the styling of a styled component by simply passing it to the styled function.
+
+```jsx
+import styled from 'styled-components';
+
+const Button = styled.div`
+    padding: 10px;
+    color: palevioletred;
+`;
+
+const ButtonWithBorder = styled(Button)`
+    border: 1px solid palevioletred;
+`;
+```
+
+## 2. Passing props
+
+Props can be passed to styled components just as they are with regular React components. This is possible because styled components are actually React components.
+
+```jsx
+<Button color="black">Click Me</Button>
+```
+
+```jsx
+const Button = styled.button`
+    padding: 2px 5px;
+    color: ${(props) => (props.color ? props.color : 'white')};
+    border-radius: 3px;
+`;
+```
+
+## 3. Theming
+
+Styled-components provides theming capabilities and enables you to support multiple looks and feels.
+
+-   To enable theming we need to wrap our root component with ThemeProvider component.
+
+```jsx
+const darkTheme = false;
+
+<ThemeProvider theme={darkTheme ? darkThemeColors : lightThemeColors}>
+    <BrowserRouter>
+        <Route path="/" element={<Home />} />
+    </BrowserRouter>
+</ThemeProvider>;
+```
+
+## 4. Switching component types
+
+Styled components are dynamic in nature. They can change from creating and rendering one HTML element to another.
+
+```jsx
+const Button = styled.button`
+    padding: 2px 5px;
+    color: ${(props) => props.theme.color};
+    border-radius: 3px;
+`;
+```
+
+The Button component will create and render a button element. We can change that when rendering the Button component by passing the as props to it with whatever HTML tag name we want it to change to.
+
+```jsx
+<Button as="a">Click Me</Button>
+```
+
+## Advantages
+
+### 1. Component-Based Styling:
+
+Styled-components enable you to write styles directly within your React components using tagged template literals.
+
+-   This promotes a component-based approach to styling, encapsulating styles with the components they affect.
+
+### 2. Dynamic Styling:
+
+styled-components can accept props and create dynamic styles based on those props.
+
+-   Which is particularly useful when dealing with different states or themes.
+
+## Some of the disadvantages: 👇
+
+## Performance Overheads
+
+Styled-components, being a runtime styling solution, dynamically injects styles into the DOM.
+
+-   This can bring about potential performance bottlenecks, especially in expansive applications.
+
+<br />
+
+### 1. Rendering Delays:
+
+Styled-components can lead to slight delays in rendering as styles are computed on-the-fly.
+
+### 2. Increased JavaScript Execution:
+
+As styles are parsed and injected via JavaScript, this increases the total JavaScript execution time, potentially impacting the user experience.
+
+## Bundle Size Concerns
+
+Every library added to a project impacts its bundle size.
+
+<br />
+
+### 1. JavaScript Overhead:
+
+Styled-components introduces additional JavaScript, potentially slowing down the app’s initial load time if optimizations like tree shaking aren’t employed.
+
+### 2. Contrast with Alternatives:
+
+Sass gets compiled into plain CSS, meaning zero JavaScript overhead.
+
+-   Tailwind, being utility-centric, is tree-shakable, allowing for efficient bundling.
+
+## References
+
+-   [8 awesome features of styled-components -logrocket](https://blog.logrocket.com/8-awesome-features-of-styled-components/)
+-   [Mastering Visual Elegance, A Deep Dive into Styled Components](https://medium.com/@binshahed/mastering-visual-elegance-a-deep-dive-into-styled-components-for-react-styling-fd61d6dbb6f6)
+-   [Why You Should Stop Using Styled Components](https://medium.com/@yuribett/why-you-should-stop-using-styled-components-in-react-apps-879a239d5a27)
+-   [SCSS vs. Styled-Components: A Comparison](https://medium.com/@tarere997/scss-vs-styled-components-a-comparison-of-advantages-and-caveats-276268f49d30#:~:text=The%20choice%20between%20SCSS%20and,component%2Dbased%20styling%20using%20JavaScript.)

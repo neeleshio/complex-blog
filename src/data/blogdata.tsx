@@ -367,5 +367,23 @@ export const BLOG_DATA = [
         tags: ['css', 'reset', 'normalize'],
         date: '11 May 2024',
         img: '/reset-css.png'
+    },
+    {
+        id: 28,
+        title: 'SASS Complete Guide',
+        topic: CSS,
+        link: 'sass-complete-guide',
+        tags: ['css', 'sass', 'guide', 'preprocessor'],
+        date: '14 May 2024',
+        img: '/sass.png'
+    },
+    {
+        id: 29,
+        title: 'Styled Components Guide',
+        topic: CSS,
+        link: 'styled-components-guide',
+        tags: ['css', 'sass', 'guide', 'styled'],
+        date: '14 May 2024',
+        img: '/styled-components.png'
     }
 ];

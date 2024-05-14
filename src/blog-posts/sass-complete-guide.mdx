@@ -1,0 +1,210 @@
+# SASS Complete Guide
+
+> Sass is a CSS preprocessor that gives your CSS superpowers.
+
+![sass](/sass.png)
+
+## SASS - Syntactically Awesome Style Sheets
+
+Sass is a CSS preprocessor that gives your CSS superpowers.
+
+Sass provides a compiler that allows us to write stylesheets in two different syntaxes, indented and SCSS.
+
+<br />
+
+### 1. Indented syntax:
+
+This is the older syntax that is indented, and gets rid of the curly braces and semi-colons. It has a file extension of .sass.
+
+```css
+nav
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    display: block
+    text-decoration: none
+```
+
+### 2. SCSS syntax: (Sassy CSS)
+
+This is the newer and more popular syntax. It is essentially a subset of the CSS3 syntax. This means that you can write regular CSS with some additional functionalities.
+
+## How Does Sass Work?
+
+Sass works in such a way that when you write your styles in a .scss file, it gets compiled into a regular CSS file.
+
+That is why it's called a Preprocessor.
+
+## Most used Features of SASS: 👇
+
+## 1. Variables:
+
+You can declare variables in Sass. They allow us to store values for colors, fonts or really any CSS value that you want to reuse0.25rem
+
+-   We use the $ symbol when we wish to make something a variable.
+
+```css
+$color-primary: #ffff00; /* Yellow */
+
+body {
+    background-color: $color-primary;
+}
+```
+
+## 2. Nesting:
+
+Even HTML has a nesting structure that makes it quite easy to read but CSS lacks this feature.
+
+-   SASS provide nesting feature, we can nest child selectors inside of the parent selector.
+-   This results in much cleaner and less repetitive code.
+
+## 3. Mixins:
+
+Mixins are an extremely powerful feature of Sass.
+
+-   mixins are code blocks that allow you to define styles that can be reused throughout a stylesheet.
+-   You can even pass in values to make your mixin more flexible.
+
+<br />
+
+-   To create a mixin you use the @mixin directive and give it a name. We’ve named our mixin theme.
+
+```css
+@mixin theme($theme: DarkGray) {
+    background: $theme;
+    box-shadow: 0 0 1px rgba($theme, 0.25);
+    color: #fff;
+}
+```
+
+-   We’re also using the variable $theme inside the parentheses so we can pass in a theme of whatever we want.
+
+-   After you create your mixin, you can then use it as a CSS declaration starting with @include followed by the name of the mixin.
+
+```css
+.info {
+    @include theme;
+}
+.alert {
+    @include theme($theme: DarkRed);
+}
+.success {
+    @include theme($theme: DarkGreen);
+}
+```
+
+Mixins are also very useful in managing vendor prefixes.
+
+```css
+@mixin transform {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+```
+
+```css
+li {
+    text-align: center;
+    margin: 1rem;
+    @include transform;
+}
+```
+
+Pass custom property:
+
+```css
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+```
+
+```css
+@include transform(rotate(20deg));
+```
+
+## 4. Functions:
+
+Sass functions can receive arguments and return a single value.
+
+-   They make it easy to abstract out common formulas and behaviors in a readable way.
+-   Functions are defined using the @function at-rule.25rem
+-   As you can see, functions help you write more readable and DRY Sass, as you can utilize reusable logic in a very efficient manner.
+
+```css
+@function fibonacci($n) {
+    $sequence: 0 1;
+    @for $_ from 1 through $n {
+        $new: nth($sequence, length($sequence)) + nth($sequence, length($sequence) - 1);
+        $sequence: append($sequence, $new);
+    }
+    @return nth($sequence, length($sequence));
+}
+
+.sidebar {
+    float: left;
+    margin-left: fibonacci(4) * 1px;
+}
+```
+
+## 5. Partials & Importing
+
+Partials in SASS help us to break up our files into smaller files without affecting performance.
+
+-   The use of partials allows us to modularize our CSS, to help keep things maintainable.
+-   We divide up our Sass into separate files representing different components.
+-   A partials’ name will always start with an underscore \_ .
+-   We then import the partial using an @use directive.
+
+```css
+/* _header.scss */
+
+header {
+    width: 100%;
+    background-color: green;
+}
+```
+
+```css
+/* main.scss */
+@use 'header';
+
+main {
+    height: 100vh;
+}
+```
+
+## 6. Inheritance or Extend
+
+Another great feature of Sass is inheritance. We implement this using the @extend directive.
+
+-   The @extend directive is useful if you have almost identically styled elements that only differ in some small details.
+-   The @extend directive lets you share a set of CSS properties from one selector to another.
+
+```css
+.button-basic {
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-report {
+    @extend .button-basic;
+    background-color: red;
+}
+```
+
+## References
+
+-   [Sass Basic](https://sass-lang.com/guide)
+-   [Main feeatures of SASS](https://dev.to/timothyrobards/the-main-features-of-sass-47k2)
