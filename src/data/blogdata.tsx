@@ -385,5 +385,23 @@ export const BLOG_DATA = [
         tags: ['css', 'sass', 'guide', 'styled'],
         date: '14 May 2024',
         img: '/styled-components.png'
+    },
+    {
+        id: 30,
+        title: 'Flexbox Complete Guide',
+        topic: CSS,
+        link: 'flexbox-guide',
+        tags: ['css', 'flexbox', 'grid', 'responsive'],
+        date: '15 May 2024',
+        img: '/flex-box.png'
+    },
+    {
+        id: 31,
+        title: 'CSS Grid Complete Guide',
+        topic: CSS,
+        link: 'css-grid-guide',
+        tags: ['css', 'flexbox', 'grid', 'responsive'],
+        date: '16 May 2024',
+        img: '/css-grid.png'
     }
 ];

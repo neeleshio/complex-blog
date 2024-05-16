@@ -1,0 +1,328 @@
+# Flexbox Complete Guide
+
+> CSS Flexbox gives you the tools to create basic and advanced website layouts in flexible and responsive ways.
+
+![flex-box](/flex-box.png)
+
+-   Flexbox makes browsers display selected HTML elements as flexible box models.
+-   Flexbox allows easy resizing and repositioning of a flexible container and its items one-dimensionally.
+-   "One-dimensionally" means Flexbox allows laying out box models in a row or column at a time.
+-   Flexbox cannot lay out box models in a row and column at the same time.
+-   Converting an HTML node to a flexible box model makes the element's direct children become flexible items.
+
+## Flex vs Inline-flex
+
+So flex acts as block level element where it takes all the available space in a row or column.
+
+-   Setting an element's display property's value to flex turns the box model into a block-level flexbox.
+
+But, Inline-flex acts as inline element where it takes only the required space by the content inside the element.
+
+-   inline-flex tells browsers to display the selected HTML element as an inline-level flexible box model.
+-   If Inline-flex applied then both flex container & flex-items behaves like an inline element means takes only the content’s width & height that is required.
+
+![flex-vs-inlineflex](/flex-vs-inlineflex.png)
+
+## Flex Containers Properties
+
+-   flex-direction
+-   flex-wrap
+-   flex-flow
+-   justify-content
+-   align-items
+-   align-content
+
+<br />
+
+### 1. flex-direction:
+
+flex-direction tells browsers the specific direction (row or column) they should lay out a flexible container's direct children.
+
+<br />
+
+### 2. flex-wrap:
+
+flex-wrap specifies whether browsers should wrap overflown flexible items onto multiple lines.
+
+-   nowrap is flex-wrap's default value.
+-   It forces all items within a flexible container into a single line.
+-   wrap moves all overflow items within a flexible container to the next line.
+
+<br />
+
+### 3. flex-flow:
+
+flex-flow is a shorthand for the flex-direction and flex-wrap properties.
+
+```css
+section {
+    display: flex;
+    flex-flow: column wrap;
+}
+```
+
+### 4. justify-content: (main-axis)
+
+This justify-content property handles the alignment of flex items on the main axis of the flex container.
+
+justify-content property accepts the following values:
+
+-   flex-start
+-   center
+-   flex-end
+-   space-between
+-   space-around
+-   space-evenly
+
+<br />
+
+### 5. align-items: (cross axis)
+
+The align-items property handles the alignment of flex items on the cross-axis of the flex container.
+
+**stretch** is align-items' default value. It stretches a flexible container's items to fill the flexbox's cross-axis.
+
+![align-items-stretch](/align-items-stretch.png)
+
+The snippet above used the stretch value to stretch the flexible items to fill the section's cross-axis.
+
+<br />
+
+### align-items can take any of the following values:
+
+-   stretch (default value)
+-   flex-start
+-   flex-end
+-   center
+-   baseline
+
+When you use the <span className="hgl">baseline</span> value, flex items are arranged such that their baselines are aligned.
+
+![baseline](/baseline.png)
+
+## justify-content vs align-items.
+
+Default value is **strech**.
+
+-   Justify content always align items along the main axis, so justify-content always refers to main axis.
+-   Align items always align items along the cross axis, so align-items always refers to cross axis.
+
+## align-content
+
+The CSS align-content property sets the distribution of space between and around content items along a flexbox's cross-axis or a grid's block axis.
+
+-   The align-content property does not affect a flexbox with only one line—for instance, a flexible container with flex-wrap: nowrap.
+-   It works only when you have a flex container with wrap or more than one flex line.
+
+So working with multi row flex items then align-content comes into rescue to set the space between the rows.
+
+Let's see some examples with and without align-content:
+
+```css
+/* without align-content */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+}
+```
+
+![without align-content](/align-content1.png)
+
+```css
+/* with align-content */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+}
+```
+
+![with align-content](/align-content2.png)
+
+## place-content
+
+If you need to use both the justify-content and align-content properties, you use the place-content shorthand property.
+
+-   It can take one or two values. When you give it a single value, the browser will apply the same value for both justify-content and align-content.
+-   And when you give 2 values for place-content, the first value will be for align-content and the second for justify-content.
+
+```css
+.names-container {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: flex-end flex-start;
+    /* place-content: */ /* align-content justify-content */
+}
+```
+
+## Flex Item's Properties
+
+The six (6) types of flex item properties are:
+
+-   align-self
+-   order
+-   flex-grow
+-   flex-shrink
+-   flex-basis
+-   flex
+
+<br />
+
+### 1. align-self:
+
+You can use the align-self property to give a flex item a different alignment from the other items.
+
+-   It works the same way as the align-items property.
+-   The difference is that whereas align-items applies to all flex items, the align-self property is applied to only specific items.
+-   It aligns along the cross-axis similar to align-items.
+
+```css
+.names-container {
+    display: flex;
+    align-items: center;
+    /* Other styles */
+}
+
+#jill {
+    align-self: flex-start;
+}
+```
+
+![align-self](/align-self.png)
+
+### 2. flex-grow:
+
+-   When you set a container's display to flex, often there will be some extra space after the items are arranged.
+-   The browser treats the extra as a value of 1.
+-   This means when you give a flex-grow value of 0.5 to only one of the flex items, the browser will add half of the remaining space to the item's size.
+
+![flex-grow](/flex-grow.png)
+
+-   And if you add a flex-grow value of 1 to only one of the flex items, the browser will add all the extra space to that item.
+-   Even if you give 99 it will be equal to 1.
+
+**What happens when you add flex-grow values to more than one element?**
+
+The browser will share the extra space proportionately for them.
+
+<br />
+
+### 3. flex-shrink:
+
+The flex-shrink property is the opposite of flex-grow.
+
+-   If flexbox's size is insufficient to fit the flexible items. In that case, browsers will automatically shrink the items to fit the container.
+-   All flex items will have flex-shrink: 1 as default value. Which shrink all the items equally, but if we want to change then we can use any values other than 0 and 1.
+
+```css
+.item-1 {
+    flex-shrink: 2;
+}
+```
+
+![flex-shrink-2](/flex-shrink-2.png)
+
+**Note**: Browsers will not shrink flexible items with a flex-shrink value of 0.
+
+```css
+.item-1 {
+    flex-shrink: 0;
+}
+```
+
+![flex-shrink-0](/flex-shrink-0.png)
+
+<br />
+
+### 4. flex-basis:
+
+You can use the flex-basis property to set the default length of a specific flex item. This is either the width or height of the item depending on the flex-direction.
+
+```css
+.names-container {
+    display: flex;
+    flex-direction: row;
+    /* Other styles */
+}
+
+div {
+    width: 70px;
+}
+
+#jane {
+    flex-basis: 140px;
+}
+```
+
+<br />
+
+### 5. flex (Shorthand Property)
+
+You can use flex as a shorthand for the flex-grow, flex-shrink, and flex-basis properties. The default values for flex are 1 0 auto.
+
+```css
+.flex-item {
+    flex-grow: 2;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+```
+
+```css
+.flex-item {
+    flex: 2 0 50px;
+    /* flex: flex-grow, flex-shrink, and flex-basis */
+}
+```
+
+<br />
+
+## Flexbox Gaps
+
+You can use the gap property to adjust the space between flex items.
+
+**Note**: You apply the gap property on the flex container and not the flex items.
+
+<br />
+
+### 1. Row gap:
+
+Adding gaps between only the rows:
+
+```css
+.names-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    /* Other Styles */
+}
+```
+
+### 2. Column gap:
+
+```css
+.names-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    /* Other Styles */
+}
+```
+
+### 3. gap: (shorthand)
+
+```css
+.names-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 10px;
+    /* row-gap column-gap */
+}
+```
+
+## References
+
+-   [The CSS Flexbox Handbook](https://www.freecodecamp.org/news/the-css-flexbox-handbook/)
+-   [CSS Flexbox Explained](https://www.freecodecamp.org/news/css-flexbox-complete-guide/)

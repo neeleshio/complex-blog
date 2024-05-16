@@ -1,0 +1,519 @@
+# CSS Grid Complete Guide
+
+> The CSS Grid Layout Module offers a grid-based layout system, with rows and columns.
+
+![css-grid](/css-grid.png)
+
+## CSS Grid
+
+The CSS Grid Layout Module makes browsers display the selected HTML elements as grid box models.
+
+-   Grid allows you to easily resize and reposition a grid container and its items two-dimensionally.
+-   "Two-dimensionally" means grid modules allow simultaneous laying out of box models in rows and columns.
+-   Use Flexbox if you only need to resize and reposition elements one-dimensionally.
+
+<br />
+
+Unlike flexbox, gridbox default alignment looks like column by default. But the grid items are actually arranged in a row manner. The below example which has 4 grid items are arranged in a single column with 4 rows.
+
+```css
+display: grid;
+background-color: orange;
+```
+
+![grid-column](/grid-column.png)
+
+**Let's try to convert this to display: flex; behavior without using flex but with grid.**
+
+```css
+display: grid;
+background-color: orange;
+grid-template-columns: repeat(4, 1fr);
+```
+
+The 1fr is what tells the browser to distribute the space between the columns so that each column equally gets one fraction of that space.
+
+![grid-row](/grid-row.png)
+
+## Grid vs Inline-Grid
+
+So grid acts as block level element where it takes all the available space.
+
+-   Setting an element's display property's value to grid turns the box model into a block-level column gridbox.
+
+![grid](/grid.png)
+
+But, Inline-grid acts as inline element where it takes only the required space by the content inside the element.
+
+![grid](/inline-grid.png)
+
+## Grid Container's Properties
+
+-   grid-template-columns
+-   grid-template-rows
+-   grid-auto-columns
+-   grid-auto-rows
+-   justify-content
+-   justify-items
+-   align-content
+-   align-items
+
+## 1. grid-template-columns:
+
+grid-template-columns specifies the number and widths of columns browsers should display in the selected grid container.
+
+```css
+section {
+    /* 2 column grid */
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    background-color: orange;
+}
+
+section {
+    /* 3 column grid */
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    background-color: orange;
+}
+```
+
+## 2. grid-template-rows:
+
+grid-template-rows specifies the number and heights of rows browsers should display in the selected grid container.
+
+```css
+section {
+    /* 3 row grid */
+    display: grid;
+    grid-template-rows: 95px 1fr 70px;
+    background-color: orange;
+}
+```
+
+```css
+/* 3 row and 4 column grid */
+section {
+    display: grid;
+    grid-template-rows: 90px 300px 1fr;
+    grid-template-columns: auto auto auto auto;
+    background-color: orange;
+}
+```
+
+## 3. grid-auto-columns:
+
+The grid-auto-columns CSS property specifies the size of an implicitly-created grid column track or pattern of tracks.
+
+-   If a grid item is positioned into a column that is not explicitly sized by grid-template-columns, implicit grid tracks are created to hold it.
+-   This can happen either by explicitly positioning into a column that is out of range, or by the auto-placement algorithm creating additional columns.
+-   The grid-auto-columns CSS property is part of the CSS Grid Layout specification, specifying the size of the grid columns that were created without having an explicit size
+
+```css
+.grid-container {
+    display: grid;
+    grid-template-areas: 'media detail detail';
+    grid-template-columns: 200px 400px;
+    grid-auto-columns: 150px; /* implicit sizing */
+}
+```
+
+-   The above example creates a grid container with three columns defined by grid-template-areas.
+-   The first two columns have an explicit size set by grid-template-columns, but not the last column.
+-   This is where grid-auto-columns kicks in and sets that column’s size to 150px.
+
+<br />
+
+**Note**: Implicit columns are created when there are more grid items than cells.
+
+## 4. grid-auto-rows:
+
+Similar to frid-auto-rows, but for rows.
+
+```css
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'media detail detail'
+        'media detail detail';
+    grid-template-rows: 200px;
+    grid-auto-rows: 150px;
+}
+```
+
+-   The above example creates a grid container with two rows defined by grid-template-areas.
+-   The first row has an explicit size set by grid-template-rows, but not the second row.
+-   This is where grid-auto-rows kicks in and sets that row’s size to 150px.
+
+## 5. justify-content: (aligning inside the container)
+
+justify-content specifies how browsers should position a grid container's columns along its row axis or main axis or horizontal axis.
+
+-   A row axis is sometimes called an inline axis.
+-   The justify-content property works if the total column widths are less than the grid container's width.
+-   In other words, you need free space along the container's row axis to justify its columns left or right.
+
+```css
+section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 40px);
+}
+```
+
+## 6. justify-items: (works inside the cell)
+
+The CSS justify-items property defines the default justify-self for all items of the box, giving them all a default way of justifying each box along the appropriate axis.
+
+```css
+section {
+    display: grid;
+    background-color: orange;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+
+    justify-items: start;
+}
+```
+
+![justify-items](/justify-items.png)
+
+## 7. align-content: (aligning inside the container)
+
+align-content specifies how browsers should align a grid container's rows along the container's column axis or cross axis or vertical axis.
+
+-   A column axis is sometimes called a block axis.
+-   The align-content property works if the total row heights are less than the grid container's height.
+-   In other words, you need free space along the container's column axis to align its rows up or down.
+
+```css
+section {
+    display: grid;
+    align-content: start;
+    grid-template-columns: 1fr 1fr;
+}
+```
+
+## 8. align-items: (works inside the cell)
+
+align-items specifies the default align-self value for all the grid items.
+
+```css
+section {
+    display: grid;
+    background-color: orange;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+
+    align-items: start;
+}
+```
+
+## Grid Item's Properties
+
+-   justify-self
+-   align-self
+-   grid-column-start
+-   grid-column-end
+-   grid-column
+-   grid-row-start
+-   grid-row-end
+-   grid-row
+-   grid-area
+-   grid-template-areas
+
+## 1. grid-column-start:
+
+grid-column-start specifies where the selected grid item should start (or span) along the grid container's row (inline) axis.
+
+It accepts the following values:
+
+-   auto (normal column layout flow)
+-   column-line-number
+-   span (number-of-columns)
+
+```css
+.grid-item1 {
+    grid-column-start: 3;
+}
+```
+
+The snippet above used the grid-column-start property to start grid-item1 at column line 3.
+
+```css
+.grid-item1 {
+    grid-column-start: span 2;
+}
+```
+
+The snippet above used the span 2 value to span grid-item1 across two columns.
+
+<br />
+
+## 2. grid-column-end:
+
+grid-column-end specifies where the selected grid item should end (or span) along the grid container's row (inline) axis.
+
+It accepts the following values:
+
+-   auto (normal column layout flow)
+-   column-line-number
+-   span (number-of-columns)
+
+```css
+.grid-item1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+```
+
+The snippet above used the grid-column-end property to end grid-item1 at column line 3.
+
+```css
+.grid-item1 {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+}
+```
+
+The snippet above used the span 2 value to span grid-item1 across two columns.
+
+## 3. grid-column:
+
+grid-column is a shorthand for the grid-column-start and grid-column-end properties.
+
+```css
+.grid-item1 {
+    grid-column: 1 / 3;
+    /* grid-column: grid-column-start / grid-column-end; */
+}
+```
+
+## 4. grid-row-start:
+
+grid-row-start specifies where the selected grid item should start (or span) along the grid container's column (block) axis.
+
+Similar to grid-column-start.
+
+## 5. grid-row-end:
+
+grid-row-end specifies where the selected grid item should end (or span) along the grid container's column (block) axis.
+
+Similar to grid-column-end.
+
+## 6. grid-row:
+
+grid-row is a shorthand for the grid-row-start and grid-row-end properties.
+
+```css
+.grid-item1 {
+    grid-row: 1 / 5;
+    /* grid-row: grid-row-start / grid-row-end; */
+}
+```
+
+## Grid-area
+
+grid-area is a shorthand for the grid-column-start, grid-column-end, grid-row-start, and grid-row-end properties.
+
+```css
+.grid-item1 {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+}
+
+.grid-item1 {
+    grid-area: 3 / 1 / 5 / span 2;
+}
+```
+
+### 1. How to use grid-area to specify a grid item's name?
+
+```css
+<section>
+  <div class="grid-item1">1</div>
+  <div class="grid-item2">2</div>
+  <div class="grid-item3">3</div>
+</section>
+```
+
+```css
+.grid-item1 {
+    grid-area: firstDiv;
+}
+
+.grid-item2 {
+    grid-area: middleDiv;
+}
+
+.grid-item2 {
+    grid-area: lastDiv;
+}
+```
+
+## Grid-template-areas
+
+grid-template-areas specifies the area where you want to place named grid items within a grid container.
+
+Remember: We use the CSS grid-area property to name grid items.
+
+```css
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(7, 1fr);
+grid-template-areas:
+    'header header header header header'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads2'
+    'sidebar article article article ads3'
+    'sidebar footer footer footer footer';
+background-color: orange;
+```
+
+The snippet above used the grid-template-areas property to specify where browsers should place the grid items across the rows and columns of the grid container.
+
+<br />
+
+### Important Stuff to Know about the grid-template-areas Property:
+
+**1. grid-template-areas do not permit empty cells**:
+
+The grid-template-areas property requires you to provide an item for all grid cells.
+
+<br />
+
+**2. You can use dots to specify empty cells**:
+
+Suppose you wish to leave some cells empty. In that case, use a dot (.) or multiple unspaced dots (....).
+
+```css
+grid-template-areas:
+    'header header . . .'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads2'
+    'sidebar article article article ads3'
+    'sidebar footer footer footer footer';
+```
+
+**3. grid-template-areas do not permit placing an item in multiple locations**:
+
+The grid-template-areas property cannot place items twice within a grid container.
+
+```css
+grid-template-areas:
+    'header header header header header'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads1'
+    'sidebar article article article ads2'
+    'sidebar article article article ads3'
+    'sidebar footer header header header';
+```
+
+**4. grid-template-areas allows rectangular areas only**:
+
+The grid-template-areas property cannot create non-rectangular areas (such as T-shaped or L-shaped).
+
+## Minmax()
+
+minmax() is a CSS Grid function for defining minimum and maximum grid sizes.
+
+```css
+minmax(minimum-size, maximum-size)
+```
+
+-   The minimum-size argument specifies the smallest size for a specific length.
+-   The maximum-size argument specifies the largest size for a specific length.
+-   minmax()'s arguments can be any of the non-negative CSS lengths, or any one of the keywords auto, min-content, or max-content.
+-   Suppose the maximum-size argument is less than the minimum-size. In that case, browsers will ignore the maximum-size and treat the minmax() function as min().
+-   An fr unit is an invalid unit for the minimum-size argument.
+
+```css
+section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 50px 100px minmax(70px, 250px);
+}
+```
+
+```css
+section {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr minmax(30%, 70%) 1fr;
+}
+```
+
+## Repeat()
+
+```css
+repeat(number-of-repetition, track-list-to-repeat)
+```
+
+### 1. number-of-repetition:
+
+The number-of-repetition argument specifies the number of times browsers should repeat the specified track list (the second argument).
+
+The number-of-repetition argument can be any of the following values:
+
+-   Number 1 or its multiple
+-   auto-fill
+-   auto-fit
+
+<br />
+
+### 2. track-list-to-repeat:
+
+specifies the track pattern you wish to repeat across a grid container's horizontal or vertical axis.
+
+**Note**: Suppose your number-of-repetition is auto-fill or auto-fit. In that case, you can use only fixed sizes as the track-list-to-repeat argument.
+
+```css
+grid-template-columns: repeat(3, 70px);
+```
+
+## Auto-fill and Auto-fit
+
+The auto-fill and auto-fit values automatically create as many tracks as needed to fill a grid container without causing an overflow.
+
+-   Auto-fit and auto-fill are properties that can be used to create a responsive grid container.
+-   The difference between the two is only noticeable when the row is wide enough.
+
+<br />
+
+### 1. Auto-fill:
+
+-   auto-fill FILLS the row with as many columns as it can fit.
+-   So it creates implicit columns whenever a new column can fit, because it’s trying to FILL the row with as many columns as it can.
+-   The newly added columns can and may be empty, but they will still occupy a designated space in the row.
+
+```css
+.grid-container--fill {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+```
+
+    ![auto-fill](/auto-fill.png)
+
+### 2. Auto-fit:
+
+-   auto-fit FITS the CURRENTLY AVAILABLE columns into the space by expanding them so that they take up any available space.
+-   The browser does that after FILLING that extra space with extra columns (as with auto-fill ) and then collapsing the empty ones.
+
+```css
+.grid-container--fit {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+```
+
+    ![auto-fit](/auto-fit.png)
+
+In short, auto-fit collapses empty tracks to zero-pixel (0px). But auto-fill displays both empty and filled tracks.
+
+## References
+
+-   [Complete Guide to Grid Containers and Grid Items](https://www.freecodecamp.org/news/complete-guide-to-css-grid/)
+-   [Auto-Sizing Columns in CSS Grid](https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/)
