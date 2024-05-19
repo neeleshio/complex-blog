@@ -1,0 +1,68 @@
+# Library vs Framework
+
+> Developers often use the terms “library” and “framework” interchangeably. But there is a difference.
+
+![library-vs-framework](/library-vs-framework.png)
+
+Both frameworks and libraries are code written by someone else that is used to help solve common problems.
+
+A library and a framework are both collections of pre-written code that are used to simplify common situations in software development.
+
+## Library
+
+A library is like going to Ikea. You already have a home, but you need a bit of help with furniture. You don’t feel like making your own table from scratch. Ikea allows you to pick and choose different things to go in your home. You are in control.
+
+### Technical Difference:
+
+When you use a library, you are in charge of the flow of the application.
+
+-   You are choosing when and where to call the library.
+
+## Framework
+
+A framework, on the other hand, is like building a model home. You have a set of blueprints and a few limited choices when it comes to architecture and design.
+
+Ultimately, the contractor and blueprint are in control. And they will let you know when and where you can provide your input.
+
+### Technical Difference:
+
+When you use a framework, the framework is in charge of the flow.
+
+-   It provides some places for you to plug in your code, but it calls the code you plugged in as needed.
+
+## A note on being “opinionated”
+
+You’ll often hear frameworks and libraries described as “opinionated” or “un-opinionated.”
+
+-   These terms are subjective.
+-   They attempt to define the level of freedom a developer has when structuring their code.
+
+<br />
+
+### Opinionated:
+
+Opinionated framework/software means that there is basically one way (the right way™) to do things and trying to do it differently will be difficult and frustrating.
+
+-   Opinionated frameworks provide a "golden path", which is supposed to be the best practice for most people and most scenarios (in the eyes of the authors).
+-   This however doesn't necessarily mean lock-in. It means that it may require some extra effort to do things differently.
+-   Doing things the right way™ can make it very easy to develop with the software as the number of decisions that you have to make is reduced and the ability of the software designers to concentrate on making the software work is increased.
+-   Opinionated frameworks usually remove the burden from developer to reinvent the wheel or rethink the same problem again and again and thus help focus on the real problem at hand.
+
+Ex: NextJS, Redux, Jest etc.
+
+<br />
+
+### Less-Opinionated / Un-opinionated:
+
+Non-opinionated software, on the other hand, leaves lots of flexibility to the user (developer). It doesn't proscribe one method of solving a problem, but provides flexible tools that can be used to solve the problem in many ways.
+
+-   Less opinionated frameworks provide a number of different options and leave it up to you to decide.
+-   The downside of this can be that because the tools are so flexible, it may be relatively hard to develop any solution.
+-   Much more of the solution may have to be hand-coded by the user (developer) because the framework doesn't provide enough help.
+
+Ex: React, Zustand etc.
+
+## References
+
+-   [The Difference Between a Framework and a Library](https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/)
+-   [What is opinionated software? - Stakeoverflow](https://stackoverflow.com/questions/802050/what-is-opinionated-software)

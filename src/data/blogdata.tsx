@@ -403,5 +403,14 @@ export const BLOG_DATA = [
         tags: ['css', 'flexbox', 'grid', 'responsive'],
         date: '16 May 2024',
         img: '/css-grid.png'
+    },
+    {
+        id: 32,
+        title: 'Library vs Framework',
+        topic: REACT,
+        link: 'library-vs-framework',
+        tags: ['library', 'framework', 'difference', 'opinionated', 'un-opinionated'],
+        date: '19 May 2024',
+        img: '/library-vs-framework.png'
     }
 ];
