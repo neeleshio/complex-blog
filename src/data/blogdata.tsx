@@ -412,5 +412,32 @@ export const BLOG_DATA = [
         tags: ['library', 'framework', 'difference', 'opinionated', 'un-opinionated'],
         date: '19 May 2024',
         img: '/library-vs-framework.png'
+    },
+    {
+        id: 32,
+        title: 'What is React and its Advantages',
+        topic: REACT,
+        link: 'react-and-advantages',
+        tags: [
+            'library',
+            'framework',
+            'difference',
+            'opinionated',
+            'un-opinionated',
+            'props',
+            'cons',
+            'react'
+        ],
+        date: '20 May 2024',
+        img: '/react.png'
+    },
+    {
+        id: 33,
+        title: 'Types of Web Applications',
+        topic: REACT,
+        link: 'types-of-applications',
+        tags: ['types', 'web apps', 'react', 'static', 'dynamic', 'spa', 'mva', 'pwa'],
+        date: '20 May 2024',
+        img: '/types-of-applications.png'
     }
 ];

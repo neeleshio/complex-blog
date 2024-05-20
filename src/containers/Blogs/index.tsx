@@ -35,11 +35,16 @@ const Blogs = () => {
                         More from Blog Wall
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-1">
-                        {BLOG_DATA.slice(10, 16).map((el, idx) => (
-                            <div className="py-[3.2rem] border-bottom pr-[5rem]">
+                        {BLOG_DATA.slice(10, 16).map((el) => (
+                            <div className="py-[3.2rem] border-bottom pr-[5rem]" key={el.id}>
                                 <BlogCardSmall {...el} router={router} />
                             </div>
                         ))}
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="bg-[#0171E2] text-[1.4rem] text-[#ffffff] px-10 py-5 rounded-full mt-8 shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
+                            <a href="/blogs/all">View All</a>
+                        </div>
                     </div>
                 </div>
             </section>

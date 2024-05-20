@@ -1,0 +1,101 @@
+# What is React and its Advantages
+
+> React is an open-source JavaScript library that's considered a library rather than a framework.
+
+![react](/react.png)
+
+## What is React?
+
+React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.
+
+-   React can be used to develop single-page, mobile, or server-rendered applications.
+
+## Why React called a Library?
+
+React is an open-source JavaScript library that's considered a library rather than a framework because it focuses on the user interface (UI) and leaves many things up to each project.
+
+-   Frameworks are more comprehensive and opinionated tools with strong structures, architectures, and workflows.
+-   React offers greater flexibility and simplicity, allowing developers to build UIs in a more modular and declarative way.
+-   React is only concerned with the user interface and rendering components to the DOM, React applications often rely on libraries for routing and other client-side functionality.
+
+## React Hooks
+
+On February 16, 2019, React 16.8 was released to the public, introducing React Hooks.
+
+-   Hooks are functions that let developers "hook into" React state and lifecycle features from function components.
+-   Hooks do not work inside classes — they let developers use more features of React without classes.
+
+The introduction of React Hooks allowed developers to manage state and lifecycle behaviors within functional components, reducing the reliance on class components.
+
+-   This trend aligns with the broader industry movement towards functional programming and modular design.
+-   As React continues to evolve, it's essential for developers to consider the benefits of functional components and React Hooks when building new applications or refactoring existing ones.
+
+## Routing
+
+React itself does not come with built-in support for routing.
+
+-   React is primarily a library for building user interfaces, and it doesn't include a full-fledged routing solution out of the box.
+-   Third-party libraries can be used to handle routing in React applications.
+-   It allows the developer to define routes, manage navigation, and handle URL changes in a React-friendly way.
+
+## Advantages
+
+### 1. React is a component-based library:
+
+React.js takes a component-based approach to building user interfaces.
+
+-   This means that you can break down your UI into smaller, reusable pieces — or components that can be combined together to create a complete application.
+-   It promotes code reusability, allowing developers to create components that encapsulate specific functionality or UI elements.
+-   Each component can be responsible for a particular functionality or feature, making it easier to understand and modify the codebase.
+
+<br />
+
+### 2. React.js uses a virtual DOM:
+
+React.js uses a virtual DOM — a lightweight copy of the actual DOM — to manage and update the UI.
+
+-   This can help make your application faster and more responsive by minimizing the number of actual DOM updates required.
+-   React.js can perform computations and comparisons on the virtual DOM, which is faster and less resource-intensive than directly modifying the real DOM.
+
+<br />
+
+### 3. React.js is not a full-fledged framework:
+
+While React.js is a powerful tool for building user interfaces, it’s important to note that it’s not a full-fledged framework.
+
+-   So you have the freedom to select the libraries according to your project needs.
+
+<br />
+
+### 4. React.js uses JSX:
+
+React.js uses a syntax called JSX — a combination of JavaScript and XML — to define components.
+
+-   By embedding HTML-like syntax within JavaScript, JSX enables developers to seamlessly integrate dynamic values and expressions.
+-   JavaScript expressions can be enclosed within curly braces {} within JSX, allowing for dynamic content and logic to be incorporated directly into the component’s markup.
+-   This integration of JavaScript and HTML-like syntax eliminates the need for concatenating strings or using complex templating mechanisms, resulting in more concise and readable code.
+
+<br />
+
+### 5. React.js emphasizes a unidirectional data flow:
+
+React.js emphasizes a unidirectional data flow — meaning that data flows down from parent components to child components.
+
+-   This can help make your code more predictable and easier to reason about.
+-   The flow of data is explicit and can be easily traced, as changes in the parent component trigger updates in its child components, but not vice versa.
+-   Any changes to the data must be strictly done through callbacks or event handlers provided by the parent component.
+
+<br />
+
+### 6. React.js supports server-side rendering:
+
+React.js supports server-side rendering, which can help improve performance and SEO by allowing search engines to crawl your content more easily.
+
+-   One of the primary advantages of SSR is enhanced performance. By rendering the initial HTML on the server, SSR reduces the time it takes for the user to see the content.
+-   Instead of waiting for the JavaScript bundle to download, execute, and render the UI on the client-side, the server sends a pre-rendered HTML … page to the client, which can be displayed immediately.
+-   SSR also contributes to better SEO. Search engine crawlers traditionally struggle with JavaScript-heavy applications because they often have difficulty understanding and indexing the content.
+
+## References
+
+-   [React (JavaScript library) - Wikipedia](<https://en.wikipedia.org/wiki/React_(JavaScript_library)>)
+-   [10 Things You Need to Know About React.js](https://medium.com/@ramazannazimli/10-things-you-need-to-know-about-react-js-4bde699b41e4)
