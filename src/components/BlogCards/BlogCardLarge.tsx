@@ -7,11 +7,9 @@ const BlogCardLarge = ({ id, title, topic, link, date, img, router }: BlogCardPr
     return (
         <div
             className="rounded-[16px] block max-w-[45rem] w-full md:max-w-[100%] shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] border-[#f5f5f72e] border border-solid cursor-pointer custom-transform"
-            onClick={() => router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)}
+            onClick={() => router.push(`/${link}?title=${title}&topic=${topic}&date=${date}`)}
             key={id}
-            onKeyDown={() =>
-                router.push(`/blogs/${link}?title=${title}&topic=${topic}&date=${date}`)
-            }
+            onKeyDown={() => router.push(`/${link}?title=${title}&topic=${topic}&date=${date}`)}
             tabIndex={0}
             role="link">
             <div className="h-[26rem] relative lg:h-[22rem] ml:h-[18rem]">

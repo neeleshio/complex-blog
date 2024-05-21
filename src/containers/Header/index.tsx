@@ -1,6 +1,5 @@
 'use client';
 
-import Navbar from '@/src/components/Navbar';
 import React, { useEffect, useState } from 'react';
 import { NAVITEMS } from '@/src/data';
 import DesktopNavMenu from '@/src/components/DesktopNavMenu';
@@ -9,7 +8,7 @@ import { handleNavMenu, handleOpenMobileNav } from '@/src/store/slices/navSlice'
 import { navSelector } from '@/src/store/slices/navSlice';
 import { NAVMENU_DATA } from '@/src/data/navdata';
 import { handleToggleTheme, themeSelector } from '@/src/store/slices/themeSlice';
-import BlogNavbar from '@/src/components/BlogNavbar';
+import Navbar from '@/src/components/Navbar';
 import MobileNavMenu from '@/src/components/MobileNavMenu';
 import { NavMenuItemsType } from '@/src/types';
 
@@ -99,26 +98,14 @@ const Header = ({ page }: HeaderPropsType) => {
 
     return (
         <>
-            {page === 'home' ? (
-                <Navbar
-                    navItems={NAVITEMS}
-                    handleNavMenu={handleNavMenu}
-                    dispatch={dispatch}
-                    handleToggleTheme={handleToggleTheme}
-                    dark={dark}
-                    handleOpenMobileNav={handleOpenMobileNav}
-                />
-            ) : null}
-            {page === 'blog' ? (
-                <BlogNavbar
-                    navItems={NAVITEMS}
-                    handleNavMenu={handleNavMenu}
-                    dispatch={dispatch}
-                    handleToggleTheme={handleToggleTheme}
-                    dark={dark}
-                    handleOpenMobileNav={handleOpenMobileNav}
-                />
-            ) : null}
+            <Navbar
+                navItems={NAVITEMS}
+                handleNavMenu={handleNavMenu}
+                dispatch={dispatch}
+                handleToggleTheme={handleToggleTheme}
+                dark={dark}
+                handleOpenMobileNav={handleOpenMobileNav}
+            />
 
             <DesktopNavMenu
                 open={open}

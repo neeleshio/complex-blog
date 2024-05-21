@@ -43,7 +43,7 @@ const Blogs = () => {
                     </div>
                     <div className="flex justify-center">
                         <div className="bg-[#0171E2] text-[1.4rem] text-[#ffffff] px-10 py-5 rounded-full mt-8 shadow-[2px_4px_12px_#00000014] hover:shadow-[2px_4px_16px_#00000029] cursor-pointer custom-transform">
-                            <a href="/blogs/all">View All</a>
+                            <a href="/all">View All</a>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
 /* eslint-disable react/function-component-definition */
-import HomePage from '../pages/HomePage';
+import BlogsWall from '@/src/pages/BlogsWall';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Neelesh | Frontend Developer',
-    description: 'Designed and Built by Neelesh'
+    title: 'NSIO | Blog',
+    description: 'Blogs written by Neelesh'
 };
 
-export default function Home() {
-    return <HomePage />;
+export default function Blogs() {
+    return <BlogsWall />;
 }

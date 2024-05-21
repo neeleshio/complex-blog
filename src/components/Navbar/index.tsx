@@ -1,3 +1,4 @@
+import LogoSvg from '@/assets/images/svg/Logo';
 import React, { FC } from 'react';
 import logoblack from '../../../assets/images/png/logoblack.png';
 import logowhite from '../../../assets/images/png/logowhite.png';
@@ -28,21 +29,18 @@ const Navbar = ({
 }: NavbarProps) => {
     return (
         <header
-            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-navbg z-[1000]"
-            aria-label="header-home">
+            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000]"
+            aria-label="header-blog">
             <nav className="flex items-center lg:justify-between lg:px-8 lg:w-full">
-                <Link href="/" className="mr-10">
-                    <div className={`${dark ? 'visible' : 'hidden'}`}>
+                <Link href="https://neeleshio.xyz" className="mr-10">
+                    <div>
                         <Image alt="logo" src={logowhite} width={100} />
-                    </div>
-                    <div className={`${dark ? 'hidden' : 'visible'}`}>
-                        <Image alt="logo" src={logoblack} width={100} />
                     </div>
                 </Link>
                 <ul className="flex items-center gap-10 lg:hidden">
                     {navItems.map((el) => (
                         <li
-                            className="px-4"
+                            className="px-4 text-[#e2e2e0]"
                             onMouseEnter={() =>
                                 dispatch(
                                     handleNavMenu({
@@ -59,19 +57,20 @@ const Navbar = ({
                     ))}
                 </ul>
                 <div className="flex ml-14 gap-16 sm:gap-10">
-                    <button className="flex justify-center bg-navbg items-center border-none">
-                        <SearchIcon dark={dark} />
+                    <button
+                        className="flex justify-center bg-[#454545] items-center border-none"
+                        type="search">
+                        <SearchIcon dark={true} />
                     </button>
                     <button
-                        aria-label={dark ? 'lightmode-btn' : 'darkmode-btn'}
-                        className="flex justify-center bg-navbg items-center border-none"
+                        className="flex justify-center bg-[#454545] items-center border-none"
                         onClick={() => dispatch(handleToggleTheme())}>
-                        {dark ? <Sun dark={dark} /> : <Moon />}
+                        {dark ? <Sun dark={true} /> : <Moon color="#e2e2e0" />}
                     </button>
                     <button
-                        className="justify-center bg-navbg items-center border-none hidden lg:flex"
+                        className="justify-center bg-[#454545] items-center border-none hidden lg:flex"
                         onClick={() => dispatch(handleOpenMobileNav(true))}>
-                        <HamburgIcon dark={dark} />
+                        <HamburgIcon dark={true} />
                     </button>
                 </div>
             </nav>
