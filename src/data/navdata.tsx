@@ -26,7 +26,7 @@ export const NAVMENU_DATA = {
             ]
         },
         {
-            title: 'Libraries',
+            title: 'Frameworks',
             data: [
                 {
                     name: 'Jest',
