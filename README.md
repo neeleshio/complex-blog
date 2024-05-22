@@ -4,8 +4,8 @@ Personal portfolio site along with self written blogs and much more.
 
 ### Site status: LIVE 🟢
 
--   **Portfolio**: https://neeleshio.cloud
--   **Blog**: https://neeleshio.cloud/blogs
+-   **Blog**: https://blog.neeleshio.xyz
+-   **Portfolio**: https://neeleshio.xyz
 
 
 ### Technologies Used:
