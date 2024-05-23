@@ -1,0 +1,141 @@
+# Asset Optimisation and Minifying
+
+> Assets like Images are an essential medium for user engagement. A study by Skyward observed that using meaningful images and infographics increases page views by 94% compared to pages without any images. Clearly, images are an asset that developers can't afford to ignore.
+
+![minimizing-assets](/minimizing-assets.png)
+
+However, images are often the main culprit behind increased page load times and high bandwidth usage.
+
+<br />
+
+### Here are some examples of assets that you might find in a React project:
+
+-   Images, Fonts, CSS files, JavaScript files, JSON files, SVG files, Video files, and Audio files.
+
+## Optimized images have several benefits:
+
+### 1. Faster Load Times:
+
+Smaller image sizes mean quicker downloads,
+
+### 2. Lower Bandwidth Usage:
+
+Optimized images consume less bandwidth on the user side, benefiting those on limited data plans or slower networks
+
+### 3. Improved User Engagement:
+
+Users are more likely to engage with content and click on internal links when they don't have to wait for images to load
+
+### 4. Improved SEO:
+
+Search engines prioritize faster-loading pages so image optimization can contribute positively to your site's search rankings.
+
+## Image Optimization Techniques
+
+**React frameworks like Next.js provide out-of-the-box tools like the next/image component that automatically optimizes images on-demand, as users request them, automatically resizing, lazy loading, and avoiding Cumulative Layout Shift while serving images in modern formats like WebP (when the browser supports it).**
+
+**But you don’t get such features in vanilla React, itself, and this makes image optimization more complicated.**
+
+## 1. image-webpack-loader:
+
+Webpack is a static module builder for JavaScript applications. A module is a self-contained unit of code that can be independently loaded, reused, and even shared between different parts of your application.
+
+One such Webpack module that allows you to <span className='hgl'>**automate image optimization in a React application during the build process**</span> is the image-webpack-loader package.
+
+-   By using this module in your Webpack configuration, you can make image optimization a part of your build pipeline itself.
+-   However, one of the significant drawbacks of using this method is that you’ll need to have the images stored as a part of the codebase, which is not an ideal solution.
+-   In most of the real–world applications, the images usually are not stored in the codebase.
+-   This loader enables you to compress images in various formats, such as JPEG, PNG, GIF, SVG, and even WebP, directly within your Webpack configuration, minifying these assets for you before they are bundled with the actual webpage.
+
+## 2. browser-image-compression:
+
+If you’re allowing client-side image uploads, Browser Image Compression is a package that allows you to <span className='hgl'>**compress images on the browser, before they are sent to a server**</span>.
+
+-   The module can be used to compress JPEG, PNG, WebP, and BMP images, works with React (or any other framework), and comes with built-in support for multi-threading (web workers) for non-blocking compression.
+-   You can use this package to compress the images on the client side before uploading them to the server for saving storage.
+-   Compression happens on the browser (i.e. client side), providing instant feedback to the user.
+
+## Optimizing Images as Users interact with the website
+
+## 1. Lazy Loading:
+
+Lazy loading defers the loading of non-critical resources at page load time. Instead, these resources are loaded when they're needed, resulting in a faster initial page load time.
+
+Starting with React 16.6.0, the lazy() function has been introduced, allowing the rendering of a dynamic import as a regular component.
+
+```jsx
+const LazyImage = React.lazy(() => import('./ImageComponent'));
+
+function MyComponent() {
+    return (
+        <div>
+            <React.Suspense fallback={<div>Loading...</div>}>
+                <LazyImage />
+            </React.Suspense>
+        </div>
+    );
+}
+```
+
+You can also use the traditional HTML5 <span className='hgl'>lazy</span> attribute for images:
+
+```html
+<img src="image.jpg" loading="lazy" alt="example" />
+```
+
+## 2. Using srcSet for Responsive Images:
+
+It’s essential that your images look crisp on all devices. With the srcset attribute, you can define multiple image sources that are conditionally loaded based on the device's screen size.
+
+-   However, to utilize srcSet, you must create and provide various size variations of your image beforehand, ensuring they're optimized for different screen dimensions.
+
+```jsx
+const ExampleComponent = () => (
+    <img
+        srcSet="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w"
+        src="medium.jpg"
+        alt="example"
+    />
+);
+
+export default ExampleComponent;
+```
+
+## 3. Using Advanced Formats:
+
+WebP and AVIF are modern image formats that provide superior lossless and lossy compression for images on the web.
+
+-   WebP images are, on average, 30% smaller in size compared to JPEGs.
+-   Again, to use these modern formats in your applications, it is required that you create them beforehand for each format.
+
+```jsx
+const ExampleComponent = () => {
+    return (
+        <picture>
+            <source srcSet="image.avif" type="image/avif" />
+            <source srcSet="image.webp" type="image/webp" />
+            <img src="image.jpg" alt="example" />
+        </picture>
+    );
+};
+
+export default ExampleComponent;
+```
+
+-   In the above code, the picture element is used to provide multiple image sources to the browser.
+-   This element acts as a container for different image formats, allowing browsers to pick the best-suited image based on their capabilities.
+-   Finally, the img element acts as a fallback.
+-   If the browser doesn't support AVIF or WEBP, it defaults to the JPG image.
+
+## Minify vs Uglify
+
+Minifying is just removing unnecessary white-space and redundant like comments and semicolons. And it can be reversed back when needed.
+
+Uglifying is transforming the code into an "unreadable" form by changing variable names, function names, etc, to hide the original content. Once it is used there's no way to reverse it back.
+
+-   Minifying your code speeds up your page loading, making visitors and search engines happy and it is also readable. Most major browsers minify the code before execution.
+
+## References
+
+-   [React Image Optimization](https://imagekit.io/blog/react-image-optimization/)
+-   [Does it make sense to do both minify and uglify?](https://stackoverflow.com/questions/33708197/does-it-make-sense-to-do-both-minify-and-uglify)

@@ -1,0 +1,76 @@
+# Rendering Techniques - CSR, SSG, SSR and ISG
+
+> We will explore four prominent rendering approaches.
+
+![rendering-techniques](/rendering.png)
+
+## Client Side Rendering (CSR)
+
+This is what most of the web frameworks like Angular and React support out of the box.
+
+-   This is commonly suitable for single page applications (SPA) and applications with lot of user interactions (e.g Games) and highly dynamic content such as forms, and chat applications.
+-   Basically web browser will initially load an empty HTML file. Javascript and styles which are loaded after, are responsible for rendering the full user friendly page in the web browser.
+-   Client-Side Rendering generates webpages in the browser, fully relying on your JavaScript Code.
+-   It's no secret that large files result in increased download time, but there is a catch here: downloading large files at the initial load of the application means significantly less loading time in accessing other pages on that website.
+-   You can find common examples of a real-life application like Spotify, Figma, and Google Drive.
+
+## Server-Side Rendering (SSR)
+
+Client-Side Rendering was a game-changer and still is — in many cases. Although, a closer look at performance in CSR showed that the more features a website had, the more JS code it had. Recall that more JS code means more download time.
+
+-   Each page will initiate a request to App Server, where it dynamically renders and serves full HTML for that page
+-   SSR doesn't solve all the problems of rendering on the web. But it solved many of the issues faced by CSR like faster load times on initial visit.
+-   Server-Side Rendering helps generate a webpage on the server just after receiving a request from the browser.
+
+**Some drawbacks like**:
+
+-   Having to make network requests to the server to load a webpage could impact users with less internet bandwidth.
+-   SSR also requires a relatively higher volume of computing power to be active.
+
+## Static Site Generation (SSG)
+
+Static Site Generation is a very common approach to rendering on the web. This is because most websites, if not all before JavaScript frameworks, were statically generated.
+
+-   Static sites are still very popular, but there are better ways to generate them. This goes to show how important they are in terms of performance on the web.
+-   A static site is rendered on a browser exactly how it was generated.
+-   The content of a static site is typically unaffected by the user viewing, unlike a web app rendered in CSR, or SSR, where each user can see content based on authentication or authorization.
+-   Static sites are ideal for showing content that never changes or is updated once in a while.
+-   SSG Webpages are rendered and generated during build-time — before the user attempts to access your webpage. This is why SSG is commonly referred to as pre-rendering.
+
+**A drawbacks like**:
+
+-   A major drawback of rendering with SSG is that a page must be generated for every accessible URL on your website. This could get even more tedious when you have dynamic pages.
+
+## Incremental Static Regeneration (ISR)
+
+ISR is the next improvement to SSG, where it periodically builds and revalidates the new pages so that content never gets too much out-dated.
+
+-   It allows us to pre-render static pages during build time while periodically regenerating specific pages with updated data.
+-   ISR represents an advancement over SSG, involving regular rebuilding and revalidating of pages to prevent content from becoming excessively outdated.
+-   ISR is ideal for websites with content that requires frequent updates, such as blogs or news portals.
+
+## Pros and Cons
+
+### 1. Pros
+
+-   SSR: Improved SEO and faster initial load times.
+-   CSR: Interactivity, reduced server load.
+-   ISR: Balances static content and real-time updates.
+-   SSG: Superb performance, enhanced security.
+
+### 2. Cons
+
+-   SSR: Increased server load and more complex as compared to CSR.
+-   CSR: Compromised SEO and slower initial load times.
+-   ISR: Requires careful triggering for dynamic data.
+-   SSG: Limited interactivity and real-time updates compared to dynamic rendering approaches.
+
+<br />
+
+![rendering-comparison](/rendering-comparison.png)
+
+## References
+
+-   [How Web Pages Get Rendered on the Browser](https://www.freecodecamp.org/news/web-page-rendering-on-the-browser-different-methods/)
+-   [SSR vs CSR vs ISR vs SSG](https://www.educative.io/answers/ssr-vs-csr-vs-isr-vs-ssg)
+-   [Visual Explanation and Comparison of CSR, SSR, SSG and ISR](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)

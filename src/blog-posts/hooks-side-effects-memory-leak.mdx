@@ -1,0 +1,202 @@
+# React Hooks, Side effects and Memory leak
+
+> Hooks allow function components to have access to state and other React features. Because of this, class components are generally no longer needed.
+
+![react-hooks](/react-hooks.png)
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+## Basic Hooks
+
+1. **useState** - useState lets you manage local state within a function component.
+2. **useEffect** - With useEffect, you invoke side effects from within functional components. It is a combination of componentDidMount,componentDidUpdate, and componentWillUnmount.
+3. **useContext** - Context is React’s way of handling shared data between multiple components.
+
+## Additional Hooks
+
+1. **useReducer** - useReducer may be used as an alternative to useState. It’s ideal for complex state logic.
+2. **useCallback** - useCallback returns a memoized callback function.
+3. **useMemo** - useMemo Hook returns a memoized value.
+4. **useRef** - The useRef Hook allows you to persist values between renders.
+5. **useImperativeHandle** - useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref.
+6. **useLayoutEffect** - useLayoutEffect is a version of useEffect that fires before the browser repaints the screen.
+7. **useDebugValue** - useDebugValue Hook helps developers to debug custom hooks in Devtools.
+8. **useDeferredValue** - useDeferredValue is a React Hook that lets you defer updating a part of the UI.
+9. **useTransition** - useTransition is a React Hook that lets you update the state without blocking the UI.
+10. **useId** - useId is a React Hook for generating unique IDs that can be passed to accessibility attributes.
+
+## Library Hooks
+
+1. **useSyncExternalStore** - useSyncExternalStore is a React Hook that lets you subscribe to an external store.
+2. **useInsertionEffect** - useInsertionEffect is a version of useEffect that fires before any DOM mutations.
+
+## Custom Hooks
+
+Custom Hooks are a powerful feature of React that allows you to encapsulate common functionality into reusable functions. They are a great way to make your code more organized, reusable, and maintainable.
+
+```jsx
+// useFetch.js
+import { useState, useEffect } from 'react';
+
+const useFetch = (url) => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setData(data));
+    }, [url]);
+
+    return [data];
+};
+
+export default useFetch;
+```
+
+```jsx
+// components/Home.js
+const Home = () => {
+    const [data] = useFetch('https://jsonplaceholder.typicode.com/todos');
+
+    return <></>;
+};
+```
+
+## Hook Rules
+
+### 1. Hooks can only be called inside React function components:
+
+-   Hooks rely on the call stack to track which component is currently rendering. Class components do not have a call stack, so hooks cannot be used in them.
+-   Hooks are specially designed for functional components, class componenets has its own lifecycle methods so no need to use hooks in class componenets.
+
+### 2. Hooks can only be called at the top level of a component:
+
+-   This rule ensures that the hooks are called in the same order every time a component is rendered (Consistent Rendering).
+-   It mentioned that hooks are store in a "memory cells" and render in order (" moves the pointer to the next one").
+
+### 3. Hooks cannot be conditional:
+
+-   React Hooks rely on the order in which they're called. They're all interdependent in their linked lists. This is why you can't use them conditionally.
+-   Imagine every hook as a node of a linked list. So, if any node disappears in between renders, everything will crash.
+-   This is because React needs to know the order in which hooks are called in order to track state and side effects. If you call a hook conditionally, you may not be able to guarantee that it will be called at the top level of the component.
+
+## Side effects
+
+In React, side effects refer to operations that are performed during the rendering process or outside of it, such as making an API call or changing the DOM. They are any operations that can change the state of the component or its environment.
+
+-   Side effects are important because they allow React components to interact with the outside world.
+-   For example, without side effects, it would not be possible to fetch data from an API or update the DOM.
+-   However, it is important to handle side effects correctly. If not, it can lead to an application crash.
+-   There are two common kinds of side effects in React components: those that don't require <span className='hgl'>cleanup</span>, and those that do.
+
+Side effects that don't require cleanup are typically one-off operations that don't need to be undone. For example, logging a message to the console is a side effect that doesn't require cleanup.
+
+-   Side effects that do require cleanup are typically operations that need to be undone when the component is unmounted. For example, setting up a subscription is a side effect that requires cleanup.
+-   Some effects require cleanup to reduce memory leaks. Timeouts, subscriptions, event listeners, and other effects that are no longer needed should be disposed. This is done by including a return function at the end of the useEffect Hook.
+-   There are a few ways to handle side effects in React. One way is to use the useEffect hook.
+-   The useEffect hook allows you to specify a function that will be executed after the component has been rendered.
+-   This function can be used to perform side effects, such as making an API call or updating the DOM.
+
+Another way to handle side effects is to use the useState hook.
+
+-   The useState hook allows you to store state in a component. This state can then be used to perform side effects, such as updating the DOM.
+-   It is important to note that side effects can make components more difficult to test and maintain. Therefore, it is important to use them sparingly and to handle them correctly.
+
+<br />
+
+**Here are some examples of side effects in React:**
+
+-   Making an API call
+-   Changing the DOM
+-   Setting up a subscription
+-   Using a timer
+-   Communicating with an external resource, such as local storage
+-   Using an API
+
+## Subscriptions
+
+In React, subscriptions are a way to listen for changes to data and update the UI accordingly.
+
+-   This can be useful for things like chat applications, where you need to update the UI whenever a new message is received.
+-   To set up a subscription in React, you can use the useEffect hook.
+-   This hook takes a callback function that will be executed when the component mounts and unmounts.
+-   Subscriptions can be a powerful tool for building real-time applications in React. By using subscriptions, you can keep your UI up-to-date with the latest data without having to constantly poll the server for new information.
+-   The useEffect hook takes a second argument, which is an array of dependencies. This array tells React which values to watch for changes. In this case, we are watching for changes to the messages state.
+-   If the messages state changes, React will re-execute the callback function. This will ensure that the UI is always up-to-date with the latest messages.
+
+## Memory Leak
+
+A memory leak in React is a type of resource leak that occurs when an application incorrectly manages memory allocations.
+
+-   That memory, which is not needed anymore, is not released for other processes to use.
+-   It can happen when a React application retains memory that is no longer needed or used.
+
+## Causes of Memory leaks
+
+### 1. Uncleaned asynchronous tasks:
+
+When a component is unmounted, it is important to clean up any asynchronous tasks(setTimeout, setInterval) that it created.
+
+Otherwise, these resources will continue to run in the background, even though the component is no longer needed.
+
+<br />
+
+### 2. Unkeyed components:
+
+Unkeyed components are components that do not have a unique key prop.
+
+This can cause React to keep track of unnecessary DOM nodes, which can lead to memory leaks.
+
+<br />
+
+### 3. Overuse of memoization:
+
+Memoization is a technique that can be used to improve the performance of React applications.
+
+However, if memoization is overused, it can actually lead to memory leaks.
+
+<br />
+
+### 4. Event listeners:
+
+If you attach event listeners to elements within your React components, but fail to remove them when the component unmounts, it can lead to memory leaks.
+
+Make sure to remove event listeners in the component’s cleanup function, such as in the useEffect hook with a cleanup function.
+
+<br />
+
+### 5. Subscription-based APIs:
+
+If you’re using subscription-based APIs, such as <span className='hgl'>WebSocket connections</span> or observables, it’s crucial to unsubscribe or close these subscriptions when they’re no longer needed.
+
+Failing to unsubscribe from these sources can keep references active and cause memory leaks.
+
+<br />
+
+### 6. Large data sets or state:
+
+Storing large data sets or unnecessary data in the component’s state can lead to memory leaks, especially if the data is not properly cleaned up when it’s no longer needed
+
+Make sure to remove or clear unnecessary data from state or other data structures when appropriate
+
+```jsx
+useEffect(() => {
+    const fetchData = async () => {
+        const response = await fetch('https://api.example.com/data');
+        const newData = await response.json();
+        setData(newData);
+    };
+    fetchData();
+
+    return () => {
+        // Cleanup function to clear data
+        setData([]);
+    };
+}, []);
+```
+
+## References
+
+-   [Memory Leaks in React.js](https://medium.com/@abubakarmemon/memory-leaks-in-react-js-b611745c5f08)
+-   [Get Up And Running With The useEffect Hook](https://hashnode.com/post/get-up-and-running-with-the-useeffect-hook-cl4ojhvu002dnhbnv0zfh81hm)
+-   [React subscription - Gen AI](https://www.google.com/search?q=setting+up+subscription+means+in+react&oq=setting+up+subscription+means+in+react&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBNIBBzQxMmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8)

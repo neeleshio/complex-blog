@@ -1,0 +1,113 @@
+# React Functional Components Vs Class Components
+
+> When diving into the world of React, a powerful JavaScript library for building user interfaces, one of the fundamental concepts you'll encounter is the distinction between functional and class components.
+
+![Functional Components Vs Class Components](/func-vs-class.png)
+
+React components come in two flavors: class components and functional components.
+
+## React Class Components
+
+Class components are the more traditional method, which has been part of React since its inception.
+
+-   They are ES6 classes that extend React (React.Component) to include features like the render method, which returns a React element to be displayed on the screen.
+-   Class components are also known for their ability to hold and manage state and lifecycle methods, making them suitable for more complex components.
+-   A class component requires a render function responsible for returning the UI that should be rendered.
+-   This type of component not only allows you to render a React element but also provides the ability to encapsulate state and behavior
+
+```javascript
+import React from 'react';
+
+class MyComponent extends React.Component {
+    render() {
+        return <h1>Hello, world!</h1>;
+    }
+}
+```
+
+## Key Characteristics of Class Components 👇
+
+## 1. State Management:
+
+Class components can hold and manage local state using this.state property and update it with this.setState().
+
+```javascript
+class StatefulComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    incrementCount = () => {
+        this.setState({ count: this.state.count + 1 });
+    };
+
+    render() {
+        return (
+            <div>
+                <p>Count: {this.state.count}</p>
+                <button onClick={this.incrementCount}>Increment</button>
+            </div>
+        );
+    }
+}
+```
+
+## 2. Lifecycle Methods:
+
+Class components have access to React lifecycle methods which allow you to run code at specific points in the component's lifecycle, such as when it mounts, updates, or unmounts.
+
+```javascript
+  componentDidMount() {
+    console.log('Component did mount');
+  }
+
+  componentDidUpdate() {
+    console.log('Component did update');
+  }
+
+  componentWillUnmount() {
+    console.log('Component will unmount');
+  }
+```
+
+## React Functional Components
+
+Functional components were once known as stateless components due to their lack of state management capabilities.
+
+-   Functional components in React are simply JavaScript functions that return React elements
+-   Hooks has shifted the React landscape significantly, as functional components can now perform almost all the tasks that class components can, but with a simpler and more concise syntax.
+-   Unlike class components, functional components do not have instances, making them lighter and often leading to less boilerplate code.
+-   Functional components can be slightly more efficient than class components. They avoid the overhead of class objects and are more accessible for React to optimize.
+
+```javascript
+import React, { useState } from 'react';
+
+function StateExample() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+}
+```
+
+## Why use Functional components over Class components
+
+In javascript, classes are not real classes, they are just syntactic sugar, behind they are actually functions itself.
+
+Functions are straight forward, so 3 things actually motivated react team to introduce hooks to provide lifecycle features to functional components.
+
+1. Complex components become hard to understand.
+2. Classes confuse both humans and machines.
+3. It's hard to resuse stateful logic b/w components.
+
+In Javascript, the 'this' keyword acts differently than other language, so there will be some learning curve for someone who is coming from other languages.
+
+## References
+
+-   [React Functional Components Vs. Class Components](https://www.dhiwise.com/post/react-functional-components-vs-class-components)
+-   [React docs](https://react.dev/)

@@ -414,7 +414,7 @@ export const BLOG_DATA = [
         img: '/library-vs-framework.png'
     },
     {
-        id: 32,
+        id: 33,
         title: 'What is React and its Advantages',
         topic: REACT,
         link: 'react-and-advantages',
@@ -432,12 +432,85 @@ export const BLOG_DATA = [
         img: '/react.png'
     },
     {
-        id: 33,
+        id: 34,
         title: 'Types of Web Applications',
         topic: REACT,
         link: 'types-of-applications',
         tags: ['types', 'web apps', 'react', 'static', 'dynamic', 'spa', 'mva', 'pwa'],
         date: '20 May 2024',
         img: '/types-of-applications.png'
+    },
+    {
+        id: 35,
+        title: 'Rendering Techniques - CSR, SSG, SSR and ISG',
+        topic: REACT,
+        link: 'rendering-techniques-csr-ssg-ssr-isr',
+        tags: [
+            'rendering',
+            'techniques',
+            'react',
+            'static',
+            'ssg',
+            'ssr',
+            'isr',
+            'csr',
+            'client side',
+            'server side',
+            'incremental',
+            'pros',
+            'cons',
+            'nextjs'
+        ],
+        date: '22 May 2024',
+        img: '/rendering.png'
+    },
+    {
+        id: 36,
+        title: 'React Functional Components Vs Class Components',
+        topic: REACT,
+        link: 'react-functional-components-vs-class-components',
+        tags: ['functional', 'components', 'react', 'class', 'hooks', 'lifecycle', ''],
+        date: '22 May 2024',
+        img: '/func-vs-class.png'
+    },
+    {
+        id: 37,
+        title: 'React Hooks, Side effects and Memory leak',
+        topic: REACT,
+        link: 'hooks-side-effects-memory-leak',
+        tags: [
+            'react',
+            'hooks',
+            'usestate',
+            'useseffect',
+            'usecontext',
+            'side effects',
+            'memory leak',
+            'subscription'
+        ],
+        date: '22 May 2024',
+        img: '/react-hooks.png'
+    },
+    {
+        id: 38,
+        title: 'Asset Optimisation and Minifying',
+        topic: JAVASCRIPT,
+        link: 'asset-optimisation-and-minifying',
+        tags: [
+            'javascript',
+            'asset',
+            'optimisation',
+            'bundling',
+            'webpack',
+            'babel',
+            'image',
+            'webp',
+            'minify',
+            'uglify',
+            'lazy-loading',
+            'lazy'
+        ],
+        date: '23 May 2024',
+        img: '/minimizing-assets.png'
     }
 ];
