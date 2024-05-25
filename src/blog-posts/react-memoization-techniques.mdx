@@ -1,0 +1,149 @@
+# React Memoization Techniques
+
+> Memoization is a powerful technique that can significantly enhance the performance of React applications.
+
+![memoization](/memoization.png)
+
+## React.memo()
+
+React.memo is a higher-order component that memoizes the rendering of a functional component. It checks for changes in props and re-renders only if there are differences, preventing unnecessary rendering cycles.
+
+-   This improves performance because it memoizes the result and skips rendering to reuse the last rendered result.
+-   We use this to wrap only the child components.
+-   It checks/compares both the type & value.
+
+```jsx
+const myComponent = (props) => {
+    /* render using props */
+};
+
+export const MemoizedComponent = React.memo(myComponent);
+```
+
+### Limitations:
+
+-   If the prop is an array or object, React will always see it as a changed prop between renders even when it hasn’t really changed because an object is only equal to another object if they point to the same location in memory regardless of the actual contents.
+-   This is not ideal because it’s an unnecessary cycle and more importantly, an expensive one too.
+-   Donot use when you have a component with often changing props becoz memo have to compares & that is an expensive operation.
+-   We can fix this by passing a custom function which can compare the previous object with the current object as a 2nd argument of React.memo method.
+
+```jsx
+const barGraphPropsAreEqual = (prevProps, newProps) => {
+    ...some custom logic to determine if the props are equal
+}
+
+// we update our React.memo usage
+export const memoisedBarGraph = React.memo(BarGraph, barGraphPropsAreEqual)
+```
+
+## useMemo()
+
+useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+-   The useMemo Hook only runs when one of its dependencies update.
+-   useMemo itself requires memory to store the cached results.
+-   Therefore, if we go overboard and memoize every single function in our application, it can actually lead to increased memory consumption and paradoxically slow down the application.
+-   useMemo returns the memoized value.
+
+```jsx
+const calculation = useMemo(() => {
+    return expensiveCalculation(count);
+}, [count]);
+```
+
+**Note**: Some developers like to use useMemo when they want to combine useState and useEffect at the same time.
+
+<br />
+
+### When not to use useMemo?
+
+<br />
+
+### 1. Inexpensive operations:
+
+If a computation is relatively cheap to perform, it may not be worth using useMemo to memoize it.
+
+As a general rule, if a computation takes less than a few milliseconds to complete, it's probably not worth memoizing.
+
+### 2. Simple calculations:
+
+Bringing in useMemo can complicate things more than helping.
+
+### 3. Frequent changes in dependencies:
+
+If the inputs change a lot, useMemo loses its efficiency.
+
+## useCallback()
+
+useCallback is used to memoize callback functions, reducing unnecessary re-creation of functions and optimizing component re-renders.
+
+-   If the child components receive callback functions as props, they might trigger unnecessary re-renders as those callback functions are recreated on every render cycle.
+-   useCallback returns the memoized callback function.
+-   The returned function gets recreated on a new memory reference if one of the variables inside useCalback's dependency array (its second parameter) changes.
+-   Use useCallback with useMemo when you have a callback function that is passed to a child component as a prop.
+-   If the callback function is expensive to create, memoizing it with useCallback can prevent unnecessary re-renders of the child component.
+
+## useRef()
+
+The useRef Hook allows you to persist values between renders.
+
+-   It can be used to store a mutable value that does not cause a re-render when updated.
+-   It can be used to access a DOM element directly.
+
+So It's commonly used for accessing and managing DOM elements directly, storing persistent values, or working with values that should not trigger a re-render.
+
+```jsx
+// The basic syntax of useRef is as follows:
+
+const refContainer = useRef(initialValue);
+```
+
+### Characteristics:
+
+-   It simply returns a plain JavaScript object. Its value can be accessed and modified (mutability) as many times as you need without worrying about "rerender".
+-   Its value will persist (won't be reset to the initialValue unlike an ordinary\* object defined in your function component; it persists because useRef gives you the same object instead of creating a new one on subsequent renders) for the component lifetime.
+
+```jsx
+function App() {
+    const ordinaryObject = { current: 0 }; // It will reset to {current:0} at each render
+    const refObject = useRef(0); // It will persist (won't reset to the initial value) for the component lifetime
+    return <>...</>;
+}
+```
+
+## Forward ref
+
+Used to pass the reference or ref from the parent component to the child component.
+
+-   We can still pass our ref to the child component without using forwardRef by just renmaing the ref prop.
+
+```jsx
+const inputRef = useRef(null)
+
+// inside parent component
+<Child inputRef={inputRef} />
+
+// inside child component
+const Child = ({ inputRef }) => {
+  <input ref={inputRef}/>
+}
+```
+
+This works but it's a bad practice according to react official docs. So better to use forwardRef.
+
+```jsx
+const inputRef = useRef(null)
+
+// inside parent component
+<Child ref={inputRef} />
+
+// inside child component
+const Child = forwardRef((props, ref) => {
+  <input ref={ref}/>
+})
+```
+
+## References
+
+-   [Improving React Application Performance](https://blog.openreplay.com/improving-react-application-performance-react-memo-vs-usememo/)
+-   [Ref as a prop](https://www.reddit.com/r/reactjs/comments/1asgpy9/ref_as_a_prop_advance_beginner_question/)

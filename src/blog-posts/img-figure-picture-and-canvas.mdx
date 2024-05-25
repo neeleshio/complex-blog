@@ -1,0 +1,86 @@
+# Img, Figure, Picture and Canvas HTML tags
+
+> When and where to use the img, figure or picture HTML tags, let's discuss in this blog.
+
+![figure](/figure.png)
+
+### When it comes to showing images we have multiple choices.
+
+-   The img, figure, or picture do the same thing, but in different ways.
+-   Knowing when to use each of them leads to better semantics and SEO in our web pages.
+
+## Img tag
+
+The scope of img tags is to add a single inner image as part of specific content.
+
+-   Images are not technically inserted into a web page; images are linked to web pages.
+-   The img tag creates a holding space for the referenced image.
+-   For decorations, you will be better off of using something like a CSS background-image property.
+
+**Note**: img tag is not meant for things like icons, background patterns, or other images that only serve as decorations.
+
+## Figure
+
+Mainly used with a figcaption tag, the scope of the figure tag is to glue some text to one (or multiple) pictures.
+
+-   The figure tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+-   In simple words, the figure tag is used to semantically organize the content of images, videos, audios or even charts or tables, block of codes in the HTML document.
+-   This tag is used to add an image source in the document. This tag is used to set the caption to the image.
+
+```html
+<figure>
+    <img src="pic_trulli.jpg" alt="Trulli" />
+    <img src="rome.jpg" alt="Rome" />
+    <figcaption>Pictures made my X in Italy</figcaption>
+</figure>
+```
+
+The figcaption is used to give extra info for those images, like:
+
+-   who is the photographer of those images
+-   when or where the images were taken or created
+-   a link with credits for that image.
+
+## Picture
+
+The picture tag was meant for responsiveness and art direction.
+
+-   Instead of having one image that is scaled up or down based on the viewport width, multiple images can be designed to more nicely fill the browser viewport.
+-   According to the viewport, the matching image will be loaded from different source tag.
+-   and if no source contains the matching image, then the default image present in img tag will be displayed on the browser.
+
+```html
+<picture>
+    <source media="(min-width:650px)" srcset="cat_big.jpg" />
+    <source media="(min-width:465px)" srcset="cat_small.jpg" />
+    <img src="cat_default.jpg" alt="Cat" />
+</picture>
+```
+
+## Canvas
+
+The HTML canvas element is used to draw graphics on a web page.
+
+-   canvas element is used to draw graphics, <span className='hgl'>on the fly</span>, via JavaScript.
+-   The HTML canvas element provides HTML a <span className='hgl'>bitmapped</span> surface to work with. It is used to draw graphics on the web page.
+-   The canvas element is only a container for graphics. You must use JavaScript to actually draw the graphics.
+-   It allows for dynamic and scriptable rendering of 2D shapes and bitmap images.
+-   It is a low level, procedural model that updates a bitmap and does not have a built-in scene. There are several methods in canvas to draw paths, boxes, circles, text and add images.
+
+```html
+<canvas id="mycanvas" width="200" height="100"> </canvas>
+```
+
+<br />
+
+**Bitmap**
+
+A bitmap (also called "raster") graphic is created from rows of different colored pixels that together form an image.
+
+-   In effect, a bitmap is an array of binary data representing the values of pixels in an image or display.
+-   A GIF is an example of a graphics image file that has a bitmap.
+
+## References
+
+-   [When to use the img, figure or picture html tags](https://www.js-craft.io/blog/when-to-use-the-img-figure-or-picture-html-tags/)
+-   [HTML Canvas Tag](https://www.javatpoint.com/html-canvas)

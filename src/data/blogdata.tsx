@@ -512,5 +512,79 @@ export const BLOG_DATA = [
         ],
         date: '23 May 2024',
         img: '/minimizing-assets.png'
+    },
+    {
+        id: 39,
+        title: 'Img, Figure, Picture and Canvas HTML tags',
+        topic: HTML,
+        link: 'img-figure-picture-and-canvas',
+        tags: [
+            'html',
+            'img',
+            'tag',
+            'figure',
+            'picture',
+            'source',
+            'srcset',
+            'media',
+            'canvas',
+            'bitmap',
+            'graphics'
+        ],
+        date: '24 May 2024',
+        img: '/figure.png'
+    },
+    {
+        id: 40,
+        title: 'React Optimization Techniques',
+        topic: REACT,
+        link: 'react-optimization',
+        tags: [
+            'react',
+            'optimization',
+            'speed',
+            'seo',
+            'ux',
+            'virtual dom',
+            'dom',
+            'keys',
+            'ssr',
+            'lazy loading',
+            'code splitting',
+            'windowing',
+            'virtualization',
+            'pagination',
+            'infinite scroll',
+            'web worker',
+            'service worker',
+            'cdn',
+            'memoization',
+            'throttling',
+            'debounce',
+            'fragments',
+            'webpack',
+            'asset'
+        ],
+        date: '24 May 2024',
+        img: '/react-optimization.png'
+    },
+    {
+        id: 41,
+        title: 'React Memoization Techniques',
+        topic: REACT,
+        link: 'react-memoization-techniques',
+        tags: [
+            'react',
+            'optimization',
+            'speed',
+            'memoization',
+            'memoize',
+            'usecallback',
+            'usememo',
+            'memo',
+            'react.memo'
+        ],
+        date: '25 May 2024',
+        img: '/memoization.png'
     }
 ];

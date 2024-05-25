@@ -1,0 +1,258 @@
+# React Optimization Techniques
+
+> React performance optimization is a major key factor if you want to speed up your React app. Here are the easy techniques to optimize React application.
+
+![react-optimization](/react-optimization.png)
+
+Since its introduction, React has changed the way front-end developers think of building web apps. With virtual DOM, React makes UI updates as efficient as they can ever be, making your web app snappier.
+
+Since its release, React has influenced many other front-end libraries. Libraries such as Vue.js also rely on the idea of virtual DOMs.
+
+## When to Optimize React Performance?
+
+-   Slow page load times.
+-   Unresponsive UI.
+-   Network or Latency issues.
+-   Large data sets or data lists.
+-   Memory resource usage.
+
+## Understanding the Need for Speed in Web Apps
+
+Before diving into specific optimization techniques, let's understand why speed is paramount in web applications.
+
+-   **User Expectations**: Modern users are accustomed to instant gratification. They expect web applications to load quickly and respond promptly to their interactions.
+-   **Search Engine Rankings**: Search engines, including Google, consider page speed as a ranking factor. Faster websites tend to rank higher in search results.
+-   **Mobile-Friendly Experience**: With the proliferation of mobile devices, ensuring a fast and efficient user experience on smartphones and tablets is crucial.
+-   **Competition**: The digital landscape is highly competitive. Users have numerous alternatives at their fingertips, and a slow web application can drive them away to competitors with faster sites.
+
+## Optimizing React.js Performance
+
+## 1. Lazy Loading:
+
+Lazy loading is a technique where you load components only when they are needed.
+
+-   By splitting your application into smaller, more manageable chunks, you reduce the initial load time.
+-   React provides the React.lazy() function, which allows you to implement lazy loading effortlessly.
+
+## 2. Code Splitting:
+
+Code splitting takes lazy loading a step further.
+
+-   It involves breaking your application code into smaller bundles that can be loaded on-demand.
+-   Tools like Webpack enable you to implement code splitting effectively.
+
+## 3. Virtualization or Windowing:
+
+For long lists or grids, virtualization is a game-changer. It renders only the visible items, dramatically reducing the number of DOM elements and boosting rendering speed.
+
+-   Rendering hundreds of elements in DOM can be slow, especially if your elements are non-trivial. Instead, we can simply render elements as necessary when they are scrolled into view.
+-   Libraries like react-window make implementing virtualization a breeze.
+-   This improves both the rendering and scrolling performance of the list.
+
+If there is one thing known for being expensive when it comes to developing web pages, it’s manipulating the DOM. React itself aims to decrease the number of times we directly interact with the DOM.
+
+-   Virtualization helps manipulating the DOM in a more effective way when rendering an extensive list of items.
+-   Without windowing, React has to write your entire list to the DOM before one list item is visible.
+-   So if I had 10,000 list items, I’d have to wait for React to write at least 10,000 divs to the DOM before the first item in that list is visible. Ouch.
+
+The social media platform Instagram is a good example of a site that makes use of virtualization for its feed. Only a handful of posts will remain loaded in the DOM while a user scrolls.
+
+According to the official docs, the library helps us to address the following common performance bottlenecks:
+
+-   It reduces the amount of work (and time) required to render the initial view and to process updates.
+-   It reduces the memory footprint by avoiding the over-allocation of DOM nodes.
+
+## Alternatives for Virtualization:
+
+### 1. Pagination
+
+Pagination breaks a large array of data available on the site into separate pages.
+
+-   It is particularly popular for online stores with huge product ranges.
+-   Opening page after page is more convenient for finding a specific item than looking at all options at once.
+
+<br />
+
+### 2. Infinite scroll
+
+As you scroll through the page, new elements appear, giving the impression that the data has no limits.
+
+-   Infinite Scroll suits best for entertainment sites (IG, FB, X, YT etc). You just scroll and scroll, and when you do this, the time doesn’t matter.
+-   This pattern is terrible for eCommerce. Can you imagine trying to find those shoes you saw 30 scrolls ago?
+
+<br />
+
+### 3. Load more
+
+The “Load More” button at the bottom of the page allows you to see other results according to your search.
+
+-   Load More works well in eCommerce. It is a simple navigation type that does not interfere with the user; it asks: “Want to see more results?”
+-   The visitors usually prefer to view more goods with the “Load More” button.
+
+<br />
+
+### Do you need windowing?
+
+Windowing improves performance because it delays writing your entire list to the DOM, but the reality is that those items have to be written to the DOM eventually if you want the user to see them.
+
+-   If you don’t pay for the rendering time upfront, then you’ll have to pay for it later.
+-   Sometimes, windowing can actually decrease perceived performance because the user has to wait for each individual list item to load on scroll instead of waiting for one eager load of the entire list on mount.
+-   In general, I would not recommend windowing if you don’t have to.
+-   Before you use list virtualization, try making your list normally and see if your environment can handle it. If you’re having performance issues, then go for windowing.
+
+## 5. Web Workers
+
+Web workers allow you to offload CPU-intensive tasks to separate threads, preventing them from blocking the main thread and slowing down your application.
+
+-   These background threads enable parallel processing, preventing the main thread from becoming overloaded and unresponsive.
+
+```javascript
+const worker = new Worker('worker.js');
+```
+
+### Scenarios Where Web Workers Are Useful:
+
+<br />
+
+**1. Data Processing:** While handling large datasets or performing complex calculations, offloading these tasks to Web Workers can prevent the user interface from freezing.
+
+**2. Real-time Applications:** In real-time applications like online games or live data visualization,
+Web Workers can ensure a consistently smooth experience.
+
+**3. Background Services:** Web workers can
+be used to run background services such as periodic data synchronization or background notifications.
+
+<br />
+
+### _Web worker vs Service worker_
+
+-   Web Workers are used to offload CPU-intensive tasks from the main thread.
+-   While Service Workers are used to intercept network requests and provide offline support and push notifications.
+
+## Service worker
+
+Service Workers are a specific type of Web Worker with a distinct purpose.
+
+-   They primarily serve as proxy scripts that intercept and control network requests made by a web application.
+-   Their key role is to manage network-related tasks, such as caching resources and enabling offline functionality.
+
+<br />
+
+### Benefits of Using Service Workers:
+
+<br />
+
+### 1. Offline Support:
+
+Service Workers can cache essential resources, allowing web applications to function even when the user is offline.
+
+This capability is essential for creating progressive web apps (PWAs) that provide a reliable user experience in various network conditions.
+
+### 2. Push Notifications:
+
+Service Workers enable the delivery of push notifications to users, enhancing engagement and keeping users informed even when the web application is not open.
+
+## 6. Optimize Images and Assets:
+
+Optimizing images and assets is often overlooked but can significantly impact performance.
+
+-   Use modern image formats like WebP.
+-   Employ compression techniques.
+-   Leverage content delivery networks (CDNs) to serve assets efficiently.
+
+[Dedicated blog on asset optimisation](https://blog.neeleshio.xyz/asset-optimisation-and-minifying?title=Asset%20Optimisation%20and%20Minifying&topic=JavaScript&date=23%20May%202024)
+
+## CDN (Content Delivery Network)
+
+A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+
+-   Your website visitors come from across the world and so you want to reduce time for website pages to load.
+-   Your website traffic spikes can be unpredictable & very high, and so you need to serve cached pages so that your server does not get overloaded & crash.
+
+<br />
+
+Using a CDN can still be beneficial even if your website is hosted in the target country. Here are a few reasons:
+
+-   **Improved Performance**: CDNs cache your website's content on servers located in various geographic locations. This can help improve the loading speed of your website.
+-   **Scalability**: CDNs can handle sudden spikes in traffic by distributing the load across multiple servers. This can help ensure that your website remains responsive and available even during times of high traffic.
+-   **Redundancy and Reliability**: CDNs can provide redundancy and failover mechanisms to ensure that your website remains accessible even if there are issues with the origin server.
+
+## 7. Memoization:
+
+Memoization in React is a technique used to optimize the performance of functional components by caching the results of expensive computations or function calls.
+
+-   It's particularly useful when dealing with computationally intensive or frequently called functions with the same input values.
+-   It helps avoid redundant calculations and improves the overall efficiency of the application.
+
+In React, there are three techniques for memoization:
+
+-   React.memo()
+-   useMemo()
+-   useCallback()
+
+## 8. Server-Side Rendering (SSR):
+
+Server-side rendering is a technique that can significantly improve the initial load time of your React.js application.
+
+-   It renders the initial HTML on the server, sending a fully formed page to the client, reducing client-side rendering time.
+-   Next.js is a popular framework for implementing SSR with React.
+
+## 9. Throttling and Debouncing:
+
+Throttling in React is a technique used to limit the number of times a function or an event handler is invoked.
+
+-   Debouncing monitors the time delay between user actions and only executes the callback function if the delay exceeds a certain time.
+-   Throttling typically involves setting a fixed interval between function calls using timers or timestamps to track the last invocation time.
+
+## 10, React Fragments:
+
+React Fragments allows you to group multiple elements together without adding an additional DOM node.
+
+-   By avoiding the creation of extra DOM nodes, React Fragments can improve the performance of your application.
+-   JSX requires tags to be explicitly closed: self-closing tags like <span className="tag">< img > </span>must become <span className="tag">< img /> </span>
+-   Only time you need to use < Fragment > instead of empty fragment, when you need to pass a key to your Fragment.
+
+**Why do multiple JSX tags need to be wrapped?**
+
+-   JSX looks like HTML, but under the hood it is transformed into plain JavaScript objects.
+-   You can’t return two objects from a function without wrapping them into an array. This explains why you also can’t return two JSX tags without wrapping them into another tag or a Fragment.
+
+## 11. Using key:
+
+When rendering lists of components, always provide a unique key prop.
+
+-   React uses keys to identify elements efficiently during reconciliation.
+-   Incorrect, duplicate or missing keys can lead to performance issues.
+
+<br />
+
+**Why not to use index as key?**
+
+-   Array indexes can change when items are inserted, removed, or re-ordered. Stability issues.
+-   If you have a list of items and you remove the first item, the second item will now have the key 0, third item will have 1 and so on..
+
+<br />
+
+**When to use index as a key?**
+
+-   The items in your list do not have a unique id.
+-   The list is a static list and will not change.
+-   The list will never be reordered or filtered.
+
+## 12. Analyzing and Optimizing Your Webpack Bundle Bloat:
+
+Before production deployment, you should check and analyze your application bundle to remove the plugins or modules that aren’t needed.
+
+You can consider using Webpack Bundle Analyzer, which allows you to visualize the size of webpack output files. This module will help you:
+
+-   Realize what's really inside your bundle.
+-   Find out what modules take up the most size
+-   Find modules that got there by mistake
+-   Optimize it!
+
+## References
+
+-   [Do I need a CDN, if a website is already hosted in a target country](https://qr.ae/pseffv)
+-   [Web Workers Vs. Service Workers in JavaScript](https://www.dhiwise.com/post/web-workers-vs-service-workers-in-javascript)
+-   [Pagination vs. Infinite Scroll vs. Load More](https://crocoblock.com/blog/pagination-vs-infinite-scroll/)
+-   [How to Make React.js 3000 Times Faster](https://www.linkedin.com/pulse/how-make-reactjs-3000-times-faster-boosting-your-web-apps-sattar/)
