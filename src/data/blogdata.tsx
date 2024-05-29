@@ -1,5 +1,5 @@
 import { TOPICS } from '../constants';
-const { REACT, CSS, HTML, JAVASCRIPT, GIT } = TOPICS;
+const { REACT, CSS, HTML, JAVASCRIPT, GIT, NEXTJS, NODEJS } = TOPICS;
 
 export const LATEST_BLOG = {
     id: 1,
@@ -582,9 +582,52 @@ export const BLOG_DATA = [
             'usecallback',
             'usememo',
             'memo',
-            'react.memo'
+            'react.memo',
+            'useref',
+            'forwardref',
+            'ref'
         ],
         date: '25 May 2024',
         img: '/memoization.png'
+    },
+    {
+        id: 42,
+        title: 'NextJs Complete Guide',
+        topic: NEXTJS,
+        link: 'nextjs-complete-guid',
+        tags: [
+            'react',
+            'optimization',
+            'nextjs',
+            'guide',
+            'routing',
+            'ssr',
+            'server side',
+            'static'
+        ],
+        date: '26 May 2024',
+        img: '/nextjs.png'
+    },
+    {
+        id: 43,
+        title: 'ExpressJs Complete Guide',
+        topic: NODEJS,
+        link: 'expressjs-complete-guide',
+        tags: [
+            'expressjs',
+            'nodejs',
+            'backend',
+            'mongodb',
+            'middlewares',
+            'routes',
+            'api',
+            'jwt',
+            'cors',
+            'http',
+            'requests',
+            'post'
+        ],
+        date: '29 May 2024',
+        img: '/expressjs.png'
     }
 ];

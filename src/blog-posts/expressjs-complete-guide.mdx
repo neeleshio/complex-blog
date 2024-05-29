@@ -1,0 +1,281 @@
+# ExpressJS Complete Guide
+
+> The Express philosophy is to provide small, robust tooling for HTTP servers, making it a great solution for single page applications, websites, hybrids etc.
+
+![expressjs](/expressjs.png)
+
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+-   It's fast, unopinionated, minimalist web framework for Node.js.
+-   It’s effectively a tool that simplifies building web applications and APIs using JavaScript on the server side.
+-   Express is an open-source that is developed and maintained by the Node.js foundation.
+-   With a myriad of HTTP utility methods and middleware at your disposal, creating a robust API is quick and easy.
+-   Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
+-   Express is a lightweight and flexible routing framework with minimal core features meant to be augmented through the use of Express middleware modules.
+
+## Express Key Features
+
+### 1. Middleware and Routing:
+
+Express.js makes it easy to organize your application’s functionality using middleware and routing.
+
+-   Middleware functions allow you to handle tasks like authentication, logging, and error handling.
+-   Routing ensures that incoming requests are directed to the appropriate handlers.
+
+### 2. Minimalistic Design:
+
+Express.js follows a simple and minimalistic design philosophy.
+
+-   This simplicity allows you to quickly set up a server, define routes, and handle HTTP requests efficiently.
+-   It’s an excellent choice for building web applications without unnecessary complexity.
+
+### 3. Flexibility and Customization:
+
+Express.js doesn’t impose a strict application architecture.
+
+-   You can structure your code according to your preferences.
+-   Whether you’re building a RESTful API or a full-fledged web app, Express.js adapts to your needs.
+
+### 4. Scalability:
+
+-   Designed to be lightweight and scalable, Express.js handles a large number of requests asynchronously.
+-   Its event-driven architecture ensures responsiveness even under heavy loads.
+
+## NodeJS vs ExpressJS
+
+Node is a runtime environment for executing server-side JavaScript code.
+
+-   While Express is a framework built for Node, offering features and tools that streamline server-side development.
+-   ExpressJs comprises of more features than NodeJS.
+-   NodeJs is built on Google's V8 Engine and Express is build on NodeJs.
+
+## Why should you use ExpressJs?
+
+Without Express.js, you have to write your own code to build a routing component which is a time consuming and tedious task.
+
+-   Express.js can reduce the coding time by half and still help us build efficient web applications.
+-   It not only reduces the time but it also reduces the effort required to build web apps with the help of its different features.
+-   Express.js is a framework comprising a series of middleware to create a seamless development process.
+-   With middleware, developers can plug in scripts to intercept the flow of the application, for example, developers can use middleware to check if a user is successfully logged in or logged out.
+-   Routing system built out of the box that assists your application in response to a client request via a particular endpoint.
+-   It has excellent modules, packages, and additional resources, which helps developers to create reliable and scalable web applications.
+
+## Some alternatives to ExpressJs
+
+-   Flask
+-   ASP.NET Core
+-   Deno
+-   Ruby on Rails
+
+## Middlewares
+
+Middleware is a request handler that allows you to intercept and manipulate requests and responses before they reach route handlers.
+
+-   They are the functions that are invoked by the Expressjs routing layer.
+-   These middleware functions can be used to perform common tasks, such as parsing request bodies, validating requests, and setting headers.
+
+<br />
+
+**Middleware functions can perform the following tasks:**
+
+-   Execute any code.
+-   Make changes to the request and the response objects.
+-   End the request-response cycle.
+-   Call the next middleware function in the stack.
+
+## Types of Middlewares
+
+### 1. Application-level middleware:
+
+This type of middleware is executed for every request that is made to the application.
+
+-   Bind application-level middleware to an instance of the app object by using the app.use() and app.METHOD() functions
+
+```jsx
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+    console.log('Time:', Date.now());
+    next();
+});
+
+// The function is executed for any type of HTTP request on the /user/:id path.
+app.use('/user/:id', (req, res, next) => {
+    console.log('Request Type:', req.method);
+    next();
+});
+```
+
+```jsx
+app.get('/user/:id', (req, res, next) => {
+    res.send('USER');
+});
+```
+
+### 2. Router-level middleware:
+
+This type of middleware is executed for every request that is made to a specific route or group of routes.
+
+-   Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of express.Router().
+
+```jsx
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+// a middleware function with no mount path. This code is executed for every request to the router
+router.use((req, res, next) => {
+    console.log('Time:', Date.now());
+    next();
+});
+
+// a middleware sub-stack shows request info for any type of HTTP request to the /user/:id path
+router.use('/user/:id', (req, res, next) => {
+    res.send('USER');
+});
+```
+
+**Note**: To skip the rest of the router’s middleware functions, call next('router') to pass control back out of the router instance.
+
+```jsx
+const express = require('express');
+const router = express.Router();
+
+// predicate the router with a check and bail out when needed
+router.use((req, res, next) => {
+    if (!req.headers['x-auth']) return next('router');
+    next();
+});
+
+router.get('/user/:id', (req, res) => {
+    res.send('hello, user!');
+});
+```
+
+### 3. Error-handling middleware:
+
+This type of middleware is executed when an error occurs during the request-response cycle.
+
+-   Define error-handling middleware functions in the same way as other middleware functions, except with four arguments instead of three, specifically with the signature (err, req, res, next):
+-   Define error-handling middleware last, after other app.use() and routes calls.
+
+```jsx
+const bodyParser = require('body-parser');
+
+app.use('/', userRoute);
+app.use(bodyParser.json());
+app.use((err, req, res, next) => {
+    res.status(500).send('Something broke!');
+});
+```
+
+### 4. Built-in middleware:
+
+-   **express.static()**: serves static assets such as HTML files, images, and so on.
+-   **express.json()**: parses incoming requests with JSON payloads.
+-   **express.urlencoded()**: parses incoming requests with URL-encoded payloads.
+-   **express.Router()**: Creates a new router object.
+-   **express.raw()**: It parses incoming request payloads into a Buffer and is based on body-parser.
+-   **express.text()**: It parses incoming request payloads into a string and is based on body-parser.
+
+<br />
+
+### 5. Third-party middleware:
+
+Use third-party middleware to add additional functionality to Express apps.
+
+For example, cookie-parser: extract cookie data from HTTP requests
+
+```shell
+npm install cookie-parser
+```
+
+```jsx
+const cookieParser = require('cookie-parser');
+
+// load the cookie-parsing middleware
+app.use(cookieParser());
+```
+
+## CORS
+
+CORS stands for Cross-Origin Resource Sharing.
+
+-   It is a security mechanism that allows applications hosted on different origins to communicate securely.
+-   An HTTP-header based mechanism implemented by the browser which allows a server or an API to indicate any origins (different in terms of protocol, hostname, or port) other than its origin from which the unknown origin gets permission to access and load resources.
+-   Usually, the front end of an application is only able to make API calls to the back end in its origin. This is known as the Same-Origin Policy and is quite important from a security standpoint.
+-   CORS allows us to bypass this policy in case of scenarios where accessing third-party resources becomes necessary.
+
+Use cors package to handle CORS in expressjs:
+
+```shell
+npm i cors
+```
+
+```jsx
+const cors = require('cors');
+app.use(
+    cors({
+        origin: 'https://www.section.io'
+    })
+);
+
+// Allow Multiple origins
+app.use(
+    cors({
+        origin: ['https://www.section.io', 'https://www.google.com/']
+    })
+);
+
+// Allow any origin
+app.use(
+    cors({
+        origin: '*'
+    })
+);
+```
+
+## Routing in ExpressJs
+
+Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
+
+-   Each route can have one or more handler functions, which are executed when the route is matched.
+
+```jsx
+app.METHOD(PATH, HANDLER);
+```
+
+-   app is an instance of express.
+-   METHOD is an HTTP request method, in lowercase.
+-   PATH is a path/URI (Uniform Resource Identifier) on the server.
+-   HANDLER is the function executed when the route is matched.
+
+## Different HTTP Requests
+
+HTTP (Hypertext Transfer Protocol) specifies a collection of request methods to specify what action is to be performed on a particular resource.
+
+### 1. GET:
+
+-   GET request is used to read/retrieve data from a web server.
+-   GET returns an HTTP status code of 200 (OK) if the data is successfully retrieved from the server.
+
+### 2. POST:
+
+-   POST request is used to send data (file, form data, etc.) to the server.
+-   On successful creation, it returns an HTTP status code of 201.
+
+### 3. PUT:
+
+-   A PUT request is used to create a new resource or replace a resource, similar to POST.
+-   It replaces the entire content or overwrites the resource in its entirety with data that is passed in the body payload.
+-   If there are no resources that match the request, it will generate one.
+
+### 4. PATCH:
+
+-   PATCH is similar to PUT request, but the only difference is, it modifies a part of the data.
+-   It will only replace the content that you want to update.
+
+### 5. DELETE:
+
+-   A DELETE request is used to delete the data on the server at a specified location.

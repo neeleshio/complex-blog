@@ -3,5 +3,7 @@ export const TOPICS = {
     CSS: 'CSS',
     HTML: 'HTML',
     JAVASCRIPT: 'JavaScript',
-    GIT: 'GIT'
+    GIT: 'GIT',
+    NEXTJS: 'NextJS',
+    NODEJS: 'NodeJS'
 };

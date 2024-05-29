@@ -18,6 +18,8 @@ const BlogCardLarge = ({ id, title, topic, link, date, img, router }: BlogCardPr
                     className="rounded-t-[16px] object-cover absolute blog-img"
                     fill
                     src={img}
+                    // placeholder="blur"
+                    blurDataURL=""
                 />
             </div>
             <div className="flex flex-col p-[3.2rem] justify-between ml:p-[2.4rem]">

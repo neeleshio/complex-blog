@@ -1,0 +1,170 @@
+# NextJs Complete Guide
+
+> Next.js is a React framework that gives you building blocks to create web applications. By framework, we mean Next.js handles the tooling and configuration needed for React, and provides additional structure, features, and optimizations for your application.
+
+![nextjs](/nextjs.png)
+
+Next.js is a opiniated full-stack framework built on top of React and provides features like automatic code splitting, server-side rendering, static rendering, image optimisations, routing and more out of the box.
+
+These unique features and Next.js capabilities enable developers to code more swiftly and efficiently and build performance-driven apps.
+
+## Features of NextJs 👇
+
+## 1. Image Optimization:
+
+<br />
+
+### 1. Size Optimization:
+
+-   The Image component automatically compresses images for peak performance.
+-   Automatically serves correctly sized images for each device.
+-   Automatically converts our images to modern image formats like WebP and AVIF.
+-   If you don't specify a sizes value in an image with the <span className='hgl'>fill</span> property, a default value of 100vw (full screen width) is used.
+-   If no sizes value is present, a small srcset is generated, suitable for a fixed-size image (1x/2x/etc). If sizes is defined, a large srcset is generated, suitable for a responsive image (640w/750w/etc).
+
+```jsx
+<div>
+    <Image
+        fill
+        src="/example.png"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
+</div>
+```
+
+### 2. Visual Stability:
+
+-   Prevent layout shift automatically when images are loading for static images.
+-   For remote images, need to provide the width & height explicitly.
+-   To use a remote image, the src property should be a URL string.
+
+<br />
+
+_**What if I don't know the size of my images?**_
+
+-   <span className="hgl">fill</span> prop that causes the image to fill the parent element, which is
+    useful when the width and height are unknown.
+-   The parent element must assign position: "relative", position: "fixed", or position: "absolute" style.
+-   By default, the img element will automatically be assigned the position: "absolute" style.
+
+```jsx
+<div style={{ position: 'relative', height: '400px' }}>
+    <Image
+        alt="Mountains"
+        src={mountains}
+        fill
+        sizes="(min-width: 808px) 50vw, 100vw"
+        style={{
+            objectFit: 'cover' // cover, contain, none
+        }}
+    />
+</div>
+```
+
+### 3. Lazy loading:
+
+-   Images are only loaded when they enter the viewport using native browser lazy loading, with optional blur-up placeholders.
+-   Lazy loading is automatically disabled for images using priority.
+-   When priority is true, the image will be considered high priority and preload.
+-   You should use the priority property on any image detected as the Largest Contentful Paint (LCP) element.
+
+```jsx
+<div>
+    <Image
+        src="/example.png"
+        width={500}
+        height={300}
+        alt="Mountains"
+        uality="85"
+        priority={true}
+    />
+</div>
+```
+
+### 4. Asset Flexibility:
+
+-   On-demand image resizing, even for images stored on remote servers.
+-   A placeholder to use while the image is loading. Possible values are blur, empty, or data:image/.... Defaults to empty.
+-   For dynamic images, you must provide the blurDataURL property. Solutions such as <span className='hgl'>Plaiceholder</span> can help with base64 generation.
+-   For static images (.jpg, .png, .webp, or .avif), blurDataURL will be automatically populated, except when the image is detected to be animated.
+
+```jsx
+<div>
+    <Image
+        src="/example.png"
+        width={500}
+        height={300}
+        alt="Mountains"
+        quality="85"
+        placeholder="blur"
+        blurDataURL="data:base64"
+    />
+</div>
+```
+
+## 2. Dynamic HTML Streaming:
+
+Instantly stream UI from the server. To learn how Streaming works in React and Next.js, it's helpful to understand Server-Side Rendering (SSR) and its limitations.
+
+With SSR, there's a series of steps that need to be completed before a user can see and interact with a page:
+
+-   First, all data (from API) for a given page is fetched on the server.
+-   The server then renders the HTML for the page.
+-   The HTML, CSS, and JavaScript for the page are sent to the client.
+-   A non-interactive user interface is shown using the generated HTML, and CSS.
+-   Finally, React hydrates the user interface to make it interactive.
+
+![streaming](/stream1.png)
+
+These steps are sequential and blocking, meaning the server can only render the HTML for a page once all the data has been fetched.
+
+-   And, on the client, React can only hydrate the UI once the code for all components in the page has been downloaded.
+-   However, it can still be slow as all data fetching on server needs to be completed before the page can be shown to the user.
+
+**Streaming** allows you to break down the page's HTML into smaller chunks and progressively send those chunks from the server to the client.
+
+-   This enables parts of the page to be displayed sooner, without waiting for all the data to load before any UI can be rendered.
+-   Streaming works well with React's component model because each component can be considered a chunk.
+
+![stream](/stream2.png)
+
+**Example**:
+
+Streaming is built into the Next.js App Router by default. You can start streaming route segments using <span className='hgl'>loading.js and UI components</span> with React Suspense.
+
+<span className='tag'>< Suspense ></span> works by wrapping a component that performs an asynchronous action (e.g. fetch data), showing fallback UI (e.g. skeleton, spinner) while it's happening, and then swapping in your component once the action completes.
+
+```jsx
+import { Suspense } from 'react';
+import { PostFeed, Weather } from './Components';
+
+export default function Posts() {
+    return (
+        <section>
+            <Suspense fallback={<p>Loading feed...</p>}>
+                <PostFeed />
+            </Suspense>
+            <Suspense fallback={<p>Loading weather...</p>}>
+                <Weather />
+            </Suspense>
+        </section>
+    );
+}
+```
+
+**By using Suspense, you get the benefits of**:
+
+-   **Streaming Server Rendering**: Progressively rendering HTML from the server to the client.
+-   **Selective Hydration**: React prioritizes what components to make interactive first based on user interaction.
+-   **SEO**: Next.js will wait for data fetching inside generateMetadata to complete before streaming UI to the client. This guarantees the first part of a streamed response includes head tags. Since streaming is server-rendered, it does not impact SEO.
+
+## 3. Data Fetching:
+
+Next.js extends the native fetch Web API to allow you to configure the caching and revalidating behavior for each fetch request on the server.
+
+-   React extends fetch to automatically <span className='hgl'>memoize</span> fetch requests while rendering a React component tree.
+-   If you need to use the same data (e.g. current user) in multiple components in a tree, you do not have to fetch data globally, nor forward props between components.
+-   Instead, you can use fetch or React cache in the component that needs the data without worrying about the performance implications of making multiple requests for the same data.
+-   This is possible because fetch requests are automatically memoized.
+
+**Note**: Memoization only applies to the GET method in fetch requests, other methods, such as POST and DELETE, are not memoized.
