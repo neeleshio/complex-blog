@@ -158,6 +158,12 @@ export default function Posts() {
 -   **Selective Hydration**: React prioritizes what components to make interactive first based on user interaction.
 -   **SEO**: Next.js will wait for data fetching inside generateMetadata to complete before streaming UI to the client. This guarantees the first part of a streamed response includes head tags. Since streaming is server-rendered, it does not impact SEO.
 
+<br />
+
+**Hydration**:
+
+This involves initializing the application state, attaching event handlers for actions such as clicks and mouseovers, and setting up any other dynamic functionalities required for a fully interactive user experience.
+
 ## 3. Data Fetching:
 
 Next.js extends the native fetch Web API to allow you to configure the caching and revalidating behavior for each fetch request on the server.

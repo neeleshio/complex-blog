@@ -629,5 +629,14 @@ export const BLOG_DATA = [
         ],
         date: '29 May 2024',
         img: '/expressjs.png'
+    },
+    {
+        id: 44,
+        title: 'Webpack and Concept of React bundling',
+        topic: REACT,
+        link: 'webpack-and-concept-of-react-bundling',
+        tags: ['webpack', 'bundling', 'bundler', 'babel', 'plugin', 'rollup', 'parcel', 'react'],
+        date: '08 June 2024',
+        img: '/webpack.png'
     }
 ];

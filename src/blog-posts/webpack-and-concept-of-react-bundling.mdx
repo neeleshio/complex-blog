@@ -1,0 +1,160 @@
+# Webpack and Concept of React bundling
+
+> In this post, we'll delve into the nitty-gritty of React Bundler, explore how it compares with other bundlers.
+
+![webpack](/webpack.png)
+
+## What is a bundler?
+
+A bundler is a tool that takes all your JavaScript code, along with any other assets like CSS or images, and combines them into a single file (or a few files) that can be served to the browser.
+
+-   This process is crucial because it helps to optimize your application for production.
+-   It reduces the number of HTTP requests the browser has to make.
+-   It will minify your code, eliminating unnecessary characters to make your files smaller.
+
+In the context of React, a bundler can also transform JSX, a syntax extension for JavaScript that React uses, into plain JavaScript that the browser can understand.
+
+## The Role of a Bundler in frontend
+
+In the realm of frontend development, a bundler plays a pivotal role. It's the behind-the-scenes maestro conducting the orchestra of your codebase, ensuring everything plays in harmony.
+
+A bundler is responsible for taking all your JavaScript code, CSS, HTML, images, and other assets, and packaging them together into a single file or a small number of files. This process is known as bundling, and it's crucial for several reasons.
+
+-   Bundling reduces the number of HTTP requests a browser needs to make to load your application. Each file in your application is a separate HTTP request, and the more requests a browser has to make, the slower your application will load.
+-   By bundling everything into a single file, you drastically reduce the number of HTTP requests, speeding up load times.
+-   Bundler can minify your code, removing unnecessary characters like spaces and comments, making your files smaller and faster to download.
+-   A bundler can transpile your code, transforming newer JavaScript features into older syntax for better browser compatibility. This is especially important in React, where we often use JSX and ES6+ features that aren't supported in all browsers.
+-   A bundler can also handle assets like images and fonts, allowing you to import them directly into your JavaScript code and use them as if they were modules.
+
+## Webpack
+
+Webpack is arguably one of the most popular JavaScript bundlers out there. It's a powerful, highly configurable tool that has become a staple in many developers' toolkits.
+
+-   At its core, Webpack is a static module bundler for modern JavaScript applications. It builds a dependency graph that maps every module your project needs and generates one or more bundles.
+-   Webpack starts from an entry point file (or files), and from there, it includes all the dependencies that are imported in your JavaScript code into a single bundle file. This bundle file can then be included in your HTML file, which is then served to the browser.
+-   One of the reasons Webpack is so popular is its flexibility. It can handle not just JavaScript, but also CSS, images, fonts, and other assets.
+-   It can transform your code using loaders, allowing you to use newer JavaScript features, preprocessors like Sass or Less, and even compile other languages like TypeScript.
+-   Webpack also supports plugins, which can be used to extend its functionality even further. For example, you can use plugins to minify your code, optimize images, or even generate your HTML file automatically.
+
+```jsx
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    }
+};
+```
+
+In this config file, we're telling Webpack to start from the ./src/index.js file, bundle everything into a bundle.js file in the dist directory, and use the style-loader and css-loader to handle any CSS files.
+
+## Webpack alternatives
+
+## Parcel
+
+Parcel aims to work out of the box with zero config.
+
+-   Parcel brands itself as a "blazing fast, zero configuration web application bundler." Unlike Webpack, which requires a detailed configuration file.
+-   You simply point it at your entry file, and it does the rest.
+-   Parcel also boasts faster build times than Webpack, thanks to its multi-core compilation. It supports a wide range of languages and tools out of the box, including TypeScript, JSX, PostCSS, and even Rust.
+-   However, while Parcel's zero-config approach is great for getting started quickly, it can be less flexible than Webpack when it comes to more complex setups.
+
+## Rollup
+
+Rollup is another popular JavaScript bundler, known for its efficiency and support for ES modules.
+
+-   Rollup focuses on producing small, efficient bundles, making it a great choice for libraries and other projects where size matters.
+-   Unlike Webpack, which bundles all your code into a single file, Rollup can output multiple files, preserving the structure of your original code
+-   This can result in smaller, more efficient bundles, especially when used with tree shaking to eliminate unused code.
+-   However, Rollup's focus on ES modules and efficiency can make it less suitable for applications with many dynamic imports or non-JavaScript assets.
+
+## Which bundler to choose?
+
+-   For small to medium-sized projects, a zero-config bundler like Parcel can be a great choice.It's easy to set up, fast, and supports a wide range of languages and tools out of the box.
+-   For larger, more complex projects, a more configurable bundler like Webpack might be a better fit. Webpack's flexibility and wide range of plugins make it well-suited to complex build processes.
+-   If build speed is a priority for you, consider a multi-core bundler like Parcel. Parcel's multi-core compilation can significantly speed up build times, especially on larger projects.
+-   If you need to support older browsers, a bundler that supports transpilation, like Webpack or Parcel, can be crucial. These bundlers can transform your code into older JavaScript syntax for better browser compatibility.
+-   Rollup is another good option, especially for library authors. It's efficient, supports ES modules, and can output multiple files, preserving the structure of your original code. However, it may not be as suitable for applications with many dynamic imports or non-JavaScript assets.
+-   Browserify is one of the original JavaScript bundlers that's still widely used today. It's simpler and easier to use than Webpack or Parcel, but it's also less feature-rich.
+
+## Code Splitting in Bundling
+
+As your application grows, your bundle will start to become larger and larger. This can lead to longer load times, which can negatively impact user experience. This is where code splitting comes into play.
+
+-   Code splitting is a feature offered by many modern bundlers, including Webpack and Parcel, that allows you to split your code into multiple bundles that can be loaded on demand or in parallel.
+-   This can significantly improve the load time of your application, especially for larger projects.
+-   There are several ways to implement code splitting in your application. One common approach is to split your code by route.
+-   This means that the code for each route in your application is bundled into its own file, and only loaded when the user navigates to that route.
+
+<br />
+
+**In this example, the Home and About components are loaded dynamically using the React.lazy function.**
+
+-   This means that the code for these components is not included in the main bundle, but instead loaded on demand when the user navigates to the corresponding route.
+-   Code splitting is a powerful tool for optimizing your application's performance, and it's a feature you should definitely consider when choosing a bundler for your project.
+
+```jsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+const Home = React.lazy(() => import('./routes/Home'));
+const About = React.lazy(() => import('./routes/About'));
+
+function App() {
+    return (
+        <Router>
+            <React.Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
+                </Switch>
+            </React.Suspense>
+        </Router>
+    );
+}
+
+export default App;
+```
+
+## Tree shaking
+
+One of the challenges of bundling is dealing with unused code. As your application grows and evolves, it's easy for unused code to accumulate. This unused code can bloat your bundles, leading to longer load times and wasted bandwidth.
+
+-   Many modern bundlers, including Webpack and Rollup, offer a feature called tree shaking to help you eliminate unused code from your bundles.
+-   To take advantage of tree shaking, you need to use ES modules in your code. This is because ES modules have a static structure, meaning the imports and exports can be analyzed and optimized at build time.
+-   To make sure tree shaking is working correctly, you should avoid side effects in your modules (like modifying global variables or the DOM), and you should make sure your package.json file has a "sideEffects": false property.
+
+## Config file in bundling
+
+The configuration file is the heart of the operation.
+
+-   It's the instruction manual that guides the bundler, telling it what to do and how to do it.
+-   Whether you're using Webpack, Rollup, or another bundler, you'll likely need to create a config file to set up your bundling process.
+
+<br />
+
+**The config file is where you specify important details about your build process. This might include:**
+
+-   The path to your entry file.
+-   Where to output the final bundle.
+-   Which loaders or plugins to use.
+-   How to handle different types of files.
+
+## Role of the Entry File in Bundling
+
+In the world of bundling, the entry file plays a crucial role.
+
+-   It's the starting point for the bundler, the first file it looks at when it starts to build the dependency graph.
+-   The entry file typically imports other files, which in turn import other files, and so on, creating a web of dependencies that the bundler uses to determine what to include in the final bundle.
+
+## References
+
+-   [Embark An Enlightening Journey With React Bundler](https://www.dhiwise.com/post/embark-an-enlightening-journey-with-react-bundler)
