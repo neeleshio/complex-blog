@@ -1,0 +1,155 @@
+# Redux Toolkit
+
+> Redux is a great utility for state management in React. But, as we mentioned before, it can introduce a lot of boilerplate into your application due to the verbosity of its API. Because of this, it is recommended to use the Redux Toolkit while using Redux with React.
+
+![redux-toolkit](/redux-toolkit.png)
+
+## What is Toolkit?
+
+Redux toolkit is the official, opinionated, batteries-included toolset for efficient Redux development.
+
+-   Is the official recommended approach for writing Redux logic.
+-   The @reduxjs/toolkit package wraps around the core redux package, and contains API methods and common dependencies that we think are essential for building a Redux app.
+-   Redux Toolkit builds in our suggested best practices, simplifies most Redux tasks, prevents common mistakes, and makes it easier to write Redux applications.
+
+### 1. Simple:
+
+Includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and more.
+
+### 2. Opinionated:
+
+Provides good defaults for store setup out of the box, and includes the most commonly used Redux addons built-in.
+
+### 3. Powerful:
+
+Takes inspiration from libraries like Immer and Autodux to let you write "mutative" immutable update logic, and even create entire "slices" of state automatically.
+
+### 4. Effective:
+
+Lets you focus on the core logic your app needs, so you can do more work with less code.
+
+## Purpose
+
+The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+
+-   "Configuring a Redux store is too complicated"
+-   "I have to add a lot of packages to get Redux to do anything useful"
+-   "Redux requires too much boilerplate code"
+
+## Why Redux-Toolkit?
+
+RTK includes utilities that help simplify many common use cases, including:
+
+-   store setup
+-   creating reducers
+-   writing immutable update logic
+-   even creating entire "slices" of state at once.
+
+## What's Included?
+
+Redux Toolkit includes these APIs:
+
+<br />
+
+### 1. configureStore():
+
+wraps createStore to provide simplified configuration options and good defaults.
+
+-   It can automatically combine your slice reducers.
+-   adds whatever Redux middleware you supply.
+-   Includes redux-thunk by default.
+-   and enables use of the Redux DevTools Extension.
+
+<br />
+
+### 2. createReducer():
+
+That lets you supply a lookup table of action types to case reducer functions, rather than writing switch statements.
+
+-   In addition, it automatically uses the immer library to let you write simpler immutable updates with normal mutative code, like state.todos[3].completed = true.
+
+<br />
+
+### 3. createSlice():
+
+Accepts an object of:
+
+-   a slice name
+-   an initial state value
+-   and reducer functions.
+
+And automatically generates a slice reducer with corresponding action creators and action types.
+
+<br />
+
+### 4. useDispatch():
+
+is a hook that returns a reference to the Redux store's dispatch function.
+
+-   This function is used to dispatch actions to the Redux store.
+-   By calling dispatch with an action object, Redux handles the action and updates the state accordingly.
+
+<br />
+
+### 5. useSelector():
+
+is a hook used to extract data from the Redux store state.
+
+-   It subscribes the component to the Redux store, so whenever the store state changes, the component will re-render if the selected data has changed.
+
+<br />
+
+### 6. createAsyncThunk:
+
+Accepts an action type string and a function that returns a promise, and generates a thunk that dispatches pending/fulfilled/rejected action types based on that promise.
+
+<br />
+
+### 7. createSelector:
+
+A utility from the Reselect library, re-exported for ease of use.
+
+## Why they built Toolkit?
+
+They specifically designed Redux Toolkit to solve those problems:
+
+-   Redux Toolkit simplifies store setup down to a single clear function call, while retaining the ability to fully configure the store's options if you need to.
+-   Redux Toolkit eliminates accidental mutations, which have always been the #1 cause of Redux bugs.
+-   Redux Toolkit eliminates the need to write any action creators or action types by hand.
+-   Redux Toolkit eliminates the need to write manual and error-prone immutable update logic.
+-   Redux Toolkit makes it easy to write a Redux feature's code in one file, instead of spreading it across multiple separate files.
+-   Redux Toolkit offers excellent TS support, with APIs that are designed to give you excellent type safety and minimize the number of types you have to define in your code.
+-   RTK Query can eliminate the need to write any thunks, reducers, action creators, or effect hooks to manage fetching data and tracking loading state
+
+## Middleware
+
+Redux Middleware allows you to intercept every action sent to the reducer so you can make changes to the action or cancel the action.
+
+It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
+
+People use Redux middleware for:
+
+-   logging
+-   crash reporting
+-   talking to an asynchronous API
+-   routing, and more.
+
+<br />
+
+**Some middlewares are Redux Thunk and Redux Saga.**
+
+Redux Thunk and Redux Saga are both middlewares for Redux that can be used to handle async tasks and perform side effects in Redux applications.
+
+-   They are similar in that they both allow you to perform async tasks and dispatch actions in response to the results of those tasks, but they differ in how they approach async logic and side effects.
+-   One key difference between Redux Thunk and Redux Saga is the way they handle async logic.
+-   Redux Thunk allows you to write action creators that return a function instead of an action, which can be useful for performing async tasks and dispatching actions when the async task is complete.
+-   In contrast, Redux Saga uses a declarative approach to async logic, which allows you to specify async logic as generator functions that yield effects.
+-   Another difference between Redux Thunk and Redux Saga is the way they handle side effects.
+-   Redux Thunk allows you to perform side effects by dispatching actions in response to async tasks.
+-   while Redux Saga allows you to specify side effects as plain objects, called “effects,” which are dispatched as actions.
+
+## References
+
+-   [Getting Started with Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+-   [Why Redux Toolkit](https://redux-toolkit.js.org/introduction/why-rtk-is-redux-today)
+-   [An Introduction to Middleware in Redux](https://medium.com/@siavash.sajjady/an-introduction-to-middleware-in-redux-types-benefits-and-examples-985c876e706c)

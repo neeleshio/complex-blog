@@ -1,5 +1,5 @@
 import { TOPICS } from '../constants';
-const { REACT, CSS, HTML, JAVASCRIPT, GIT, NEXTJS, NODEJS } = TOPICS;
+const { REACT, CSS, HTML, JAVASCRIPT, GIT, NEXTJS, NODEJS, REDUX } = TOPICS;
 
 export const LATEST_BLOG = {
     id: 1,
@@ -638,5 +638,79 @@ export const BLOG_DATA = [
         tags: ['webpack', 'bundling', 'bundler', 'babel', 'plugin', 'rollup', 'parcel', 'react'],
         date: '08 June 2024',
         img: '/webpack.png'
+    },
+    {
+        id: 45,
+        title: 'AWS For Frontend Deployment',
+        topic: REACT,
+        link: 'aws-for-frontend-deployment',
+        tags: [
+            'aws',
+            's3',
+            'amplify',
+            'cloudfront',
+            'ec2',
+            'waf',
+            'shield',
+            'codedeploy',
+            'deploy',
+            'ci/cd'
+        ],
+        date: '08 June 2024',
+        img: '/aws.png'
+    },
+    {
+        id: 46,
+        title: 'Cross-Browser Compatibility',
+        topic: CSS,
+        link: 'cross-browser-compatibility',
+        tags: ['css', 'cross-bowser', 'vendor-prefix', 'html', 'fallbacks', 'polyfills', 'webkit'],
+        date: '09 June 2024',
+        img: '/browsers.png'
+    },
+    {
+        id: 47,
+        title: 'Redux Complete Guide',
+        topic: REDUX,
+        link: 'redux-complete-guide',
+        tags: [
+            'redux',
+            'guide',
+            'toolkit',
+            'redux-toolkit',
+            'state-management',
+            'thunk',
+            'middleware',
+            'store',
+            'reducer',
+            'action',
+            'rtk'
+        ],
+        date: '09 June 2024',
+        img: '/redux.png'
+    },
+    {
+        id: 48,
+        title: 'Redux Toolkit',
+        topic: REDUX,
+        link: 'redux-toolkit',
+        tags: [
+            'redux',
+            'guide',
+            'toolkit',
+            'redux-toolkit',
+            'state-management',
+            'thunk',
+            'middleware',
+            'store',
+            'reducer',
+            'action',
+            'rtk',
+            'slices',
+            'saga',
+            'logger'
+        ],
+        date: '09 June 2024',
+        img: '/redux-toolkit.png'
     }
 ];

@@ -154,7 +154,27 @@ In the world of bundling, the entry file plays a crucial role.
 
 -   It's the starting point for the bundler, the first file it looks at when it starts to build the dependency graph.
 -   The entry file typically imports other files, which in turn import other files, and so on, creating a web of dependencies that the bundler uses to determine what to include in the final bundle.
+-   The Entry Point instructs the Webpack compiler where should start from to build out its internal dependency graph.
+
+## Output
+
+The Output determines where the Webpack is supposed to emit the bundles it creates and how it names them.
+
+## Loaders
+
+Webpack on its own only understands JavaScript!
+
+-   But bundlers are only prepared to handle JavaScript dependencies out-of-the-box. This is where “loaders” comes into the picture.
+-   Loaders provide an easy way to intercept our dependencies and preprocess them before they get bundled.
+
+## Plugins
+
+Plugins are one of the most powerful features of Webpack.
+
+-   In fact, the source code of the Webpack consists of plenty of plugins.
+-   They are most widely used for bundle optimization, minification, script injection, etc
 
 ## References
 
 -   [Embark An Enlightening Journey With React Bundler](https://www.dhiwise.com/post/embark-an-enlightening-journey-with-react-bundler)
+-   [The Core Concepts of Webpack](https://mvskiran.medium.com/the-core-concepts-of-webpack-customing-webpack-414483a86fb7)

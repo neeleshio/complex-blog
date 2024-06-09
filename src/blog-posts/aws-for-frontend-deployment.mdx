@@ -1,0 +1,129 @@
+## AWS For Frontend Deployment
+
+> Frontend Applications are the faces of the organization’s website. It is the first impression users, customers, and partners get for your product/service capabilities.
+
+![aws](/aws.png)
+
+Amazon Web Services offers dozens of services, from basic virtual machines over highly specialized databases to authentication. AWS can help developers with their day-to-day work and save time and money on infrastructure setup and maintenance.
+
+## S3 (Simple Storage Service)
+
+Amazon Simple Storage Service (Amazon S3) is the most-used highly scalable object-storage service on AWS. While it simply stores files and makes them accessible via HTTP, it comes with a static hosting feature that makes all files stored in a bucket available without authentication.
+
+-   S3 is a perfect hosting option for static websites. All your static assets, from images and videos to CSS, HTML, and JS files, are well served here.
+-   It’s essential to remember that S3 doesn’t work with dynamic websites that require server-side scripts, and you should only use it for low-traffic deployments because of the pricing and latency.
+-   So, it’s a good solution for development but not for high-traffic production environments.
+-   In short, deploying static websites on S3 is intended for development. It’s cheap because you pay for what you use.
+
+## S3-Cloudfront deployment
+
+To make your frontend available to a broader audience, you should consider using S3 in tandem with CloudFront. This is AWS’ content delivery network and probably the most straightforward production-ready frontend deployment on AWS.
+
+To deploy with this architecture, two major operations need to take place to have a proper deployment that applies all the new changes;
+
+-   The frontend app is built and output is copied into S3 to replace all existing files in S3.
+-   The Cloudfront distribution needs to be invalidated so that Cloudfront can clear its cache and pull updated content from S3.
+-   It also supports custom domains, making your frontend discoverable on the web.
+-   This is a solution for SPAs and PWAs. To deliver static files to a massive number of clients.
+-   (Optional) In some cases, you might also need to add an object 'max-age' to the S3 configuration.
+
+<br />
+
+### Cloudfront
+
+Amazon CloudFront is a content delivery network (CDN) service.
+
+-   It is used for caching images, CSS, and JavaScript files.
+-   It is also beneficial in video streaming services and improves application speed.
+-   It does this, by using the AWS PoP global network presence, to deliver files, and content faster to users, regardless of where the original file(s) are hosted.
+
+<br />
+
+_The S3-Cloudfront architecture for hosting frontend applications requires that the frontend applications written in any frontend framework i,.e React, Angular must be compiled to HTML, JSS, and Javascript and then deployed to S3._
+
+-   After deploying to S3, Amazon CloudFront needs to be manually configured to help with caching and distribution of the website to the AWS global network for speed and high availability.
+
+<br />
+
+### Cost
+
+The fact that S3 and Cloudfront are the two services involved, they are both serverless services, so they are relatively very cheap.
+
+-   A combination of S3 and Cloudfront is a very affordable option for hosting your static websites.
+-   You only get significant costs when there is high traffic on the website, and the cost will come from Egress-Network-Reponses (network requests going out of the AWS Network).
+
+<br />
+
+### Security
+
+There are different layers of security that need to be configured when using Cloudfront-S3 for front-end deployments.
+
+-   The S3 bucket must not allow public read-and-write access.
+-   Origin Access Identity or Origin Access Control (OAI/OAC) must be enforced on Cloudfront to allow it to pull file contents securely from S3.
+-   Security headers for frontend web application security, such as; Cross-Site Request Forgery (CSRF), Cross- Site Scripting (XSS), Content Security Policy (CSP), Strict-Transport-Security Header (HSTS), X-Content-Type-Options, X-Frame-Options, Referrer-Policy are applied with the use of Lambda@Edge.
+-   It creates a Lambda function that is attached to the Cloudfront distribution and the function is triggered at specific events from the Cloudfront distribution.
+-   Environment Variables: this is not a feature in this deployment method, so any parameters the application needs are built with it before the application is deployed into S3.WAF: Setting up the AWS Web Application Firewall does not require any complex setup. WAF supports Cloudfront as one of the resource types that can be protected.
+
+<br />
+
+### Scalability and Availability
+
+The two AWS services used for this setup are Serverless services.
+
+-   This means that AWS manages scalability.
+-   S3 and Cloudfront are designed for “planet-scale”; they can quickly scale up when more resources are required of them, and they do not require any configurations to do that.
+
+## Amplify
+
+AWS Amplify is a full-stack deployment environment for Javascript applications.
+
+-   AWS Amplify has the ability to host both frontend, backend, and mobile applications.
+-   Just like S3 and Cloudfront, Amplify is a serverless service; it requires less maintenance and management.
+-   AWS Amplify supports the following JavaScript frameworks: Angular, Vue.js, ReactJS, Ionic, and EmberJS, as well as static site generators like Gatsby, Eleventy, Hugo, VuePress, and Jekyll.
+-   Amplify has inbuilt features such as Authentication, Datastore, Pubsub, and Analytics.
+-   Apart from supporting static website hosting, Amplify also hosts Next.js SSR (server-side rendering), making every page it generates at every request dynamic.
+
+<br />
+
+### Components
+
+Under the hood of Amplify is a combination of services that have been compacted to form Amplify.
+
+-   These services include; CodePipeline/CodeDeploy for CI/CD, Amazon S3 for storing website content files, CloudFront for caching, and CDN.
+-   Unlike the S3-Cloudfront architecture, Amplify helps to run cache invalidation for objects it has cached previously.
+
+<br />
+
+### Deployment
+
+Deploying to AWS Amplify has various options.
+
+-   One of the easiest methods to deploy to Amplify is linking a GitHub repository to the Amplify application.
+-   Amplify will automatically detect the Javascript framework in use and generate the CodeBuild script for building and deploying the application into Amplify.
+-   This configuration is a one-time setup. All other subsequent changes to the code/application will be automatically built and deployed to Amplify.
+-   It also has a manual deployment process which involves uploading website files or pulling the files from Amazon S3.
+
+<br />
+
+### Pull-Request previews
+
+This feature is unique to Amplify, it enables engineers/developers to have a feature branch that can set up a feature environment.
+
+-   Enabling them to test feature branches per environment before it gets merged into the main trunk.
+
+<br />
+
+### Security
+
+Frontend security is usually overlooked, but Amplify has made it easier and more attractive.
+
+-   All the security controls mentioned in the S3-Cloudfront architecture can be applied right in Amplify without the need for Lambda@Edge.
+-   Amplify has a feature called Custom Headers which is used to configure header security for web applications deployed in Amplify.
+-   It allows you to add all the necessary security headers needed to improve the security of the server and application.
+-   AWS Amplify has support for environment variables.
+-   WAF:is not supported in AWS Amplify directly. You will have to create a CloudFront distribution that connects to the Amplify endpoint and then mount an AWS WAF to it.
+
+## References
+
+-   [S3-Cloudfront vs AWS Amplify](https://talent500.co/blog/frontend-deployments-in-aws-s3-cloudfront-vs-aws-amplify-vs-ec2/amp/)
+-   [AWS Frontend solutions](https://www.site24x7.com/learn/aws/how-to-deploy-frontend-aws.html)

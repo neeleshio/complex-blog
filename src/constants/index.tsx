@@ -5,5 +5,6 @@ export const TOPICS = {
     JAVASCRIPT: 'JavaScript',
     GIT: 'GIT',
     NEXTJS: 'NextJS',
-    NODEJS: 'NodeJS'
+    NODEJS: 'NodeJS',
+    REDUX: 'Redux'
 };

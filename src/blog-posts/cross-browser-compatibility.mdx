@@ -1,0 +1,147 @@
+# Cross-Browser Compatibility
+
+> By the end of this blog, you will know/be able to understand why cross-browser discrepancies occur and know how to resolve them. Utilize existing tools & strategies to ensure your apps are as consistent as possible across browsers and platforms.
+
+![browsers](/browsers.png)
+
+## What is Cross-Browser Compatibility
+
+Cross-Browser Compatibility is about ensuring that your website delivers a consistent, top-notch experience for all users, regardless of their browser choice.
+
+-   Browsers use different engines, so by default they render websites differently.
+-   In order to get your websites to look and work the same regardless of the user's browser, requires an understanding of unique browser capabilities.
+-   Cross-browser compatibility says that ideally, a website should look and function the same whether someone is viewing it on Chrome, Microsoft Edge and Opera (powered by Blink engine), Firefox (powered by Gecko engine) or even Safari (powered by WebKit engine).
+
+## Benefits of Cross-Browser Compatibility
+
+-   **Wider reach** – your websites are accessible to more users, regardless of the browser they use.
+-   **Consistent User Experience** – your websites have a uniform look and functionality across platforms.
+-   **Better Search Engine Optimization (SEO)** – your websites get higher rankings from being more user-friendly.
+
+## Strategies & Solutions
+
+## 1. Use HTML5 and CSS3 Standards:
+
+Ensure that you’re using the latest HTML5 and CSS3 standards when coding your website. These standards are designed to work consistently across browsers and offer modern features and improvements.
+
+## 2. Avoid Browser-Specific Features:
+
+Use standardized code and rely on polyfills or alternative solutions to achieve similar effects across all browsers.
+
+## 3. Consider responsive design:
+
+Responsive design is an essential aspect of cross-browser compatibility.
+
+-   Responsive design ensures that your website or application will look good and function well on different devices, including desktops, tablets, and smartphones.
+-   It involves using flexible layouts, images, and CSS media queries to adjust the presentation of your website or application to different screen sizes.
+
+## 4. Fallbacks:
+
+A fallback is a contingency plan – an option or route to be taken when the preferred choice in unavailable. In a lot of scenarios, browsers will have some default fallback behavior already provided for you.
+
+-   For example, HTML5 introduced a lot of new tags that are unrecognized by older browsers.
+-   When a browser encounters an HTML tag it doesn’t recognize, it treats it as an inline element with no semantic value.
+-   You can still target them with JavaScript and style them with CSS, but you might need to add some additional styles to ensure they appear in a presentable way when they go unrecognized.
+
+<br />
+
+**Take the following HTML to present a video:**
+
+```html
+<video id="video" poster="img/puppy-poster.jpg">
+    <source src="video/cute-puppies.mp4" type="video/mp4" />
+    <source src="video/cute-puppies.webm" type="video/webm" />
+    <source src="video/cute-puppies.ogg" type="video/ogg" />
+    <!-- Flash fallback -->
+    <object data="flash-player.swf?videoUrl=video/cute-puppies.mp4">
+        <param name="movie" value="flash-player.swf?videoUrl=video/cute-puppies.mp4" />
+        <param name="allowfullscreen" value="true" />
+        <param name="wmode" value="transparent" />
+        <img alt="Cute Puppies" src="img/puppy-poster.jpg" />
+    </object>
+    <!-- Download Video Fallback -->
+    <a href="video/cute-puppies.mp4">Download Video</a>
+</video>
+```
+
+In a browser that doesn’t recognize the video tag, that tag will be completely ignored and will automatically fallback to the flash content we provide within it.
+
+-   If the user has disabled flash, it will fallback even further to the download link for playing the mp4 file.
+-   In a browser that does support the video tag, we’ve provided 3 different source types (mp4, webm, ogg) to present the user with the best available option.
+
+## 5. CSS Vendor Prefixes
+
+Similar to the HTML example we just looked at, CSS facilitates fallback behaviors as well.
+
+-   When a browser doesn’t recognize a particular CSS property, it will simply skip over it.
+-   We can easily provide fallbacks by included a property we know the browser will recognize.
+-   You’ll also notice below we are specifying our gradients with indicators such as -moz-linear-gradient and -webkit-linear-gradient
+-   These are called vendor prefixes, and can be used to target a specific browser vendor (Firefox or Chrome/Safari, in this case).
+-   [Autoprefixer](https://autoprefixer.github.io/) is a great resource to add vendor prefixes to chunks of CSS code.
+
+![vender-prefix](/vendor-prefix.png)
+
+Take background gradients for example. If we use the CSS Gradient Generator to create a CSS background, it will spit out something like the following:
+
+```css
+background: #1e5799;
+background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+background: -webkit-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0);
+```
+
+By providing a plain colored background with the background: #1e5799 property, we can ensure that any browser which doesn’t understand gradients will still display a colored background similar to the look we’re going for.
+
+## 6. Reset Styles
+
+Every browser applies a slightly different look to native HTML elements.
+
+-   Because of this, many developers will chose to include a reset stylesheet, to start off a project in a more consistent place.
+-   Various browsers have different inherent styles for HTML elements – margins, paddings, font sizes, and so on.
+-   The Meyer Reset was one of the first, and is still used today.
+-   There's another group of developers that use Normalize.css, which you can install using a package manager like npm and then importing it in your CSS.
+
+```shell
+npm i normalize.css
+```
+
+## 7. Feature Detection
+
+Feature detection is similar to fallbacks, though it’s more about the process of determining whether or not a browser supports a particular piece of code.
+
+-   We can write our own conditional code to detect feature support, and within each condition, provide the best possible user experience for that scenario.
+-   For example, some browsers might support the new Notifications API that allows for mobile-style push notifications from the browser.
+-   In an application where we want to provide this functionality, we’d want to detect whether or not the browser recognizes the API with a conditional like this:
+
+```jsx
+if (window.Notification && Notification.permission === 'granted') {
+    let pushMessage = new Notification('Hi there, notification here!');
+} else {
+    // perhaps append a jQuery element to the page itself with the same message
+    $('#notification-box').append('<li>Hi there, notification here!</li>');
+}
+```
+
+## 8. Polyfills
+
+Polyfills aim to implement functionality that you’d expect the browser to have natively.
+
+-   When used in conjunction with feature detection, you can ‘backfill’ unsupported functionality in older browsers with your own implementation.
+
+## Useful Tools
+
+-   [W3C HTML Validator](https://validator.w3.org/)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+-   [BrowserStack — Cross-Browser Testing Tool](https://www.browserstack.com/)
+-   [Can I use…](https://caniuse.com/)
+
+## Conclusion
+
+Cross-browser compatibility is a vital aspect of web design that ensures your website reaches and pleases the widest audience possible. By following these suggestions and staying informed about browser updates and standards, you can create a website that looks and functions well on all browsers.
+
+## References
+
+-   [Cross-Browser Compatibility](https://frontend.turing.edu/lessons/module-2/cross-browser-compat.html)
+-   [What is Cross-Browser Compatibility](https://www.freecodecamp.org/news/what-is-cross-browser-compatibility/)
+-   [Cross-Browser Compatibility In Web Design](https://medium.com/@dimplekumari0228/cross-browser-compatibility-in-web-design-78c9af3f9cd6)

@@ -1,0 +1,212 @@
+# Redux Complete Guide
+
+> Redux is a predictable state container designed to help you write JavaScript apps that behave consistently across client, server, and native environments, and are easy to test.
+
+![redux](/redux.png)
+
+## What is Redux?
+
+Redux is a pattern and library for managing and updating application state, using events called "actions". It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.
+
+-   While it’s mostly used as a state management tool with React, you can use Redux with any other JavaScript framework or library.
+-   With Redux, the state of your application is kept in a store, and each component can access any state that it needs from this store.
+
+## Why Should I Use Redux?
+
+Redux helps you manage "global" state - state that is needed across many parts of your application.
+
+-   The patterns and tools provided by Redux make it easier to understand when, where, why, and how the state in your application is being updated, and how your application logic will behave when those changes occur.
+-   Redux guides you towards writing code that is predictable and testable, which helps give you confidence that your application will work as expected.
+
+## Principles of Redux
+
+The principles are:
+
+-   Single Source of Truth
+-   State Is Read-Only
+-   Changes are Made with Pure Functions
+
+<br />
+
+### 1. Single Source of Truth:
+
+-   The principle of Single Source of Truth indicates that the entire state of your React Redux application is stored in one central place, often referred to as the store.
+-   This architecture simplifies state management and enhances predictability and consistency across your application.
+
+<br />
+
+### 2. State Is Read-Only:
+
+-   The second principle, ‘State is Read-Only’, implies that the state in a Redux React application is immutable, It cannot be directly modified.
+-   When you want to make changes, you can’t directly alter the existing state. Instead, you have to express your intent to transform the state via actions, which brings us to the final principle.
+
+<br />
+
+### 3. Changes are Made with Pure Functions:
+
+-   In Redux, state changes are executed with pure functions known as reducers.
+-   Any change to the state is an entirely new object, ensuring predictability and facilitating easier testing and debugging.
+
+## When Should I Use Redux?
+
+Redux is more useful when:
+
+-   You have large amounts of application state that are needed in many places in the app.
+-   The app state is updated frequently over time.
+-   The logic to update that state may be complex.
+-   The app has a medium or large-sized codebase, and might be worked on by many people.
+
+**Note**: Not all apps need Redux. Take some time to think about the kind of app you're building, and decide what tools would be best to help solve the problems you're working on.
+
+Sometimes sharing state between components can be solved by "lifting state up" to parent components, but that doesn't always help.
+
+-   One way to solve this is to extract the shared state from the components, and put it into a centralized location outside the component tree.
+-   But With this, our component tree becomes a big "view", and any component can access the state or trigger actions, no matter where they are in the tree!
+-   So, By defining and separating the concepts involved in state management and enforcing rules that maintain independence between views and states, we give our code more structure and maintainability.
+-   This is the basic idea behind Redux: a single centralized place to contain the global state in your application, and specific patterns to follow when updating that state to make the code predictable.
+
+## Using Redux with React
+
+As we mentioned earlier, Redux is a standalone library that can be used with different JavaScript frameworks including Angular, Inferno, Vue, Preact, React, etc. However, Redux is most frequently used with React.
+
+-   This is because React only allows for a uni-directional flow of data. That means data cannot be sent from a child to a parent; it has to flow downward from the parent to the child.
+-   This thought model works very well with Redux where we cannot directly modify the state. Instead, we dispatch actions that intend to change the state, and then separately, we observe the resulting state changes.
+
+## Terminologies and How Redux works
+
+## 1. Actions:
+
+-   Redux actions are events.
+-   They are the only way you can send data from your application to your Redux store.
+-   The data can be from user interactions, API calls, or even form submissions.
+-   Actions are created via an action creator, which is a function that returns an action
+-   Actions are executed using the dispatch() method, which sends the action to the store.
+
+<br />
+
+Actions are plain JavaScript objects that must have:
+
+-   A type property to indicate the type of action to be carried out.
+-   A payload object that contains the information that should be used to change the state.
+
+```jsx
+// -> action creator
+const getIncrementAction = (numberToIncrement) => {
+    return {
+        type: 'INCREMENT',
+        payload: {
+            incrementBy: numberToIncrement // -> action
+        }
+    };
+};
+```
+
+## 2. Reducers:
+
+Reducers are pure functions that take the current state of an application, perform an action, and return a new state.
+
+-   The reducer handles how the state (application data) will change in response to an action.
+-   Reducers are based on the reduce function in JavaScript, where a single value is calculated from multiple values after a callback function has been carried out.
+
+<br />
+
+Reducers must always follow some specific rules:
+
+-   They should only calculate the new state value based on the state and action arguments.
+-   They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
+-   They must not do any asynchronous logic, calculate random values, or cause other "side effects".
+
+**Note**: Reducers can use any kind of logic inside to decide what the new state should be: if/else, switch, loops, and so on.
+
+<br />
+
+**Can we have multiple reducers?**- Yes using combineReducers() methods.
+
+```jsx
+import { configureStore } from '@reduxjs/toolkit';
+import common from './slices/common';
+import { combineReducers } from '@reduxjs/toolkit';
+
+const store = configureStore({
+    reducer: combineReducers({
+        common
+    })
+});
+```
+
+## 3. Store:
+
+The store is a “container” (really, a JavaScript object) that holds the application state, and the only way the state can change is through actions dispatched to the store.
+
+-   It is highly recommended to keep only one store in any Redux application.
+-   You can access the stored state, update the state, and register or unregister listeners via helper methods.
+-   Basically, the components get to update the store via actions and then subscribe to the changes to the store so they know when to re-render.
+
+## 4. Dispatch:
+
+The Redux store has a method called dispatch.
+
+-   The only way to update the state is to call store.dispatch() and pass in an action object.
+-   The store will run its reducer function and save the new state value inside.
+
+## 5. Selectors:
+
+Selectors are functions that know how to extract specific pieces of information from a store state value.
+
+## Redux flow
+
+**Initialize**
+
+-   A Redux store is created using a root reducer function.
+-   The store calls the root reducer once, and saves the return value as its initial state.
+-   When the UI is first rendered, UI components access the current state of the Redux store, and use that data to decide what to render.
+-   They also subscribe to any future store updates so they can know if the state has changed.
+
+**Updates**
+
+-   Something happens in the app, such as a user clicking a button.
+-   The app code dispatches an action to the Redux store.
+-   The store runs the reducer function again with the previous state and the current action, and saves the return value as the new state.
+-   The store notifies all parts of the UI that are subscribed that the store has been updated.
+-   Each UI component that needs data from the store checks to see if the parts of the state they need have changed.
+-   Each component that sees its data has changed forces a re-render with the new data, so it can update what's shown on the screen
+
+![redux-flow](/redux-flow.png)
+
+## Benefits of Redux
+
+<br />
+
+### 1. Predictable state management:
+
+Redux makes it easy to see and manage how changes are made to an application because all changes go through a single JavaScript object called the store. This makes it easier to debug the application and ensures that the state is always known.
+
+<br />
+
+### 2. Streamlined state management:
+
+Redux reduces and streamlines state management for all elements, especially in large, complex applications.
+
+<br />
+
+### 3. Maintainability:
+
+Redux is strict about how code should be organized, making it easier for people familiar with Redux to understand the structure of an application and maintain it.
+
+<br />
+
+### 4. Easier testing:
+
+Redux applications can be tested easily because of Time-travel Debugging and functions can be used to change the state of pure functions.
+
+<br />
+
+### 5. Performance:
+
+Redux helps address performance issues in React and runs consistently in different environments, such as native, server, and client.
+
+## References
+
+-   [React Redux: A Complete Guide to Beginners](https://www.cronj.com/blog/react-redux-a-complete-guide-to-beginners/)
+-   [Redux Essentials](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)
+-   [Understanding Redux: A tutorial](https://blog.logrocket.com/understanding-redux-tutorial-examples/)
