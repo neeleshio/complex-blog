@@ -174,3 +174,108 @@ Next.js extends the native fetch Web API to allow you to configure the caching a
 -   This is possible because fetch requests are automatically memoized.
 
 **Note**: Memoization only applies to the GET method in fetch requests, other methods, such as POST and DELETE, are not memoized.
+
+## 4. Prefetching:
+
+Prefetching is a feature of Next.js’ routing and navigation system, and it is built into the nextjs Link component.
+
+-   Once a route is inside the viewport, Next.js automatically starts loading the resources for that route in the background.
+-   This means that when a user finally clicks on a prefetched route, the route will load faster because the necessary resources are already available.
+
+< Link > is a built-in component that extends the HTML < a > tag to provide prefetching and client-side navigation between routes. It is the primary and recommended way to navigate between routes in Next.js.
+
+## 5. Font optimization:
+
+Next.js provides a font package, next/font.
+
+-   It automatically optimizes fonts and eliminates external network requests for improved privacy and performance.
+-   The next/font package works with Google, custom, and local fonts.
+
+<br />
+
+### Local fonts:
+
+Import next/font/local and specify the src of your local font file.
+
+```jsx
+import localFont from 'next/font/local';
+
+// Font files can be colocated inside of `pages`
+const myFont = localFont({ src: './my-font.woff2' });
+
+export default function MyApp({ Component, pageProps }) {
+    return (
+        <main className={myFont.className}>
+            <Component {...pageProps} />
+        </main>
+    );
+}
+```
+
+**Note**: If you want to use multiple files for a single font family, src can be an array:
+
+<br />
+
+### Benefits of next/font include:
+
+-   Automatic font optimization.
+-   Improves website performance.
+-   Supports Google fonts and local font.
+-   Built-in automatic self-hosting for font files, which eliminates layout shift
+
+```jsx
+import { Inter } from 'next/font/google';
+
+export const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap'
+});
+
+export default function RootLayout({ children }) {
+    return (
+        <div>
+            <h1 className={inter.className}>Styled with Inter font</h1>
+        </div>
+    );
+}
+```
+
+## 6. React Server Components
+
+**Important**: Strictly speaking, RSC is a feature of React.js. However, it requires a server system like Next.js provides.
+
+React Server Components (RSC) allows us to create async components that get pre-rendered on the server and sent to the client as reusable, interactive units.
+
+-   Like regular React components, Server components can import client components, render them, and pass data to them through props.
+-   However, client components cannot import server components.
+-   This means that it's better to place server components at the top of the component tree.
+-   With RSC, components are near the data source. This eliminates trips between unnecessary client-server trips and speeds up operations like data fetching and database mutations.
+
+**Note:** Note that server components cannot access the browser or cannot perform client-side operations. This means we can't use hooks like useState and useEffect.
+
+<br />
+
+### When to use Server and Client Components?
+
+<br />
+
+![server-components](/server-comps.png)
+
+## Next.js Use cases
+
+-   Next.js’ built-in SSR support makes it a great choice for blogs, news websites, and media publications because these projects need fast-loading pages and high search engine visibility.
+-   It is also an excellent choice for ecommerce websites that require real-time updates.
+
+## React vs Nextjs
+
+-   One of the key differences between React and Next.js is that React is a JavaScript library, while Next.js is a full-fledged framework.
+-   As a library, React handles only the view layer of an application. It focuses on the user interface and updates it as users interact and perform actions.
+-   React is unopinionated and doesn't dictate how we manage other aspects like routing, data fetching, API handling, and testing.
+-   Unlike React, Next.js is an opinionated framework that provides the tools needed to build production-ready apps.
+-   It handles routing, server-side rendering, static site generation, image and font optimization, and more out of the box.
+-   Next.js’ opinionated approach reduces decision paralysis and allows us to build faster.
+
+## References
+
+-   [Next.js vs. React:](https://prismic.io/blog/nextjs-vs-react)
+-   [Nextjs official docs](https://nextjs.org/docs/app/building-your-application)
