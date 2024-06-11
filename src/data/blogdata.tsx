@@ -1,5 +1,5 @@
 import { TOPICS } from '../constants';
-const { REACT, CSS, HTML, JAVASCRIPT, GIT, NEXTJS, NODEJS, REDUX } = TOPICS;
+const { REACT, CSS, HTML, JAVASCRIPT, GIT, NEXTJS, NODEJS, REDUX, SYSTEM_DESIGN } = TOPICS;
 
 export const LATEST_BLOG = {
     id: 1,
@@ -712,5 +712,23 @@ export const BLOG_DATA = [
         ],
         date: '09 June 2024',
         img: '/redux-toolkit.png'
+    },
+    {
+        id: 49,
+        title: 'Frontend System Architecture and Design',
+        topic: SYSTEM_DESIGN,
+        link: 'frontend-system-architecture-and-design',
+        tags: [
+            'frontend',
+            'system',
+            'system-design',
+            'design',
+            'architecture',
+            'RADIO',
+            'lld',
+            'hld'
+        ],
+        date: '11 June 2024',
+        img: '/system-design.png'
     }
 ];

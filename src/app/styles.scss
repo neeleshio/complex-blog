@@ -6,6 +6,14 @@
     transform: scale3d(1.01, 1.01, 1.01);
 }
 
+@media print {
+    .header,
+    .section-header,
+    footer {
+        display: none;
+    }
+}
+
 @keyframes animate-background {
     0% {
         background-color: #0071e3;

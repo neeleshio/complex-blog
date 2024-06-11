@@ -6,5 +6,6 @@ export const TOPICS = {
     GIT: 'GIT',
     NEXTJS: 'NextJS',
     NODEJS: 'NodeJS',
-    REDUX: 'Redux'
+    REDUX: 'Redux',
+    SYSTEM_DESIGN: 'System Design'
 };

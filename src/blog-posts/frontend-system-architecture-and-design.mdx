@@ -1,0 +1,82 @@
+# Frontend System Architecture and Design
+
+> Today we're going to discuss an effective set of patterns for large-scale JavaScript application architecture.
+
+![system-design](/system-design.png)
+
+## Large Application
+
+Large-scale JavaScript apps are non-trivial (significant, important) applications requiring significant developer effort to maintain, where most heavy lifting of data manipulation and display falls to the browser.
+
+## Thinking long term
+
+### 1. How much of this architecture is instantly re-usable?
+
+Can single modules exist on their own independently? Are they self-contained?
+
+-   Right now if I were to look at the codebase for a large application you or your team were working on and selected a random module, would it be possible for me to easily just drop it into a new page and start using it on its own?
+-   You may question the rationale behind wanting to do this, however I encourage you to think about the future.
+-   What if your company were to begin building more and more non-trivial applications which shared some cross-over in functionality?
+-   If someone said, 'Our users love using the chat module in our mail client. Let's drop that into our new collaborative editing suite', would this be possible without significantly altering the code?.
+
+<br />
+
+### 2. How much do modules depend on other modules in the system?
+
+Are they tightly coupled?
+
+-   Before I dig into why this is a concern, I should note that I understand it's not always possible to have modules with absolutely no other dependencies in a system.
+-   At a granular level you may well have modules that extend the base functionality of others, but this question is more-so related to groups of modules with distinct functionality.
+-   It should be possible for all of these distinct sets of modules to work in your application without depending on too many other modules being present or loaded in order to function.
+
+<br />
+
+### 3. If specific parts of your application fail, can it still function?
+
+-   If you're building a GMail-like application and your webmail module (or modules) fail, this shouldn't block the rest of the UI or prevent users from being able to use other parts of the page such as chat.
+-   At the same time, as per before, modules should ideally be able to exist on their own outside of your current application architecture.
+-   Consider, dynamic dependency (or module) loading based on expressed user-intent as something related.
+-   For example, in GMail's case they might have the chat module collapsed by default without the core module code loaded on page initialization.
+-   If a user expressed an intent to use the chat feature, only then would it be dynamically loaded. Ideally, you want this to be possible without it negatively affecting the rest of your application.
+
+<br />
+
+**"The more tied components are to each other, the less reusable they will be, and the more difficult it becomes to make changes to one without accidentally affecting another"**
+
+<br />
+
+### 4. How easily can you test individual modules?
+
+-   When working on systems of significant scale where there's a potential for millions of users to use (or mis-use) the different parts it, it's essential that modules which may end up being re-used across a number of different applications be sufficiently tested.
+-   Testing needs to be possible for when the module both inside and outside of the architecture for which it was initially built.
+-   In my view, this provides the most assurance that it shouldn't break if dropped into another system.
+
+## The RADIO Framework
+
+<span className="hgl">R</span>equirements, defining the high level <span className="hgl">A</span>rchitecture
+and the <span className="hgl">D</span>ata Model. Then define the <span className="hgl">I</span>nterfaces
+between the components in the product and talk about any <span className="hgl">O</span>ptimizations.
+
+<br />
+
+**1. Requirements Exploration:** Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
+
+<br />
+
+**2. Architecture/High-level Design:** Identify the key components of the product and how they are related to each other.
+
+<br />
+
+**3. Data Model:** Describe the various data entities, the fields they contain and which component(s) they belong to.
+
+<br />
+
+**4. Interface Definition (API):** Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
+
+<br />
+
+**5. Optimizations and Deep Dive:** Discuss about possible optimization opportunities and specific areas of interest when building the product.
+
+## References
+
+-   [Patterns For Large-Scale JavaScript Application Architecture](https://addyosmani.com/largescalejavascript/)

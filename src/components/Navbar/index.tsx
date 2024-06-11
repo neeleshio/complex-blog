@@ -29,7 +29,7 @@ const Navbar = ({
 }: NavbarProps) => {
     return (
         <header
-            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000]"
+            className="text-[1.2rem] py-5 relative w-full flex justify-center bg-[#454545] z-[1000] header"
             aria-label="header-blog">
             <nav className="flex items-center lg:justify-between lg:px-8 lg:w-full">
                 <Link href="https://neeleshio.xyz" className="mr-10">
@@ -78,4 +78,4 @@ const Navbar = ({
     );
 };
 
-export default React.memo(Navbar);
+export default Navbar;
