@@ -49,6 +49,8 @@ The browser needs to perform a DNS lookup to convert a hostname (the URL) to an 
 
 Prerendering is very similar to prefetching in that it optimizes resources which the user may navigate to next. The difference is that prerender actually renders the entire page instead of specific resources.
 
+Prefetch only retrieves the page and all of its resources while a prerender goes one step further by rendering the entire page the background until the user navigates to it
+
 ```html
 <link rel="prerender" href="blog.html" />
 ```
@@ -115,6 +117,15 @@ preload=none tells the browser that there is a video, but to download 0 bytes of
 -   When using preload, don’t forget to supply the as and crossorigin attributes to avoid double fetch.
 -   Although the resource hints are low-priority instructions, they still pose a threat to your site’s performance. Use them in moderation and only when necessary.
 -   preload is a powerful directive that can override the browser’s analyzer’s priorities. Don’t forget that modern browsers are pretty good at prioritizing resources, so use the preload “hint” sparingly.
+
+## Points to remember
+
+-   All the resource hints use the rel attribute.
+-   Prefetch - Low priority broswer hint. fetches resources that might be required later.
+-   Dns-prefetch - performs dns lookup.
+-   Pre-rendering - Similar to prefetch but this renders the entire page.
+-   Preconnect - Similar to dns-prefetch, along with dns lookup, it performs TLS, TCP handshakes.
+-   Preload - High priority hint, downloads resources sooner than the browser would discover it normally.
 
 ## References
 

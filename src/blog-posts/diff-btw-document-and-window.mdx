@@ -50,3 +50,12 @@ An iframe actually is considered as a new window with its own document loaded in
 -   The property to access a frame is window.frames, which is an array of all the frames.
 -   If you only have one iframe you access it by using window.frames[0].
 -   Since the iframe is also a window object, accessing window properties of that frame is done by using window.frames[0].innerHeight.
+
+## Points to remember
+
+-   window is the first thing that gets loaded into the browser.
+-   window props and methods - innerWidth, document, setInterval(), alert() etc.
+-   document object gets loaded inside the window object.
+-   document props and methods - body, title, cookie, getElementById(), createElement() etc.
+-   Iframe - a new 'window' object gets created inside the main window.
+-   To access Iframe - window.frames[index]

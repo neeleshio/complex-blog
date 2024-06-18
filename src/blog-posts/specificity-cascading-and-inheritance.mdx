@@ -4,28 +4,19 @@
 
 ![Specificity](/specificity.png)
 
-## Specificity
-
-Specificity is all about resolving conflicts that arise from multiple CSS rules which target the same element.
-
--   Specificity is basically the algorithm that the browser uses to decide which property value is applied to an element.
--   If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element.
-
-### When to use !important?
-
-One way to use !important is if you have to override a style that cannot be overridden in any other way because !important has the highest specificity over all other selectors.
-
-```javascript
-!important > Inline style attribute > Id selector > Class selector > Element selector > Universal selector.
-```
-
 ## Cascading
 
 In plain English, Cascade means a waterfall or something arranged or occurring in a series or in a succession of stages so that each stage derives from or acts upon the product of the preceding.
 
--   The “cascading” in CSS refers to the fact that styling rules “cascade” down from several sources. This means that CSS has an inherent hierarchy and styles of a higher precedence will overwrite rules of a lower precedence. Here precedence means **priority of importance**.
+The Cascading Order in CSS is a set of rules that determine which style will be applied to an element when multiple styles are conflicting. The cascading order is the order in which styles are applied, with more specific styles taking precedence over more general styles.
 
--   Stylesheets cascade — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
+Three main cascading methods are:
+
+-   Specificity
+-   Inheritance
+-   Order of declaration
+
+When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
 
 ```css
 h1 {
@@ -48,7 +39,21 @@ h1 {
 Result: The h1 content ends up being colored blue.
 
 </div>
-<br/>
+
+## Specificity
+
+Specificity is all about resolving conflicts that arise from multiple CSS rules which target the same element.
+
+-   Specificity is basically the algorithm that the browser uses to decide which property value is applied to an element.
+-   If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element.
+
+### When to use !important?
+
+One way to use !important is if you have to override a style that cannot be overridden in any other way because !important has the highest specificity over all other selectors.
+
+```javascript
+!important > Inline style attribute > Id selector > Class selector > Element selector > Universal selector.
+```
 
 ## Inheritance
 
@@ -136,3 +141,13 @@ em {
 ```
 
 This will apply border to both the p & em elements.
+
+## Points to remember
+
+-   These properties control how CSS is applied and conflicts gets resolved.
+-   Cascading is set of rules that determine which style will be applied to an element when styles are conflicting.
+-   Specificity - resolving conflits that arise from multiple rules pointing to same element.
+-   !important > inline styles > id > class > element > pseudo > universal selector.
+-   Inheritance - controls what happens when no value is specified for a property.
+-   non-inherited property - width, height, margins etc.
+-   border: inherit, inherits the border property of its parent.

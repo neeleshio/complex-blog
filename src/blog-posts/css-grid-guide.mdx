@@ -513,6 +513,16 @@ The auto-fill and auto-fit values automatically create as many tracks as needed 
 
 In short, auto-fit collapses empty tracks to zero-pixel (0px). But auto-fill displays both empty and filled tracks.
 
+## Points to remember
+
+-   grid-auto-columns specifies the size of the implicitly-created grid column track.
+-   justify-content is for container and justify-item is for the cell (row axis).
+-   grid-row & grid-column: 1/3 is shorthand for grid-column/row-start and end.
+-   grid-area is shorthand for grs-gre-gcs-gce.
+-   minmax() is for defining min and max grid sizes - grid-template-columns: 1fr minmax(70px, 30px) 200px;
+-   auto-fill fills the row with as many columns as it can fit.
+-   auto-fit fills the currently available columns into the space by expanding them.
+
 ## References
 
 -   [Complete Guide to Grid Containers and Grid Items](https://www.freecodecamp.org/news/complete-guide-to-css-grid/)

@@ -74,6 +74,10 @@ Whenever we encounter a < script >, the parsing is completely stopped. We fetch 
 
 That is why people tend to have the script at just above the closing body tag. That way, all your parsing is already completed and document nodes are available through JavaScript.
 
+## Repaint and ReFlow
+
+A dedicated article on [reflow and repaint](/blogs/reflow-and-repaint?title=Reflow%20and%20Repaint&topic=HTML&date=8%20May%202024).
+
 ## In Brief
 
 -   Browser receives the data (bytes) from the server.
@@ -87,6 +91,11 @@ That is why people tend to have the script at just above the closing body tag. T
 -   Reflow: compute the layout of each visible element (position and size).
 -   Repaint: renders the pixels to screen.
 
-## Repaint and ReFlow
+## Points to remember
 
-A dedicated article on [reflow and repaint](/blogs/reflow-and-repaint?title=Reflow%20and%20Repaint&topic=HTML&date=8%20May%202024).
+-   TCP (Transmission Control Protocol) - Transfers data in stream of bytes and grouped together at the reciever end.
+-   HTML is rendered increamently. It's better to stream HTML response rather than waiting for the whole page to be ready.
+-   JS & CSS are a render blocking resources.
+-   CSS cannot be parsed increamently.
+-   (HTML & CSS) -> Parsing -> (DOM & CSSOM) -> Merging -> (Render tree) -> (Layout) -> Painting
+-   Render tree omits nodes such as display:none, meta, script.

@@ -87,6 +87,12 @@ Usually, when we need to animate an element on the screen, e.g. moving it vertic
 
 -   Instead, we can move the element 3px or 4px at a time reducing drastically the amount of reflows and calculations that the CPU needs to perform.
 
+## Points to remember
+
+-   Repaint - triggers when changes are made to the appearence of the element. (color, bg-color, opacity etc)
+-   Reflow - triggers when changes are made to the layout of the elements. (width, height, margin etc)
+-   Optimize: Reduce DOM depth, Remove unsued CSS, Batch DOM updates, Avoid inline styles, No unnecessry smooth animations.
+
 ## References
 
 -   [faressoft/dom_performance_reflow_repaint.md](https://gist.github.com/faressoft/36cdd64faae21ed22948b458e6bf04d5)
