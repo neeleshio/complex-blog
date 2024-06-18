@@ -133,6 +133,15 @@ Sass gets compiled into plain CSS, meaning zero JavaScript overhead.
 
 -   Tailwind, being utility-centric, is tree-shakable, allowing for efficient bundling.
 
+## Points to remember
+
+-   Styled comps to write CSS code directly within Javascript file/components.
+-   Advantage is encapsulation of styles within the components they are associated with and prevent style clashes.
+-   Style inheritance: const ButtonWithBorder = styled(Button)``.
+-   Passing props: Props can be passed to styled components just as they are with regular React components.
+-   This is possible because styled components are actually React components.
+-   Being a runtime styling solution, dynamically injects styles into the DOM, which is an overhead.
+
 ## References
 
 -   [8 awesome features of styled-components -logrocket](https://blog.logrocket.com/8-awesome-features-of-styled-components/)

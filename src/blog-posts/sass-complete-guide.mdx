@@ -204,6 +204,19 @@ Another great feature of Sass is inheritance. We implement this using the @exten
 }
 ```
 
+## Points to remember
+
+-   Sass is a CSS preprocessor that gives your CSS superpowers.
+-   When you write your styles in a .scss file, it gets compiled into a regular CSS file.
+-   Variables: use the $ symbol: $color-primary: #ffff00;
+-   Nesting: This results in much cleaner and less repetitive code.
+-   Mixins: are reusable code blocks: @mixin theme($theme: DarkGray) \{..} and use @include theme to reuse it.
+-   Functions: They make it easy to abstract out common formulas and behaviors: @function fibonacci($n) \{..}
+-   Partials: Partials in SASS help us to break up our files into smaller files.
+-   use underscore \_ to create partials and use @use to import them.
+-   Inheritance or Extend: It lets you share a set of CSS properties from one selector to another.
+-   use @extend to use inheritance.
+
 ## References
 
 -   [Sass Basic](https://sass-lang.com/guide)
